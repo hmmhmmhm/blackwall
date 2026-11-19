@@ -132,3 +132,9 @@ These are candidate improvements; their order and scope may change as evidence b
 | **Setup and reproducibility** | Organize shareable model assets and provenance, Docker images, and input preparation; validate operating-system/CPU combinations and long-running stability. |
 
 See the [emulator capability catalog](docs/architecture/emulator-capability-catalog.md) and [documentation](docs/README.md) for detailed research and existing validation scope.
+
+## Disclaimer
+
+Blackwall is an independent, experimental project and is not affiliated with or endorsed by Even Realities.
+
+The emulator does not guarantee that firmware will behave the same way on physical hardware. Use it at your own risk. The authors are not responsible for any damage, data loss, or other issues arising from its use.
