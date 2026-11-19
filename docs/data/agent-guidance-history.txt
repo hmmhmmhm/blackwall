@@ -1,0 +1,216 @@
+=== AGENTS.md before English reorganization ===
+# Blackwall working instructions
+
+Most recently approved goal: **bootloader verification 1–4 complete (12/12, 100%)**. `docs/bootloader/bootloader-final-acceptance.md` and progress are the current judgment; 11/12 and similar values below are history. bw582: original UART/API3/recover264 restored corrupt 16 bytes twice; full main hash/RESULT/main; same-model stock control; ROM 7 → 08000107/program 0/main; C# 41/host 9/audit 71 + independent 71. bw583 aggregate 34 + independent 34. Additional B0/trim1 profile is in separate JSON; no automatic promotion of existing chip23 checker. Actual Boot ROM/physical MRAM, case/both sides, physical recovery certification, and Faceclaw cross-combinations are unverified. Twelve owned resources stopped; 73,462,296 bytes cleaned. No approval for new scope, physical work, Astra, or external publication.
+
+User-approved work at this checkpoint (2026-11-17) is bootloader verification 1–4. Latest `docs/bootloader/bounded-recovery-execution-results.md`: approved 48-byte exact-byte SRAM policy yielded original UART checksum RESULT/main twice, CRC error/main, first-instruction block for valid-CRC mutation, and same-model stock boot/main entry-context control. Synchronous off response is opt-in only for IOM7 success profile; default lazy behavior preserved. Gate 26/power 24/frozen 83. Distinguish completed readonly diagnostics from nonzero MRAM recovery; BV06 incomplete, 11/12. Next verify recover.c aligned 16-byte actual UART stream/stock 2.3 MRAM/ROM contract/restoration. Historical raw recovery_verified flag is diagnostic scope; final audit/current runner are separate. Latest `docs/bootloader/recovery-load-boundaries.md`: original UART checksum 48-byte LOAD/CRC/READY; after DCCMVAU coherent extension 66 checks, RUN first SRAM instruction 2001c7a0 rejected by policy. After bad CRC/RUN unavailable/CONT RLSD, watchdog IOM7 reactivation 40021004 proposed d00 vs existing c00, XOR 100, phase off-requested request 0/status 100. Bounded exact-byte SRAM policy/off-response lifecycle model followed without forced polling. Audit 40; BV06 incomplete, 11/12 retained. Latest `docs/bootloader/dwt-auth-main-results.md`: under native DWT 10 MHz functional assumption and explicit PMIC running config/target and ignored-hole mock, six native normal/error/no-input/timeout-retry/target-mismatch runs confirmed original authentication → watchdog kick/rejection → main. BV05 done, 11/12=91.7%; BV06 pending (actual recovery command completion → main/original control). Default unknown PMIC rejection retained. Audit 104/unit 10+4+5; ten owned resources stopped/69,399,916 bytes cleaned. Latest `docs/bootloader/boot-retention-auth-results.md`: only constructor combined with exact boot store 41ca00/return 41a7c0/flush 41a9ce, preserving existing context/stack/SCR checks. WFI-return 3; actual OKAY/CONT/RLSD/held release. Subsequent watchdog DWT unregistered abort left main incomplete. Unregistered-device warning classified unsupported-engine. Constructor 20/audit 25; BV05/06 incomplete. Latest `docs/bootloader/same-board-uart2-auth-results.md`: same B0/UART2 actual reception normal/normal after wrong/normal after partial timeout reached original held/claimed 1 → CPDLPSTATE22 strict before OKAY. Wrong/no-input reached main. Audit 79/UART2 unit 23/UART0 regression 49; BV05/06 incomplete. Next investigate boot deep-sleep preparation/flush/WFI/wake functional contract. RunFor does not return on abort, so two invalid runs were stopped; collect via StartAll/pause/FIFO/resume. Latest `docs/bootloader/b0-power-recovery-results.md`: synthetic B0/trim1 TON/VRCTRL/core6/mem0/ref1 groups yielded original reset → worker/UART2 HELO → main success. C#109/frozen audit 39/unit 5. Authentication/recovery commands not executed; BV05/06 incomplete, 10/12 retained. Next same-board UART2 virtual-peer authentication/recovery. Latest `docs/bootloader/recovery-info1-contract-results.md`: original trim1/2 POWERSTATE requests 16/20 words confirmed. Separate B0/trim1 original reset stopped at SIMOBUCK1 strict; worker/auth not entered. Follow-up is source-supported TON settings, five registers/seven field groups, without claiming actual revision or arbitrarily filling INFO1. First check `docs/bootloader/bootloader-validation-plan.md`, `docs/data/bootloader-validation-progress.json`, and `docs/bootloader/bootloader-validation-results.md`. Eleven of 12 conditions complete (91.7%); full verification in progress at this checkpoint. `docs/bootloader/bootloader-compatibility-results.md` completed BV12 with ten pinned assets/nine combinations, 168 task judgments/unsupported rejection, and full-stock repetition. Same-board worker/auth/recovery (BV05/06) remained incomplete due to original callback-protection fallback/factory INFO1 gaps. Recent `docs/bootloader/stock-main-mram-probe-results.md` confirmed original main adapter/buffer 4 KB writes/errors. Later `docs/bootloader/stock-main-ota-callback-results.md` connected existing clock/observed original ITCM and confirmed upper callback 4 KB, normal original OTA verifier return and error-mismatch detection. Error-log RTC unsupported, but later `docs/bootloader/main-driven-boot-restore-results.md` confirmed BV11 through original main callback 39 pages/original verifier → full 4 MiB virtual original match → new stock boot/main/frame. This is not physical/natural OTA certification. `docs/bootloader/pending-boot-rom-request.md` identified pending ROM request 7fe000 FF×16 and source showing SWPOR ignores write status after original clear. Later `docs/research/pending-metadata-cycle-results.md` completed BV02 virtual conditions in nine runs with declared virtual ROM 16-byte contract/original SWPOR request/new cold-boot selection. Partial clear of first word enters main; ROM error repeats pending/POR twice. Actual ROM/POR propagation unverified. `docs/bootloader/boot-self-restore-results.md` found boot body restoration/new reset/frame passed but full stock on this path failed due to resident callback self-overwrite. Preserve this failure separately from the current main alternative's success. Executable MRAM changes require registering the range with `OrderTranslationBlocksInvalidation(start,end)`; an empty `InvalidateTranslationBlocks()` call alone is insufficient. This is not a physical I-cache model. Distinguish original boot → screen 8/8. Do not remove patch power-callback protection to force worker entry. No approval for physical work, Astra, or external publication.
+
+First read `ALIGNS.md`, `docs/architecture/emulator-roadmap.md`, and `docs/architecture/emulator-capability-catalog.md`. The recently completed Goal is to configure and verify main and screen integration through the original bootloader (2026-11-16, 8/8). Final evidence is preserved in `docs/bootloader/original-boot-completion-audit.md`. Current follow-up scope follows bootloader verification 1–4 above. Scope and progress follow `docs/bootloader/original-boot-screen-dashboard.md`, `docs/data/original-boot-screen-progress.json`, and `docs/bootloader/original-boot-screen-plan.md`. The first pinned profile is stock 2.4 boot/main, distinct from full boot from actual Boot ROM and the 25-condition fidelity Goal. The recently completed goal is three originals' 6-second/60-second post-screen execution and cost measurement plus identification of required ROM/GPU/GAF material gaps (2026-11-16, 10/10). A subsequent full-fidelity Goal has not been approved/activated. Prior-goal history is preserved in `docs/hardware/display-gpu/sustained-screen-dashboard.md` and `docs/hardware/display-gpu/sustained-screen-plan.md`. Scope v3 16/16 is a historical functional-verification completion. The 25-condition full-fidelity proposal is not approved/activated. Web installation, CFW feature development, and physical certification are outside the current denominator; existing safety boundaries remain in `docs/research/safety-first-roadmap.md`. The main working client is Codex as specified in this conversation.
+
+- Before work read `docs/project-dashboard.md` and `docs/data/work-log.tsv` to check overall scope, current work, and existing evidence. Obtain a work ID with `tools/project_progress.py start` before proceeding and record results/evidence with `finish`. Reuse completed work with the same task key and inputs rather than rerunning it. If revalidation is needed, record why. Record scope version and reason for scope changes; do not reduce the denominator to raise progress.
+- For simulator follow-up, bundle contracts by behavior rather than adding a separate tool per register, and reuse `run_native_candidate.py` pinned inputs/component SHAs/plans. Audit historical runs from saved models/inputs/logs without retroactively depending on the current candidate builder. New native candidates use schema2 semantic contracts and distinguish execution_passed from semantic_validation. Audit saved runs with --audit-existing and a separate audit-output. Details: `docs/firmware/native-candidate-semantic-contract.md`. Observation changes also change execution configuration. Details: `docs/architecture/simulator-next-behavior-plan.md`, `docs/project/astra-direction-review.md`.
+- Do not infer the blocked target of a shared power register from address/PC alone. Use existing post-stop power exporter or similar to check request_before/proposed XOR and each owner's mask/phase. bw457 `0x40021004`/`0x494d78` was IOM7 resumption with actual XOR `0x100`. Compare existing shared-domain profile conditions; do not write runtime phase/status or force guest polls. Details: `docs/hardware/communication/ring-app-wake-contract.md`.
+- Observers can change isolated original ARM execution. bw246 compared Unicorn 2.1.4 memory-write hook changing conditional STM memset. That wrapper test uses guarded inputs, read hook, and before/after memory comparison. Verify new observers using hook-off/on actual function results; do not bypass by executing firmware initialization/branches on its behalf. Do not present final-state checks as evidence of the entire transient write history. Details: `docs/hardware/display-gpu/font-wrapper-renderer-boundary.md`.
+- Even an empty Renode PC hook can affect execution observations. In bw263, original PendSV observation and an empty hook at the same address had exact CPU/existing events, but differed from a no-hook baseline in six leaves (instruction count, polling count, residual stack bytes). Do not assume no effect because a hook is read-only; preserve failed exact contracts. Details: `docs/hardware/cpu-memory/m55-natural-stack-limits.md`.
+- Throwing CpuAbortException in pinned Renode's PC AddHook callback may terminate the host process (bw264 exit 133). Stop unsupported execution boundaries with a verified block-begin guard and check stop scope with nonzero input distinguishing first-instruction effects. Do not retroactively change initial PC-hook results or indistinguishable zero-input checks. Details: `docs/hardware/display-gpu/nema-native-irq-completion.md`.
+- In resumable full-board diagnostics, do not treat CPU-only `IsHalted` as whole-machine pause. In bw341 core controls PC seed/resume worked; the final UI recipe used `Machine.Pause()` and verified time unchanged. Do not resume an aborted machine. For RTOS API tests check PRIMASK/BASEPRI/IPSR and original caller stack; do not arbitrarily mask IRQs and report a valid Thread call. Distinguish API test-caller insertion from completing natural main. Details: `docs/hardware/display-gpu/display-activation-native-diagnostic.md`.
+- Distinguish host register values from architectural side effects. Pinned M55 in bw266 did not select PSP bank even when host CONTROL read 6. Test caller initializes with guest MSR PSP/CONTROL and jointly verifies MRS, IsUsingProcessSP, and actual exception return. Reject PSP selection through SeedRegister. Match PendSV priority to original port initialization; marker return alone is not a normal RTOS path. Details: `docs/hardware/display-gpu/nema-native-pendsv-resume.md`.
+- Verify CPU context API against pinned Renode binary inventory and guest MRS/MSR controls, not reference source alone. Pinned 1.17 has no MSPCURR/PSPCURR properties; use SP13/OtherSP22 and selection state. `tools/verify_renode_observer_context.py` verifies actual stack selection/reads. Observation does not write CPU registers.
+- Do not infer all transient kernel writes from final RAM diff alone. bw267 initially missed restored writes to critical nesting and round-robin index. It first verified full PC path/RAM/WORK/general registers with memory-write observer on/off under exact wait/give inputs, and limited selector ready-list to original task-graph structural range. Do not extend this to guarantee observer neutrality for other functions or memset. Details: `docs/hardware/display-gpu/nema-native-blocking-wake.md`.
+- Compare invalid-memory accesses in isolated functions with the original main board memory map first. Identical failures in two engines can share a fixture omission. bw253 verified address-0 ITCM using pinned main data and raw-path data flow. Do not extend to actual hardware value/readability; preserve existing strict result and explicit profile/controls. Details: `docs/hardware/display-gpu/glyph-itcm-read-contract.md`.
+- Zeros filled outside a partial SRAM snapshot are not original initialized values. First verify collection coverage of global state read by a function. bw256 selected the 2.4 50-word shader path due to missing Nema flag; restoring actual main state yielded 42-word ROP. New batch preparation/M55 replay uses `validate_region` to check original main/logs and collected ranges and reject missing inputs. Details: `docs/hardware/display-gpu/nema-blend-state-contract.md`.
+- Do not treat CPU memory observation hooks as vetoes before peripheral side effects. bw258 M55 negative control reported the write boundary after the first passive doorbell write. Validate unsupported inputs inside the peripheral method before state changes. Distinguish evidence of observation boundary/stopping from effect-free blocking. Details: `docs/hardware/display-gpu/nema-submission-contract.md`.
+- Hardware safety and stock restoration capability are the first goals. A native iPhone app is not an initial required deliverable.
+- Run Astra subagents only when the user explicitly requests that use. Do not expand general approval to continue or automatic review procedures into Astra authorization. This is the user's 2026-11-11 instruction.
+- Do not flash, perform OTA, write persistent MRAM, replace bootloader, write vectors, or change security settings without explicit per-device, per-task approval. Tool research or installation proposals are not hardware-write approval.
+- Do not begin writing the other side before verifying one side's write, validation, and restoration path. Do not use upstream tools' simultaneous-both-sides defaults. Operations within a task are sequential.
+- Distinguish stock main restoration from full stock restoration of all modified persistent areas. Do not report reads, source inspection, or mock tests as physical-device verification.
+- Keep proprietary images, device dumps, and secrets outside Git. Record documents as lowercase kebab-case files in `docs/`.
+- Immediately clean reproducible build outputs, compile caches, and temporary files after each task's verification (user instruction 2026-11-16). Preserve major analysis, original inputs/hashes, reproduction commands, and verification results; record cleanup targets/reasons/reclaimed capacity in the work log. Preserve inputs of active work and evidence referenced by final audits after checking references; include cleanup confirmation in task completion conditions.
+- Obtain explicit approval of the final draft before external publication, including GitHub documents/posts. Local saving is not publication approval.
+- Use `align` for explicit alignment requests and judgment-disagreement reviews. Project installation: `.agents/skills/align/SKILL.md`; source: `https://github.com/hmmhmmhm/aligns.md`. Prefer the project version and do not silently substitute another global copy. If not discovered, disclose direct reading of this path as a fallback. Apply existing criteria to routine work without starting a new interview.
+- No automatic skill updates, personal-history collection, training-data collection, or external transmission are configured. See `docs/project/align-setup.md` for installation/update/discovery status.
+
+<!-- align:begin -->
+## Ongoing personal alignment
+
+At the first relevant task in a session, check the project's required skills
+against the current client's available-skill list or equivalent discovery evidence.
+Check again only after a client, workspace, or installation change, or a load failure.
+A file or symlink alone does not prove discovery. Load and follow **align** for
+explicit alignment requests and the focused reviews below; load other required
+skills when their declared task scope applies. Routine work only needs the existing
+agreement, not a new alignment interview.
+
+If a required skill is missing, distinguish discovery failure from a missing source
+or runtime dependency. Report the affected skill once. A readable trusted local
+source can supply the method if its needed resources are usable; disclose this as
+manual loading, not native invocation. Otherwise continue independent work and
+identify the blocked step. Repair only within authorized scope, preserving the
+chosen installation route; do not silently add a duplicate, install globally,
+or claim a required skill was used when it was not.
+
+If user-level instructions explicitly link a personal ALIGNS.md, apply its relevant
+confirmed defaults alongside this project's criteria and agreed exceptions. Keep
+private content out of shared files. Do not search for unlinked profiles or promote
+project feedback to global rules. Use align's personal-scope procedure when the
+user requests personal setup or a consequential scope conflict remains unresolved.
+
+Read `ALIGNS.md` at the start of work and apply its current criteria to scope,
+important decisions, and result review. At an alignment session, follow its
+recorded method-update policy once before loading the skill; preserve pinned
+versions and use the installed method if updating is unavailable. Do not poll
+for updates on every task. Use the installed **align** skill for
+focused clarification when important judgment diverges, repeated corrections
+suggest a missing criterion, the user is unsure of the next direction, or a loop
+or goal exposes unresolved scope, completion, or stopping criteria. Compare the
+request, configured objective, actual state, and results. Fix known errors directly.
+Before a long run with untested boundaries, offer hypothetical rehearsal without
+executing scenarios or launching the run. A review does not authorize a restart,
+budget increase, or override of a user stop. The skill acts during active turns;
+it cannot wake a stopped agent.
+
+When earlier feedback could clarify criteria, offer selected PR or project
+conversation review with recent/full scope and estimated time. Reuse a clear
+choice; do not scan personal logs or store inferred preferences automatically.
+
+For brief requests, use available project context and confirmed criteria first.
+Ask about missing information only when it materially changes the result or
+scope; group related questions. Proceed with minor reversible choices and
+already delegated judgments within authorized scope. Repeated context-related
+misunderstandings can warrant a focused align review of when to ask. Do not
+infer a lasting preference from brevity or from a task-specific answer.
+
+When using specialist skills, carry relevant confirmed ALIGNS.md criteria into
+the task brief and result review. Keep skill defaults separate from user
+preferences. Resolve conflicts already settled by the agreement without asking
+again; clarify only consequential unresolved choices. Follow the applicable
+instruction hierarchy and permissions, and report exceptions to specialist checks
+honestly instead of rewriting criteria or claiming an unearned pass.
+
+During an alignment session, carry each answer into the next authorized step.
+Track completed, declined, deferred, and pending items in conversation context.
+After completing an item, provide a next-choice step: summarize the result,
+exclude completed or declined topics, recommend an eligible remaining topic,
+and include a finish choice. Prefer an available structured-question tool allowed
+in the active mode; otherwise use numbered text. If nothing remains, recommend
+finishing without inventing gaps. Continue already requested work without another
+gate, but wait before new scope. Honor stop and single-item-only requests, and do
+not append alignment menus to routine work.
+
+For Codex choice questions, an accepted request is not an answer or proof of UI
+display. Do not send a final/completion response while a required async answer is
+pending. Continue independent authorized work or use supported interruptible waits
+of at most 60 seconds each; do not treat timeout as consent or keep waiting after
+cancellation or a superseding request. Follow align's session-flow guidance for
+hosts without a wait mechanism. Include “Answer questions” / “Answer questions”
+only when an official resume URL is supplied or documented; never invent a link.
+Resume the selected step after the answer, without another invocation request.
+
+Account for all eight paths before choosing follow-ups. Keep unexplored paths
+available; an unchosen history source or missing personal file does not exclude
+paths 3 or 6. Offer path 2 conditionally if the user has a mismatch example.
+Path 7 adds a README badge: offer it only after inspecting the target README and
+confirming an ALIGNS.md badge is absent. Exclude existing badges and personal-only
+sessions without a project; a missing or unreadable README is a prerequisite gap.
+Path 8 optionally sets up personal training-data collection or export. Keep it
+available without enabling collection; follow the training-data reference only
+when selected or already authorized. Declining it does not limit other paths.
+Path 5 is navigation. Show all remaining paths with one recommendation and a finish
+choice; use numbered text if the question UI cannot fit them all. Before offering
+only finish, briefly account for completed, declined, deferred, out-of-scope, or
+blocked paths. Never treat a general review or rehearsal as completion of the rest.
+
+Offer a brief return invitation only when closing a session that actually used
+align to perform self-alignment. Show it at most once per session, not after each
+item. For example: “Please feel free to say, ‘Let’s do a self-alignment review,’ at any time.”
+English: “Whenever you want to revisit your criteria, say ‘Let’s do a
+self-alignment check.’” Adapt naturally for other languages. Omit it during
+ordinary project work, installation-only work, and skill development or editing.
+Reading the skill or applying existing criteria does not count as a self-alignment
+session. Honor requests to omit reminders. Never load align just to add one.
+Keep required next choices and pending answers intact; an invitation must not
+close an unfinished session. Do not promise native routing or availability that
+has not been verified.
+
+Reuse existing answers. Fix clear execution errors directly. Ask only about
+consequential uncertainty, continue independent work, and do not reopen a declined
+or resolved review without new evidence. A new method version does not change
+the user's agreement. Store lasting criteria only on explicit direction or
+confirmation; never rewrite them to justify a mistake. Preserve `Last aligned`
+unless the user confirms the whole document. Keep current criteria in ALIGNS.md
+and use Git history when available. Do not initialize Git or create another log.
+
+If align remains unavailable, apply ALIGNS.md to routine work and give the
+specific discovery or installation repair needed, using the trusted source
+https://github.com/hmmhmmhm/aligns.md. Do not report a method-based alignment review
+as complete without loading the method. Follow the applicable instruction
+hierarchy and permissions.
+<!-- align:end -->
+
+=== ALIGNS.md before English reorganization ===
+# Blackwall decision criteria
+
+Record project criteria explicitly stated by the user in this conversation. Do not import personal criteria from the skill source repository. Detailed implementations and tool choices are distinguished as proposals in separate documents.
+
+## Current goals and priorities
+
+Progress (2026-11-17): Approved bootloader verification 1–4 completed 12/12 conditions. Final scope, evidence, and unverified boundaries are recorded in `docs/bootloader/bootloader-final-acceptance.md`. This completion neither authorizes nor completes actual Boot ROM, physical hardware/case/both temples, or full-chipset precision reproduction.
+
+User approval 2026-11-17: Verify bootloader items 1–4 (dedicated scenarios, natural recovery-patch integration, virtual MRAM failure/interruption, stock restoration/version combinations). Follow 12 conditions and progress/results in `docs/bootloader/bootloader-validation-plan.md`. Do not carry the previous normal boot → screen completion rate into new recovery verification. No additional approval for physical writes, Astra, or external publication.
+
+User-approved Goal 2026-11-16 (8/8 verified complete, `docs/bootloader/original-boot-completion-audit.md`): **Configure and verify main and screen integration through the original bootloader.** The goal is continuous boot reset → original selection/validation/handoff → main → UI/frame execution. Pin the first matching-version profile to stock 2.4 boot/main. Do not declare completion from existing patched-handoff specified-PC tests or direct main startup alone. Current eight conditions and progress are recorded in docs/bootloader/original-boot-screen-dashboard.md. No additional approval for physical writes, Astra, external publication, or the 25-condition full-fidelity scope.
+
+Goal approved 2026-11-15 and completed 2026-11-16 (10/10): **Verify three originals' stable 6-second and 60-second post-screen execution, measure long-run cost, and identify required ROM/GPU/GAF material gaps.** Prior v3 completion is a reusable functional foundation, distinct from this new Goal's completion rate. Do not extend this approval to 25-condition full fidelity, physical access, Astra, or external publication.
+
+User's explicit priority, 2026-11-15: **Obtain screen display → complete boot path → remaining device and accuracy details.** The user approved advancing screen/boot with explicit functional sensor models while retaining original ARM. Do not make complete reproduction of sensor ROM/mathematics a prerequisite for the first screen. Declare assumptions and unverified status of functional models; do not extend to physical accuracy or completion of all 16 conditions. Preserve existing strict profile. No additional physical-write, Astra, or external-publication authorization.
+
+User's explicit change, 2026-11-13: **Limit the active goal to a G2 hardware emulator for CFW testing rather than CFW development or web-installation preparation.** First define full scope and verifiable criteria for progress increases and reflect them in the new Goal. This request allowed a one-time Astra direction review, not reusable authorization for subsequent execution.
+
+- The current deliverable is a development tool that runs actual original stock/Faceclaw and new CFW candidates on virtual G2 and reproduces/compares screen, input, sensor, communication, storage, reset, and failure behavior.
+- The first supported profile is one-temple execution from main reset + explicit virtual phone/opposite temple/case contracts. This is the v3 working scope reflecting recommendations; the user has not separately established full-chipset cycle accuracy or complete original execution on both sides/case.
+- CFW user-feature development, web-installer productization, and physical installation/recovery certification are excluded from active completion conditions. Preserve existing research/code and actual access/write approval boundaries.
+- Completion conditions are the 16 in `docs/data/project-scope.json` v3. Distinguish overall acceptance completion rate from current integration-stage evidence/progress. Do not increase overall score by number of tasks/tests. Detailed acceptance and reasons for scope/denominator changes are in `docs/architecture/emulator-roadmap.md` and `docs/architecture/emulator-scope-review.md`.
+- Discuss in Korean. Retain the priority hardware safety > recoverability > correctness > compatibility > power efficiency > performance > new features. Do not restore a separate iPhone app as an initial required deliverable.
+
+The earlier web flasher + Faceclaw/g2flash + recovery boot goal and Sandevistan/text/shape/animation experiment ideas are background for the current emulator. They do not authorize resuming CFW feature development or physical installation. Old product scope and completion status are preserved in `docs/data/project-scope-v2.json`.
+
+## Operational boundaries
+
+User instruction, 2026-11-16: Immediately clean reproducible build outputs, caches, and temporary artifacts after each tested task. Preserve key analysis and inputs, hashes, commands, and results needed for reproduction. Record cleanup results and preservation reasons at task end. Preserve inputs of active runs and verification evidence after checking dependencies.
+
+Additional explicit criterion, 2026-11-11: **Run Astra subagents only when the user requests it.** Do not reuse prior Astra-review approval for subsequent implementation/reviews or use automatic review procedures as grounds for running Astra.
+
+Do not treat existing individual emulations as completion of an integrated simulator. Distinguish natural Renode M55 main execution, synthetic M55 caller, isolated M7 function, source-only, unsupported, and unknown.
+
+Explicit criteria in user handoff, 2026-11-10:
+
+- Flashing, OTA, persistent MRAM writes, bootloader replacement, vector overwrites, and security changes require specific explicit approval for each task. Do not extend one approval to later writes. Do not bypass protection checks.
+- First identify versions/hardware/boot for both temples and case and review recovery limits. An unverified combination is not a safe combination. Work one side at a time; do not treat both sides as atomic.
+- Preserve originals, hashes, provenance, tool commits, and verification artifacts. Keep confidential/proprietary files and private backups outside Git.
+- Stock main restoration and full-stock restoration are different. Do not promise software can recover every failure.
+- Discuss in Korean; for major features or architecture, explain problem, alternatives, risks, recommendation, and unknowns and decide together.
+- Keep brainstorming and documents in lowercase kebab-case under `docs/`. Obtain final draft approval before external GitHub publication.
+
+## Overall goal progress management
+
+User's explicit criteria, 2026-11-10:
+
+- Connect every task to acceptance conditions of the currently active G2 emulator for CFW testing. Do not substitute completion of a small test for the full scope.
+- Maintain full scope and completion conditions on the dashboard and track the proportion supported by evidence. Disclose denominator and calculation and distinguish them from workload/remaining-time estimates.
+- Record a unique ID, start, result, and evidence for every task. Before starting, check prior results and input fingerprint; record why before repeating completed work with identical inputs.
+- When scope changes or a completion judgment is corrected, record the reason and before/after criteria. Do not invent past task times or verification results.
+
+Operational materials: [overall goal dashboard](docs/project-dashboard.md), [scope criteria](docs/data/project-scope.json), [work log](docs/data/work-log.tsv).
+
+## When reviewing criteria again
+
+- Primary client: Codex. Project's default entry instructions: `AGENTS.md`.
+- Example request: “Please review this project's ALIGNS.md with me using the align skill.” / “Use the align skill to review this project's ALIGNS.md with me.”
+- Trusted source: https://github.com/hmmhmmhm/aligns.md . Project-specific portable skills CLI installation, `align` 0.11.0. Installation record: `docs/project/align-setup.md`.
+- Updates are currently manual. When needed, `npx skills update align -p` can update only this project's package. Automatic or periodic updates have not been approved/configured.
+- This conversation began in sibling `personal-agent`, so the project version was read and applied directly. The installer list for the Blackwall path was checked, but automatic loading in a new Codex session was not verified.
+
+Each criterion is based on the user's explicit instructions above. There is no separate agreed review/approval time for this entire file yet.
+
+Last aligned: Not yet confirmed.

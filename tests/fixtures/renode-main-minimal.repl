@@ -1,0 +1,28 @@
+cpu: CPU.CortexM @ sysbus
+    cpuType: "cortex-m55"
+    nvic: nvic
+    PerformanceInMips: 10
+
+nvic: IRQControllers.NVIC @ sysbus 0xe000e000
+    systickFrequency: 1000000
+    -> cpu@0
+
+main: Memory.MappedMemory @ sysbus 0x438000
+    size: 0x3c0000
+
+itcm: Memory.MappedMemory @ sysbus 0x00000000
+    size: 0x40000
+
+sram: Memory.MappedMemory @ sysbus 0x20000000
+    size: 0x80000
+
+system_sram: Memory.MappedMemory @ sysbus 0x20080000
+    size: 0x300000
+
+guard: Miscellaneous.BlackwallStrictMMIO @ sysbus 0x40000000
+    baseAddress: 0x40000000
+    size: 0x20000000
+
+ppb_guard: Miscellaneous.BlackwallStrictMMIO @ sysbus 0xe0010000
+    baseAddress: 0xe0010000
+    size: 0x100000

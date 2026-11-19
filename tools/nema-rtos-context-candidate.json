@@ -1,0 +1,258 @@
+{
+  "schema": 2,
+  "id": "nema-rtos-context-state-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "em9305-reset-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [],
+  "runtime_edits": [],
+  "board_edits": [],
+  "board_append": "",
+  "diagnostics": "dict(paused=bool(m.IsPaused), registers=[dict(index=int(r.Index),aliases=list(r.Aliases),value=int(live_cpu.GetRegister(r.Index).RawValue)) for r in live_cpu.GetRegisters() if int(r.Width)==32], stack_properties=[p.Name for p in live_cpu.GetType().GetProperties() if any(s in p.Name.lower() for s in ['stack','limit','psp','msp'])], kernel=[dict(slots=slots,values=[int(m.SystemBus.ReadDoubleWord(a)) for a in slots],tcb=tcb,tcb_words=[int(m.SystemBus.ReadDoubleWord(tcb+4*i)) for i in range(128)] if 0x20000000<=tcb<=0x20380000-512 and tcb%4==0 else [],stacks=[dict(address=addr,valid=0x20000000<=addr<=0x20380000-512 and addr%4==0,words=[int(m.SystemBus.ReadDoubleWord(addr+4*i)) for i in range(128)] if 0x20000000<=addr<=0x20380000-512 and addr%4==0 else []) for addr in [int(live_cpu.GetRegister(13).RawValue),int(live_cpu.GetRegister(22).RawValue),int(m.SystemBus.ReadDoubleWord(tcb)) if 0x20000000<=tcb<=0x20380000-4 and tcb%4==0 else 0]]) for slots in [(0x20077668,0x20077684,0x2007764c) if int(m.SystemBus.ReadDoubleWord(0x4380b0))==0x560eaf else (0x20077e54,0x20077e70,0x20077e38)] for tcb in [int(m.SystemBus.ReadDoubleWord(slots[2]))]])",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776698,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only core register inventory and bounded RTOS SRAM snapshots after existing stop"
+        ],
+        "unresolved_differences": [
+          "No IRQ delivery or scheduler execution; PSP/MSP interpretation requires verified register semantics"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776698,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only core register inventory and bounded RTOS SRAM snapshots after existing stop"
+        ],
+        "unresolved_differences": [
+          "No IRQ delivery or scheduler execution; PSP/MSP interpretation requires verified register semantics"
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only core register inventory and bounded RTOS SRAM snapshots after existing stop"
+        ],
+        "unresolved_differences": [
+          "No IRQ delivery or scheduler execution; PSP/MSP interpretation requires verified register semantics"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only core register inventory and bounded RTOS SRAM snapshots after existing stop"
+        ],
+        "unresolved_differences": [
+          "No IRQ delivery or scheduler execution; PSP/MSP interpretation requires verified register semantics"
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only core register inventory and bounded RTOS SRAM snapshots after existing stop"
+        ],
+        "unresolved_differences": [
+          "No IRQ delivery or scheduler execution; PSP/MSP interpretation requires verified register semantics"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only core register inventory and bounded RTOS SRAM snapshots after existing stop"
+        ],
+        "unresolved_differences": [
+          "No IRQ delivery or scheduler execution; PSP/MSP interpretation requires verified register semantics"
+        ]
+      }
+    }
+  }
+}

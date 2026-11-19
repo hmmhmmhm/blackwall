@@ -1,0 +1,283 @@
+{
+  "schema": 2,
+  "id": "em9305-reset-legacy-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "iom6-retention-main-01",
+  "cases": {
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "gpio-reset-event-owner",
+      "baseline": "em9305-reset-research-01/base-core.cs",
+      "candidate": "tools/renode-strict-mmio.cs",
+      "before_sha256": "b191b48e9536f5e2e655c24a6a95bd27fe810914e34e96e87436f0a03c6925aa",
+      "after_sha256": "ec5830b8496e463747c63694302ec93f95b12b34772dcc9842546e8d2d4cb1a9"
+    },
+    {
+      "name": "reject-unmodeled-dcx-output",
+      "baseline": "em9305-reset-research-01/base-iom.cs",
+      "candidate": "tools/renode-iom.cs",
+      "before_sha256": "408aaef76ad3a4aa31986427e21b9235fb71340f5302dfb4d4a36b43262a3a0d",
+      "after_sha256": "0e885f2022996e39262b4e5615c27db380bf886976efbe83935fe67a1f85d287"
+    }
+  ],
+  "append_components": [
+    {
+      "candidate": "tools/renode-em9305-reset.cs",
+      "sha256": "106883eadcca2ca574fd52bfef4d866bcd11550c15e49c9227f2c2ef3c9cd1ad"
+    }
+  ],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    gpioRoleInput: gpio_role_input\n",
+      "after": "    gpioRoleInput: gpio_role_input\n    em9305Reset: em9305_reset\n"
+    }
+  ],
+  "board_append": "\nem9305_reset: Miscellaneous.BlackwallEm9305ResetHypothesis @ none\n    profile: \"nominal-reset-hypothesis\"\n    fallPc: 0x54a54a\n    risePc: 0x54a572\n    headerPc: 0x54a264\n    minimumResetMicroseconds: 1\n    busyAfterMicroseconds: 10\n    readyAfterMicroseconds: 1000\n",
+  "host_capture_seconds": 45,
+  "diagnostics": "dict(reset=None if g.Em9305Reset is None else dict(phase=str(g.Em9305Reset.Phase),reset_writes=int(g.Em9305Reset.ResetWrites),samples=int(g.Em9305Reset.Samples),asserted_at=int(g.Em9305Reset.AssertedAt),released_at=int(g.Em9305Reset.ReleasedAt),last_us=int(g.Em9305Reset.LastMicroseconds),last_pc=int(g.Em9305Reset.LastReadPc)),retention_reads=int(m['sysbus.iom6'].RetentionSnapshotReads),global_input_levels=int(m['sysbus.iom6'].CommandQueue.InputLevels),iom6=iom_report(6),tx_bytes=[int(v) for v in g.Uarts[0].TxBytes],irq_entries=int(g.Uarts[0].IrqExceptionEntries))",
+  "assumptions": {
+    "profile": "unmeasured time-driven hypothesis; GPIO93 actual configured outputs own reset; only pinned bit21 consumers receive word padding",
+    "timing_us": {
+      "minimum_reset": 1,
+      "busy_after": 10,
+      "ready_after": 1000
+    },
+    "discovery": "Stop before unsupported DCX output generation. First SPI command/peer response remains unimplemented."
+  },
+  "semantics": {
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "irq_entries"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "global_input_levels"
+            ],
+            "eq": -1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "reset",
+              "phase"
+            ],
+            "eq": "ready-high"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "power_phase"
+            ],
+            "eq": "on"
+          }
+        ],
+        "allowed_differences": [
+          "Explicit reset timing fixture may advance original polling path"
+        ],
+        "unresolved_differences": [
+          "Physical reset/RDY timings and peer unknown; no normal boot or display"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5547338,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "reset"
+            ],
+            "eq": null
+          }
+        ],
+        "allowed_differences": [],
+        "unresolved_differences": [
+          "Model disabled; prior GPIO boundary preserved"
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "irq_entries"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "global_input_levels"
+            ],
+            "eq": -1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "reset",
+              "phase"
+            ],
+            "eq": "ready-high"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "power_phase"
+            ],
+            "eq": "on"
+          }
+        ],
+        "allowed_differences": [
+          "Explicit reset timing fixture may advance original polling path"
+        ],
+        "unresolved_differences": [
+          "Physical reset/RDY timings and peer unknown; no normal boot or display"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5547338,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "reset"
+            ],
+            "eq": null
+          }
+        ],
+        "allowed_differences": [],
+        "unresolved_differences": [
+          "Model disabled; prior GPIO boundary preserved"
+        ]
+      }
+    }
+  }
+}

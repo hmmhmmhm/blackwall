@@ -1,0 +1,29 @@
+{
+  "schema": "blackwall-boot-additional-profile-evidence/1",
+  "model": "synthetic-b0-trim1-dwt10mhz-pmic-known-sync-iom7-bounded-rom16",
+  "boot_sha256": "7010d103d02a49333362ec185fb04c9657626f97cec5240063375d1c52e55a7e",
+  "main_sha256": "69f9ef63997c9bb53e5b97f83cc330e93651577ab1595ac57dcb481c3e513b9c",
+  "model_sha256": "ea1925e63da09084d34510f7ce93d22c36e0b6540a2c75ce277c4842a48769aa",
+  "hardware_validated": false,
+  "installable": false,
+  "checker_auto_enabled": false,
+  "status": "verified-compatible for recorded virtual operation only",
+  "operations": [
+    "original reset to worker",
+    "UART2 authentication/error/timeout retry",
+    "upstream recover264 UART/API3 16-byte repair and RESULT to main",
+    "ROM status7: original wrapper returns08000107 and no program",
+    "stock boot same-board main entry comparison"
+  ],
+  "limits": [
+    "Functional ROM ABI; original Boot ROM absent",
+    "Synthetic chip revision0x21/trim1, not identified physical revision",
+    "No Faceclaw combination, case relay, physical OTA or full-chip accuracy claim",
+    "Legacy planning checker remains synthetic-chip23-trim0 only"
+  ],
+  "evidence": [
+    "docs/dwt-auth-main-results.md",
+    "docs/same-board-mram-recovery-results.md",
+    "private:simulator/same-board-mram-audit-bw582-03/report.json"
+  ]
+}

@@ -1,0 +1,928 @@
+{
+  "version": 1,
+  "metric": "verified-criteria-ratio",
+  "objective": "Prepare a web-installable Faceclaw-based CFW and recovery boot, and complete a stock-based development hardware simulator, development tools, and screen output where feasible.",
+  "groups": {
+    "R": "Recovery preparation",
+    "W": "Web installer",
+    "F": "CFW compatibility",
+    "S": "Hardware simulator",
+    "D": "Development tools and screen"
+  },
+  "criteria": [
+    {
+      "id": "R1",
+      "group": "R",
+      "title": "Obtain official research images and verify version, hash, and integrity",
+      "status": "done",
+      "document": "docs/offline-compatibility-check.md",
+      "evidence": [
+        {
+          "path": "docs/offline-asset-audit.json",
+          "sha256": "a2af44ff29124c4be6e816f5265171e426db0e04767c6b698ca00bb336ddf8ea",
+          "checks": [
+            {
+              "path": [
+                "integrity"
+              ],
+              "eq": "passed"
+            },
+            {
+              "path": [
+                "readyForHardwareInstall"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "R2",
+      "group": "R",
+      "title": "Build version-pinned recovery boot candidate and verify original-preserving structure",
+      "status": "done",
+      "document": "docs/bootloader-2-4-candidate.md",
+      "evidence": [
+        {
+          "path": "private:recovery/private-boot-24-candidate-01/structural-verification.json",
+          "sha256": "8fa22e4e365f637b4b3d4bb9daa4ba639d2d0415529047c8d1137fca91573681",
+          "checks": [
+            {
+              "path": [
+                "original_prefix_preserved_except_hooks"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "installable"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "R3",
+      "group": "R",
+      "title": "Independent recovery tool bundle, version pairing, and offline protocol tests",
+      "status": "done",
+      "document": "docs/recovery-manual.md",
+      "evidence": [
+        {
+          "path": "private:recovery/private-boot-24-candidate-01/upstream-tests-24-summary.json",
+          "sha256": "5607813d235fa8e20694c6ef25f1311d35cb3af9371eec8afd46306ba87252ad",
+          "checks": [
+            {
+              "path": [
+                "success"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "tests_run"
+              ],
+              "eq": 118
+            },
+            {
+              "path": [
+                "failures"
+              ],
+              "eq": 0
+            },
+            {
+              "path": [
+                "errors"
+              ],
+              "eq": 0
+            }
+          ]
+        },
+        {
+          "path": "private:recovery/private-boot-24-candidate-01/recovery-set-verification.json",
+          "sha256": "74da8415ee22c7060af5dc742afe562f89dc749fe27333ffa8ed7e3c27b901d8",
+          "checks": [
+            {
+              "path": [
+                "local_artifact_pairing_valid"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "key_matches"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "hardware_validated"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "R4",
+      "group": "R",
+      "title": "Identify exact boot/main/hardware for left and right temples and case",
+      "status": "requires-device-evidence",
+      "document": "docs/device-inventory.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "R5",
+      "group": "R",
+      "title": "Per-device verification of interrupted single-side installation and return to stock main",
+      "status": "requires-device-evidence",
+      "document": "docs/recovery-manual.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "R6",
+      "group": "R",
+      "title": "Preserve originals of all modified persistent regions and verify complete stock restoration",
+      "status": "requires-device-evidence",
+      "document": "docs/recovery-manual.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "W1",
+      "group": "W",
+      "title": "Pinned-file verification and single-temple installation plan model",
+      "status": "done",
+      "document": "docs/web-protocol-verification.md",
+      "evidence": [
+        {
+          "path": "private:simulator/progress-tracking-baseline-01/web-verification.json",
+          "sha256": "0a06ac0338b658790c40b85aa4b42a91a67c6e4a6e98cf0c97e29196f3a2050b",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "pass"
+              ],
+              "eq": 53
+            },
+            {
+              "path": [
+                "skipped"
+              ],
+              "eq": 0
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "W2",
+      "group": "W",
+      "title": "Single-component OTA and virtual GATT transport contract",
+      "status": "done",
+      "document": "docs/web-protocol-verification.md",
+      "evidence": [
+        {
+          "path": "private:simulator/progress-tracking-baseline-01/web-verification.json",
+          "sha256": "0a06ac0338b658790c40b85aa4b42a91a67c6e4a6e98cf0c97e29196f3a2050b",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "pass"
+              ],
+              "eq": 53
+            },
+            {
+              "path": [
+                "skipped"
+              ],
+              "eq": 0
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "W3",
+      "group": "W",
+      "title": "Single side, approval gate, stop on failure, and no unattended retries",
+      "status": "done",
+      "document": "docs/web-installer-design.md",
+      "evidence": [
+        {
+          "path": "private:simulator/progress-tracking-baseline-01/web-verification.json",
+          "sha256": "0a06ac0338b658790c40b85aa4b42a91a67c6e4a6e98cf0c97e29196f3a2050b",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "pass"
+              ],
+              "eq": 53
+            },
+            {
+              "path": [
+                "skipped"
+              ],
+              "eq": 0
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "W4",
+      "group": "W",
+      "title": "CFW/stock/boot/recovery tool review package and hashes of all files",
+      "status": "done",
+      "document": "docs/package-preparation.md",
+      "evidence": [
+        {
+          "path": "private:recovery/packages/preparation-04/manifest.json",
+          "sha256": "2045652c004688ebf994d794129e068444609f2131f841dfae761eed3b71d7d2",
+          "checks": [
+            {
+              "path": [
+                "installable"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "recoveryPairing",
+                "local_artifact_pairing_valid"
+              ],
+              "eq": true
+            }
+          ],
+          "manifest": true
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "W5",
+      "group": "W",
+      "title": "Integrated verification of virtual G2 installation, startup, failure, and recovery in web UI",
+      "status": "pending",
+      "document": "docs/web-installer-design.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "W6",
+      "group": "W",
+      "title": "Confirm web installation, verification, and restoration path for actual target combinations",
+      "status": "requires-device-evidence",
+      "document": "docs/recovery-manual.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "F1",
+      "group": "F",
+      "title": "Verify pinned Faceclaw/g2flash CFW artifacts and expected hashes",
+      "status": "done",
+      "document": "docs/offline-compatibility-check.md",
+      "evidence": [
+        {
+          "path": "docs/offline-asset-audit.json",
+          "sha256": "a2af44ff29124c4be6e816f5265171e426db0e04767c6b698ca00bb336ddf8ea",
+          "checks": [
+            {
+              "path": [
+                "integrity"
+              ],
+              "eq": "passed"
+            },
+            {
+              "path": [
+                "readyForHardwareInstall"
+              ],
+              "eq": false
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/inputs/verified-01/faceclaw-38-research-only.bin",
+          "sha256": "4aac023f49ec6965186d9106e328a516f20a2915ab400d561f662f984023a432",
+          "checks": []
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "F2",
+      "group": "F",
+      "title": "Limited handoff from recovery boot to CFW/stock main reset entry",
+      "status": "done",
+      "document": "docs/combined-handoff-verification.md",
+      "evidence": [
+        {
+          "path": "private:recovery/boot-2-4-analysis/combined-handoff-02.json",
+          "sha256": "dac378be65935fd9d305bd59e2834ebb2eb6597cf7986ff04470544644dabb8c",
+          "checks": [
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                0,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                0,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                1,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                1,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                2,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                2,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                3,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                3,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                4,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                4,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                5,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                5,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                6,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                6,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                7,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                7,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                0,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                0,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                1,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                1,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                2,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                2,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                3,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                3,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                4,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                4,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                5,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                5,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                6,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                6,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                7,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                7,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "F3",
+      "group": "F",
+      "title": "Normal startup compatibility of target boot/main/peripheral component combinations",
+      "status": "partial",
+      "document": "docs/faceclaw-2-4-rebase-scope.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "F4",
+      "group": "F",
+      "title": "Conditions, scope, and safety of automatic post-boot persistent writes such as codec/NOR",
+      "status": "partial",
+      "document": "docs/codec-version-comparison.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "F5",
+      "group": "F",
+      "title": "Verify official app communication reuse, CFW feature negotiation, and incompatible fallback",
+      "status": "partial",
+      "document": "docs/safety-first-roadmap.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "F6",
+      "group": "F",
+      "title": "Deployment readiness approval criteria combining final installation profile and recovery assets",
+      "status": "pending",
+      "document": "docs/completion-audit.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "S1",
+      "group": "S",
+      "title": "Execute pinned two stock versions and CFW main reset and record stop points",
+      "status": "done",
+      "document": "docs/simulator-runner-status.md",
+      "evidence": [
+        {
+          "path": "private:simulator/coherent-icache-main-comparison-01/comparison.json",
+          "sha256": "135ae8e4fa78560f6b48b8fd7b1341eddf00d62fcf9ba0641392aaf99b4dbc9e",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "rows"
+              ],
+              "min_length": 12
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "S2",
+      "group": "S",
+      "title": "M55/exception/NVIC basic tests and execution memory safety boundaries",
+      "status": "done",
+      "document": "docs/renode-memory-policy.md",
+      "evidence": [
+        {
+          "path": "private:simulator/renode-m55-headless-regression-01/report.json",
+          "sha256": "38621803bf88a0c56d74d6f4c61594c9bdbed5d69652facfc35039e016985508",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "cases",
+                "cortex-m55",
+                "expected_behavior_observed"
+              ],
+              "eq": true
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/renode-memory-verification-09/report.json",
+          "sha256": "a061f2b914dff0c53f302bbe0f871179c5235e717e05d46e8242d8e81989845c",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "unguarded_control"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "S3",
+      "group": "S",
+      "title": "Memory/power/clock/cache/MMIO models for required initialization path",
+      "status": "partial",
+      "document": "docs/simulator-scope.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "S4",
+      "group": "S",
+      "title": "Virtual persistent storage, ROM, reset, and boot → main/recovery integration",
+      "status": "partial",
+      "document": "docs/firmware-simulator-proposal.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "S5",
+      "group": "S",
+      "title": "Connect BLE, input, sensors, and interrupt/lifecycle needed by CFW",
+      "status": "pending",
+      "document": "docs/firmware-simulator-proposal.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "S6",
+      "group": "S",
+      "title": "Integrated virtual G2 executing stock and CFW through the app loop",
+      "status": "pending",
+      "document": "docs/simulator-scope.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "D1",
+      "group": "D",
+      "title": "Reproducible local environment on current Mac and pinned CPU execution path",
+      "status": "done",
+      "document": "docs/simulator-environment.md",
+      "evidence": [
+        {
+          "path": "private:simulator/renode-m55-headless-regression-01/report.json",
+          "sha256": "38621803bf88a0c56d74d6f4c61594c9bdbed5d69652facfc35039e016985508",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "cases",
+                "cortex-m55",
+                "expected_behavior_observed"
+              ],
+              "eq": true
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/coherent-icache-main-comparison-01/comparison.json",
+          "sha256": "135ae8e4fa78560f6b48b8fd7b1341eddf00d62fcf9ba0641392aaf99b4dbc9e",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "rows"
+              ],
+              "min_length": 12
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "D2",
+      "group": "D",
+      "title": "Compare independent ARM renderer text/shapes/frames with native bytes",
+      "status": "done",
+      "document": "docs/cfw-renderer-probe.md",
+      "evidence": [
+        {
+          "path": "private:recovery/renderer-sequence-01/report.json",
+          "sha256": "b3a5a8bfd3749322cb4a409036b38258589b27951fb77613cd02eb63d4dd5dac",
+          "checks": [
+            {
+              "path": [
+                "native_framebuffer_byte_identical"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "full_g2_boot"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "frames"
+              ],
+              "min_length": 4
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "D3",
+      "group": "D",
+      "title": "Connect full main display boundary, framebuffer, and 576×288 viewer",
+      "status": "pending",
+      "document": "docs/cfw-renderer-probe.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "D4",
+      "group": "D",
+      "title": "Experiment with text/shapes/animation/sensor and app data in integrated main",
+      "status": "pending",
+      "document": "docs/firmware-simulator-proposal.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "D5",
+      "group": "D",
+      "title": "Integrated tool for developers to execute, run scenarios, and compare regressions in one command",
+      "status": "partial",
+      "document": "docs/simulator-usage.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "D6",
+      "group": "D",
+      "title": "Operate full scope, evidence-based progress, work records, and duplicate prevention",
+      "status": "in-progress",
+      "document": "docs/progress-tracking.md",
+      "evidence": [],
+      "next_action": ""
+    }
+  ],
+  "next_steps": [
+    "After verifying progress management in current bw-0001, resume existing PFCR work under the same ID.",
+    "PFCR/D-cache boundary work is part of S3; this test alone does not complete S3.",
+    "Keep CFW codec/NOR automatic write conditions (F4) as a key safety priority.",
+    "Do not replace the complete web flow (W5), full main startup (S6), or integrated screen (D3) with isolated mocks/renderers."
+  ],
+  "notes": [
+    "Scope v1 was prepared by comparing user handoff, subsequent goals, 2026-11-10 progress management instructions, and the existing completion audit.",
+    "The 30 completion conditions have equal weight. This is not an estimate of workload, time, or readiness for physical installation.",
+    "The three current new PFCR tests are in the TDD red stage and implementation is incomplete. The last 116 passing tests were a checkpoint before PFCR additions and do not mean the entire current worktree is green.",
+    "Physical access, RAM execution, OTA, and persistent writes are outside this work. Conditions needing device evidence are not executed before individual explicit approval.",
+    "Full Sandevistan port, new user features, GPU driver, and iPhone companion development are not automatic extensions of the current goal.",
+    "Do not reconstruct earlier individual work timestamps. Baseline import is the time registered after checking actual current evidence."
+  ]
+}

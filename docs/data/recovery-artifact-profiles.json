@@ -1,0 +1,33 @@
+{
+  "schema": "blackwall-recovery-artifacts/1",
+  "profiles": {
+    "2.3.2.14": {
+      "installable": false,
+      "files": {
+        "bootloader.bin": "aa6f9991522a0f7b413f9a50263b04d2be992424768351d96601573bcff99e55",
+        "patch.bin": "c5ee2bb11d51e90e55225aa758f0b6f27ae6cf810db7ef0a701a03d1f9f2c49d",
+        "recover.bin": "f046754b6ecba4dd4e3c8e7aa568a713e0961e7f286e98a6f96f955882408732",
+        "dump.bin": "7577fe8aba5540204ec59b237d2b1a297f23e3613038be36c26d6eac18b68e61",
+        "checksum.bin": "4bbd4bfbd4f403b9da4967da4a88b23d61f99f00e523cd527262ce10347fc4ac",
+        "case.bin": "004ce36d9cf8d77e2931e27574f34f34a219a92699b9b44e09c8b0e9f93225a9"
+      },
+      "key_id": "9a0ab5104165d01dfc279bee6b26bcfab03dc08f9c177eb4644955ea23e369a7",
+      "mram_entry": "0x42e83d",
+      "case_base": "1.2.57"
+    },
+    "2.4.0.24": {
+      "installable": false,
+      "files": {
+        "bootloader.bin": "5ac1b02d337b57e0d25886a06296df2d5932af1f31168c416e64b50c5417a91d",
+        "patch.bin": "21575a921fb3e81fdccf4ed60b8a6e0be75061f78f5c1023aea9a357991c76e5",
+        "recover.bin": "9abc30c98bec432981d0c40ded3159085f273700e6c3b54716e37360df8cb8b2",
+        "dump.bin": "7577fe8aba5540204ec59b237d2b1a297f23e3613038be36c26d6eac18b68e61",
+        "checksum.bin": "4bbd4bfbd4f403b9da4967da4a88b23d61f99f00e523cd527262ce10347fc4ac",
+        "case.bin": "004ce36d9cf8d77e2931e27574f34f34a219a92699b9b44e09c8b0e9f93225a9"
+      },
+      "key_id": "51198c568b121cf231a99897c6a49652035b98eb5300e802e1bf1d1043545bd8",
+      "mram_entry": "0x42e84d",
+      "case_base": "1.2.57"
+    }
+  }
+}

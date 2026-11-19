@@ -1,0 +1,1930 @@
+{
+  "version": 3,
+  "metric": "verified-criteria-ratio",
+  "metric_label": "Emulator acceptance conditions met",
+  "objective": "Complete a G2 hardware emulator and development tools for functional verification that can execute original stock, Faceclaw, and new CFW candidates and reproduce and compare screen, input, sensor, communication, storage, reset, and failure behavior.",
+  "groups": {
+    "A": "Inputs and execution foundation",
+    "B": "Services, storage, and reset",
+    "C": "Screen, input, and sensors",
+    "D": "Peer communication, comparison, and development workflow"
+  },
+  "criteria": [
+    {
+      "id": "E01",
+      "group": "A",
+      "title": "Pin inputs, assets, and models and reject unsuitable inputs",
+      "status": "done",
+      "acceptance": "Pin inputs and models for the three research baseline images and selected profiles by hash and provenance. Identify missing assets and unverified initial values, and reject tampered or unsuitable inputs. This does not imply a normal font bank has been obtained or compatibility of all profiles is complete.",
+      "document": "docs/offline-asset-revalidation.md",
+      "evidence": [
+        {
+          "path": "private:simulator/offline-asset-revalidation-02/report.json",
+          "sha256": "13d28aef1a4f3fa8684cd3fc362d1eb6afc9e6a67bd70dc01ba6ae135538cf6b",
+          "checks": [
+            {
+              "path": [
+                "integrity"
+              ],
+              "eq": "passed"
+            },
+            {
+              "path": [
+                "prior_provenance_confirmed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "readyForHardwareInstall"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "format_reparsed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "bootloader_recovery_retested"
+              ],
+              "eq": false
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/offline-asset-revalidation-02/revalidate_research_assets.py",
+          "sha256": "82300c77b52eacfd29bf91069377b84598e26b020598590a45e45a6e5d061ac2",
+          "checks": []
+        },
+        {
+          "path": "private:simulator/inputs/verified-01/stock-2.3.0.24.bin",
+          "sha256": "187ccf2bcc5c17a212106e8a376745511e8289c4232b634a7ea94b9bf25a0979",
+          "checks": []
+        },
+        {
+          "path": "private:simulator/inputs/verified-01/stock-2.4.0.24.bin",
+          "sha256": "363198f8d543a5c1181d8a213e9077285cb865700a1885c8dc7c1b9324fd0e05",
+          "checks": []
+        },
+        {
+          "path": "private:simulator/inputs/verified-01/faceclaw-38-research-only.bin",
+          "sha256": "4aac023f49ec6965186d9106e328a516f20a2915ab400d561f662f984023a432",
+          "checks": []
+        },
+        {
+          "path": "private:simulator/emulator-scope-baseline-01/report.json",
+          "sha256": "d2da8ea502cdd5917321acf5c603aeceb2f8c2622c0ebd0ab3094d5c8c8d9a74",
+          "checks": [
+            {
+              "path": [
+                "criteria",
+                "E01",
+                "passed"
+              ],
+              "eq": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E02",
+      "group": "A",
+      "title": "Reproduce original M55 reset execution and stop in a pinned environment",
+      "status": "done",
+      "acceptance": "Reproduce stop location and observations from original main reset under the same pinned environment, inputs, and profile. Distinguish this from app startup or completed ROM cold boot.",
+      "document": "docs/simulator-environment.md",
+      "evidence": [
+        {
+          "path": "private:simulator/renode-m55-headless-regression-01/report.json",
+          "sha256": "38621803bf88a0c56d74d6f4c61594c9bdbed5d69652facfc35039e016985508",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "cases",
+                "cortex-m55",
+                "expected_behavior_observed"
+              ],
+              "eq": true
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/coherent-icache-main-comparison-01/comparison.json",
+          "sha256": "135ae8e4fa78560f6b48b8fd7b1341eddf00d62fcf9ba0641392aaf99b4dbc9e",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "rows"
+              ],
+              "min_length": 12
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/prefetch-main-comparison-01/comparison.json",
+          "sha256": "ce062449c1130ccdc805485dad22889dae02d05ed4a15da3d0c0707fdd3747c5",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "rows"
+              ],
+              "min_length": 12
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/emulator-scope-baseline-01/report.json",
+          "sha256": "d2da8ea502cdd5917321acf5c603aeceb2f8c2622c0ebd0ab3094d5c8c8d9a74",
+          "checks": [
+            {
+              "path": [
+                "criteria",
+                "E02",
+                "passed"
+              ],
+              "eq": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E03",
+      "group": "A",
+      "title": "Declared basic set of M55 exceptions, IRQ, and memory protection",
+      "status": "done",
+      "acceptance": "Verify some MVE, SVC/PendSV/IRQ0/SysTick in the pinned smoke set and rejection of main writes, out-of-range access, and unwritten ITCM execution. This is not certification of the full M55 ISA, security, or timing accuracy.",
+      "document": "docs/renode-memory-policy.md",
+      "evidence": [
+        {
+          "path": "private:simulator/renode-m55-headless-regression-01/report.json",
+          "sha256": "38621803bf88a0c56d74d6f4c61594c9bdbed5d69652facfc35039e016985508",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "cases",
+                "cortex-m55",
+                "expected_behavior_observed"
+              ],
+              "eq": true
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/renode-memory-verification-09/report.json",
+          "sha256": "a061f2b914dff0c53f302bbe0f871179c5235e717e05d46e8242d8e81989845c",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "unguarded_control"
+              ],
+              "eq": false
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/emulator-scope-baseline-01/report.json",
+          "sha256": "d2da8ea502cdd5917321acf5c603aeceb2f8c2622c0ebd0ab3094d5c8c8d9a74",
+          "checks": [
+            {
+              "path": [
+                "criteria",
+                "E03",
+                "passed"
+              ],
+              "eq": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E04",
+      "group": "A",
+      "title": "Register new CFW candidate and check layout/compatibility profile",
+      "status": "done",
+      "acceptance": "Register a new candidate beyond the three research images with independent SHA, layout, and compatibility declaration. Reject incorrect size, vectors, or target profile and run it on the baseline runner. Forced acceptance of addresses/hashes alone does not pass.",
+      "document": "docs/firmware-candidate-registration.md",
+      "evidence": [
+        {
+          "path": "private:simulator/firmware-candidate-registration-02/evidence-manifest.json",
+          "sha256": "ae126e08f1e99eb41ef56ba63e2c86d1dd6feab8cbb520f125b92b165a65f6da",
+          "manifest": true,
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "criteria",
+                "E04",
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "pinned_loader_unchanged"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "native_runs"
+              ],
+              "eq": 2
+            },
+            {
+              "path": [
+                "saved_audits"
+              ],
+              "eq": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E05",
+      "group": "B",
+      "title": "Process service and app events from original main reset",
+      "status": "done",
+      "acceptance": "Stock 2.4/2.3/Faceclaw38 pass required service initialization and process actual RTOS app events under the declared virtual-board profile. Assess task progress, wait/resume, and absence of errors in pinned scenarios. Exclude forced branch/return/TCB changes from integration evidence.",
+      "document": "docs/native-main-boot-acceptance.md",
+      "evidence": [
+        {
+          "path": "private:simulator/native-main-boot-manifest.json",
+          "sha256": "55adce9d944491eea64d0cb12487e41ffa9fc70f1db067f774ce7b50bb0295e3",
+          "manifest": true,
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "full_e05_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "original3_main_reset_service_event_wait_resume_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "original_main_board_device_model_unmodified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "hardware_accessed"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": "bw483 verified three originals main reset → initialization return → actual UI event → empty original UI queue receive wait → callback resume in same TCB/Thread, five frames, fault 0. E05 complete. Next E06 virtual reset/reinitialization with active peripherals. docs/native-main-boot-acceptance.md"
+    },
+    {
+      "id": "E06",
+      "group": "B",
+      "title": "Virtual reset during execution and restart state",
+      "status": "done",
+      "acceptance": "Trigger virtual reset at the device boundary during E05 execution. Declare volatile/retained state and reinitialization results, and check whether the original returns to app state. Do not substitute a host PC reset alone.",
+      "document": "docs/active-board-reset-acceptance.md",
+      "evidence": [
+        {
+          "path": "private:simulator/active-reset-manifest.json",
+          "sha256": "e7c16643e89b9000f9f2d9929b2961cdfb7cee20cdae2c307d2e85a16e83fb68",
+          "manifest": true,
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "full_e06_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "original3_active_reset_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "retained_itcm_kv_fs_verified_each"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "original_app_frame_task_resumed_each"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "hardware_accessed"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": "bw484 verified three originals E05 active UI → virtual NVIC reset → original vector/service reinitialization → UI/five frames/task wait-resume return. Cache/GPU/sensor/communication initialized; ITCM/NOR/FS preserved; fault 0. E06 complete; E11/E12 remain. docs/active-board-reset-acceptance.md"
+    },
+    {
+      "id": "E07",
+      "group": "B",
+      "title": "Guest persistent writes, restart reads, and range preservation",
+      "status": "done",
+      "acceptance": "Data written by original firmware to virtual MRAM/NOR is read after restart. Check allowed write/erase ranges and preservation of neighboring data; keep original input files unchanged.",
+      "document": "docs/kvtime-persistent-restart.md",
+      "evidence": [
+        {
+          "path": "private:simulator/kvtime-persistent-manifest.json",
+          "sha256": "852eaee2151ca4604fd18f6f7aa369d2d369e2c67bcd3e072b5b5d9ba5390999",
+          "manifest": true,
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "all_originals_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "storage_cycles_verified"
+              ],
+              "eq": 3
+            },
+            {
+              "path": [
+                "original_arm_executed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "full_boot_complete"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "hardware_accessed"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E08",
+      "group": "B",
+      "title": "Assess storage failures, interruptions, and version mismatches",
+      "status": "done",
+      "acceptance": "Assess the extent of corruption and restart outcomes in pinned write/erase failure, interruption, and data/version mismatch scenarios. Do not mask failures as success; distinguish recoverable cases from explicit failure.",
+      "document": "docs/storage-failure-acceptance.md",
+      "evidence": [
+        {
+          "path": "private:simulator/storage-failure-acceptance-manifest.json",
+          "sha256": "9712b3911ee58dc606fe2bfa7f1258838ecc1afd02e88bc667700236ba6e0c27",
+          "manifest": true,
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "fixed_scenario_acceptance_met"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "e08_complete"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "fixed_scenarios"
+              ],
+              "eq": 13
+            },
+            {
+              "path": [
+                "new_firmware_executions"
+              ],
+              "eq": 0
+            },
+            {
+              "path": [
+                "full_app_recovery_verified"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "hardware_accessed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "subagents_used"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E09",
+      "group": "C",
+      "title": "Natural main UI → render → submit → 576×288 viewer",
+      "status": "done",
+      "acceptance": "UI generated by legitimate original-main initialization/input produces actual guest pixels through rendering and submission. Verify the 576×288 screen and original frame provenance in the viewer. Preserve synthetic caller and host-prepared pixels only as partial evidence.",
+      "document": "docs/first-native-dashboard-frame.md",
+      "evidence": [
+        {
+          "path": "private:simulator/screen-first-functional-manifest.json",
+          "sha256": "0ba154614177b0620b5204aaecaec5167ffdfd64e3ef16034eabcb41e1a10d22",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "first_complete_screen_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "original_main_unmodified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "host_pc_tcb_or_branch_modified"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "all_runtime_faults_zero"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "frame",
+                "width"
+              ],
+              "eq": 576
+            },
+            {
+              "path": [
+                "frame",
+                "height"
+              ],
+              "eq": 288
+            },
+            {
+              "path": [
+                "hardware_accessed"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": "First stock24 natural-main dashboard source complete. E05 full boot/three originals, E10 continuous refresh, and physical GPU accuracy are separate. docs/first-native-dashboard-frame.md"
+    },
+    {
+      "id": "E10",
+      "group": "C",
+      "title": "Continuous screen refresh according to firmware time and events",
+      "status": "done",
+      "acceptance": "Original code generates continuous frames in declared time/event scenarios. Capture frame order, content changes, and completion/waiting; do not interpret simulator speed as physical FPS.",
+      "document": "docs/post-screen-boot-lifecycle.md",
+      "evidence": [
+        {
+          "path": "private:simulator/post-screen-lifecycle-manifest.json",
+          "sha256": "bad2408e2a64f639c2f712a2f4a68dcee579424a35cae1fe77b44241253ddc52",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "continuous_frames_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "frame_count"
+              ],
+              "eq": 5
+            },
+            {
+              "path": [
+                "frame_width"
+              ],
+              "eq": 576
+            },
+            {
+              "path": [
+                "frame_height"
+              ],
+              "eq": 288
+            },
+            {
+              "path": [
+                "observed_sleep_wake_pair"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "original_main_unmodified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "device_model_unchanged"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "all_runtime_faults_zero"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "hardware_accessed"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": "Verified stock24 first dashboard followed by 100.695 ms, five continuously completed sources, sequence/content changes, and sleep/wake. Long-duration behavior, additional input, and physical FPS/accuracy are separate."
+    },
+    {
+      "id": "E11",
+      "group": "C",
+      "title": "Virtual touch/input → original consumption → state/screen change",
+      "status": "done",
+      "acceptance": "Deliver supported v1 inputs such as touch/ring at bus/GPIO/IRQ device boundaries. Original tasks consume events and produce expected state/UI changes. Controller version/config queries alone are not input success.",
+      "document": "docs/input-acceptance.md",
+      "evidence": [
+        {
+          "path": "private:simulator/input-acceptance-manifest.json",
+          "sha256": "d069211d68f036d1c345e54bd3ceb5cd9177b56f13147c95ea3fbf736d1ec20f",
+          "manifest": true,
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "full_e11_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "touch3_ui_scroll_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "ring3_main_reset_ui_frame_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "no_input_controls_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "hardware_accessed"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": "Declared v1 touch wake/additional scroll and ring wake integrated with three originals' UI/screens. Arbitrary gestures/direct R1 BLE remain additional unsupported scope. Next E12 natural sensor-task sample consumption and final audit of all 16 conditions."
+    },
+    {
+      "id": "E12",
+      "group": "C",
+      "title": "Virtual sensor samples → FIFO/IRQ → original consumption",
+      "status": "done",
+      "acceptance": "Deliver supported IMU/required auxiliary sensor samples through virtual bus, FIFO, and IRQ and verify actual original consumption results. Identification/initial configuration alone is not successful sample processing.",
+      "document": "docs/sensor-task-consumption.md",
+      "evidence": [
+        {
+          "path": "private:simulator/sensor-acceptance-manifest.json",
+          "sha256": "78b27cc3998ee6924c793457f10a385a3c024b4bd366466eed286f5fd4263c1c",
+          "manifest": true,
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "full_e12_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "original3_natural_task_consumption"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "no_host_gate_ready_or_caller_write"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "full_ring_math_2252_exact_each"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "original_codec_80_exact_each"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "no_input_controls_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "hardware_accessed"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": "Three originals FIFO32/WM10 → GPIO38/IRQ57 → natural sensor_hub consumption/numerical results and subsequent UI complete. Numerical GAF/EDMP fusion and physical verification remain unsupported boundaries. Final audit of all 16 conditions and developer commands/artifacts remains."
+    },
+    {
+      "id": "E13",
+      "group": "D",
+      "title": "Virtual phone/peer messages → app behavior",
+      "status": "done",
+      "acceptance": "Declare scenario-specific roles for virtual phone/opposite temple/case. Supported messages flow through virtual transport → original protocol/task → app behavior. Initial HCI responses alone do not complete app communication.",
+      "document": "docs/runtime-att-time-device-ingress.md",
+      "evidence": [
+        {
+          "path": "private:simulator/runtime-att-research-01/manifest.json",
+          "sha256": "a139c04c4c277f183d9ef9a8f7ab612bd3cc59cc5ed2beb6cfc9cbe7cca6fa3c",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "native_att_time_cases"
+              ],
+              "eq": 3
+            },
+            {
+              "path": [
+                "native_permission_negative"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "roles_declared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "original_arm_app_action"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "virtual_budget_ms"
+              ],
+              "eq": 20000
+            },
+            {
+              "path": [
+                "predeclared_contract_before_inputs"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "api_caller"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "guest_pc_tcb_sp_seed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "default_off_exact"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "semantic_negatives"
+              ],
+              "eq": 6
+            },
+            {
+              "path": [
+                "final_frozen_saved_audit_exact"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "physical_hardware_access"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": "E13 local phone time-setting scenario complete. Opposite temple/case runtime and outbound sync delivery are disclosed as unverified. E14 verifies disconnect/delay/malformed messages and original cleanup/reconnect/explicit failure in the same runner."
+    },
+    {
+      "id": "E14",
+      "group": "D",
+      "title": "Disconnect, delay, malformed messages, and reconnect/failure",
+      "status": "done",
+      "acceptance": "Inject virtual peer disconnects, delays, and malformed messages and verify original timeout/error/state and reconnect or explicit failure. Unconditional ready/ack responses are prohibited.",
+      "document": "docs/runtime-peer-failure-contract.md",
+      "evidence": [
+        {
+          "path": "private:simulator/peer-failure-acceptance-manifest.json",
+          "sha256": "b33c3ed1303319206e35d3f3b00a13bf9e6fdd34a200751d3225cea3d7f056d7",
+          "manifest": true,
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "fixed_scenario_acceptance_met"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "e14_complete"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "fixed_scenarios"
+              ],
+              "eq": 9
+            },
+            {
+              "path": [
+                "new_firmware_executions"
+              ],
+              "eq": 0
+            },
+            {
+              "path": [
+                "full_app_recovery_verified"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "normal_gaf_verified"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "hardware_accessed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "subagents_used"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": "Acceptance audit of nine pinned communication failure/recovery scenarios complete. Verify additional originals/error categories against the declared strict contract and new evidence. Track new-connection ATT and complete app functionality under adjacent conditions."
+    },
+    {
+      "id": "E15",
+      "group": "D",
+      "title": "Compare stock/new CFW in the same scenarios and assess regressions",
+      "status": "done",
+      "acceptance": "Run an E04 new candidate with the same board/input/time scenarios. Separately assess intended code/display changes and preserved boot/input/communication behavior, distinguishing model/fixture differences from firmware regressions.",
+      "document": "docs/firmware-comparison-acceptance.md",
+      "evidence": [
+        {
+          "path": "private:simulator/firmware-comparison-acceptance-manifest.json",
+          "sha256": "85e75305999e5cf357af1411b9d65adcfb4544cd12d7b900aa0cb254ce4fa308",
+          "manifest": true,
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "fixed_e15_matrix_complete"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "e15_complete"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "original_families"
+              ],
+              "eq": 3
+            },
+            {
+              "path": [
+                "fixed_same_model_scenarios"
+              ],
+              "eq": 6
+            },
+            {
+              "path": [
+                "new_native_executions"
+              ],
+              "eq": 8
+            },
+            {
+              "path": [
+                "reused_stock24"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "predeclared_intentional_code_and_pixel_changes"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "boot_prefix_input_and_phone_preserved"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "model_fixture_changes_separated"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "real_regression_detected"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "natural_main_complete"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "full_ui_verified"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "e16_complete"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "hardware_accessed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "subagents_used"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": "Separately verified intended changes/preservation/actual regressions/model differences in six pinned API-screen and virtual-phone pairs of three originals/new candidate. Extend new code/scenarios/original families using explicit profiles and independent expectations. Natural main/full UI completion assessed separately in E05/E09."
+    },
+    {
+      "id": "E16",
+      "group": "D",
+      "title": "One-command execution, scenarios, frame/events, and comparison report",
+      "status": "done",
+      "acceptance": "A developer obtains candidate execution, scenarios, frames/events, stop/failure causes, and comparison results with one documented command and reproduces them with a pinned profile. Also verify new-environment installation, missing-asset guidance, and interrupted-process cleanup.",
+      "document": "docs/development-tools-acceptance.md",
+      "evidence": [
+        {
+          "path": "private:development-tools-acceptance-manifest.json",
+          "sha256": "1915cea8db91913413eb8341205a9611704810c0ff80b665a728c70e456712f5",
+          "manifest": true,
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "report",
+                "fixed_profile_tooling_verified"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "report",
+                "guarded_native_runs"
+              ],
+              "eq": 6
+            },
+            {
+              "path": [
+                "report",
+                "unwrapped_documented_native_runs"
+              ],
+              "eq": 1
+            },
+            {
+              "path": [
+                "report",
+                "restored_files"
+              ],
+              "eq": 498
+            },
+            {
+              "path": [
+                "report",
+                "old_asset_reads"
+              ],
+              "eq": 0
+            },
+            {
+              "path": [
+                "report",
+                "natural_main_complete"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "report",
+                "full_ui_verified"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": "Verified seven native runs/comparisons, missing-asset guidance, and bw437 cleanup evidence in a fresh venv and empty private root on pinned Mac arm64/Python 3.14. Next E05/E09 natural initialization/full UI and E06/E10/E11/E12. Arbitrary ABIs/other OS/physical hardware unverified."
+    }
+  ],
+  "dashboard_states": [
+    [
+      "E05",
+      "Natural app behavior"
+    ],
+    [
+      "E09",
+      "Integrated screen"
+    ],
+    [
+      "E04",
+      "New CFW registration"
+    ],
+    [
+      "E16",
+      "Integrated execution tool"
+    ]
+  ],
+  "current_outcome": {
+    "title": "First-screen verification checklist (including API diagnostics)",
+    "gates": [
+      {
+        "id": "M1",
+        "title": "Pin three originals' reset execution, saved context, RTOS waits, and provenance",
+        "status": "done",
+        "evidence": [
+          {
+            "path": "private:simulator/imu-ui-dependency-verification-01/manifest.json",
+            "sha256": "761bfffb9263a48c734e36b0c21d1ca779a5bc05e10d9a0ed69985e540f9112e",
+            "checks": [
+              {
+                "path": [
+                  "passed"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "display_tasks_inspected"
+                ],
+                "eq": 9
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "M2",
+        "title": "Establish causality between display activation producer and UI initialization input at API diagnostic boundary",
+        "status": "done",
+        "evidence": [
+          {
+            "path": "private:simulator/display-activation-integration-verification-02/manifest.json",
+            "sha256": "0f6347d5a071fddfa684a92034198c90a4197b47a1bfa17bf378a5ae7fa7db23",
+            "checks": [
+              {
+                "path": [
+                  "passed"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "api_activation_causal_path_verified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "api_boundary_only"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "verified_native_images"
+                ],
+                "eq": 3
+              },
+              {
+                "path": [
+                  "functional_type_negative_verified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "ui_display_context_forced"
+                ],
+                "eq": false
+              },
+              {
+                "path": [
+                  "all_public_cli_cases_verified"
+                ],
+                "eq": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "M3",
+        "title": "Execute preparation helpers and state transitions in original code to replace stub diagnostics",
+        "status": "done",
+        "evidence": [
+          {
+            "path": "private:simulator/native-main-boot-manifest.json",
+            "sha256": "55adce9d944491eea64d0cb12487e41ffa9fc70f1db067f774ce7b50bb0295e3",
+            "manifest": true,
+            "checks": [
+              {
+                "path": [
+                  "passed"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "full_e05_verified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "original3_main_reset_service_event_wait_resume_verified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "original_main_board_device_model_unmodified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "hardware_accessed"
+                ],
+                "eq": false
+              }
+            ]
+          },
+          {
+            "path": "private:simulator/screen-first-functional-manifest.json",
+            "sha256": "0ba154614177b0620b5204aaecaec5167ffdfd64e3ef16034eabcb41e1a10d22",
+            "checks": [
+              {
+                "path": [
+                  "passed"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "first_complete_screen_verified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "original_main_unmodified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "host_pc_tcb_or_branch_modified"
+                ],
+                "eq": false
+              },
+              {
+                "path": [
+                  "all_runtime_faults_zero"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "frame",
+                  "width"
+                ],
+                "eq": 576
+              },
+              {
+                "path": [
+                  "frame",
+                  "height"
+                ],
+                "eq": 288
+              },
+              {
+                "path": [
+                  "hardware_accessed"
+                ],
+                "eq": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "M4",
+        "title": "Original scheduler resumes actual display task and invokes UI/render",
+        "status": "done",
+        "evidence": [
+          {
+            "path": "private:simulator/jbd-status-integration-verification-01/manifest.json",
+            "sha256": "d53438d6cfc156ddd911bcf9bd26387d3b3540b0364ce6ae4f4aacfc214bf5c0",
+            "checks": [
+              {
+                "path": [
+                  "passed"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "verified_native_images"
+                ],
+                "eq": 3
+              },
+              {
+                "path": [
+                  "original_ui_display_tasks_verified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "original_renderer_task_verified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "render_entry_calls_verified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "api_boundary_only"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "ui_display_context_forced"
+                ],
+                "eq": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "M5",
+        "title": "Generate and capture full guest frame from original render/submission",
+        "status": "done",
+        "evidence": [
+          {
+            "path": "private:simulator/screen-first-functional-manifest.json",
+            "sha256": "0ba154614177b0620b5204aaecaec5167ffdfd64e3ef16034eabcb41e1a10d22",
+            "checks": [
+              {
+                "path": [
+                  "passed"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "first_complete_screen_verified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "original_main_unmodified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "host_pc_tcb_or_branch_modified"
+                ],
+                "eq": false
+              },
+              {
+                "path": [
+                  "all_runtime_faults_zero"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "frame",
+                  "width"
+                ],
+                "eq": 576
+              },
+              {
+                "path": [
+                  "frame",
+                  "height"
+                ],
+                "eq": 288
+              },
+              {
+                "path": [
+                  "hardware_accessed"
+                ],
+                "eq": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "M6",
+        "title": "Reproduce first screen from reset under same profile and compare pixels/failures",
+        "status": "done",
+        "evidence": [
+          {
+            "path": "private:simulator/post-screen-lifecycle-manifest.json",
+            "sha256": "bad2408e2a64f639c2f712a2f4a68dcee579424a35cae1fe77b44241253ddc52",
+            "checks": [
+              {
+                "path": [
+                  "passed"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "continuous_frames_verified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "frame_count"
+                ],
+                "eq": 5
+              },
+              {
+                "path": [
+                  "frame_width"
+                ],
+                "eq": 576
+              },
+              {
+                "path": [
+                  "frame_height"
+                ],
+                "eq": 288
+              },
+              {
+                "path": [
+                  "observed_sleep_wake_pair"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "original_main_unmodified"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "device_model_unchanged"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "all_runtime_faults_zero"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "hardware_accessed"
+                ],
+                "eq": false
+              },
+              {
+                "path": [
+                  "first_frame_reproduced"
+                ],
+                "eq": true
+              },
+              {
+                "path": [
+                  "semantic_counterexamples_rejected"
+                ],
+                "eq": 3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "next_steps": [
+    "bw490: Final comparison of scope v3's 16 acceptance conditions, actual file pins, semantic reaudit, and current candidate CLI execution/comparison. Judgments and limits follow docs/emulator-final-audit.md and private:simulator/final-completion-audit-bw490/report.json.",
+    "The current goal is complete within the declared one-temple functional verification scope. Proceed with additional features, long-duration execution, and fidelity expansion after separately defining scope/acceptance with the user.",
+    "Physical installation/recovery certification, numerical GAF/EDMP, and cycle/optical accuracy are unverified. Hardware authorization boundaries remain."
+  ],
+  "notes": [
+    "User explicitly directed emulator-only scope on 2026-11-13. Web installer productization, CFW feature development, and physical install/recovery verification are excluded from the active denominator but preserved. This is not a declaration that the prior goal was achieved.",
+    "First supported profile is main reset + one temple + explicit virtual phone/opposite temple/case contracts. Full boot from actual ROM/bootloader, both CPU/case binary execution, and full OTA are separate extension profiles with support status declared.",
+    "Chipset cycle/analog/RF/power/full GPU ISA accuracy is outside v1. Verify original instructions and necessary peripheral functional contracts; do not hide failures, unsupported behavior, or virtual initial values.",
+    "Exact formula is completed acceptance conditions / 16. 3/16=18.75%, dashboard one-decimal display 18.8%; each completion adds 6.25 percentage points. This is not an estimate of effort, duration, or physical accuracy.",
+    "If two consecutive tasks change none of current integration stage, dependencies, or uncertainty, reassess the path before a third similar probe. Do not count adding per-function/register tools itself as product achievement.",
+    "Old v2 13/29=44.8% and new v3 have different scopes, so do not compare increases/decreases. v2 is preserved in docs/project-scope-v2.json.",
+    "Current capability catalog, baseline capture, and reaudit commands are linked in docs/emulator-capability-catalog.md. Percentages in old deferred-work records belong to their historical scope.",
+    "bw341 resumed: native official capture 8; actual role/memory 122 judgments; semantic negatives 12; original M7 81/frozen 81/regression 72; 11 models unchanged. Added new public API diagnostic command.",
+    "At bw341 integration checklist was 2/6=33.3%. Current figure follows the current integration-stage table above. M2 completion covers original API input structure/activation causality, not actual wire input/E13 or full E05/E09 completion.",
+    "Native test caller is inserted after main reset → normal hold. It does not force original UI/Display PC/TCB/stack/mode, but neither does it complete sensor initialization or entire original main unchanged.",
+    "The native 0 record in bw342 scope review reflects that time. Preserve bw341 prototype failure/IRQ context/non-resumable abort/CPU-only halt as diagnostic history and do not mix with official passes.",
+    "bw343 one-time Astra reassessment: Goal/v3 denominator retained. First-screen checklist includes API caller diagnostics and is not natural boot completion rate. Per-condition minimum scenarios and unresolved inputs are distinguished in docs/emulator-roadmap.md.",
+    "bw344: native content three captures/69 judgments, semantic negatives 12/source rejections 27/isolated dispatch 3. Callback return is not render invocation; M3/M4 partial, checklist 2/6, overall 3/16 retained. New observation recipe excludes broad memcpy hook; no exact equivalence to unobserved execution claimed.",
+    "bw345: M4 original renderer invocation complete → API-inclusive checklist 3/6=50.0%. M3 frame preparation/M5/M6 pixels and reproduction incomplete, overall 3/16 retained. JBD status 5a01/9001/5a00 are explicit virtual inputs, not physical initial values. Native normal 3/failure 2; model 68/TX 45; source 1554; semantic negatives 15; one component changed/main unchanged.",
+    "bw346: native normal 3/stuck-off 1, existing baseline 3, mutation 15, unit 189. Two model components/main unchanged; API caller insertion and observation differences declared. Original Nema code corrected the assumption that startup order is required at runtime. Pending ring packet 24 words was not consumed by GPU; overall 3/16/checklist 3/6 retained.",
+    "bw346 resumed: same-model native 3 confirmed first L8 clear 165888 pixels, completion ID 1, IRQ assert/ack 1, second draw/submit, epoch 2. Saved audit baseline 3/negative 3/C# consumer 252, main unchanged. Second 108 words rejected before side effects as unsupported. M5 partial, M6 pending, overall 3/16/checklist 3/6 retained. Natural main IMU 02ae/API insertion boundary unchanged.",
+    "bw346 shape stream resumed: same model across three originals gave 11 lists/834 words/106 draws, completion/IRQ assert/ack 11, epoch 12, screen capture 684 nonzero pixels/nine components, bytes match actual guest RAM. Next 252-word 0x120 unsupported; full UI/frame wrapper/natural main incomplete. M5 partial, overall 3/16, auxiliary 3/6 retained. CFW01 excluded for insufficient space → CFW02 passed after independent APFS clone/hash-preserving recovery. See gpu-native-shape-stream.md.",
+    "bw346 quad checkpoint: explicit area-reference native 3 produced 14 lists/1484 words/142 draws, completion/IRQ assert/ack 12, last ID 3; strict native 1 retained prior quad rejection. Verified 16 original AA combinations each/quad 18 words, batch-ID increment evidence, mathematical coverage/atomic negatives, saved audit 3/negative 4/public CLI/progress 14. Physical MSAA/observer neutrality/full frame/natural main false; M5 partial, 3/16/3/6 retained. Next verify suspected 102-word display-buffer conversion contract.",
+    "bw346 packing source checkpoint: auxiliary original ARM 3, 102 words exact; size/address 9, odd 3, input rejection 9. Original blend compiler TEX2/FORCE_A contract confirmed. GPU execution/model changes/new native 0; sampling/nibble/quantization unknown; natural main/full UI incomplete; 3/16/3/6 retained.",
+    "bw346 sampling research: verified pinned official ST commit tree and four file Git blobs/SHAs, rendered and inspected four PDF pages/bit diagrams, reused three native packets, eight distinguishing hypotheses. VG1000/Apollo bit 29 representation difference preserved unverified. GPU model/new native/hardware changes 0; overall 3/16/auxiliary 3/6 retained.",
+    "bw349 independent source investigation: calibration 126 + CFW guard 252 + setter prefix 45 = 423 scenarios and three frozen reports byte-identical. First 41 fields/153 bytes preserved, four derived writes, ODR 0/ff errors observed. Bus ABI stubs/synthetic input explicit; model/native changes 0; overall 3/16/auxiliary 3/6 retained. GPU reference profile design awaited user confirmation; implementation not executed.",
+    "bw349 full setter: beyond earlier 423 original scenarios, 51+24 source scenarios matched frozen reports. TDKit GAF 41 fields/153-byte addresses, widths, and C structure offsets match three originals; 41 public default values obtained. Calmag public 189/original 125 difference preserved; original main/model changes 0; 3/16/3/6 retained. GPU reference mode held as optional proposal; strict retained.",
+    "bw350: connected source-derived GAF getter opt-in. Verified three originals' natural main 41 fields/153 bytes, caller PDR 20000/mag 40000, next 0774 first write. Off CPU/full events exact; sources identical except one IMU component. Native 3/off 1/audit 4; buffer/call/descriptor 3; negatives 9/padding 3; unit/frozen 2108; planner 4. Initial observer red/nonexistent class red/stock24 provisional boundary failure/Thumb LR audit failure preserved then corrected. Physical ROM/fusion/full startup/UI incomplete; 3/16/3/6 retained.",
+    "bw352 latest Astra review: active Goal/ALIGNS/v3 aligned; 16 conditions/evidence pins retained. Next full-condition completion yields 4/16=25.0%, 6.25 percentage points per condition. No increase for substeps/new scores. E11–14 detailed inputs unresolved. Model ordering constraints distinguished from general new-CFW support. docs/emulator-current-scope-audit.md",
+    "bw351 partial: current model unit 2221; native 3/off 1; saved checks 3/source-component comparisons 3; off CPU/full events exact. Strict stop at A2A2 read after original 56-byte mag-bias storage. Original code corrected previous clock-write assumption and write support was removed. GAF setter/service incomplete; task deferred pending provenance of subsequent values. Overall 3/16/3/6 retained. docs/imu-gaf-bias-storage.md",
+    "bw353: confirmed TDK pinned LE/BE SW_PLL1_TRIM 8-bit; physical/reset value remains unknown. Explicit raw 0x85 → three originals' setter total 225 bytes/first request 7c000402. Off CPU/full events exact; main/sources outside IMU identical; source 45 transactions/169 bytes and full history 225/original three buffers compared; unit 4017/runner 13/parser 4/frozen checks byte-identical. Service completion/fusion/natural UI incomplete; bw351 deferred; overall 3/16/3/6 retained. docs/imu-clock-variation-contract.md",
+    "bw354: three originals isolated M7/I/O ABI helper 132; existing timeout 200000 × 3/image hashes reused; corrected assumption of additional 5 µs after sleep error; frozen results identical. Model changes/new native 0. Ready-only is not normal GAF effect; distinguish request/completion/calculation effects. Overall 3/16/3/6 retained. docs/imu-gaf-service-contract.md",
+    "bw356: E04 pending → done, no denominator/acceptance change. Verified raw input path of test candidate with new hash and 16-byte increase, not CFW user-feature development/physical installation. Overall 4/16=25%; API checklist 3/6 retained. Earlier 3/16 figures belong to their checkpoints.",
+    "bw357: WHOAMI failure is not NACK. Original driver status FFFFFFFF/Reset 0/INT1 read-write 1/EDMP writes 6 → initial indirect unsupported. Normal 81 control matches existing GAF 225 bytes, CPU/full SRAM/existing event projection exactly. Whole-observer neutrality, upper-wrapper error concealment, and app startup unverified. Single-condition fix and explicit-register prerequisite access 5042 checks; three originals 29 tasks sensor_hub; audit 4/frozen match. E05/E12 partial, 4/16/3/6 retained.",
+    "bw358: initial ready is explicit virtual assumption, not physical power-on verification. TDK transport two file blobs/SHAs and 4 µs procedure confirmed. Default unknown and soft-reset/partial-restore rejection retained. Three original drivers return FFFFFFFF, but 225-byte configuration and GAF caller local R4=0 are separate state. Bound root/setter/helper LR/request/active SP. Native 5/audit 5; 5051/runner 13/parser 2; frozen identical. Upper return/app/UI incomplete; bw351/357 deferred; 4/16/3/6 retained.",
+    "bw360: optional IOM4 address-phase NAK/IOCLKON storage; original HAL 36 and existing 804 reports byte-identical; direct 17/default 82/runner 13. Three natural originals CMD1504 NAK → 7ca272 strict; audit 4. First control host diagnostic MMIO read increased by one, failure preserved → readonly-property diagnostic control 02 CPU/full events/full SRAM exact. Final model differs from fault 3 by one property line; fault 3 was not rerun on final model. Upper return/app/GAF calculation unreached, deferred; 4/16 retained.",
+    "bw361: MasterDisplay reply 2 → prior request app/payload → actual UI queue/ring in three originals, isolated 51/frozen report identical/existing activation 81/display 72 reports identical/CLI negatives 2. Current context listeners 0/1/4, no display reply callback. Synthetic callback context; final free, normal request production, wire/native/app unverified. Next pin source feed/byte parser/dispatcher call sites; model changes 0; 4/16 retained.",
+    "bw362: original allocator/correlation record creation, independent CRC matching original TX frame, receive/parser/callback/original free/queue/ring normal 27, frozen identical. Nine same-ID different-channel accepted; 45 error cases reach Timer14 read 400083c0 boundary (not complete successful processing). Existing 51/81/72 reports identical/CLI 3. Additional TX probe confirmed UART0.DCR 40039048 write/SVD pin. Original model/native changes 0; actual transport/GAF/natural app incomplete; 4/16 retained.",
+    "bw363: three originals transmit/CRC native 6/108 judgments; one DMA additional frame/IRQ each, SensorThread/stack return, initial IRQ 0, main/model/initial inputs unchanged. CRC branch 1, return through TIMER14, parser 0/UI 0/wait preserved. Saved audit 6/frozen exact; integrity 3/CLI 3/synthetic semantic negatives 3. First-output parent omission preflight and two node-lookup assumption failures preserved → fixed to actual guard.Uarts[0].DmaTx. API caller/actual RX device and task/full peer failure/GAF/natural app incomplete; 4/16 retained.",
+    "bw384: denominator 16/acceptance unchanged. Only E07 completed through three originals' actual kvTime storage/new-process reread and neighbor preservation; overall 6/16=37.5%. Subsequent CPDLPSTATE 22 strict stop; E05/E06/E08 incomplete/API 3/6 retained. Host checkpoint is not physical durability or interrupted-write recovery evidence. No Astra/physical access."
+  ],
+  "change_history": [
+    {
+      "version": 1,
+      "summary": "Registered draft of 30 conditions for full scope.",
+      "snapshot": "docs/project-scope-v1.json"
+    },
+    {
+      "version": 2,
+      "summary": "Separated operational D6 from product progress; no product condition deleted.",
+      "previous_delivery_ratio": "13/30",
+      "current_delivery_ratio": "13/29",
+      "reason": "Independent review noted management work alone could increase product progress."
+    },
+    {
+      "version": 3,
+      "at": "2026-11-13T05:44:07.872995+00:00",
+      "reason": "User requested narrowing the goal to a G2 hardware emulator for CFW testing instead of CFW development/web installation. Applied 16 acceptance conditions and independent current stage from one-time Astra review.",
+      "previous_scope": "docs/project-scope-v2.json",
+      "previous_completed": 13,
+      "previous_total": 29,
+      "new_completed": 3,
+      "new_total": 16,
+      "progress_comparable": false
+    }
+  ],
+  "evidence_updates": [
+    {
+      "at": "2026-11-13T07:18:51.608944+00:00",
+      "task": "bw-0341",
+      "reason": "Verified three originals' UI API positives and other-type controls on actual M55/original RTOS task, completing M2. M3/M4 cover activation preparation/task resume partially; first frame/full main incomplete.",
+      "changes": {
+        "M2": [
+          "partial",
+          "done"
+        ],
+        "M3": [
+          "pending",
+          "partial"
+        ],
+        "M4": [
+          "pending",
+          "partial"
+        ]
+      },
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 3,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T07:25:36.682499+00:00",
+      "task": "bw-0341",
+      "reason": "Additionally verified public CLI positive runs for stock23/CFW, covering all supported cases. Reused existing six captures/12 negatives by hash without rerunning identical inputs and added two captures. Updated M2 evidence manifest 02.",
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 3,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T09:29:25.874000+00:00",
+      "task": "bw-0346",
+      "reason": "Confirmed actual guest ring/list consumption and first clear/completion IRQ in API diagnostics, but subsequent 108 words/full UI frame incomplete, so only M5 partial recorded.",
+      "changes": {
+        "M5": [
+          "pending",
+          "partial"
+        ]
+      },
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 3,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T13:14:00.861840+00:00",
+      "task": "bw-0356",
+      "reason": "Retained existing E04 condition while verifying new raw candidate declaration/vector/anchor checks, same-runner execution, guest extra bytes, existing-image controls, and saved audit. CFW features/E15/UI incomplete.",
+      "changes": {
+        "E04": [
+          "pending",
+          "done"
+        ]
+      },
+      "scope_version_unchanged": 3,
+      "overall_completed": 4,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T19:12:35.142914+00:00",
+      "task": "bw-0375",
+      "reason": "Verified pinned 20-second budget, peer roles/waiting output, three originals' device ATT → actual app/RTC return, permission failure, default off, and final saved/tamper audits. Completes local time-setting scenario under unchanged E13 acceptance; natural initialization/full UI/opposite-side delivery incomplete.",
+      "changes": {
+        "E13": [
+          "partial",
+          "done"
+        ]
+      },
+      "scope_version_unchanged": 3,
+      "overall_completed": 5,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T22:39:10.214686+00:00",
+      "task": "bw-0384",
+      "reason": "Verified three originals' actual virtual NOR commit and kvTime reread by new-process original main, preserving neighbors/original. Subsequent boot unsupported stop preserved.",
+      "changes": {
+        "E07": [
+          "partial",
+          "done"
+        ]
+      },
+      "scope_version_unchanged": 3,
+      "overall_completed": 6,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T22:47:58.348612+00:00",
+      "task": "bw-0385",
+      "reason": "Established assessment contract from corrupt-NOR reset observations and original reload policy so success return 0 is not treated as recovery success. E08 not complete.",
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 6,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T22:56:39.204056+00:00",
+      "task": "bw-0386",
+      "reason": "Verified prior-record selection by new main preserving only completed NOR with original program 6 pending. Atomic-completion model, one stock 2.4 boundary. Full recovery/E08 not complete.",
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 6,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T23:01:21.113938+00:00",
+      "task": "bw-0387",
+      "reason": "Verified original restart selection transition before/after one-byte new-state commit with same payload/prior state. Full E08/natural app recovery not complete.",
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 6,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T23:08:49.856276+00:00",
+      "task": "bw-0388",
+      "reason": "Established layer in 21 actual ARM cases across three originals where NOR error is lost as FAL 0 bytes/FlashDB success 0. Synthetic peripheral ABI/full main recovery unverified.",
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 6,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T23:27:44.099732+00:00",
+      "task": "bw-0389",
+      "reason": "Explicitly injected first-program completion hold into virtual NOR and verified actual original main error-loss chain, unwritten backing, and new-reset read. Legacy 02ae profile gap resolved by pinned GAF integration; subsequent service strict retained.",
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 6,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T23:34:30.179326+00:00",
+      "task": "bw-0390",
+      "reason": "Verified callback/alignment/round-up/timeout/FAL return in 33 original erase-control-flow cases across three images. Synthetic peripheral ABI/backing/natural main recovery unverified.",
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 6,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-13T23:54:55.994374+00:00",
+      "task": "bw-0391",
+      "reason": "Verified actual original return/preservation on first nonzero NOR erase timeout and new-process normal formatter control. Normal observer SRAM 270-byte discrepancy retained; not user-data/full-boot recovery.",
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 6,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-14T00:08:15.319185+00:00",
+      "task": "bw-0392",
+      "reason": "Established actual version log/expected 3 for first kvTime byte; verified 108 isolated cases across three originals and three native initial loads of valid future version 4. Full migration/compatibility/recovery not complete.",
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 6,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-14T00:26:58.400897+00:00",
+      "task": "bw-0393",
+      "reason": "Completed controls for three originals' actual program-timeout return, unchanged NOR, and old-value read by new CPU. Peer diagnostic-omission prototype preserved then pinned diagnostic source connected; final three-image identical audit 88.",
+      "scope_version_unchanged": 3,
+      "overall_completed_unchanged": 6,
+      "overall_total_unchanged": 16
+    },
+    {
+      "task": "bw-0394",
+      "summary": "bw394: audit 124 of three originals' erase failure/nonzero NOR preservation/new formatter results. Faceclaw fault observer SRAM 35-byte difference retained as false; stock24 normal 270-byte difference retained. E08 partial pending full pinned-scenario completion audit.",
+      "document": "docs/peer-boot-nor-erase-timeout.md"
+    },
+    {
+      "task": "bw-0395",
+      "at": "2026-11-14T00:44:58.787476+00:00",
+      "summary": "Completed audit of 13 pinned E08 existing-acceptance scenarios. New ARM 0/frozen exact; three negatives for missing/duplicate/false recovery. 6/16 → 7/16=43.75%. Observation discrepancies/app boot/physical recovery limits preserved. Other 15 conditions/API checklist unchanged.",
+      "document": "docs/storage-failure-acceptance.md"
+    },
+    {
+      "task": "bw-0397",
+      "summary": "Separate frozen-core fault model unit 64/frozen values match (raw key-order difference). Actual stock request 2/busy 1643; distinguish host limit/original timeout; unreached semantic false/deferred. Integration 2 (one preliminary/one bounded), calculation 0; three shared sources/unchanged outside IMU. Next actual bottleneck profile. Progress/conditions unchanged.",
+      "document": "docs/gaf-frozen-core-fault.md"
+    },
+    {
+      "task": "bw-0398",
+      "summary": "Separated management stack and CPU thread during actual original busy 15 seconds; native breakpoint add/remove 87.14% of thread time, three-PC hook actual-increase control. Native 3 (one preliminary/one profile/one counter); default model/guards unchanged; no performance improvement adopted or speedup claimed. Next selectively disable owned callbacks and compare equivalence/repeats.",
+      "document": "docs/native-execution-bottleneck.md"
+    },
+    {
+      "task": "bw-0399",
+      "summary": "Implemented opt-in suspension of three owned observer callbacks, preserving other hooks at shared addresses; ARM 15/regression verification. Five pairs of original 500 ms runs: full SRAM/R0–15/instruction count exact; diagnostic clock −100 ns difference preserved. Five runs each without profiler: interval 17.82→1.77 seconds, total 61.12→45.94 seconds. Frozen audit exact/negatives 3/progress 14. Default profile/16 conditions unchanged; normal GAF/timeout/full boot unverified.",
+      "document": "docs/scoped-observer-suspension.md"
+    },
+    {
+      "task": "bw-0413",
+      "summary": "E14 wording/denominator retained; completed acceptance audit of nine pinned scenarios across three originals × disconnect/bad CRC/delay-timeout-reconnect. New firmware 0/source 4725 pins/frozen exact/coverage counterexamples 3/progress 14. Only E14 updated to done, yielding 8/16=50%; normal GAF/full app/API 3 of 6/physical/universal observer equivalence remain incomplete.",
+      "document": "docs/peer-failure-acceptance.md"
+    },
+    {
+      "task": "bw-0414",
+      "summary": "Reproduced BASEPRI cache reset defect in seven synthetic M55 reset conditions each and verified opt-in nonsecure NVIC fix. Guest ELF identical, missing-vector negative, saved audit 11/12, four tamper/misjudgment rejections, progress 14. Original G2 app post-reset return unverified; E06 partial, 8/16 retained.",
+      "document": "docs/system-reset-boundary-contract.md"
+    },
+    {
+      "task": "bw-0415",
+      "summary": "After actual stock 2.4 ATT consumption, confirmed external NVIC SYSRESETREQ → original vector 5fbe3e/SP 2007fb00 → 20 ms original initialization. Initial KV/NV NOR preserved; SRAM 204-byte/asynchronous 28.6 µs differences preserved; RTC reset to 2000. Subsequent 6.19 s CPDLPSTATE 22 strict stop; app return incomplete. Audit 17/25/counterexamples 3/progress 14. E06 partial, 8/16=50% unchanged.",
+      "document": "docs/original-main-system-reset.md"
+    },
+    {
+      "task": "bw-0416",
+      "summary": "Statically verified three originals' retention constants/packed ABI; stock 2.4 post-reset original 0x22 setter → return 44df60/stage 1/guard 0. Opt-in storage limited by PC/LR/stack; stops before deep-sleep preparation; entry/wake/app return unverified. Audit 26/unit 30/counterexamples 4/progress 14. Disk/Docker failure artifacts preserved; cache cleanup/same-byte APFS COW/1 GiB preparation guard. E05/E06 partial, 8/16 retained.",
+      "document": "docs/cpu-retention-staging-contract.md"
+    },
+    {
+      "task": "bw-0417",
+      "summary": "Stock 2.4 original execution reset → RET preparation → WFI/caller return → service reinitialization → new virtual connection/ATT → original RTC commit 1 reprocessing succeeded. Optional inactive TIMER13 channel/Cpd explicitly inactive Audio/qualified deep flush extensions; default core/engine unchanged. Subsequent 21.2058 ms Renode deep-sleep prefix + IRQ32 xPSR48 confirmed; full event overflow preserved; no physical wake causality/observer neutrality claimed. Native 6; initial 26 each/subsequent 13,15,16,15,17,22; unit 89/counterexamples 5/progress 14. Other originals/state lifecycle audit remain; E06 partial, 8/16=50% retained.",
+      "document": "docs/cpu-retention-preparation.md"
+    },
+    {
+      "task": "bw-0418",
+      "summary": "After stock 2.3/Faceclaw original ABI, BL arguments, WFI, flush, and vector verification, same shared model/observer class succeeded in reset → service reinitialization → new connection/ATT → RTC commit 1. Stock24 existing reused/two new native. Pinned-parent-specific input recipe separated; 16 regenerated stock24/stock23 files byte-exact; private Python works without wrapper. Audit 30/31/31; semantic counterexamples 5 + two original mismatches rejected; progress 14; existing unit 89 reused. All event-history overflow/asynchronous SRAM differences preserved; no physical verification. Post-reset memory protection/state lifecycle independent verification remains; E06 partial, 8/16=50% retained.",
+      "document": "docs/reset-restart-version-profiles.md"
+    },
+    {
+      "task": "bw-0436",
+      "criterion": "E15",
+      "previous_status": "partial",
+      "status": "done",
+      "reason": "Completed assessment under unchanged wording of intended ARM screen change/preservation/actual regression and model differences for six pinned three-original/new-candidate pairs.",
+      "document": "docs/firmware-comparison-acceptance.md",
+      "completed": 9,
+      "total": 16,
+      "exact_percent": 56.25
+    },
+    {
+      "task": "bw-0438",
+      "criterion": "E16",
+      "previous_status": "partial",
+      "status": "done",
+      "reason": "Existing wording/denominator retained. Verified pinned-profile one-command execution/report, new venv/asset restoration, missing guidance, and cleanup evidence. Full frame/natural main remain incomplete under E05/E09.",
+      "document": "docs/development-tools-acceptance.md",
+      "completed": 10,
+      "total": 16,
+      "exact_percent": 62.5
+    },
+    {
+      "at": "2026-11-15T03:38:53.461518+00:00",
+      "task": "bw-0479",
+      "reason": "Following user approval of screen-first order, preserved strict and used explicit functional devices to obtain and visually inspect stock24 original reset → touch/UI/glyph/submit/packing-completed 576×288 dashboard. Audited main/model/prefix/CPU control, fault 0, and rejected three semantic negatives. E09 and M5 complete. Full boot/continuous frames/other originals/physical incomplete.",
+      "changes": {
+        "E09": [
+          "partial",
+          "done"
+        ],
+        "M5": [
+          "partial",
+          "done"
+        ],
+        "M6": [
+          "pending",
+          "partial"
+        ]
+      },
+      "scope_version_unchanged": 3,
+      "overall_completed": 11,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-15T04:02:12.580576+00:00",
+      "task": "bw-0480",
+      "reason": "Verified 100.695 ms after first screen, five original completed frames, fade-in, zero missing, sleep/wake present, fault 0, and unchanged model/original/first screen using schema2 semantic evaluation and independent saved audit. Rejected three sequence/identical-frame/time negatives. E10/M6 complete; E05 three originals/long duration, reset/sensor samples, and physical incomplete.",
+      "changes": {
+        "E10": [
+          "pending",
+          "done"
+        ],
+        "M6": [
+          "partial",
+          "done"
+        ]
+      },
+      "scope_version_unchanged": 3,
+      "overall_completed": 12,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-15T06:45:32.799842+00:00",
+      "task": "bw-0486",
+      "reason": "Obtained stock24 additional-touch UI/screen and no-input control. Other firmware/ring incomplete, so E11 partial retained and only current evidence/next work updated.",
+      "changes": {
+        "E11": [
+          "partial",
+          "partial"
+        ]
+      },
+      "scope_version_unchanged": 3,
+      "overall_completed": 14,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-15T06:54:13.894157+00:00",
+      "task": "bw-0487",
+      "reason": "Completed additional-touch UI/screen and respective no-input controls for three originals. Ring subsequent UI effect incomplete; E11 partial/denominator 16 retained.",
+      "changes": {
+        "E11": [
+          "partial",
+          "partial"
+        ]
+      },
+      "scope_version_unchanged": 3,
+      "overall_completed": 14,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-15T07:31:22.213892+00:00",
+      "task": "bw-0488",
+      "reason": "Three originals' ring relay/original task/108/ACK/app state → UI callback return; first 576x288 and 100 ms subsequent frames 3→7. Same initial CPU/time/SRAM/model one-second no-input yielded UI/frame 0. Independent E11 audit passed with existing three touch scroll/controls; 23 modules frozen/nine semantic negatives/three partial cases rejected. Denominator 16 and v1 acceptance wording retained.",
+      "changes": {
+        "E11": [
+          "partial",
+          "done"
+        ]
+      },
+      "scope_version_unchanged": 3,
+      "overall_completed": 15,
+      "overall_total_unchanged": 16
+    },
+    {
+      "at": "2026-11-15T08:26:21.833371+00:00",
+      "task": "bw-0489",
+      "reason": "Three originals' normal main gate 1/FIFO ready: 10 device samples → IRQ → natural sensor_hub Thread consumption/IRQ clear and subsequent UI. Each case's 2252-byte ring matched independent math and 80-byte codec separate original ARM exactly; each 100 ms no-input preserved ring. Source/calibration follow-on matrix verification/frozen audit byte-exact; nine semantic negatives/two partial cases rejected. E12 complete/denominator 16 retained. Goal-completion final audit not executed.",
+      "changes": {
+        "E12": [
+          "partial",
+          "done"
+        ]
+      },
+      "scope_version_unchanged": 3,
+      "overall_completed": 16,
+      "overall_total_unchanged": 16
+    }
+  ]
+}

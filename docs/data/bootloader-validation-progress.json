@@ -1,0 +1,231 @@
+{
+  "scope_version": "bootloader-validation-v1",
+  "objective": "Verify bootloader-only scenarios, recovery patch integration, virtual MRAM failures, and stock restoration.",
+  "criteria": [
+    {
+      "id": "BV01",
+      "phase": 1,
+      "description": "Automate pinned assets/scenarios, noninterference with original runtime, result classification, and negative tests.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/boot-validation-audit-bw554-01/report.json"
+      ],
+      "finding": "Boot runner 8/original runner 14; final six native runs, audit 55.",
+      "reviewed": true
+    },
+    {
+      "id": "BV02",
+      "phase": 1,
+      "description": "Confirm actual original boot selection paths and termination/rejection for clear, pending, and corrupt markers.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/boot-validation-audit-bw554-01/report.json",
+        "private:simulator/rom-power-followup-bw556-01/report.json",
+        "docs/pending-boot-rom-request.md",
+        "private:simulator/pending-rom-request-audit-bw572-02/report.json",
+        "docs/pending-metadata-cycle-results.md",
+        "private:simulator/pending-metadata-cycle-audit-bw573-03/report.json"
+      ],
+      "finding": "Nine runs covering original clear/corrupt marker branches and pending success/ROM error/0- or 1-word interruption/stuck under the declared 16-byte virtual ROM. Confirmed pending/cleared/main selection on new original reset from original SWPOR store → actual metadata result. Even clearing one word enters main; ROM errors twice leave pending/POR repeating. Actual ROM/POR propagation and valid full OTA installation unverified; default guards unchanged; audit 105 after cleanup.",
+      "reviewed": true
+    },
+    {
+      "id": "BV03",
+      "phase": 1,
+      "description": "Distinguish actual boot handling of invalid main SP/reset/range from faults and unsupported boundaries.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/boot-validation-audit-bw554-01/report.json",
+        "docs/boot-vector-and-restore-boundaries.md",
+        "private:simulator/boot-sp-audit-bw560-01/report.json"
+      ],
+      "finding": "Nine isolated ARM cases for original SP bit-29 predicate; two native cases (exact reject branch/invalid-address SP handoff); original handling/model boundaries classified using existing reset faults. This is not a claim that all vectors are safely rejected.",
+      "reviewed": true
+    },
+    {
+      "id": "BV04",
+      "phase": 2,
+      "description": "Confirm natural path from research patched boot reset through worker/main.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/boot-validation-audit-bw554-01/report.json",
+        "docs/b0-power-recovery-results.md",
+        "private:simulator/b0-power-recovery-audit-bw576-02/report.json"
+      ],
+      "finding": "Existing fallback preserved. Synthetic B0/trim1 original patched reset → manager → worker/HELO → main natural path and hash/guard/observation audit 39 complete. Not physical revision/analog calibration certification.",
+      "reviewed": true
+    },
+    {
+      "id": "BV05",
+      "phase": 2,
+      "description": "Actual same-board UART2 authentication, invalid authentication, timeout and retry handling.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/boot-validation-audit-bw554-01/report.json",
+        "docs/bootloader-upstream-trim-review.md",
+        "private:simulator/callback-ownership-audit-bw557-01/report.json",
+        "docs/recovery-info1-contract-results.md",
+        "docs/b0-power-recovery-results.md",
+        "docs/same-board-uart2-auth-results.md",
+        "docs/boot-retention-auth-results.md",
+        "docs/dwt-auth-main-results.md",
+        "private:simulator/dwt-auth-main-audit-bw579-02/report.json"
+      ],
+      "finding": "Final six native runs confirmed original reset → UART2 FIFO → normal/error/no-input/normal after wrong/normal after partial timeout authentication → main on the same synthetic B0/trim1 board. Original HMAC/session/receive hash, actual OKAY and RLSD, watchdog kick/mismatch rejection, DWT restore, and IOM7 cleanup. DWT 10 MHz, virtual initially running PMIC and ignored 2-byte mock explicitly declared; default unknown rejection retained; audit 104. Not physical compatibility.",
+      "reviewed": true
+    },
+    {
+      "id": "BV06",
+      "phase": 2,
+      "description": "Same-board recovery command completion → natural main entry and original control.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/boot-validation-audit-bw554-01/report.json",
+        "docs/bootloader-upstream-trim-review.md",
+        "private:simulator/callback-ownership-audit-bw557-01/report.json",
+        "docs/recovery-info1-contract-results.md",
+        "docs/b0-power-recovery-results.md",
+        "docs/same-board-uart2-auth-results.md",
+        "docs/boot-retention-auth-results.md",
+        "docs/dwt-auth-main-results.md",
+        "docs/recovery-load-boundaries.md",
+        "private:simulator/recovery-load-audit-bw580-03/report.json",
+        "docs/bounded-recovery-execution-results.md",
+        "private:simulator/bounded-recovery-audit-bw581-02/report.json",
+        "docs/same-board-mram-recovery-results.md",
+        "private:simulator/same-board-mram-audit-bw582-02/report.json",
+        "private:simulator/same-board-mram-audit-bw582-03/report.json"
+      ],
+      "finding": "Same-board original UART LOAD264/RUN/API3 recv → stock 2.3 MRAM function → explicit 16-byte ROM model → original readback/progress/RESULT/CONT-RLSD/main. Two corrupt 16-byte restorations; full main hash matches original; stock boot entry-context control under same model; ROM 7/0 bytes/original 08000107/main. C# 41/host 9/independent 71 plus reaudit 71. Distinct from prior readonly diagnostic; not actual Boot ROM/physical certification.",
+      "reviewed": true
+    },
+    {
+      "id": "BV07",
+      "phase": 3,
+      "description": "Verify explicit virtual contract and original calls for MRAM request/alignment/permissions and success/failure.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/mram-interruption-bw555-01/audit-and-cleanup.json"
+      ],
+      "finding": "Original M55 wrapper/ABI for explicit 512-byte main body, virtual ROM success/failure, nine new native runs. Actual ROM permissions unverified.",
+      "reviewed": true
+    },
+    {
+      "id": "BV08",
+      "phase": 3,
+      "description": "Verify changed bytes at each update interruption point and boot selection after a new reset.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/mram-interruption-bw555-01/audit-and-cleanup.json",
+        "docs/full-main-restore-results.md",
+        "private:simulator/restore-interruption-reset-bw565-01/report.json",
+        "private:simulator/full-main-restore-audit-bw564-03/report.json",
+        "private:simulator/full-main-restore-audit-bw564-05/report.json"
+      ],
+      "finding": "Original ARM full-main writer interrupted at 0/4/64/68 words → actual MRAM transfer → new boot reset SP rejection branch in four cases. One case retaining valid vectors handed off/entered main despite incomplete main; risk documented. Subsequent CPD idle unsupported; not physical power accuracy.",
+      "reviewed": true
+    },
+    {
+      "id": "BV09",
+      "phase": 3,
+      "description": "Protect boot/metadata/neighbors during failure/interruption and reject invalid writes.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/mram-interruption-bw555-01/audit-and-cleanup.json",
+        "docs/boot-vector-and-restore-boundaries.md",
+        "private:simulator/mram-boundary-replay-bw561-01/audit.json",
+        "private:simulator/direct-mram-store-bw563-01/report.json",
+        "docs/mram-direct-store-protection.md",
+        "private:simulator/protected-mram-replay-bw563-01/audit-and-cleanup.json"
+      ],
+      "finding": "M55 direct store added to Program API 23/atomic 8 found four changed bytes due to a post-hook defect. After blocking executable I/O write boundary, all MRAM remained unchanged for STR four targets plus STRB/STRH two; four existing actual ARM regressions passed. Declared virtual policy complete; not silicon permissions.",
+      "reviewed": true
+    },
+    {
+      "id": "BV10",
+      "phase": 4,
+      "description": "Virtual stock application restoration, full main hash, and natural reboot.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/mram-interruption-bw555-01/audit-and-cleanup.json",
+        "docs/full-main-restore-results.md",
+        "private:simulator/full-main-restore-bw564-02/report.json",
+        "private:simulator/full-main-restored-screen-bw564-02/report.json",
+        "private:simulator/full-main-restore-audit-bw564-03/report.json",
+        "private:simulator/full-main-restore-audit-bw564-05/report.json"
+      ],
+      "finding": "Stock 2.4 full main 3700068-byte SHA; original M55 writer body/vector-last → actual MRAM → patched boot reset → stock main → 576x288 guest frame. Succeeded with initially cleared FFFFFFFF profile; marker 0 preserved at ROM power boundary. Not physical or same-board authentication integration.",
+      "reviewed": true
+    },
+    {
+      "id": "BV11",
+      "phase": 4,
+      "description": "Virtual full-stock restoration, hashes of all changed persistent components, and reboot.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/mram-interruption-bw555-01/audit-and-cleanup.json",
+        "docs/boot-vector-and-restore-boundaries.md",
+        "private:simulator/stock-restore-extents-bw562-01/report.json",
+        "docs/boot-self-restore-results.md",
+        "private:simulator/boot-self-restore-bw567-01/report.json",
+        "private:simulator/boot-self-restore-audit-bw567-02/report.json",
+        "docs/upstream-independent-restore-review.md",
+        "private:simulator/upstream-independent-restore-bw568-01/gate-report.json",
+        "docs/stock-main-mram-probe-results.md",
+        "private:simulator/stock-main-mram-audit-bw569-03/report.json",
+        "docs/stock-main-ota-callback-results.md",
+        "private:simulator/stock-main-callback-audit-bw570-03/report.json",
+        "docs/main-driven-boot-restore-results.md",
+        "private:simulator/main-driven-boot-audit-bw571-02/report.json"
+      ],
+      "finding": "In virtual original 4 MiB, main retained from existing ARM restoration output. Original main callback 39 pages/OTA verifier 39 runs restored full 159744-byte boot; full 4 MiB SHA 8e0e4761 matched → new stock boot reset/main/576×288 frame succeeded. Existing resident self-overwrite failure preserved. Zero tail is synthetic original; ROM functional model/diagnostic caller, not natural OTA/physical/full-ROM certification. Audit 89 after independent cleanup; default 4 KiB normal/ROM error regressions.",
+      "reviewed": true
+    },
+    {
+      "id": "BV12",
+      "phase": 4,
+      "description": "Version-specific boot/main/recovery combination table, repetition, and rejection of unsupported combinations.",
+      "status": "done",
+      "evidence": [
+        "docs/bootloader-validation-results.md",
+        "private:simulator/mram-interruption-bw555-01/audit-and-cleanup.json",
+        "docs/bootloader-upstream-trim-review.md",
+        "docs/bootloader-compatibility-results.md",
+        "docs/bootloader-validation-matrix.json",
+        "private:simulator/bootloader-matrix-audit-bw574-03/report.json",
+        "private:simulator/bootloader-matrix-audit-bw574-05/report.json",
+        "docs/bootloader-additional-profile-evidence.json",
+        "docs/bootloader-final-acceptance.md"
+      ],
+      "finding": "Ten pinned artifacts/nine combinations; per-task machine-readable table and actual bytes gate. Of 24 boot/main pairs × seven tasks = 168 decisions, only eight verified allowed/160 rejected; source-only/unknown/physical rejected. Existing 2.3/2.4 recovery/writer/key pairing reused; cross-combinations rejected. Supported 2.4 virtual full-stock fresh 39-page restoration/original verifier/full 4 MiB/new stock boot-frame repeat matched. Other-version restoration/physical/certification remain unverified and are not allowed.",
+      "reviewed": true
+    }
+  ],
+  "completed": 12,
+  "total": 12,
+  "percent": 100.0,
+  "hardware_accessed": false,
+  "notes": [
+    "Separate from existing original boot → screen 8/8.",
+    "Distinguish models, isolated ARM, and natural integration.",
+    "Excludes actual Boot ROM/physical recovery safety certification."
+  ],
+  "reviewed": 12,
+  "status": "complete",
+  "next": "Approved bootloader verification items 1–4 complete. Do not automatically start additional scope, physical work, or precise original Boot ROM reproduction; discuss the next goal.",
+  "final_audit": [
+    "private:simulator/bootloader-final-audit-bw583-03/report.json",
+    "private:simulator/bootloader-final-audit-bw583-04/report.json"
+  ]
+}

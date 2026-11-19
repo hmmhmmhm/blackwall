@@ -1,0 +1,663 @@
+{
+  "schema": 2,
+  "id": "gpio-unchanged-writes-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "touch-gpio-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "bounded-unchanged-output-writes",
+      "baseline": "gpio-unchanged-research-01/base-core.cs",
+      "candidate": "tools/renode-strict-mmio.cs",
+      "before_sha256": "049b404ec2a3b978ee201b5c0c3eb0acdf961a2f798e0384b8f2eb3c0ca4ccf7",
+      "after_sha256": "ef7e60c09e4274ce020e61f5de11eb1935eebcf207604f027480eb47e3b2662c"
+    }
+  ],
+  "append_components": [],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    gpioOutputLatch: true\n",
+      "after": "    gpioOutputLatch: true\n    gpioOutputIdempotentWrites: true\n"
+    }
+  ],
+  "board_append": "",
+  "host_capture_seconds": 45,
+  "assumptions": {
+    "latch_initial_state": "existing source-diagram-zero hypothesis",
+    "unknown_pad": "not synthesized",
+    "rule": "unknown nonreserved output bits may only remain unchanged; potential changes still blocked",
+    "physical_output": "not modeled"
+  },
+  "diagnostics": "dict(selected=bool(g.GpioOutput.IdempotentUnconfiguredWrites),unchanged_writes=int(g.GpioOutput.UnconfiguredNoOpWrites),last_unchanged_mask=int(g.GpioOutput.LastNoOpMask),last_unchanged_group=int(g.GpioOutput.LastNoOpGroup),words=[int(v) for v in g.GpioOutput.Words],clear_writes=int(g.GpioOutput.ClearWrites),set_writes=int(g.GpioOutput.SetWrites),pin136_configured=bool(g.GpioConfig.Values.ContainsKey(0x40010220)),touch_reads=int(g.GpioRoleInput.TouchReads),role_reads=int(g.GpioRoleInput.Reads),tx_bytes=[int(v) for v in g.Uarts[0].TxBytes],irq_entries=int(g.Uarts[0].IrqExceptionEntries))",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4803960,
+          "address": 1073876996,
+          "operation": "write",
+          "width": 4,
+          "value": 3712
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq": 8
+          },
+          {
+            "path": [
+              "diagnostics",
+              "touch_reads"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "role_reads"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "diagnostics",
+              "selected"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "unchanged_writes"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_unchanged_mask"
+            ],
+            "eq": 536870912
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_unchanged_group"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "words"
+            ],
+            "eq": [
+              1536,
+              0,
+              0,
+              0,
+              2097216,
+              0,
+              0
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "pin136_configured"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "observed",
+              "gpio_config",
+              "values",
+              "0x40010220"
+            ],
+            "eq": 387
+          },
+          {
+            "path": [
+              "observed",
+              "gpio_config",
+              "values",
+              "0x40010174"
+            ],
+            "eq": 387
+          }
+        ],
+        "allowed_differences": [
+          "Candidate extends the baseline prefix after two unchanged output writes"
+        ],
+        "unresolved_differences": [
+          "Synthetic zero latch, touch response timing and physical pad behavior are not hardware validated"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4810476,
+          "address": 1073808488,
+          "operation": "write",
+          "width": 4,
+          "value": 256
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "selected_observation"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq": 8
+          },
+          {
+            "path": [
+              "diagnostics",
+              "touch_reads"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "role_reads"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "observed"
+            ],
+            "eq_source": [
+              "observed"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "selected"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "unchanged_writes"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "pin136_configured"
+            ],
+            "eq": false
+          }
+        ],
+        "allowed_differences": [],
+        "unresolved_differences": [
+          "Synthetic zero latch, touch response timing and physical pad behavior are not hardware validated"
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4755088,
+          "address": 1073876996,
+          "operation": "write",
+          "width": 4,
+          "value": 36480
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq": 8
+          },
+          {
+            "path": [
+              "diagnostics",
+              "touch_reads"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "role_reads"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "diagnostics",
+              "selected"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "unchanged_writes"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_unchanged_mask"
+            ],
+            "eq": 536870912
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_unchanged_group"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "words"
+            ],
+            "eq": [
+              1536,
+              0,
+              0,
+              0,
+              2097216,
+              0,
+              0
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "pin136_configured"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "observed",
+              "gpio_config",
+              "values",
+              "0x40010220"
+            ],
+            "eq": 387
+          },
+          {
+            "path": [
+              "observed",
+              "gpio_config",
+              "values",
+              "0x40010174"
+            ],
+            "eq": 387
+          }
+        ],
+        "allowed_differences": [
+          "Candidate extends the baseline prefix after two unchanged output writes"
+        ],
+        "unresolved_differences": [
+          "Synthetic zero latch, touch response timing and physical pad behavior are not hardware validated"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4761604,
+          "address": 1073808488,
+          "operation": "write",
+          "width": 4,
+          "value": 256
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "selected_observation"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq": 8
+          },
+          {
+            "path": [
+              "diagnostics",
+              "touch_reads"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "role_reads"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "observed"
+            ],
+            "eq_source": [
+              "observed"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "selected"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "unchanged_writes"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "pin136_configured"
+            ],
+            "eq": false
+          }
+        ],
+        "allowed_differences": [],
+        "unresolved_differences": [
+          "Synthetic zero latch, touch response timing and physical pad behavior are not hardware validated"
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4755088,
+          "address": 1073876996,
+          "operation": "write",
+          "width": 4,
+          "value": 3712
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq": 8
+          },
+          {
+            "path": [
+              "diagnostics",
+              "touch_reads"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "role_reads"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "diagnostics",
+              "selected"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "unchanged_writes"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_unchanged_mask"
+            ],
+            "eq": 536870912
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_unchanged_group"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "words"
+            ],
+            "eq": [
+              1536,
+              0,
+              0,
+              0,
+              2097216,
+              0,
+              0
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "pin136_configured"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "observed",
+              "gpio_config",
+              "values",
+              "0x40010220"
+            ],
+            "eq": 387
+          },
+          {
+            "path": [
+              "observed",
+              "gpio_config",
+              "values",
+              "0x40010174"
+            ],
+            "eq": 387
+          }
+        ],
+        "allowed_differences": [
+          "Candidate extends the baseline prefix after two unchanged output writes"
+        ],
+        "unresolved_differences": [
+          "Synthetic zero latch, touch response timing and physical pad behavior are not hardware validated"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4761604,
+          "address": 1073808488,
+          "operation": "write",
+          "width": 4,
+          "value": 256
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "selected_observation"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq": 8
+          },
+          {
+            "path": [
+              "diagnostics",
+              "touch_reads"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "role_reads"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "observed"
+            ],
+            "eq_source": [
+              "observed"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "selected"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "unchanged_writes"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "pin136_configured"
+            ],
+            "eq": false
+          }
+        ],
+        "allowed_differences": [],
+        "unresolved_differences": [
+          "Synthetic zero latch, touch response timing and physical pad behavior are not hardware validated"
+        ]
+      }
+    }
+  }
+}

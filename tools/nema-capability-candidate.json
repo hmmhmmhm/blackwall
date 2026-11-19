@@ -1,0 +1,258 @@
+{
+  "schema": 2,
+  "id": "nema-capability-snapshot-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "em9305-reset-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [],
+  "runtime_edits": [],
+  "board_edits": [],
+  "board_append": "",
+  "diagnostics": "dict(paused=bool(m.IsPaused),regions=[dict(base=a,words=[int(m.SystemBus.ReadDoubleWord(a+4*i)) for i in range(16)]) for a in [0x20005370,0x200076c8]])",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776698,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Post-pause read-only GPU capability SRAM snapshot"
+        ],
+        "unresolved_differences": [
+          "Modeled peripheral state, not physical GPU capability"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776698,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Post-pause read-only GPU capability SRAM snapshot"
+        ],
+        "unresolved_differences": [
+          "Modeled peripheral state, not physical GPU capability"
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Post-pause read-only GPU capability SRAM snapshot"
+        ],
+        "unresolved_differences": [
+          "Modeled peripheral state, not physical GPU capability"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Post-pause read-only GPU capability SRAM snapshot"
+        ],
+        "unresolved_differences": [
+          "Modeled peripheral state, not physical GPU capability"
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Post-pause read-only GPU capability SRAM snapshot"
+        ],
+        "unresolved_differences": [
+          "Modeled peripheral state, not physical GPU capability"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Post-pause read-only GPU capability SRAM snapshot"
+        ],
+        "unresolved_differences": [
+          "Modeled peripheral state, not physical GPU capability"
+        ]
+      }
+    }
+  }
+}

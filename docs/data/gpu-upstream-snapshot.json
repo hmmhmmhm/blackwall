@@ -1,0 +1,149 @@
+{
+  "scope": "research references, not firmware dependencies or proven GPU backends",
+  "repos": [
+    {
+      "repo": "AmbiqMicro/lv_port_ambiq",
+      "ref": "main-v9.3",
+      "commit": "be2dfdd522f7897c819c422d319d1ee3949fab95",
+      "role": "GPU API/platform integration reference",
+      "license_evidence": "MIT repository root and permissive Think Silicon source/header notices; archives not adopted as project dependencies"
+    },
+    {
+      "repo": "zephyrproject-rtos/hal_ambiq",
+      "ref": "61b293a49db34030c545f99101f7ebf6a3050314",
+      "commit": "61b293a49db34030c545f99101f7ebf6a3050314",
+      "role": "GPU register reference",
+      "license_evidence": "BSD-3-Clause HAL source"
+    },
+    {
+      "repo": "lvgl/lvgl",
+      "ref": "master",
+      "commit": "cff1c632206a267534102ee1065f51ac87be4099",
+      "role": "GPU API/platform integration reference",
+      "license_evidence": "MIT repository root and permissive Think Silicon source/header notices; archives not adopted as project dependencies"
+    },
+    {
+      "repo": "renode/renode-infrastructure",
+      "commit": "042a58285ee91453f99d31f19e8aa140102ec540",
+      "role": "candidate pixel conversion/blending source only; no Nema command decoder established",
+      "license_evidence": "MIT file headers"
+    }
+  ],
+  "files": [
+    {
+      "repo": "AmbiqMicro/lv_port_ambiq",
+      "commit": "be2dfdd522f7897c819c422d319d1ee3949fab95",
+      "path": "LICENSE",
+      "git_blob": "b5d698be20b4167a522078eab8117446d3068076",
+      "sha256": "a31c4ccb96efeeead5117fbb0178ad0d69503c4f2ac92fb9c6d7704f36dccc91"
+    },
+    {
+      "repo": "AmbiqMicro/lv_port_ambiq",
+      "commit": "be2dfdd522f7897c819c422d319d1ee3949fab95",
+      "path": "README.md",
+      "git_blob": "2f463fc2611e67e4340c5393ee1db04e331f3ab5",
+      "sha256": "677b9c9baea775a1ae807b5d140ba79b4004c59eee671ee6845fc0d9377ba13d"
+    },
+    {
+      "repo": "AmbiqMicro/lv_port_ambiq",
+      "commit": "be2dfdd522f7897c819c422d319d1ee3949fab95",
+      "path": "lvgl_ambiq_porting/NemaGFX_hal/apollo510_nemagfx/nema_hal.c",
+      "git_blob": "0a9f62e15139123f522c5127a74c2fb8f4c02e29",
+      "sha256": "de346d70d04fcc635652614701e6f7ea8d08be83e03508d10475e4666a68712c"
+    },
+    {
+      "repo": "AmbiqMicro/lv_port_ambiq",
+      "commit": "be2dfdd522f7897c819c422d319d1ee3949fab95",
+      "path": "lvgl_ambiq_porting/NemaGFX_hal/apollo510_nemagfx/nema_sys_defs.h",
+      "git_blob": "92cd417499607f5126bf4fa4cde8a75fe284277b",
+      "sha256": "8a93a1cfe1926ce056588389dd791f932e4b9828c9ba9a237364c919051c6f6d"
+    },
+    {
+      "repo": "zephyrproject-rtos/hal_ambiq",
+      "commit": "61b293a49db34030c545f99101f7ebf6a3050314",
+      "path": "docs/apollo510/pages/gpu_regs.html",
+      "git_blob": "585ff1e665601575ca847f01499f2d27f79143b3",
+      "sha256": "baf9354c0e017aca4c36f9c72313e4b4e7b50bb5f07ecf5a71e178597e777deb"
+    },
+    {
+      "repo": "lvgl/lvgl",
+      "commit": "cff1c632206a267534102ee1065f51ac87be4099",
+      "path": "libs/nema_gfx/include/cortex_m55_m7/nema_core.h",
+      "git_blob": "2cb73a17b8b79303d7b942ce7e8b144868bedf85",
+      "sha256": "74312d6770b3a8becb5b7dcbd1f4bc729a2d8c0129b9ef6a5018ac6ee3b20f5b"
+    },
+    {
+      "repo": "lvgl/lvgl",
+      "commit": "cff1c632206a267534102ee1065f51ac87be4099",
+      "path": "libs/nema_gfx/include/cortex_m55_m7/nema_sys_defs.h",
+      "git_blob": "0e48e528aef5ad38b81410e2add47f6c72334618",
+      "sha256": "793904b437eb61c8fb32a18a29e2aeccc5b3c66595bfd186745f06af89860eb6"
+    },
+    {
+      "repo": "lvgl/lvgl",
+      "commit": "cff1c632206a267534102ee1065f51ac87be4099",
+      "path": "libs/nema_gfx/include/cortex_m55_m7/nema_hal.h",
+      "git_blob": "c76ef0463afa3d73c2be662d89f3c59a33df15f9",
+      "sha256": "752ec40cd2f581c191ab531a88cc8c8064f9948a131375f8c3c79959e7d35265"
+    },
+    {
+      "repo": "lvgl/lvgl",
+      "commit": "cff1c632206a267534102ee1065f51ac87be4099",
+      "path": "libs/nema_gfx/include/cortex_m55_m7/nema_cmdlist.h",
+      "git_blob": "c55109c9e1f13aee4d391229f337ce6d0ef6cfa5",
+      "sha256": "ea582be2bd7f90d40256de52f6eb4276c785b352522f63c09ef5c45291f82edd"
+    },
+    {
+      "repo": "lvgl/lvgl",
+      "commit": "cff1c632206a267534102ee1065f51ac87be4099",
+      "path": "libs/nema_gfx/include/cortex_m55_m7/build_version.h",
+      "git_blob": "31a575f4cb32dc7a7bf3caaf0b146710601730bd",
+      "sha256": "06cdcdcb3fb02c1a3c720fbdd5c3f0065f09830bff454ed5c3d5221aa83f89fb"
+    },
+    {
+      "repo": "lvgl/lvgl",
+      "commit": "cff1c632206a267534102ee1065f51ac87be4099",
+      "path": "libs/nema_gfx/include/cortex_m55_m7/nema_version.h",
+      "git_blob": "76df02be5ddc189887e5e15e98bfac43b2b4fdb4",
+      "sha256": "c0b2ec7681603a6b9f4268f665f73e9ea3038cf9763dd94453412a40c8cce7b7"
+    },
+    {
+      "repo": "AmbiqMicro/lv_port_ambiq",
+      "commit": "be2dfdd522f7897c819c422d319d1ee3949fab95",
+      "path": "lvgl_ambiq_porting/NemaGFX_hal/apollo510_nemagfx/gcc/bin/lib_nema_apollo510_nemagfx.a",
+      "git_blob": "ae70df25b97dde071616e6de0704d8ebe91c8a17",
+      "sha256": "657c1a17eae351d33e8a29d3e9e1ff6c31907ebab942caa85fc52b5f358bf4ce"
+    },
+    {
+      "repo": "lvgl/lvgl",
+      "commit": "cff1c632206a267534102ee1065f51ac87be4099",
+      "path": "libs/nema_gfx/lib/core/cortex_m55/gcc/libnemagfx-float-abi-hard.a",
+      "git_blob": "f81abc3a3ae189c23f592f55af708f4dac70409c",
+      "sha256": "e0e63ac5b3dc038ab1ead3b9eeb6d3c03d66e305a7122cc6174db388081d4f45"
+    },
+    {
+      "repo": "lvgl/lvgl",
+      "commit": "cff1c632206a267534102ee1065f51ac87be4099",
+      "path": "LICENCE.txt",
+      "git_blob": "690d2dfd7e97ca8e06535a496761c5e81aece439",
+      "sha256": "27a80bd36832ab42d35ad60c08b2b230a807a9bc0d58e94ec1531543dc49cbe8"
+    },
+    {
+      "repo": "renode/renode-infrastructure",
+      "commit": "042a58285ee91453f99d31f19e8aa140102ec540",
+      "path": "src/Emulator/Peripherals/Peripherals/DMA/STM32DMA2D.cs",
+      "git_blob": "134b68939f302a7b847cd44ff64ca20d8a522723",
+      "sha256": "f0426fa41638e4d35982fbd6a094f36f6c6f4be2fb245f773f5fcebc108b954d"
+    },
+    {
+      "repo": "renode/renode-infrastructure",
+      "commit": "042a58285ee91453f99d31f19e8aa140102ec540",
+      "path": "src/Emulator/Peripherals/Peripherals/DMA/Dma2DColorMode.cs",
+      "git_blob": "9bb7e07949f1e3ccdfa85cdc33c7848d89154d00",
+      "sha256": "570aed972d3905d1267fe558e591528ecb7a34905afe97670e57fddd3eaf1fc5"
+    }
+  ],
+  "gpu_firmware_sdk_version": "unknown",
+  "archives_executed": false,
+  "hardware_validated": false
+}

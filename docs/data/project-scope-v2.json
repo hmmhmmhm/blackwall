@@ -1,0 +1,1292 @@
+{
+  "version": 2,
+  "metric": "verified-criteria-ratio",
+  "objective": "Prepare a web-installable Faceclaw-based CFW and recovery boot, and complete a stock-based development hardware simulator, development tools, and screen output where feasible.",
+  "groups": {
+    "R": "Recovery preparation",
+    "W": "Web installer",
+    "F": "CFW compatibility",
+    "S": "Hardware simulator",
+    "D": "Development tools and screen"
+  },
+  "criteria": [
+    {
+      "id": "R1",
+      "group": "R",
+      "title": "Obtain official research images and verify version, hash, and integrity",
+      "status": "done",
+      "document": "docs/offline-asset-revalidation.md",
+      "evidence": [
+        {
+          "path": "private:simulator/offline-asset-revalidation-02/report.json",
+          "sha256": "13d28aef1a4f3fa8684cd3fc362d1eb6afc9e6a67bd70dc01ba6ae135538cf6b",
+          "checks": [
+            {
+              "path": [
+                "integrity"
+              ],
+              "eq": "passed"
+            },
+            {
+              "path": [
+                "prior_provenance_confirmed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "readyForHardwareInstall"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "format_reparsed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "bootloader_recovery_retested"
+              ],
+              "eq": false
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/offline-asset-revalidation-02/revalidate_research_assets.py",
+          "sha256": "82300c77b52eacfd29bf91069377b84598e26b020598590a45e45a6e5d061ac2",
+          "checks": []
+        },
+        {
+          "path": "private:simulator/inputs/verified-01/stock-2.3.0.24.bin",
+          "sha256": "187ccf2bcc5c17a212106e8a376745511e8289c4232b634a7ea94b9bf25a0979",
+          "checks": []
+        },
+        {
+          "path": "private:simulator/inputs/verified-01/stock-2.4.0.24.bin",
+          "sha256": "363198f8d543a5c1181d8a213e9077285cb865700a1885c8dc7c1b9324fd0e05",
+          "checks": []
+        },
+        {
+          "path": "private:simulator/inputs/verified-01/faceclaw-38-research-only.bin",
+          "sha256": "4aac023f49ec6965186d9106e328a516f20a2915ab400d561f662f984023a432",
+          "checks": []
+        },
+        {
+          "path": "private:recovery/research-2026-11-10/stock-boot-patch-bundle.bin",
+          "sha256": "26b6067665a441b779c47f6b95427b8b4bb5f502aaf527466dadce628aeb00b2",
+          "checks": []
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "R2",
+      "group": "R",
+      "title": "Build version-pinned recovery boot candidate and verify original-preserving structure",
+      "status": "done",
+      "document": "docs/bootloader-2-4-candidate.md",
+      "evidence": [
+        {
+          "path": "private:recovery/private-boot-24-candidate-01/structural-verification.json",
+          "sha256": "8fa22e4e365f637b4b3d4bb9daa4ba639d2d0415529047c8d1137fca91573681",
+          "checks": [
+            {
+              "path": [
+                "original_prefix_preserved_except_hooks"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "installable"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "R3",
+      "group": "R",
+      "title": "Independent recovery tool bundle, version pairing, and offline protocol tests",
+      "status": "done",
+      "document": "docs/recovery-manual.md",
+      "evidence": [
+        {
+          "path": "private:recovery/private-boot-24-candidate-01/upstream-tests-24-summary.json",
+          "sha256": "5607813d235fa8e20694c6ef25f1311d35cb3af9371eec8afd46306ba87252ad",
+          "checks": [
+            {
+              "path": [
+                "success"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "tests_run"
+              ],
+              "eq": 118
+            },
+            {
+              "path": [
+                "failures"
+              ],
+              "eq": 0
+            },
+            {
+              "path": [
+                "errors"
+              ],
+              "eq": 0
+            }
+          ]
+        },
+        {
+          "path": "private:recovery/private-boot-24-candidate-01/recovery-set-verification.json",
+          "sha256": "74da8415ee22c7060af5dc742afe562f89dc749fe27333ffa8ed7e3c27b901d8",
+          "checks": [
+            {
+              "path": [
+                "local_artifact_pairing_valid"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "key_matches"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "hardware_validated"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "R4",
+      "group": "R",
+      "title": "Identify exact boot/main/hardware for left and right temples and case",
+      "status": "requires-device-evidence",
+      "document": "docs/device-inventory.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "R5",
+      "group": "R",
+      "title": "Per-device verification of interrupted single-side installation and return to stock main",
+      "status": "requires-device-evidence",
+      "document": "docs/recovery-manual.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "R6",
+      "group": "R",
+      "title": "Preserve originals of all modified persistent regions and verify complete stock restoration",
+      "status": "requires-device-evidence",
+      "document": "docs/recovery-manual.md",
+      "evidence": [],
+      "next_action": "Device evidence is required for original/restoration of modified persistent areas. Distinguish the bw281 OTA marker setter's 16-byte write footprint and adjacent 12-byte preservation/readback. Actual metadata, keydb, EM9305 NVM, and boot/main identification require separate approval and verification. docs/ota-marker-state-contract.md"
+    },
+    {
+      "id": "W1",
+      "group": "W",
+      "title": "Pinned-file verification and single-temple installation plan model",
+      "status": "done",
+      "document": "docs/web-protocol-verification.md",
+      "evidence": [
+        {
+          "path": "private:simulator/progress-tracking-baseline-01/web-verification.json",
+          "sha256": "0a06ac0338b658790c40b85aa4b42a91a67c6e4a6e98cf0c97e29196f3a2050b",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "pass"
+              ],
+              "eq": 53
+            },
+            {
+              "path": [
+                "skipped"
+              ],
+              "eq": 0
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "W2",
+      "group": "W",
+      "title": "Single-component OTA and virtual GATT transport contract",
+      "status": "done",
+      "document": "docs/web-protocol-verification.md",
+      "evidence": [
+        {
+          "path": "private:simulator/progress-tracking-baseline-01/web-verification.json",
+          "sha256": "0a06ac0338b658790c40b85aa4b42a91a67c6e4a6e98cf0c97e29196f3a2050b",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "pass"
+              ],
+              "eq": 53
+            },
+            {
+              "path": [
+                "skipped"
+              ],
+              "eq": 0
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "W3",
+      "group": "W",
+      "title": "Single side, approval gate, stop on failure, and no unattended retries",
+      "status": "done",
+      "document": "docs/web-installer-design.md",
+      "evidence": [
+        {
+          "path": "private:simulator/progress-tracking-baseline-01/web-verification.json",
+          "sha256": "0a06ac0338b658790c40b85aa4b42a91a67c6e4a6e98cf0c97e29196f3a2050b",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "pass"
+              ],
+              "eq": 53
+            },
+            {
+              "path": [
+                "skipped"
+              ],
+              "eq": 0
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "W4",
+      "group": "W",
+      "title": "CFW/stock/boot/recovery tool review package and hashes of all files",
+      "status": "done",
+      "document": "docs/package-preparation.md",
+      "evidence": [
+        {
+          "path": "private:recovery/packages/preparation-04/manifest.json",
+          "sha256": "2045652c004688ebf994d794129e068444609f2131f841dfae761eed3b71d7d2",
+          "checks": [
+            {
+              "path": [
+                "installable"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "recoveryPairing",
+                "local_artifact_pairing_valid"
+              ],
+              "eq": true
+            }
+          ],
+          "manifest": true
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "W5",
+      "group": "W",
+      "title": "Integrated verification of virtual G2 installation, startup, failure, and recovery in web UI",
+      "status": "partial",
+      "document": "docs/virtual-web-install-storage.md",
+      "evidence": [],
+      "next_action": "bw245 connected snapshot → M55 actual-context wrapper/writer/callback/stock MRAM adapter → virtual ROM write → RESULT. Four conditions: normal 512 B, ROM failure, readback mismatch, and 16 B; context restored. Full backup/CRC/vector-last, pending OTA hard gate, dynamic host, manager/case/physical integration incomplete. Investigate product axis D3 before resuming W5 integration."
+    },
+    {
+      "id": "W6",
+      "group": "W",
+      "title": "Confirm web installation, verification, and restoration path for actual target combinations",
+      "status": "requires-device-evidence",
+      "document": "docs/recovery-manual.md",
+      "evidence": [],
+      "next_action": "bw281 retains blanket installable=false blocking. Before allowing an actual writer, an approved per-device marker freshness/provenance, 16-byte range/adjacent-data, and readback-only gate is needed. Unknown/pending/nonstandard states are not execution evidence. docs/ota-marker-state-contract.md"
+    },
+    {
+      "id": "F1",
+      "group": "F",
+      "title": "Verify pinned Faceclaw/g2flash CFW artifacts and expected hashes",
+      "status": "done",
+      "document": "docs/offline-asset-revalidation.md",
+      "evidence": [
+        {
+          "path": "private:simulator/offline-asset-revalidation-02/report.json",
+          "sha256": "13d28aef1a4f3fa8684cd3fc362d1eb6afc9e6a67bd70dc01ba6ae135538cf6b",
+          "checks": [
+            {
+              "path": [
+                "integrity"
+              ],
+              "eq": "passed"
+            },
+            {
+              "path": [
+                "prior_provenance_confirmed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "readyForHardwareInstall"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "format_reparsed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "bootloader_recovery_retested"
+              ],
+              "eq": false
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/offline-asset-revalidation-02/revalidate_research_assets.py",
+          "sha256": "82300c77b52eacfd29bf91069377b84598e26b020598590a45e45a6e5d061ac2",
+          "checks": []
+        },
+        {
+          "path": "private:simulator/inputs/verified-01/faceclaw-38-research-only.bin",
+          "sha256": "4aac023f49ec6965186d9106e328a516f20a2915ab400d561f662f984023a432",
+          "checks": []
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "F2",
+      "group": "F",
+      "title": "Limited handoff from recovery boot to CFW/stock main reset entry",
+      "status": "done",
+      "document": "docs/combined-handoff-verification.md",
+      "evidence": [
+        {
+          "path": "private:recovery/boot-2-4-analysis/combined-handoff-02.json",
+          "sha256": "dac378be65935fd9d305bd59e2834ebb2eb6597cf7986ff04470544644dabb8c",
+          "checks": [
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                0,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                0,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                1,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                1,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                2,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                2,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                3,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                3,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                4,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                4,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                5,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                5,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                6,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                6,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                7,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-cfw.bin",
+                7,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                0,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                0,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                1,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                1,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                2,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                2,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                3,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                3,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                4,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                4,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                5,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                5,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                6,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                6,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                7,
+                "selection_cleared"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "results",
+                "main-stock.bin",
+                7,
+                "main_reset_code_executed"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "F3",
+      "group": "F",
+      "title": "Normal startup compatibility of target boot/main/peripheral component combinations",
+      "status": "partial",
+      "document": "docs/faceclaw-2-4-rebase-scope.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "F4",
+      "group": "F",
+      "title": "Conditions, scope, and safety of automatic post-boot persistent writes such as codec/NOR",
+      "status": "partial",
+      "document": "docs/codec-version-comparison.md",
+      "evidence": [],
+      "next_action": "bw276 source: trim mismatch/force prepares EM9305 INFO page 2 erase and 405c80 write. Separate from Apollo MRAM restoration, controller NVM original/lock/restoration/interruption procedures are required. Actual trim unknown; physical access unauthorized. docs/em9305-version-and-trim-nvm-contract.md. Additional bw278: separately review automatic healing writes to Apollo MRAM 7ff000 key DB and record compatibility/backup/pairing restoration across versions. Actual data unknown. docs/mram-keydb-source-contract.md. bw281: non-pending marker alone must not establish readiness; conditional 16-byte write/clear is not boot health. Marker-specific freshness/readback gate unimplemented. docs/ota-marker-state-contract.md"
+    },
+    {
+      "id": "F5",
+      "group": "F",
+      "title": "Verify official app communication reuse, CFW feature negotiation, and incompatible fallback",
+      "status": "partial",
+      "document": "docs/safety-first-roadmap.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "F6",
+      "group": "F",
+      "title": "Deployment readiness approval criteria combining final installation profile and recovery assets",
+      "status": "pending",
+      "document": "docs/completion-audit.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "S1",
+      "group": "S",
+      "title": "Execute pinned two stock versions and CFW main reset and record stop points",
+      "status": "done",
+      "document": "docs/simulator-runner-status.md",
+      "evidence": [
+        {
+          "path": "private:simulator/prefetch-main-comparison-01/comparison.json",
+          "sha256": "ce062449c1130ccdc805485dad22889dae02d05ed4a15da3d0c0707fdd3747c5",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "rows"
+              ],
+              "min_length": 12
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "S2",
+      "group": "S",
+      "title": "M55/exception/NVIC basic tests and execution memory safety boundaries",
+      "status": "done",
+      "document": "docs/renode-memory-policy.md",
+      "evidence": [
+        {
+          "path": "private:simulator/renode-m55-headless-regression-01/report.json",
+          "sha256": "38621803bf88a0c56d74d6f4c61594c9bdbed5d69652facfc35039e016985508",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "cases",
+                "cortex-m55",
+                "expected_behavior_observed"
+              ],
+              "eq": true
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/renode-memory-verification-09/report.json",
+          "sha256": "a061f2b914dff0c53f302bbe0f871179c5235e717e05d46e8242d8e81989845c",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "unguarded_control"
+              ],
+              "eq": false
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "S3",
+      "group": "S",
+      "title": "Memory/power/clock/cache/MMIO models for required initialization path",
+      "status": "partial",
+      "document": "docs/simulator-scope.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "S4",
+      "group": "S",
+      "title": "Virtual persistent storage, ROM, reset, and boot → main/recovery integration",
+      "status": "partial",
+      "document": "docs/firmware-simulator-proposal.md",
+      "evidence": [],
+      "next_action": "bw241 confirmed virtual OTA and address-based RAM image → limited handoff. Full boot/reset from ROM, recovery manager, actual OTA storage and failure transport remain incomplete."
+    },
+    {
+      "id": "S5",
+      "group": "S",
+      "title": "Connect BLE, input, sensors, and interrupt/lifecycle needed by CFW",
+      "status": "partial",
+      "document": "docs/p256-asynchronous-event-peer.md",
+      "evidence": [],
+      "next_action": "Only natural main connection of BLE initialization 22 commands/23 events confirmed. Actual ACL/connection/input/sensors/full IRQ and lifecycle incomplete. Next AES initialization and app/display; BLE progress alone does not complete S5."
+    },
+    {
+      "id": "S6",
+      "group": "S",
+      "title": "Integrated virtual G2 executing stock and CFW through the app loop",
+      "status": "in-progress",
+      "document": "docs/simulator-scope.md",
+      "evidence": [],
+      "next_action": "bw340 verified three originals' display queue 36 type-3 producer → actual queue send/receive → consumer conditions → driver wrapper/callback delivery. ARM 72/frozen 72, two artifacts identical, nine mutation negatives, 11 models unchanged. Consumer readiness 3/eligibility 1 stubs and mode conditions are isolated fixtures; current mode 0. New native 0; callback body/pixels not executed. Next connect D3 type-1 activation message actual producer/preparation helper and legitimate UI initialization path; do not treat forced mode/queue injection as main success. Do not extend IMU 153 B with arbitrary zeros. Overall 13/29=44.8%; full boot/UI/physical incomplete. docs/display-queue-producer-contract.md"
+    },
+    {
+      "id": "D1",
+      "group": "D",
+      "title": "Reproducible local environment on current Mac and pinned CPU execution path",
+      "status": "done",
+      "document": "docs/simulator-environment.md",
+      "evidence": [
+        {
+          "path": "private:simulator/renode-m55-headless-regression-01/report.json",
+          "sha256": "38621803bf88a0c56d74d6f4c61594c9bdbed5d69652facfc35039e016985508",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "cases",
+                "cortex-m55",
+                "expected_behavior_observed"
+              ],
+              "eq": true
+            }
+          ]
+        },
+        {
+          "path": "private:simulator/coherent-icache-main-comparison-01/comparison.json",
+          "sha256": "135ae8e4fa78560f6b48b8fd7b1341eddf00d62fcf9ba0641392aaf99b4dbc9e",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "rows"
+              ],
+              "min_length": 12
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "D2",
+      "group": "D",
+      "title": "Compare independent ARM renderer text/shapes/frames with native bytes",
+      "status": "done",
+      "document": "docs/cfw-renderer-probe.md",
+      "evidence": [
+        {
+          "path": "private:recovery/renderer-sequence-01/report.json",
+          "sha256": "b3a5a8bfd3749322cb4a409036b38258589b27951fb77613cd02eb63d4dd5dac",
+          "checks": [
+            {
+              "path": [
+                "native_framebuffer_byte_identical"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "full_g2_boot"
+              ],
+              "eq": false
+            },
+            {
+              "path": [
+                "frames"
+              ],
+              "min_length": 4
+            }
+          ]
+        }
+      ],
+      "next_action": ""
+    },
+    {
+      "id": "D3",
+      "group": "D",
+      "title": "Connect full main display boundary, framebuffer, and 576×288 viewer",
+      "status": "partial",
+      "document": "docs/cfw-renderer-probe.md",
+      "evidence": [],
+      "next_action": "bw340 verified three originals' display queue 36 type-3 producer → actual queue send/receive → consumer conditions → driver wrapper/callback delivery. ARM 72/frozen 72, two artifacts identical, nine mutation negatives, 11 models unchanged. Consumer readiness 3/eligibility 1 stubs and mode conditions are isolated fixtures; current mode 0. New native 0; callback body/pixels not executed. Next connect D3 type-1 activation message actual producer/preparation helper and legitimate UI initialization path; do not treat forced mode/queue injection as main success. Do not extend IMU 153 B with arbitrary zeros. Overall 13/29=44.8%; full boot/UI/physical incomplete. docs/display-queue-producer-contract.md"
+    },
+    {
+      "id": "D4",
+      "group": "D",
+      "title": "Experiment with text/shapes/animation/sensor and app data in integrated main",
+      "status": "pending",
+      "document": "docs/firmware-simulator-proposal.md",
+      "evidence": [],
+      "next_action": ""
+    },
+    {
+      "id": "D5",
+      "group": "D",
+      "title": "Integrated tool for developers to execute, run scenarios, and compare regressions in one command",
+      "status": "partial",
+      "document": "docs/simulator-usage.md",
+      "evidence": [],
+      "next_action": "bw243 source_acceptance repair complete: hash-pinned audit reuses raw semantic-failure capture, raw report/files unchanged; unit 13/host 15. Use on next candidate. Additional generic approval framework/full historical report migration unnecessary. Integrated CLI remains incomplete."
+    },
+    {
+      "id": "D6",
+      "group": "D",
+      "title": "Operate full scope, evidence-based progress, work records, and duplicate prevention",
+      "status": "done",
+      "document": "docs/progress-tracking.md",
+      "evidence": [
+        {
+          "path": "private:simulator/progress-tracking-verification-02/report.json",
+          "sha256": "25067086e1684bc3178631beebd0f56d0e35aa324fa352211a96b408231781dd",
+          "checks": [
+            {
+              "path": [
+                "passed"
+              ],
+              "eq": true
+            },
+            {
+              "path": [
+                "tests_run"
+              ],
+              "eq": 11
+            },
+            {
+              "path": [
+                "no_duplicate_task_id_created"
+              ],
+              "eq": true
+            }
+          ]
+        }
+      ],
+      "next_action": "",
+      "kind": "operation"
+    }
+  ],
+  "next_steps": [
+    "bw340 verified three originals' display queue 36 type-3 producer → actual queue send/receive → consumer conditions → driver wrapper/callback delivery. ARM 72/frozen 72, two artifacts identical, nine mutation negatives, 11 models unchanged. Consumer readiness 3/eligibility 1 stubs and mode conditions are isolated fixtures; current mode 0. New native 0; callback body/pixels not executed. Next connect D3 type-1 activation message actual producer/preparation helper and legitimate UI initialization path; do not treat forced mode/queue injection as main success. Do not extend IMU 153 B with arbitrary zeros. Overall 13/29=44.8%; full boot/UI/physical incomplete. docs/display-queue-producer-contract.md",
+    "bw297 AES32 strict peer: three images naturally executed 54 commands/55 replies, 211 frames/422 IOM → original write-ready 2005/10 B. UART1 additional TX 30 B/12 IRQs; off CPU/full events exact. .NET crypto recheck/unit 1138/3131/364/58; native 4/audit 4; pinned 50 analysis identical; three models unchanged. Next address provenance/consumption, advertising initialization → app/display. Overall 44.8%; boot/display/physical incomplete. docs/aes-initialization-peer.md",
+    "bw296 original AES-CMAC 494 B: key/plain/cipher for 32 AES operations per image match independent reference → WSF owner 3/24 → UART1 FR 4003a018 isolated unmapped boundary. 18 conditions/96 blocks; 444 function returns/three boundaries; public AES/CMAC 4 + frozen 4; pinned 48/38 files identical; four models unchanged/native 0. Private 32-transaction fixture preserved. Next strict AES peer/natural M55 → UART1/app/display. Overall 44.8%. docs/aes-initialization-contract.md",
+    "bw295 opt-in two P256 events/69 B FIFO reception: three images 22 commands/23 events → 2017/36 B; original isolated request SHA identical; normal 64 B conversion SRAM confirmed. Final native 5 + partial preflight 1 including error 24/disabled exact; audit 5+1. Unit 364/565/324/333/58/50; pinned 46 analysis identical. Next AES input/return/storage contract → app/display. Overall 44.8%; boot/display/device incomplete. docs/p256-asynchronous-event-peer.md",
+    "bw294 original P256 asynchronous 24 conditions: status + LE completion → requested two 32 B coordinates big-endian/status → WSF owner 1/41 → owner 6/34 → 2017/36 B generated. Missing status stores coordinates but sends nothing; error/short wire/wrong CC controls. 168 original call returns; pinned 44/20 files identical; four models unchanged/native 0. Next strict two events/natural M55 → AES consumption → app/display. Overall 44.8%; no physical device access. docs/p256-asynchronous-event-contract.md",
+    "bw293 opt-in strict privacy/length/Rand four times: three images natural 21 command/reply, 48 frames/96 IOM → original write-ready 2025. Minimum 27 profile same stage as 24/off CPU events exact. Unit 327/525/240/58; native 5/saved audits 5; pinned 43 analysis identical. Next 2025 asynchronous status/completion and original initialization notification → app/display. Overall 44.8%; physical/boot/display incomplete. docs/privacy-length-initialization-peer.md",
+    "bw292 six original isolated profiles/42 replies: 202a → 202f → 2024 → Rand four times, then transmit queue empty. Confirmed 27/251 TX lengths and time propagation, six no-event; 138 original call returns; pinned 41 reanalysis identical. Next opt-in strict seven-reply model/natural M55 follow-up → app/display. Boot/display unverified. docs/privacy-length-initialization-contract.md",
+    "bw291 explicit controller-information profiles: default 27/4 in three images, large 251/8 in 24 naturally produced 14 command/reply, 34 frames/68 IOM → 202a query queued. Original RAM buffer/state/filter/features consumption controls; CFW features also match selected mock mask, not physical values. Unit 234/396/legacy 58; native 5/audit 5; source six profiles/24 assumptions complete; pinned 40 analysis identical; off CPU events exact. Next privacy/data-length initialization information bundle → natural app/display. docs/controller-information-profiles.md. Overall 44.8%; no device access.",
+    "bw290 original LE buffer consumption: uint16 length/two packet-count copies checked against original getter. Normal/zero/max/status 1 stored unchanged → 201c query; wire truncated/unknown/no event preserve fields and have no follow-up. Complete framing but missing-information 7-byte return reads three bytes past declared end and stores remaining RAM. Original 36 scenarios/36 observer off-on pairs: PC trace, general/special registers, SRAM/WORK/SCS match; pinned 37 analysis identical; model/web unchanged/native 0. Actual ACL credit consumption unverified. Next explicit mock information/201c length and consumption contract → natural app/display. docs/le-buffer-response-contract.md. Overall 44.8%; no device access.",
+    "bw289 four standard HCI commands/explicit address readback: three images natural command/reply 10/10, 26 frames/52 IOM → ring cycle and 2002 query queued. First mask wrong opcode has no follow-up/status 1 advances; original 12 scenarios/27 assumptions complete/three no-event. Unit 182/328/legacy 58; native 4/audit 4; pinned 36 analysis identical; off CPU/events exact. Actual address/controller data unconfirmed. Next LE buffer response length and buffer/credit consumption contract → natural app/display. docs/standard-hci-initialization.md. Overall 44.8%; no device access.",
+    "bw288 vendor initialization bundle: stock 24/23/Faceclaw natural fc43 → fff2 → fcc4 send/receive 6/6, 15 frames/30 IOM → original write-ready 0c01/8 bytes blocked. CFW fff2 byte 1 bit 0 difference compared with pinned g2flash LE2M comment; physical PHY unverified. Original 777; unit 123/217/legacy 58; native 4/audit 4; pinned 33 reanalysis identical. Initial 24-frame 13 prediction failure preserved/audited without restart; off CPU events exact. Next standard HCI initialization bundle → natural app/display. docs/vendor-startup-sequence.md. Overall 44.8%; no device access.",
+    "bw287 fc43 original contract: vendor search index EMSG Set Public Address/6 bytes/status 1, direct PDF redirect, reset/persistence unconfirmed. Original ctor/RAM setter and actual queued six bytes match; synthetic function completion 0/error 1/wrong opcode all lead to fff2/8-byte follow-up, no event has none. Assumed fff2 completion followed by fcc4/1 byte identified. Original ARM 33/30 pinned dependencies reanalysis identical; model/web unchanged/native 0. Next fc43 → fff2 → fcc4 initialization flow contract/explicit virtual assumptions → natural app/display. docs/application-vendor-address-contract.md. Overall 44.8%; no device access.",
+    "bw285 resumed and completed: with bw286 verified guest-stop new contract, stock 24 also natural Reset send/receive 3/3, seven frames/14 IOM → fc43/10-byte original write-ready 501676. Same stage as 23/Faceclaw 549fce; off exact. Earlier 45-second incomplete preserved; 29 pinned dependencies reanalysis identical/existing default analysis byte-identical. Next fc43 generation/parameters/response consumption contract → natural app/display. docs/application-hci-reset-peer.md. Overall 44.8%; no device access.",
+    "bw286 implemented native execution_mode until-guest-stop/stream log: host 25 + pinned 25; actual M55 off control CPU/instructions/events exact; saved audit 1; runner 2 changes/model and web unchanged. Earlier 24 incomplete preserved; no restart for this task. Next separate plan for remaining bw285 stock 24 integration under verified new contract. docs/native-observation-lifetime.md. Overall 44.8%.",
+    "bw285 implemented third strict HCI Reset peer: stock 23/Faceclaw natural main actual 01030c00 send/receive 3/3, seven frames/14 IOM → fc43/10-byte follow-up original write-ready blocked; off CPU events exact. Unit 114/legacy 58; native 3/audit 3; 29 dependencies saved reanalysis identical. Stock 24 observation expired at 45 seconds without guest stop; export rejected, raw log/failure.json preserved, no restart. Next separate native observation limit, child lifecycle, and evidence collection before remaining 24 verification. Overall 44.8%; no device access. docs/application-hci-reset-peer.md",
+    "bw284 original HCI transaction source 54: ring pops only on successful write/retries on error; ring fields corrected (write offset/stride); four H4 split types, reject incomplete; original allocator → upper queue. Synthetic pop → parser → upper handler yields same fc43 follow-up command for normal/status 1/wrong opcode, none for no event; not evidence of integrity verification. 28 pinned dependencies reanalysis identical; model/web unchanged/native restart 0. Next strict third Reset peer and app RX GPIO contract → natural main. docs/application-hci-reset-transaction.md. Overall 44.8%; no device access.",
+    "bw283 application HCI idle: three original mains new GPIO117 low → actual queued 01030c00/4 bytes delivered to original write function → write-ready 501676/549fce strict stop. Packet unsent/ring preserved. Native 4/audit 4/unit 58/source ARM 27; 27 pinned dependencies reanalysis identical; off CPU events exact. Next HCI Reset write/Command Complete consumption contract → natural app/display. docs/application-hci-ready-contract.md. Overall 44.8%; no physical access.",
+    "bw282 marker read fixtures cleared/pending/unknown: three originals M55 cleared startup 1 + setter 2 → new GPIO117 read 4dd1d4/4c9990. Pending 16 FF buffer/four words → cache write 3f blocked; unknown/off CPU events exact. Native 6/audit 6/unit 179/source 63 pins reused; 25 pinned dependencies reanalysis identical. Initial PC prediction failure raw preserved/audit without restart. Actual marker/write/update not executed; web blanket block unchanged. Next new GPIO117 source transport/IRQ/queue contract. docs/ota-marker-read-profiles.md. Overall 44.8% retained.",
+    "bw281 OTA marker 7fe000: pending 555 startup version log 70108 → setter ff. Equal values skip write; differing values prepare 16 bytes (requested word + 12 ff); 0/nonstandard also follow clear-write path. Results of two direct callers unchecked; distinguish RPC state sync from CPU reset. Original ARM 63/24 pinned dependencies reanalysis identical; model unchanged/native restart 0. Parser zero-SRAM failure corrected using original initialized snapshot. Distinguish web blanket installable=false and unimplemented marker-specific gate. Next virtual unknown/cleared/pending marker profiles. docs/ota-marker-state-contract.md. Overall 44.8% retained.",
+    "bw280 optional read-only keyDB aperture: three originals M55 scanner → 3160 record-related calls/3680 bytes → separate OTA marker 7fe000 strict boundary. Uninit cache preparation identical; unknown/scanner-only CPU events exact. Source ARM 27; unit 148; native 6/audit 6; 23 dependencies reanalysis identical. Initial HCI boundary prediction failure preserved/audit without restart. Scope records cache timeout return unexamined. Next marker state transition/virtual normal versus pending, and MRAM cache/program contract. docs/keydb-record-load-transaction.md. Overall 44.8% retained.",
+    "bw279 explicit keyDB scanner profiles: zero reads 10 slots/2570 bytes on three original M55s → first word of 200-byte memcpy boundary. Uninit-ff reads one slot/257 bytes → MRAM zero-write preparation/cache 40021014=3f blocked. Unknown/off CPU events exact. Native 6/audit 6; unit 119; source 99 pins reused; pinned 21 dependencies reanalysis identical. Initial LDM halfword PC prediction failure preserved/audit without restart. Next separate record copy/empty DB load and cache/MRAM write transaction contracts. docs/keydb-slot-read-profiles.md. Overall 44.8% retained.",
+    "bw278 7ff000 caller is BLE keydb _AppDbHealUninitSlots. Stride 256 × 10 slots, uniform 0 skip/nonzero heal-write, nonuniform validator, and 2×32-word write arguments confirmed in original M7 fragment 99. OTA3/main have no tail; no independent tail component/CRC 18. Pinned 20 dependencies reanalysis identical/model unchanged/native restart 0. Next separate default unknown block from explicit virtual zero/uninit recovery write. Actual keyDB/adjacent tail unknown; distinguish stock restoration from pairing restoration. docs/mram-keydb-source-contract.md. Overall 44.8% retained.",
+    "bw277 supports second version read: three original M55 samples/error/ffffffff/off, native 6/audit 6, unit 248; unchanged IOM 123/retention 2696 proof reused. Compared saved RAM for version slot copy/error no-copy/log branches. Initial unmapped 7ff000 raw failure preserved → MRAM-end strict guard; currently stops on same byte read. Pinned 19 dependencies reanalysis identical. Next tail original caller/official asset provenance and separate virtual config/NVM transaction. docs/em9305-version-read-transport.md. Overall 44.8% retained.",
+    "bw276 next saved native packet is BLE FW Ver/read 00402000/4 bytes. Trim mismatch source: config event 04ff0103 → factory read 407ca0/8 → fd07 INFO page 2 erase → fd03 405c80/header 2 + CRC32 + trim 8 → active reinitialization. Original M7 fragment 99/18 pinned dependencies reanalysis identical; model unchanged/native restart 0. Controller NVM recovery risk is separate; return 0 alone must not mean success. Next separate version read and config/NVM virtual transaction models. docs/em9305-version-and-trim-nvm-contract.md. Overall 44.8% retained.",
+    "bw275 first fd01/read8 limited CS/write capacity/packet/CC response: original M55 trim 7 in three images, zero branch, capacity 4, off exact; native 6/audit 6, unit 254, retained 2696 proof. Actual read value unknown. Fixed duplicate export inheritance/restored zero saved result without restart; runner regression 12; pinned 17 dependencies reanalysis identical. Next source investigation of read 00402000/4 bytes and trim 0 update/reset persistence. docs/em9305-first-read-command-transport.md. Overall 44.8% retained.",
+    "bw274 first planned transmission packet 0101fd05884bf00008 confirmed in three existing native RAMs: fd01/read 00f04b88/8 bytes, matching vendor definition. Capacity/opcode/trim original M7 fragment 60 cases. Actual read value unknown; trim 7 branch matters, distinguish opcode match from status success. Pinned 16 dependencies reanalysis identical/model unchanged/native restart 0. Next first-read-command-limited write-ready/capacity/packet/CC response scenario. docs/em9305-first-write-command.md. Overall 44.8% retained.",
+    "bw273 with CS149/header/payload-RDY + RX-only, three original M55s accepted virtual 04ff0101 (success UART log/RF error 0). 04ff0103 control has no log/RF error 5, recovery RDY boundary. Default off exact. Same cleanup retention explicit budget 2 (default 1); existing 2696 proof reused. Final native 5 (raw 7)/audit 5/unit 190; pinned 16 dependencies identical. Next first HCI write 42/packet and write-ready state model. docs/em9305-active-event-transport.md. Overall 44.8% retained.",
+    "bw272 expected initialization event 04ff0101 matches three sources/vendor index. Original retry fragment 36 cases confirmed. Native positive header c004 three images → RX stack/length 4/CS149 low retained → post-header RDY strict boundary. Initial CMD prediction failure preserved, separate audit 3 passed without execution change. Pinned 16 dependencies identical in two reports; model unchanged/existing 123 conditions reused. Next CS/header/buffer-RDY/RX payload state model. docs/em9305-hci-framing-contract.md. Overall 44.8% retained.",
+    "bw271 three original M55 mains completed one first SPI transaction with CMD-before-FIFO/full-duplex: TX 8100/RX c000, original RX stack c0000000; next CMD 201 strict blocked after one-shot budget exhausted. Native 4/off exact/audit 4/unit 123; pinned six dependencies reanalysis identical. Peer is explicit test input; actual EM9305/BLE boot/physical CS unverified. Next HCI retry, pin149/CE0 framing, first command/event source contract. docs/iom6-spi-word-transaction.md. Overall 44.8% retained.",
+    "bw270 confirmed first SPI CMD=201/TSIZE2/CE0/CONT0 and TX 81 00 in three original mains; FULLDUP preflight → first CMD strict block (commands 0). Native 4/off exact/saved audit 4/unit 73; three original CMD builders M7 control and 15 pinned dependencies reanalysis identical. Existing base engine lacks FULLDUP and differs in CMD-before-FIFO. Next SPI transaction model combining word FIFO, exact TSIZE/full-duplex/completion. docs/iom6-first-spi-command.md. Overall 44.8% retained.",
+    "bw269 three originals × three inputs: original UI type-7 producer → actual queue send/UI waiter release → original queue receive/ring payload recovery. 12-byte envelope [7,0,10] + separate 10-byte u16/u32/u32 payload; consumer prefix reverse-parsed. M7 isolated 27 transactions/nine observer controls/parser 9; 15 pinned dependencies rerun identical. Full main/M55 task work/screen unverified. Next actual redraw messages/caller and display notification producer. docs/ui-queue-producer-contract.md. Overall 44.8% retained.",
+    "bw268 three original mains DCXEN/selected CE0 latch → SPICFG=4 strict boundary, commands 0. Off exact control/saved audit 4/native unit 21 + existing 31. Full RAM nine tasks: UI queue 96×12, display bits 800000/ambiqdraw counter notification waiting. Pinned 13 dependencies reanalysis identical. Next UI message/notification producer and IOM first SPI contract. docs/main-display-integration-frontier.md. Overall 44.8% retained.",
+    "bw267 original wait registers waiter/removes ready → delayed GPU actual IRQ28 → original give wake/consume → wait returns successfully in three images. Selector ble_wsf → manager → ble_wsf/port twice; GPU-not-released control remains waiting. M7 exact wait/give observer on/off path/memory/GP identical; transient permission structure strengthened. Final native 5/audit 240/unit 17. Next recheck original main display/SPI/font bank and GPU model integration conditions. docs/nema-native-blocking-wake.md. Overall 44.8% retained.",
+    "bw266 full RAM + explicit PSP caller: original draw/GPU IRQ → M55 PendSV save/selector/restore → Thread exception return → submit/wait return succeeded in three images. Original priority initialization reflected, EXCRET ac; host CONTROL side-effect trap resolved with guest MSR/guard. Final native 5 including guard boundary/default regression, audit 235, unit 17. Blocking/different task/main unverified. Next original wait → IRQ wake. docs/nema-native-pendsv-resume.md. Overall 44.8% retained.",
+    "bw265 exported full 3.5 MiB SRAM/256 KiB ITCM for three originals; CPU/instruction/event baseline exact. Per-image 30 TCB candidates, 29 inactive saved headers/list verified; original task selector M7 fixture three returns/current task reselected. Unit 17; three new saved audits/one legacy passed. Complete checkpoint/M55 PendSV restore incomplete. Next combine full RAM + core and verify M55 exception return. docs/original-main-full-memory.md. Overall 44.8% retained.",
+    "bw264 connected original draw → diagnostic GPU → actual NVIC IRQ28 → original ID 8/semaphore 1 → PendSV entry boundary across three images. NVIC-disabled control has no publication; default WORK matches historical exact. Final native 5/saved audit 258; block guard/nonzero PSP verified first PendSV instruction unexecuted. Full RTOS/main incomplete. Next collect kernel state and resume wait. docs/nema-native-irq-completion.md. Overall 44.8% retained.",
+    "bw263 pinned M55 PSPLIM/MSPLIM/PSP roundtrip eight conditions passed. Stock 2.4 original PendSV 120 calls/29 PSPLIM values; final setting 20046dc8 observed. Empty PC-hook control and CPU/existing events exact; six-leaf difference from no-hook baseline/exact failure preserved. Saved audit 67. Next verify full context and GPU IRQ prerequisites under same hook placement. docs/m55-natural-stack-limits.md. Overall 44.8% retained.",
+    "bw262 collected three original mains' RTOS globals 1/0, current TCB/stack, and registers; CPU/events exact to existing. Three original queries/two returns; saved audit 72. Current PSP and TCB-saved SP differ by 224 B; confirmed pinned runtime has no PSPLIM/MSPLIM API. Actual NVIC/PendSV/live completion not connected. Next stack-limit readback method and limited IRQ/PendSV verification. docs/nema-rtos-context-readiness.md. Overall 44.8% retained.",
+    "bw261 restored actual GPU semaphore in three native mains. Original IRQ function 21 entries/give 18, completion wait 36 returns, future ID wait entry 18; audit 180. Give without waiter did not initialize local woken, causing observed PendSV request depending on entry R3. Actual NVIC/scheduler/live completion unconnected. Next collect actual main RTOS/TCB/PSP/PSPLIM state and check IRQ prerequisites. docs/nema-irq-completion-wait-contract.md. Overall 44.8% retained.",
+    "bw260 connected one M55 execution of original draw 5 + submit without pre-injected payload → diagnostic GPU → guest frame. Passive 3/A3/W1/one letter omission rejection (native 8), audit 348, existing five-caller binary identical. Actual completion ID/IRQ/RTOS/main unimplemented. Next original IRQ/completion ID and semaphore wait contract. docs/nema-live-draw-framebuffer.md. Overall 44.8% retained.",
+    "bw259 connected original submit → diagnostic GPU ring/payload consumption → guest 64×32 frame → PNG. Nominal 3 + clip/stride 2/pre-rejection 7/passive regression 1, audit 349/Python unit 7. Only binary A4 accepted; completion ID/IRQ/main unimplemented. Next combine five original draw functions and submit in one M55 run without prebuilt payload. docs/nema-reference-ring-framebuffer.md. Overall 44.8% retained.",
+    "bw258 original list submission: three M55 runs, full WORK exact to M7. Ring 12 words/queued ID 8/doorbell 2 confirmed. M7 submit 30/wait callee boundary 21/audit 193. Default CPU observer detects after first passive write (raw failure preserved/saved reaudit), distinct from peripheral precheck. Next ring → original payload consumption/guest pixels; completion ID/IRQ unimplemented. docs/nema-submission-contract.md. Overall 44.8% retained.",
+    "bw257 original M55 commands → explicit white A4/black L8 reference image 64×32. Original CPU callback six times; three 176 B crops exact/synthetic unit 7/saved audit 107/PNG visually inspected. Actual A only 0/255; GPU/IRQ/main not executed. Next original submission/ring consumption/completion ID/IRQ contract. docs/nema-command-pixel-reference.md. Overall 44.8% retained.",
+    "bw256 Nema SRAM omission correction: collected flag 1 from three canonical mains with identical CPU/events. Restoring only first byte changed 2.4 from 50→42 words; older/CFW 42. M55 batch 3/M7 control 12 batches/60 upper calls/audit 81; missing/tampered rejection guard. Next separate A4 → L8 sampling/ROP and clip semantics from assumptions before pixel model. docs/nema-blend-state-contract.md. GPU/main/full screen incomplete; 44.8% retained.",
+    "bw255 compared actual RAM/word/hash of three pinned ARM batches with public header. Confirmed 2.4 IMEM upload versus older ROP504 difference (SIMPLE != SRC_OVER501). No public GPU executor obtained; vendor manual redirects to profile. Next compare original blend setter arguments/branches and shader-generation path. docs/nema-execution-reuse-research.md. GPU/pixel/main integration incomplete; 44.8% retained.",
+    "bw254 executed original list-bind/destination/clip/full letter/unbind consecutively on M55 with ARM test caller. Payload 50/42/42, end markers, stride 80 controls/single-function regressions; audit 134. Incomplete host transition preserved. Next check Nema execution tools/ISA/shader material before connecting GPU effects/pixels. docs/destination-glyph-command-batch.md.",
+    "bw253 original raw bitmap early-load unused-value contract; 54 value controls/descriptor 9. Canonical ITCM profile yielded three normal M55 full-letter A returns (40/32/32 words), two strict/word-0 controls; audit 176/unit 4. Explains fixture mapping omission; no firmware modification. Next connect target/submission/GPU effects and display buffer. docs/glyph-itcm-read-contract.md.",
+    "bw252 three main registries have one Ambiq unit; original eval/queue 129; saved audit 585. Label receives ID 9/score 10 without font check; count-1 fast path selects only state 1. Canonical ITCM address-0 mapping omission found in function fixture. Next check raw-bitmap early-load value usage and same memory map. docs/draw-unit-selection.md.",
+    "bw251 after original main stop, two font chains/head/callback states exact across three images. Resolver/getter/style prefix 36; static UI candidates 60/61/61; saved audit 834. Diagnostic font-bank conditions confirmed unchanged callback/fallback connection; actual draw-unit selection unconfirmed. Next registration/eligibility/dispatch investigation. docs/ui-font-callback-selection.md.",
+    "bw250 nine original glyph helpers returned on Renode M55; all command words match M7. Three full letters stop strictly at null address 10/4-byte read at same PC. Observer off 1; saved audit 285. Next reproduce on Renode M55 and investigate actual UI font selection/initialization and callback ABI. GPU/main/pixels incomplete. docs/ambiq-glyph-m55-replay.md.",
+    "bw249 original descriptor → actual ROM bitmap → glyph helper → matrix/coordinates/draw commands in nine conditions. Full letter failed on null draw-buffer read in all three images; failure preserved. Unicorn M7 auxiliary profile/audit 202. Next Renode M55 reproduction and actual font selection/initialization. GPU/pixels/full main incomplete. docs/ambiq-glyph-draw-commands.md.",
+    "bw248 original command-list bind → texture binding 18 times → append/end/rewind; six error conditions, 51 original function calls, audit 80. Synthetic preallocation/state, no MMIO, pixels/GPU not executed. Next connect original glyph helper → matrix/draw command list. docs/ambiq-command-list-emission.md.",
+    "bw247 original render-target precheck 18/formats 768; saved audit 1239. Static connection task+48 layer → draw buffer/task+4c unit and stride binding. Lock/GPU submission/pixels not executed. Next unit initialization, command-list, binding/post-draw contract. docs/ambiq-target-buffer-contract.md.",
+    "bw246 font wrapper → reused buffer → original letter → immediately before Ambiq callback connected. Original 1466/saved audit 108/two static tests; after reproducing Unicorn write-hook mutation, verified via readonly/final diff. Backend/framebuffer not executed; 44.8% retained. Next Ambiq target buffer/stride/submission contract. docs/font-wrapper-renderer-boundary.md.",
+    "bw245 M55 resident writer unit complete: normal 512 B, two errors/one 16 B boundary; actual context restored, compiled callback/stock wrapper, virtual ROM writes only. Host 5 + existing 3/saved audit 144. Next D3 font wrapper/renderer caller; full W5 recovery incomplete. docs/recovery-m55-resident-writer.md.",
+    "bw244 investigated recovery owner in one flow and verified new compiled UART2 byte transport: auth/upload CRC/API3 → actual RAM call entry, main 0/write 0/test 3. Writer execution/manager/case incomplete; pending OTA upstream warning is not a gate. Next M55 RAM call integration. docs/recovery-owner-flow.md.",
+    "bw242 reset/ready follow-up deferred: nominal 3/delayed 1 → unsupported DCX setup, SPI 0; never-low/ready additional error consumption boundary, control exact. Unit 50/existing 29+66/saved audit 111. Overall 44.8% retained. Next W5 corrupt-main recovery owner. docs/em9305-reset-hypothesis.md.",
+    "bw243 incorporated user-requested one-time Astra review. Source gate repair 13/15; bw242 stopped at first SPI/unknown peer → W5 corrupt-main recovery owner in one flow → D3 caller/lifecycle integration if evidence insufficient. No new native/physical work. docs/astra-iom6-direction-review.md.",
+    "bw239 implemented schema2 plan semantic contract and saved reaudit. Unit 11/host 52 passed, independent frozen runner audit succeeded, existing capture SHA unchanged/no new native. Next D3 built-in bitmap callback; common verification alone does not establish boot/display success. docs/native-candidate-semantic-contract.md.",
+    "bw240 original bitmap callback pixels confirmed. Natural UI and framebuffer/submission incomplete. First W5 virtual-storage integration also completed in bw241; next S6 IOM6 power → initial transport → peer boundary unit.",
+    "bw241 W5 partial progress: Safari UI RAM readback/partial apply and actual gate block confirmed, full web 62/skip 0, saved image original ARM 16/corruption rejection 2. After stock main body restoration, 129764 B CFW remainder and patched boot remain, so not full stock. docs/virtual-web-install-storage.md.",
+    "bw242 retention follow-up: valid writes match across 768 original save/restore runs for 128 status-7-bit patterns. Exact-PC one-time representative-value profile reaches power-down → GPIO117 wait on three originals, off-control CPU exact. Global CQ/actual GPIO unknown. Next reset/ready and first SPI peer; full initialization incomplete. docs/iom6-retention-copy-contract.md.",
+    "At the end of each behavior unit update new evidence and implications for S6/D3/W5. Do not skip display/W5 work to pursue only the next MMIO indefinitely. Diagnostic progress is not normal boot/display evidence.",
+    "Retain overall 13/29=44.8% and scope v2. This does not include authorization for physical device scan/connection/RAM execution/OTA/persistent writes/external publication."
+  ],
+  "notes": [
+    "Scope v2 preserves the 30 conditions of the v1 internal draft but separates 29 product and one operational condition. Completion of management work alone does not raise product progress.",
+    "The 29 product completion conditions have equal weight; operational D6 is counted separately. This is not a workload/time estimate or physical installation readiness.",
+    "Three new PFCR red tests were resolved by implementation. The specified module set passed 131 Python tests, 13 native PFCR/16 cache tests, and 12 main combinations; this is not a repository-wide or physical-device green judgment.",
+    "Physical access, RAM execution, OTA, and persistent writes are outside this work. Conditions needing device evidence are not executed before individual explicit approval.",
+    "Full Sandevistan port, new user features, GPU driver, and iPhone companion development are not automatic extensions of the current goal.",
+    "Do not reconstruct earlier individual work timestamps. Baseline import is the time registered after checking actual current evidence.",
+    "D-cache: verified 109 Python tests, 16 native default/I-cache and 18 scalar D-cache tests, and 12 actual main combinations. Do not extend to physical cache/power/full boot verification.",
+    "Buck response: Python 116 tests/native 18 conditions/six original main combinations agree. Retention of response-off boundary and stuck-off observation are distinct; not physical power or fault-recovery verification.",
+    "HFRC2/MCU response: verified Python 122/native 12 conditions (five response observations/seven rejections)/six main combinations. Distinguished clock-state agreement from native additional cache sweep/buck read and different endpoint. Not full boot/screen success.",
+    "GPU selection: verified native storage model of public reset 0/supply 1/performance request 3. Not GPU execution, physical power, full boot, or integrated screen success; progress retained. Initial unimplemented probe timeout preserved as unresolved.",
+    "HFRC: explicitly assumed enable derived from bit-0 force. Completed limited native 7/regression 4/main 6 verification and one comparator null-handling regression; physical clock/full boot/screen incomplete.",
+    "GPU preparation: verified 18 control writes/restoration and error blocking for current synthetic PCM2 HP branch. Saturation-boundary runtime/physical rail/GPU engine/full boot/integrated screen incomplete; product progress retained.",
+    "GPU response: distinguished active/stuck-off. Stock 2.4 LP stuck-off scenario also attempted GPU access, so safe fallback/recovery unproven. Physical power/GPU engine/full boot/screen incomplete.",
+    "GPU initialization: confirmed provenance of 16 upstream files, NVIC callees in three firmware images, and synthetic IRQ28. GPU model and main execution endpoint unchanged; full boot/integrated screen incomplete.",
+    "GPU idle clear: checked new 9/power regression 4 and four LP main conditions. Initial high-guard connection failure preserved and fixed via shared owner. HP/Python new stages unverified; full boot/integrated screen incomplete.",
+    "GPU ring investigation: compared three static inputs/pinned ARM archive. Since 0xec is also used for submission, simple storage is not completion. Model/main endpoint/overall completion unchanged at this stage.",
+    "GPU ID/ring observation: checked new 9/regression 4/LP main 4, snapshot analysis 3/mutation rejection 4. Observed byte length is limited to current initial path of three inputs and does not prove allocation, DMA, or command execution.",
+    "GPU ring configuration: checked new 17/regression 4/LP main 4. Active 3's 1216-word snapshot contains only initial footer. Completed configuration latch does not imply GPU execution, allocation verification, or full boot.",
+    "GPU identity: checked static 3, compiled offsets, native 12, main 5. Fixed ID comparison passing does not prove actual GPU capability or safe recovery when absent. Source-reset is an explicit virtual response.",
+    "Initial GPU reset: checked source compiled offsets/native 15/main 4. Counters denote only initial quiescent requests/events; full internal state/DMA/active-engine reset not implemented.",
+    "GPU extension investigation: checked official manifest chain, ten file SHAs/Git blobs, 107 C constants, and three negative conditions. Do not extend name/address definitions to GPU bit behavior/full reset/physical verification.",
+    "Raster observation: checked native 13/main 4/prefix 3/mutation rejection 4. Opaque storage of 1 is not rendering implementation; CPU RAM candidates are not GPU execution/valid submission. Initial unchanged-ring assumption corrected by actual 35-word change.",
+    "UART1: initial baud exception hypothesis was not reproduced at runtime and was corrected. Added fractional truncation diagnostic fix, seven input checks, shared-bank rejection/state preservation. Passing polling TX alone is not firmware TX/full boot/integrated screen success.",
+    "Original execution audit: loaded main byte-matches each pinned bundle main and starts at main reset, not the full ROM/boot path. Source showed no forced PC/return-register branches, but synthetic INFO1/chiprev/power/ADC/cache values affect branch selection. Same conditions for 23/CFW; 111 prefix changed bytes + 71144 length increase are static differences, not patch feature verification.",
+    "UART lifecycle: power_cycles counts completed off events, not round trips. Post-reset PL011 raw TX 20/mask 0/IRQ low. Distinguished direct-seed synthetic fixture from original main; guest restore unverified. UART0–3 common layout and address/IRQ/power source-verified, but multi-UART execution not yet implemented.",
+    "bw-0111: older common JSON for R1/F1 temporarily dropped progress to 11/29 due to iCloud dataless read failure. Recompared four existing assets with pinned SHAs and existing manifest records; updated evidence with private report/verifier/direct asset pins. Old evidence retained/denominator unchanged; not format/boot recovery retest.",
+    "Execution dependencies: did not remove guest checks to bypass iCloud read failures on old modules/fixtures. Restored same three-bundle + raw-SHA loader and frozen plain-board new path, rejecting mutation. Fixed host-source 0700 permission error and reran final main 5. Explicit runtime/verifier/fixture 13 sources privately backed up; complete legacy search/repository backup incomplete.",
+    "IOM research: snapshot represents pre-configuration intent, not physical clock measurement. IOM4 NB/CQ may be needed; existing engine does not execute DMA CQ. Synthetic peer 48/prototype transport is not actual G2 peer/original main transport. After unmapped-core child registration failure, mapped-derived candidate verified under 11 conditions; production strict model deferred.",
+    "bw241 W5 pending → partial is a state update based on new browser/virtual-storage/saved-image ARM integration evidence. Completion criteria, denominator, and 44.8% unchanged. Distinguish synthetic fault model from physical recovery."
+  ],
+  "change_history": [
+    {
+      "version": 1,
+      "summary": "Registered draft of 30 conditions for full scope.",
+      "snapshot": "docs/project-scope-v1.json"
+    },
+    {
+      "version": 2,
+      "summary": "Separated operational D6 from product progress; no product condition deleted.",
+      "previous_delivery_ratio": "13/30",
+      "current_delivery_ratio": "13/29",
+      "reason": "Independent review noted management work alone could increase product progress."
+    }
+  ],
+  "evidence_updates": [
+    {
+      "ts": "2026-11-11T00:02:10.030739+00:00",
+      "task": "bw-0111",
+      "reason": "iCloud dataless old report unreadable; fresh same-asset hash/provenance-record check, criteria unchanged",
+      "changes": [
+        {
+          "id": "R1",
+          "old_document": "docs/offline-compatibility-check.md",
+          "old_evidence": [
+            {
+              "path": "docs/offline-asset-audit.json",
+              "sha256": "a2af44ff29124c4be6e816f5265171e426db0e04767c6b698ca00bb336ddf8ea",
+              "checks": [
+                {
+                  "path": [
+                    "integrity"
+                  ],
+                  "eq": "passed"
+                },
+                {
+                  "path": [
+                    "readyForHardwareInstall"
+                  ],
+                  "eq": false
+                }
+              ]
+            }
+          ],
+          "new_document": "docs/offline-asset-revalidation.md",
+          "new_evidence": [
+            {
+              "path": "private:simulator/offline-asset-revalidation-02/report.json",
+              "sha256": "13d28aef1a4f3fa8684cd3fc362d1eb6afc9e6a67bd70dc01ba6ae135538cf6b",
+              "checks": [
+                {
+                  "path": [
+                    "integrity"
+                  ],
+                  "eq": "passed"
+                },
+                {
+                  "path": [
+                    "prior_provenance_confirmed"
+                  ],
+                  "eq": true
+                },
+                {
+                  "path": [
+                    "readyForHardwareInstall"
+                  ],
+                  "eq": false
+                },
+                {
+                  "path": [
+                    "format_reparsed"
+                  ],
+                  "eq": false
+                },
+                {
+                  "path": [
+                    "bootloader_recovery_retested"
+                  ],
+                  "eq": false
+                }
+              ]
+            },
+            {
+              "path": "private:simulator/offline-asset-revalidation-02/revalidate_research_assets.py",
+              "sha256": "82300c77b52eacfd29bf91069377b84598e26b020598590a45e45a6e5d061ac2",
+              "checks": []
+            },
+            {
+              "path": "private:simulator/inputs/verified-01/stock-2.3.0.24.bin",
+              "sha256": "187ccf2bcc5c17a212106e8a376745511e8289c4232b634a7ea94b9bf25a0979",
+              "checks": []
+            },
+            {
+              "path": "private:simulator/inputs/verified-01/stock-2.4.0.24.bin",
+              "sha256": "363198f8d543a5c1181d8a213e9077285cb865700a1885c8dc7c1b9324fd0e05",
+              "checks": []
+            },
+            {
+              "path": "private:simulator/inputs/verified-01/faceclaw-38-research-only.bin",
+              "sha256": "4aac023f49ec6965186d9106e328a516f20a2915ab400d561f662f984023a432",
+              "checks": []
+            },
+            {
+              "path": "private:recovery/research-2026-11-10/stock-boot-patch-bundle.bin",
+              "sha256": "26b6067665a441b779c47f6b95427b8b4bb5f502aaf527466dadce628aeb00b2",
+              "checks": []
+            }
+          ]
+        },
+        {
+          "id": "F1",
+          "old_document": "docs/offline-compatibility-check.md",
+          "old_evidence": [
+            {
+              "path": "docs/offline-asset-audit.json",
+              "sha256": "a2af44ff29124c4be6e816f5265171e426db0e04767c6b698ca00bb336ddf8ea",
+              "checks": [
+                {
+                  "path": [
+                    "integrity"
+                  ],
+                  "eq": "passed"
+                },
+                {
+                  "path": [
+                    "readyForHardwareInstall"
+                  ],
+                  "eq": false
+                }
+              ]
+            },
+            {
+              "path": "private:simulator/inputs/verified-01/faceclaw-38-research-only.bin",
+              "sha256": "4aac023f49ec6965186d9106e328a516f20a2915ab400d561f662f984023a432",
+              "checks": []
+            }
+          ],
+          "new_document": "docs/offline-asset-revalidation.md",
+          "new_evidence": [
+            {
+              "path": "private:simulator/offline-asset-revalidation-02/report.json",
+              "sha256": "13d28aef1a4f3fa8684cd3fc362d1eb6afc9e6a67bd70dc01ba6ae135538cf6b",
+              "checks": [
+                {
+                  "path": [
+                    "integrity"
+                  ],
+                  "eq": "passed"
+                },
+                {
+                  "path": [
+                    "prior_provenance_confirmed"
+                  ],
+                  "eq": true
+                },
+                {
+                  "path": [
+                    "readyForHardwareInstall"
+                  ],
+                  "eq": false
+                },
+                {
+                  "path": [
+                    "format_reparsed"
+                  ],
+                  "eq": false
+                },
+                {
+                  "path": [
+                    "bootloader_recovery_retested"
+                  ],
+                  "eq": false
+                }
+              ]
+            },
+            {
+              "path": "private:simulator/offline-asset-revalidation-02/revalidate_research_assets.py",
+              "sha256": "82300c77b52eacfd29bf91069377b84598e26b020598590a45e45a6e5d061ac2",
+              "checks": []
+            },
+            {
+              "path": "private:simulator/inputs/verified-01/faceclaw-38-research-only.bin",
+              "sha256": "4aac023f49ec6965186d9106e328a516f20a2915ab400d561f662f984023a432",
+              "checks": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

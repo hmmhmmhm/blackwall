@@ -1,0 +1,384 @@
+{
+  "profile": "tdk-646f55a6-gaf-published-defaults",
+  "source_commit": "646f55a6ec119b59d9ebce47af660842b53e5506",
+  "source_url": "https://raw.githubusercontent.com/tdk-invn-oss/motion.arduino.ICM45608/646f55a6ec119b59d9ebce47af660842b53e5506/src/imu/inv_imu_edmp_memmap.h",
+  "source_sha256": "b1abae1c5ce890f9e76c666492cde84ff4cd01d1a486203d6aa7f5e4508829e5",
+  "source_git_blob": "7a50ab835c0a4a2d520c0f007db930cfdf2fab4d",
+  "fields": [
+    {
+      "name": "EDMP_GAF_CONFIG_RUN_SPHERICAL",
+      "member": "run_spherical",
+      "address": 686,
+      "length": 1,
+      "offset": 0,
+      "published_default": 1,
+      "bytes_le": "01"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_PLL_CLOCK_VARIATION",
+      "member": "clock_variation",
+      "address": 684,
+      "length": 1,
+      "offset": 1,
+      "published_default": 0,
+      "bytes_le": "00"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_GYR_PDR_US",
+      "member": "pdr_us",
+      "address": 660,
+      "length": 4,
+      "offset": 4,
+      "published_default": 10000,
+      "bytes_le": "10270000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_STATIONARY_ANGLE_ENABLE",
+      "member": "stationary_angle_enable",
+      "address": 685,
+      "length": 1,
+      "offset": 12,
+      "published_default": 0,
+      "bytes_le": "00"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_STATIONARY_ANGLE_DURATION_US",
+      "member": "stationary_angle_duration_us",
+      "address": 664,
+      "length": 4,
+      "offset": 16,
+      "published_default": 500000,
+      "bytes_le": "20a10700"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_STATIONARY_ANGLE_THRESHOLD_DEG_Q16",
+      "member": "stationary_angle_threshold_deg_q16",
+      "address": 668,
+      "length": 4,
+      "offset": 20,
+      "published_default": 65536,
+      "bytes_le": "00000100"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_FUS_LOW_SPEED_DRIFT_ROLL_PITCH",
+      "member": "fus_low_speed_drift_roll_pitch",
+      "address": 672,
+      "length": 4,
+      "offset": 72,
+      "published_default": 20,
+      "bytes_le": "14000000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_LOOSE_GYR_CAL_STATIONARY_DURATION_US",
+      "member": "gyr_cal_stationary_duration_us",
+      "address": 1484,
+      "length": 4,
+      "offset": 24,
+      "published_default": 500000,
+      "bytes_le": "20a10700"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_LOOSE_GYR_CAL_THRESHOLD_METRIC1",
+      "member": "gyr_cal_threshold_metric1",
+      "address": 1516,
+      "length": 4,
+      "offset": 28,
+      "published_default": 1200,
+      "bytes_le": "b0040000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_LOOSE_GYR_CAL_THRESHOLD_METRIC2",
+      "member": "gyr_cal_threshold_metric2",
+      "address": 1500,
+      "length": 4,
+      "offset": 36,
+      "published_default": 60000,
+      "bytes_le": "60ea0000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_STRICT_GYR_CAL_THRESHOLD_METRIC1",
+      "member": "strict_gyr_cal_threshold_metric1",
+      "address": 1720,
+      "length": 4,
+      "offset": 32,
+      "published_default": 300,
+      "bytes_le": "2c010000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_STRICT_GYR_CAL_THRESHOLD_METRIC2",
+      "member": "strict_gyr_cal_threshold_metric2",
+      "address": 1724,
+      "length": 4,
+      "offset": 40,
+      "published_default": 400,
+      "bytes_le": "90010000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_LOOSE_GYR_CAL_SAMPLE_NUM_LOG2",
+      "member": "gyr_cal_sample_num_log2",
+      "address": 1736,
+      "length": 4,
+      "offset": 44,
+      "published_default": 7,
+      "bytes_le": "07000000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_GYR_BIAS_REJECT_TH",
+      "member": "gyr_bias_reject_th",
+      "address": 1504,
+      "length": 4,
+      "offset": 48,
+      "published_default": 3650722,
+      "bytes_le": "a2b43700"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_ACC_FILTERING_NPOINTS_LOG2",
+      "member": "acc_filtering_Npoints_log2",
+      "address": 1716,
+      "length": 4,
+      "offset": 52,
+      "published_default": 5,
+      "bytes_le": "05000000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_ACC_SQUARE_SIN_ANGLE_MOTION_DETECT_TH",
+      "member": "acc_square_sin_angle_motion_detect_th",
+      "address": 1712,
+      "length": 4,
+      "offset": 56,
+      "published_default": 4318,
+      "bytes_le": "de100000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_GOLDEN_BIAS_TIMER",
+      "member": "golden_bias_timer",
+      "address": 1728,
+      "length": 4,
+      "offset": 60,
+      "published_default": 1440000,
+      "bytes_le": "00f91500"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_GOLDEN_BIAS_TEMPERATURE_VALIDITY",
+      "member": "golden_bias_temperature_validity",
+      "address": 1732,
+      "length": 4,
+      "offset": 64,
+      "published_default": 983040,
+      "bytes_le": "00000f00"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_FUS_HIGH_SPEED_DRIFT",
+      "member": "fus_high_speed_drift",
+      "address": 1272,
+      "length": 4,
+      "offset": 68,
+      "published_default": 262144,
+      "bytes_le": "00000400"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_FUS_LOW_SPEED_DRIFT_YAW",
+      "member": "fus_low_speed_drift_yaw",
+      "address": 676,
+      "length": 4,
+      "offset": 84,
+      "published_default": 20,
+      "bytes_le": "14000000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_FUS_MEASUREMENT_COVARIANCE_ACC",
+      "member": "fus_measurement_covariance_acc",
+      "address": 1240,
+      "length": 4,
+      "offset": 76,
+      "published_default": 32768,
+      "bytes_le": "00800000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_FUS_ACCELERATION_REJECTION",
+      "member": "fus_acceleration_rejection",
+      "address": 1268,
+      "length": 4,
+      "offset": 80,
+      "published_default": 1073741824,
+      "bytes_le": "00000040"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_DT_US",
+      "member": "mag_dt_us",
+      "address": 1192,
+      "length": 4,
+      "offset": 8,
+      "published_default": 20000,
+      "bytes_le": "204e0000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_FUS_MEASUREMENT_COVARIANCE_MAG",
+      "member": "fus_measurement_covariance_mag",
+      "address": 1208,
+      "length": 4,
+      "offset": 88,
+      "published_default": 65536,
+      "bytes_le": "00000100"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_FUS_MAG_ANOMALY_REJECTION",
+      "member": "fus_mag_anomaly_rejection",
+      "address": 1212,
+      "length": 4,
+      "offset": 92,
+      "published_default": 1073741824,
+      "bytes_le": "00000040"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_THRESH_YAW_STOP_CONVERGENCE",
+      "member": "thresh_yaw_stop_convergence_q30",
+      "address": 1232,
+      "length": 4,
+      "offset": 96,
+      "published_default": -1,
+      "bytes_le": "ffffffff"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_THRESH_YAW_SMOOTH_CONVERGENCE",
+      "member": "thresh_yaw_smooth_convergence_q15",
+      "address": 1236,
+      "length": 4,
+      "offset": 100,
+      "published_default": -1,
+      "bytes_le": "ffffffff"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_THR_HUGE_DISTURBANCE",
+      "member": "mag_thr_huge_disturbance",
+      "address": 2080,
+      "length": 4,
+      "offset": 104,
+      "published_default": 409600,
+      "bytes_le": "00400600"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_THR_ANOMALY_RADIUS",
+      "member": "mag_thr_anomaly_radius",
+      "address": 2084,
+      "length": 4,
+      "offset": 108,
+      "published_default": 30720,
+      "bytes_le": "00780000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_THR_SELECT_ANGLE",
+      "member": "mag_thr_select_angle",
+      "address": 2088,
+      "length": 4,
+      "offset": 112,
+      "published_default": 1050277989,
+      "bytes_le": "65f8993e"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_THR_SELECT_DISTANCE_GYRO",
+      "member": "mag_thr_select_distance_gyro",
+      "address": 2092,
+      "length": 4,
+      "offset": 116,
+      "published_default": 10240,
+      "bytes_le": "00280000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_THR_SELECT_DISTANCE_NOGYRO",
+      "member": "mag_thr_select_distance_nogyro",
+      "address": 2096,
+      "length": 4,
+      "offset": 120,
+      "published_default": 30720,
+      "bytes_le": "00780000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_Q0_STANDALONE",
+      "member": "mag_q0_standalone",
+      "address": 2100,
+      "length": 4,
+      "offset": 124,
+      "published_default": 3,
+      "bytes_le": "03000000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_R0_STANDALONE",
+      "member": "mag_r0_standalone",
+      "address": 2104,
+      "length": 4,
+      "offset": 128,
+      "published_default": 400000,
+      "bytes_le": "801a0600"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_Q0_ASSISTED",
+      "member": "mag_q0_assisted",
+      "address": 2108,
+      "length": 4,
+      "offset": 132,
+      "published_default": 1,
+      "bytes_le": "01000000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_R0_ASSISTED",
+      "member": "mag_r0_assisted",
+      "address": 2112,
+      "length": 4,
+      "offset": 136,
+      "published_default": 5000,
+      "bytes_le": "88130000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_THR_MAX_RADIUS_JUMP",
+      "member": "mag_thr_max_radius_jump",
+      "address": 2116,
+      "length": 4,
+      "offset": 140,
+      "published_default": 40960,
+      "bytes_le": "00a00000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_THR_MAX_RADIUS",
+      "member": "mag_thr_max_radius",
+      "address": 2120,
+      "length": 4,
+      "offset": 144,
+      "published_default": 256000,
+      "bytes_le": "00e80300"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_THR_MIN_RADIUS",
+      "member": "mag_thr_min_radius",
+      "address": 2124,
+      "length": 4,
+      "offset": 148,
+      "published_default": 36864,
+      "bytes_le": "00900000"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_THR_LOCK_ACC",
+      "member": "mag_thr_lock_acc",
+      "address": 1220,
+      "length": 4,
+      "offset": 152,
+      "published_default": -1,
+      "bytes_le": "ffffffff"
+    },
+    {
+      "name": "EDMP_GAF_CONFIG_MAG_CALIBRATION_CONDITION",
+      "member": "mag_calibration_condition",
+      "address": 2128,
+      "length": 2,
+      "offset": 156,
+      "published_default": 1,
+      "bytes_le": "0100"
+    }
+  ],
+  "struct_bytes": 168,
+  "physical_g2_defaults_verified": false,
+  "original_getter_layout_matches_images": 3,
+  "original_calmag_patch_matches_public": false,
+  "profile_kind": "explicit-source-derived-virtual-input",
+  "runtime_enabled": false
+}

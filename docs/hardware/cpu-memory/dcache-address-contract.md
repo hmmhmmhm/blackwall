@@ -1,0 +1,9 @@
+# SRAM Address-Based Cache Maintenance Contract
+
+`bw-0228`. Compared the M55 header and cache APIs from pinned CMSIS 6.3.0 (commit `45dab712ad84f8cbbf2b7bfc089c19088507df6f`) with stock 2.4, 2.3, and CFW originals. `tools/inspect_dcache_address_contract.py` records 60 checks and 42 original instruction-fragment executions in private `simulator/dcache-address-contract-01`. Code was not modified and function calls, branches, or returns were not replaced. Distinguish synthetic register-input tests of instruction fragments from main execution starting at reset.
+
+`e000ef68` is DCCMVAC (clean by MVA to PoC). CMSIS increments addresses in 32-byte units; the low five MVA bits are not used for line selection. The original caller first rounds the length up to a multiple of 32 bytes, then runs a CMSIS-style loop. Current length is 25 bytes; buffers are `2035cc60` for 2.4 and `20377740` for 2.3/CFW. Both are aligned, so the code attempts to clean one line. Do not assume successful DMA transfer before completion.
+
+The existing coherent D-cache is a model where CPU and memory agree immediately. Therefore, in the new opt-in `sramAddressMaintenance`, SRAM MVA invalidate/clean/clean-invalidate can record completion without copying data or an independent dirty cache. Scope is existing normal SRAM `20000000..20380000` and 32-bit word commands only. The low five MVA bits are ignored and the line address is recorded. Other regions, widths, and unsupported commands remain rejected. These commands do not satisfy the set/way initialization completion condition.
+
+The default is false. Selection in SystemControl requires coherent D-cache. This is not verification of actual cache latency, DMA coherency, or a physical cache controller; it does not bypass CPU PC or instructions. Retain the existing set/way model and default unsupported behavior, and compare normal main again.

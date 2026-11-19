@@ -1,0 +1,485 @@
+{
+  "schema": 2,
+  "id": "em9305-first-read-command-frame-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "em9305-active-event-main-03",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "spi-retention-lifecycle",
+      "baseline": "em9305-command-research-01/base-iom.cs",
+      "candidate": "tools/renode-iom.cs",
+      "before_sha256": "9172a347364ca3f9046d2e2f42a4f25b367f8180d10eb4fd9f6e1703cc6ed29c",
+      "after_sha256": "d60cb84c71bd83352f7dfda126e1a0b883d823db9833401f202be4b00a41d51c"
+    },
+    {
+      "name": "first-command-transport",
+      "baseline": "em9305-command-research-01/base-reset.cs",
+      "candidate": "tools/renode-em9305-reset.cs",
+      "before_sha256": "1e7a7b96c3b7db1aed0998bd2a316da33f5c225b3d4fe7ef5c34b710fd2e9c22",
+      "after_sha256": "c779dc3097e93a88c01fc576828de32134c271c2f75dd9a72b345abe7b248bb7"
+    }
+  ],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    cqStartupRetentionBudget: 2",
+      "after": "    cqRetentionPerDisable: true"
+    },
+    {
+      "before": "    idlePc: 0x501ab0\n",
+      "after": "    idlePc: 0x501ab0\n    writePc: 0x501676\n    writeConfirmPc: 0x501684\n    replyWaitPc: 0x501d48\n"
+    },
+    {
+      "before": "    eventHex: \"04ff0101\"",
+      "after": "    eventHex: \"04ff0101\"\n    readDataHex: \"0000000000000000\"\n    writeCapacity: 9"
+    }
+  ],
+  "board_append": "",
+  "diagnostics": "dict(paused=bool(m.IsPaused),commands=int(m['sysbus.iom6'].Commands),peer_state=str(m['sysbus.iom6'].SpiWordTransfer.Peer.State),headers=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Headers),payloads=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Payloads),frames=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Frames),accepted_commands=int(m['sysbus.iom6'].SpiWordTransfer.Peer.CommandsAccepted),replies=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Replies),command_hex=str(m['sysbus.iom6'].SpiWordTransfer.Peer.CommandHex),read_data_hex=str(m['sysbus.iom6'].SpiWordTransfer.Peer.ReadDataHex),retention_reads=int(m['sysbus.iom6'].RetentionSnapshotReads),retention_epoch=int(m['sysbus.iom6'].RetentionEpoch),retention_unique=bool(m['sysbus.iom6'].RetentionSnapshotReads<=m['sysbus.iom6'].RetentionEpoch+1),active_log_seen=any('Enter active state' in ''.join(chr(int(b)) for b in m['sysbus.guard'].Uarts[n].TxBytes) for n in range(4)),trim_match_log=any('The trim value is already updated' in ''.join(chr(int(b)) for b in m['sysbus.guard'].Uarts[n].TxBytes) for n in range(4)),trim_zero_log=any('original trim value:0x0, new trim value:0x7' in ''.join(chr(int(b)) for b in m['sysbus.guard'].Uarts[n].TxBytes) for n in range(4)))",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5251072,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "accepted_commands"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "replies"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "command_hex"
+            ],
+            "eq": "0101fd05884bf00008"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "read_data_hex"
+            ],
+            "eq": "0000000000000000"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 3
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_match_log"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_zero_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_unique"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Explicit bounded fd01 read scenario; zero fixture is not a measured controller value. Retention representative once per proven disable epoch."
+        ],
+        "unresolved_differences": [
+          "Controller data/timing/wiring unknown; later trim update and other HCI commands unimplemented; no full BLE/main/display completion."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5248630,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_reads"
+            ],
+            "eq": 2
+          }
+        ],
+        "allowed_differences": [
+          "Explicit bounded fd01 read scenario; zero fixture is not a measured controller value. Retention representative once per proven disable epoch."
+        ],
+        "unresolved_differences": [
+          "Controller data/timing/wiring unknown; later trim update and other HCI commands unimplemented; no full BLE/main/display completion."
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5548376,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "accepted_commands"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "replies"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "command_hex"
+            ],
+            "eq": "0101fd05884bf00008"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "read_data_hex"
+            ],
+            "eq": "0000000000000000"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 3
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_match_log"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_zero_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_unique"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Explicit bounded fd01 read scenario; zero fixture is not a measured controller value. Retention representative once per proven disable epoch."
+        ],
+        "unresolved_differences": [
+          "Controller data/timing/wiring unknown; later trim update and other HCI commands unimplemented; no full BLE/main/display completion."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5545934,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_reads"
+            ],
+            "eq": 2
+          }
+        ],
+        "allowed_differences": [
+          "Explicit bounded fd01 read scenario; zero fixture is not a measured controller value. Retention representative once per proven disable epoch."
+        ],
+        "unresolved_differences": [
+          "Controller data/timing/wiring unknown; later trim update and other HCI commands unimplemented; no full BLE/main/display completion."
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5548376,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "accepted_commands"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "replies"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "command_hex"
+            ],
+            "eq": "0101fd05884bf00008"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "read_data_hex"
+            ],
+            "eq": "0000000000000000"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 3
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_match_log"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_zero_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_unique"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Explicit bounded fd01 read scenario; zero fixture is not a measured controller value. Retention representative once per proven disable epoch."
+        ],
+        "unresolved_differences": [
+          "Controller data/timing/wiring unknown; later trim update and other HCI commands unimplemented; no full BLE/main/display completion."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5545934,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_reads"
+            ],
+            "eq": 2
+          }
+        ],
+        "allowed_differences": [
+          "Explicit bounded fd01 read scenario; zero fixture is not a measured controller value. Retention representative once per proven disable epoch."
+        ],
+        "unresolved_differences": [
+          "Controller data/timing/wiring unknown; later trim update and other HCI commands unimplemented; no full BLE/main/display completion."
+        ]
+      }
+    }
+  },
+  "reviewed_sources": {
+    "stock24": {
+      "path": "em9305-active-event-saved-audit-01/stock24/report.json",
+      "sha256": "973c052e59b6d1727fa8dbb04f15d5e733482f3a19cfb830cc2380e4aee30c7f"
+    }
+  },
+  "post_stop_memory_exports": [
+    {
+      "name": "sram-full.bin",
+      "address": 536870912,
+      "length": 3670016
+    }
+  ]
+}

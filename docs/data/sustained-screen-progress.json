@@ -1,0 +1,181 @@
+{
+  "objective": "Verify stable execution for 6 and 60 seconds after the screen for three originals, and identify long-duration execution costs and gaps in required ROM, GPU, and GAF materials.",
+  "criteria": [
+    {
+      "id": "6-stock24",
+      "description": "Two stock24 cold runs for 6 seconds after first screen",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/sustained-final-audit-01/report.json",
+          "sha256": "587e29c71d293d31dda6168c5ee8736e0cb41bc85d6795af2d2ff2b1e4245cdb",
+          "pair": "stock24-6000",
+          "integration": "stock24"
+        }
+      ]
+    },
+    {
+      "id": "6-stock23",
+      "description": "Two stock23 cold runs for 6 seconds after first screen",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/sustained-final-audit-01/report.json",
+          "sha256": "587e29c71d293d31dda6168c5ee8736e0cb41bc85d6795af2d2ff2b1e4245cdb",
+          "pair": "stock23-6000",
+          "integration": "stock23"
+        }
+      ]
+    },
+    {
+      "id": "6-cfw",
+      "description": "Two CFW cold runs for 6 seconds after first screen",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/sustained-final-audit-01/report.json",
+          "sha256": "587e29c71d293d31dda6168c5ee8736e0cb41bc85d6795af2d2ff2b1e4245cdb",
+          "pair": "cfw-6000",
+          "integration": "cfw"
+        }
+      ]
+    },
+    {
+      "id": "60-stock24",
+      "description": "Two stock24 cold runs for 60 seconds after first screen",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/sustained-final-audit-01/report.json",
+          "sha256": "587e29c71d293d31dda6168c5ee8736e0cb41bc85d6795af2d2ff2b1e4245cdb",
+          "pair": "stock24-60000",
+          "integration": "stock24"
+        }
+      ]
+    },
+    {
+      "id": "60-stock23",
+      "description": "Two stock23 cold runs for 60 seconds after first screen",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/sustained-final-audit-01/report.json",
+          "sha256": "587e29c71d293d31dda6168c5ee8736e0cb41bc85d6795af2d2ff2b1e4245cdb",
+          "pair": "stock23-60000",
+          "integration": "stock23"
+        }
+      ]
+    },
+    {
+      "id": "60-cfw",
+      "description": "Two CFW cold runs for 60 seconds after first screen",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/sustained-final-audit-01/report.json",
+          "sha256": "587e29c71d293d31dda6168c5ee8736e0cb41bc85d6795af2d2ff2b1e4245cdb",
+          "pair": "cfw-60000",
+          "integration": "cfw"
+        }
+      ]
+    },
+    {
+      "id": "cost",
+      "description": "Measure execution cost, failures, and workload",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/sustained-final-audit-01/report.json",
+          "sha256": "587e29c71d293d31dda6168c5ee8736e0cb41bc85d6795af2d2ff2b1e4245cdb",
+          "check": "full_goal_verified;12run resources and measured costs"
+        }
+      ]
+    },
+    {
+      "id": "rom-gap",
+      "description": "Identify gaps in required ROM/initial-state materials",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/sustained-required-gaps-01/report.json",
+          "sha256": "25b8c55c8643e572d8470e24d8ac66b764e9664907bf9621c12ff28ba64495f9",
+          "criterion": "rom-gap"
+        }
+      ]
+    },
+    {
+      "id": "gpu-gap",
+      "description": "Identify gaps in required independent GPU ground truth",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/sustained-required-gaps-01/report.json",
+          "sha256": "25b8c55c8643e572d8470e24d8ac66b764e9664907bf9621c12ff28ba64495f9",
+          "criterion": "gpu-gap"
+        }
+      ]
+    },
+    {
+      "id": "gaf-gap",
+      "description": "Identify gaps in required independent GAF calculations/output",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/sustained-required-gaps-01/report.json",
+          "sha256": "25b8c55c8643e572d8470e24d8ac66b764e9664907bf9621c12ff28ba64495f9",
+          "criterion": "gaf-gap"
+        }
+      ]
+    }
+  ],
+  "complete": 10,
+  "total": 10,
+  "percent": 100.0,
+  "scope": "The active Goal at this checkpoint, separate from existing v3 and all 25 fidelity conditions.",
+  "in_progress": null,
+  "partial_evidence": {
+    "6-stock24": [
+      "private:simulator/sustained-6s-audit-01/stock24/report.json"
+    ],
+    "60-stock24": [
+      {
+        "path": "private:simulator/sustained-final-partial-audit-01/report.json",
+        "sha256": "d156a03a8bd438d2ed4b1fef4daebf0f909d2b0df57746893aa7185e0d3cb125",
+        "verified_runs": 1,
+        "verified_pairs": 0
+      }
+    ],
+    "60-stock23": [
+      {
+        "path": "private:simulator/sustained-final-partial-audit-03/report.json",
+        "sha256": "e1eb28b794cb38be619787fd12fa3da2174ff295068662f5bd7744b2e9233a5d",
+        "verified_runs": 3,
+        "verified_pairs": 1
+      }
+    ],
+    "60-cfw": [
+      {
+        "path": "private:simulator/sustained-final-partial-audit-05/report.json",
+        "sha256": "482c9a590c356583ff36c33681385e1c34efddffbb248af60e0045cfa839e72f",
+        "verified_runs": 5,
+        "verified_pairs": 2
+      }
+    ],
+    "6-stock24-final": [
+      {
+        "path": "private:simulator/sustained-final-partial-audit-07/report.json",
+        "note": "one final6s run; pair not complete"
+      }
+    ]
+  },
+  "final_integration_revalidation": "Original3 cold6s/60s each2 complete; same model/board/runtime/activation across both durations per case; all3 integrations passed.",
+  "completion": {
+    "task": "bw-0521",
+    "matrix": "private:simulator/sustained-remaining-six-bw517-01/state.json",
+    "audit": "private:simulator/sustained-final-audit-01/report.json",
+    "audit_sha256": "587e29c71d293d31dda6168c5ee8736e0cb41bc85d6795af2d2ff2b1e4245cdb",
+    "verified_runs": 12,
+    "verified_pairs": 6,
+    "scope": "Bounded screen6/60s validation and material-gap identification; not full ROM/GPU/fusion fidelity."
+  }
+}

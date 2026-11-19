@@ -1,0 +1,108 @@
+{
+  "scope_version": "original-boot-screen-v1",
+  "objective": "Configure and verify main and screen integration through the original bootloader.",
+  "primary_profile": "Unmodified stock boot2.4.0.24 @0x410000 → unmodified stock main2.4.0.24 @0x438000 on one declared virtual G2 temple",
+  "scope_notes": [
+    "Starts at bootloader reset vector; actual Boot ROM execution is not claimed.",
+    "Normal stock boot path is required; patched boot handoff and forced success/PC/return are excluded.",
+    "Existing2.3/Faceclaw evidence stays historical; applicability is documented, not inferred from2.4.",
+    "No physical glasses access/writes, Astra, external posting, or whole-fidelity25 criteria activation."
+  ],
+  "criteria": [
+    {
+      "id": "OB01",
+      "description": "Pin provenance, SHA, vector, and loading address of original bootloader/main.",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/original-boot-screen-baseline-bw522-01/assets.json",
+          "sha256": "9b3c1f4e41772ba691b22211a9df7c45ad04b5ddd28503491573e1d51ef2b1fb"
+        }
+      ]
+    },
+    {
+      "id": "OB02",
+      "description": "Execute actual initialization code on M55 from original boot reset vector without bypassing branches.",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/original-boot-startup-native-bw523-01/startup-proof.json",
+          "sha256": "f31f8dbbcf17425c1c665f8e5c1fefc1aabdc560504fe84ad553928519057752"
+        }
+      ]
+    },
+    {
+      "id": "OB03",
+      "description": "Configure boot-required code-region protection and peripheral/ROM contracts from evidence, and block unknowns.",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/original-boot-pre-handoff-lp-native-bw538-01/boot-phase-audit.json",
+          "sha256": "ce8ecbf10b90805bd34360701f33b465c9dc01e41bd0d85c33534fda1805b184"
+        }
+      ]
+    },
+    {
+      "id": "OB04",
+      "description": "Verify original image selection/validation, required metadata, and path to handoff.",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/original-boot-pre-handoff-lp-native-bw538-01/boot-phase-audit.json",
+          "sha256": "ce8ecbf10b90805bd34360701f33b465c9dc01e41bd0d85c33534fda1805b184"
+        }
+      ]
+    },
+    {
+      "id": "OB05",
+      "description": "Continuously execute original handoff → main reset on the same virtual board and verify VTOR/MSP/PC and state lineage.",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/original-boot-handoff-context-native-bw539-01/lineage-proof.json",
+          "sha256": "1b75d90a2a1bc5679077ff7409819232495c705d362069d21056abab2feb0370"
+        }
+      ]
+    },
+    {
+      "id": "OB06",
+      "description": "Connect RTOS/UI → original rendering → completed 576×288 frame in that main and inspect it directly.",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/original-boot-ui-cadence-native-bw547-02/screen-proof.json",
+          "sha256": "59d33a2bc07d449eb6eb965d90aae7f29cbf170084191fe873ef162a6a3525d0"
+        }
+      ]
+    },
+    {
+      "id": "OB07",
+      "description": "Verify two identical cold inputs and rejection of corrupted inputs/unsupported boundaries.",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/original-boot-repeat-verification-bw549-01/verification.json",
+          "sha256": "7c24cd975b34ce92a9f24b747986f5667ac91491998ca580ec16ae04acb7ba60"
+        }
+      ]
+    },
+    {
+      "id": "OB08",
+      "description": "Complete reproduction commands, pinned manifest, comparison/final audit, and cleanup of task-specific artifacts.",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "private:simulator/original-boot-final-audit-bw550-01/report.json",
+          "sha256": "7699c7d77fa9165b04ee850e485a543c14356d676da4acf9f117fc130c774e22"
+        }
+      ]
+    }
+  ],
+  "complete": 8,
+  "total": 8,
+  "percent": 100.0,
+  "progress_rule": "Equal weight, verified conditions only. All8 required; no partial credit from test count.",
+  "in_progress": null,
+  "status": "complete",
+  "last_completed_task": "bw-0550"
+}

@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "id": "uart-tx-events-standard-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "uart-dma-tx-bounded-02",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "UART-TX-event-policy",
+      "baseline": "uart-enable-compatibility-01/base-core.cs",
+      "candidate": "tools/renode-strict-mmio.cs",
+      "before_sha256": "56bf24b786784139e50c2f70e1b45f61085cd941fac77b3ed8139114ece29abb",
+      "after_sha256": "7d3ff6c3df6d70cb4445a33b7d6225af2a7e9cddcf57ae564a4db497a77d821a"
+    }
+  ],
+  "append_components": [],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "uart0_adapter: Miscellaneous.BlackwallUartAdapter\n    module: 0\n    interrupts: true\n",
+      "after": "uart0_adapter: Miscellaneous.BlackwallUartAdapter\n    module: 0\n    interrupts: true\n    txInterruptQuirks: false\n"
+    },
+    {
+      "before": "uart1_adapter: Miscellaneous.BlackwallUartAdapter\n    module: 1\n    interrupts: true\n",
+      "after": "uart1_adapter: Miscellaneous.BlackwallUartAdapter\n    module: 1\n    interrupts: true\n    txInterruptQuirks: false\n"
+    },
+    {
+      "before": "uart2_adapter: Miscellaneous.BlackwallUartAdapter\n    module: 2\n    interrupts: true\n",
+      "after": "uart2_adapter: Miscellaneous.BlackwallUartAdapter\n    module: 2\n    interrupts: true\n    txInterruptQuirks: false\n"
+    },
+    {
+      "before": "uart3_adapter: Miscellaneous.BlackwallUartAdapter\n    module: 3\n    interrupts: true\n",
+      "after": "uart3_adapter: Miscellaneous.BlackwallUartAdapter\n    module: 3\n    interrupts: true\n    txInterruptQuirks: false\n"
+    }
+  ],
+  "board_append": "",
+  "diagnostics": "dict(selected=g.Uarts[0].DmaTx is not None,tx_bytes=[int(b) for b in g.Uarts[0].TxBytes],irq_entries=int(g.Uarts[0].IrqExceptionEntries),dma=None if g.Uarts[0].DmaTx is None else dict(profile=g.Uarts[0].DmaTx.Profile,phase=g.Uarts[0].DmaTx.Phase,starts=int(g.Uarts[0].DmaTx.Starts),completions=int(g.Uarts[0].DmaTx.Completions),transferred=int(g.Uarts[0].DmaTx.TransferredBytes),control=int(g.Uarts[0].DmaTx.Control),transfers=[dict(target=int(t.Target),data=[int(b) for b in t.Data]) for t in g.Uarts[0].DmaTx.Transfers]),active_vector=int(m.SystemBus.ReadDoubleWord(0xe000ed04)&511),nvic_pending=int(m.SystemBus.ReadDoubleWord(0xe000e200)),nvic_active=int(m.SystemBus.ReadDoubleWord(0xe000e300)),irq_levels=[bool(g.Uarts[i].IRQ.IsSet) for i in range(4)],tx_quirks=[bool(g.Uarts[i].TxInterruptQuirks) for i in range(4)],enable_suppressions=[int(g.Uarts[i].TxEnableQuirkSuppressions) for i in range(4)])",
+  "host_capture_seconds": 45,
+  "bounded_control_invariants": [
+    [
+      "diagnostics",
+      "tx_bytes"
+    ],
+    [
+      "diagnostics",
+      "dma",
+      "transfers"
+    ],
+    [
+      "diagnostics",
+      "irq_entries"
+    ],
+    [
+      "diagnostics",
+      "active_vector"
+    ],
+    [
+      "diagnostics",
+      "irq_levels"
+    ]
+  ]
+}

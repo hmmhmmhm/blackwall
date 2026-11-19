@@ -1,0 +1,510 @@
+{
+  "schema": 2,
+  "id": "em9305-active-event-frame-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "em9305-hci-payload-boundary-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "spi-rx-only",
+      "baseline": "em9305-event-research-01/base-iom.cs",
+      "candidate": "tools/renode-iom.cs",
+      "before_sha256": "dfa85088d676bffbf8030f93ad2bce62fb809911067f09178af7cdf1c922a1a8",
+      "after_sha256": "9172a347364ca3f9046d2e2f42a4f25b367f8180d10eb4fd9f6e1703cc6ed29c"
+    },
+    {
+      "name": "hci-cs-rdy-event",
+      "baseline": "em9305-event-research-01/base-reset.cs",
+      "candidate": "tools/renode-em9305-reset.cs",
+      "before_sha256": "106883eadcca2ca574fd52bfef4d866bcd11550c15e49c9227f2c2ef3c9cd1ad",
+      "after_sha256": "1e7a7b96c3b7db1aed0998bd2a316da33f5c225b3d4fe7ef5c34b710fd2e9c22"
+    }
+  ],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    headerPc: 0x50190c\n",
+      "after": "    headerPc: 0x50190c\n    hciPeer: spi_header\n    payloadPc: 0x501a30\n    idlePc: 0x501ab0\n"
+    },
+    {
+      "before": "    expectedHex: \"8100\"\n    responseHex: \"c004\"\n",
+      "after": "    eventHex: \"04ff0101\"\n"
+    },
+    {
+      "before": "Miscellaneous.BlackwallScriptedSpiPeer",
+      "after": "Miscellaneous.BlackwallEm9305EventPeer"
+    },
+    {
+      "before": "    spiFullDuplexPreflight: true\n",
+      "after": "    spiFullDuplexPreflight: true\n    cqStartupRetentionBudget: 2\n"
+    }
+  ],
+  "board_append": "",
+  "diagnostics": "dict(paused=bool(m.IsPaused),commands=int(m['sysbus.iom6'].Commands),spi_config=int(m['sysbus.iom6'].SpiConfiguration),completed=int(m['sysbus.iom6'].SpiWordTransfer.Completed),bytes_exchanged=int(m['sysbus.iom6'].SpiWordTransfer.BytesExchanged),rx_words=int(m['sysbus.iom6'].SpiWordTransfer.ReceiveWords),last_rx_word=int(m['sysbus.iom6'].SpiWordTransfer.LastReceiveWord),peer_state=str(m['sysbus.iom6'].SpiWordTransfer.Peer.State) if m['sysbus.iom6'].SpiWordTransfer.Peer.GetType().Name=='BlackwallEm9305EventPeer' else 'control',headers=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Headers) if m['sysbus.iom6'].SpiWordTransfer.Peer.GetType().Name=='BlackwallEm9305EventPeer' else 0,payloads=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Payloads) if m['sysbus.iom6'].SpiWordTransfer.Peer.GetType().Name=='BlackwallEm9305EventPeer' else 0,frames=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Frames) if m['sysbus.iom6'].SpiWordTransfer.Peer.GetType().Name=='BlackwallEm9305EventPeer' else 0,active_log_seen=any('Enter active state' in ''.join(chr(int(b)) for b in m['sysbus.guard'].Uarts[n].TxBytes) for n in range(4)),retention_reads=int(m['sysbus.iom6'].RetentionSnapshotReads))",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5248630,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "completed"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "bytes_exchanged"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "rx_words"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_rx_word"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "headers"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "payloads"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_reads"
+            ],
+            "eq": 2
+          }
+        ],
+        "allowed_differences": [
+          "Explicit four-byte virtual active event with GPIO149 frame/RDY phase and RX-only SPI; no original code, branch or return substitution"
+        ],
+        "unresolved_differences": [
+          "Host accepted the active event, then an unsupported write-phase RDY consumer stopped execution. Subsequent HCI traffic and real controller behavior remain unverified."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5249584,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "completed"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "bytes_exchanged"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_rx_word"
+            ],
+            "eq": 1216
+          }
+        ],
+        "allowed_differences": [
+          "Explicit four-byte virtual active event with GPIO149 frame/RDY phase and RX-only SPI; no original code, branch or return substitution"
+        ],
+        "unresolved_differences": [
+          "Real controller timing/state and physical wiring unverified; further HCI commands/BLE boot/display unsupported"
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5545934,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "completed"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "bytes_exchanged"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "rx_words"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_rx_word"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "headers"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "payloads"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_reads"
+            ],
+            "eq": 2
+          }
+        ],
+        "allowed_differences": [
+          "Explicit four-byte virtual active event with GPIO149 frame/RDY phase and RX-only SPI; no original code, branch or return substitution"
+        ],
+        "unresolved_differences": [
+          "Host accepted the active event, then an unsupported write-phase RDY consumer stopped execution. Subsequent HCI traffic and real controller behavior remain unverified."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5546888,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "completed"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "bytes_exchanged"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_rx_word"
+            ],
+            "eq": 1216
+          }
+        ],
+        "allowed_differences": [
+          "Explicit four-byte virtual active event with GPIO149 frame/RDY phase and RX-only SPI; no original code, branch or return substitution"
+        ],
+        "unresolved_differences": [
+          "Real controller timing/state and physical wiring unverified; further HCI commands/BLE boot/display unsupported"
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5545934,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "completed"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "bytes_exchanged"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "rx_words"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_rx_word"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "headers"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "payloads"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_reads"
+            ],
+            "eq": 2
+          }
+        ],
+        "allowed_differences": [
+          "Explicit four-byte virtual active event with GPIO149 frame/RDY phase and RX-only SPI; no original code, branch or return substitution"
+        ],
+        "unresolved_differences": [
+          "Host accepted the active event, then an unsupported write-phase RDY consumer stopped execution. Subsequent HCI traffic and real controller behavior remain unverified."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5546888,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "completed"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "bytes_exchanged"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_rx_word"
+            ],
+            "eq": 1216
+          }
+        ],
+        "allowed_differences": [
+          "Explicit four-byte virtual active event with GPIO149 frame/RDY phase and RX-only SPI; no original code, branch or return substitution"
+        ],
+        "unresolved_differences": [
+          "Real controller timing/state and physical wiring unverified; further HCI commands/BLE boot/display unsupported"
+        ]
+      }
+    }
+  },
+  "reviewed_sources": {
+    "stock24": {
+      "path": "em9305-hci-payload-boundary-audit-01/stock24/report.json",
+      "sha256": "57626eb427641f10a42910058f8bb85eadea80a6493b1c92f0a35b76cefbeee5"
+    }
+  },
+  "post_stop_memory_exports": [
+    {
+      "name": "sram-full.bin",
+      "address": 536870912,
+      "length": 3670016
+    }
+  ]
+}

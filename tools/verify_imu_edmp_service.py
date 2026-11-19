@@ -1,0 +1,63 @@
+"""Check EDMP request validation, busy/complete, RAM bounds and cancellation."""
+import verify_imu_odr as odr
+harness=odr.harness
+EXTRA='''
+from Antmicro.Renode.Peripherals.Miscellaneous import BlackwallImuEdmpService
+base=BlackwallImuEdmpQuiesce(m,'f28f',100,True)
+s=BlackwallImuEdmpService(m,base,'a5b6c7d8e9',0xa5,100,True)
+def sw(reg,data):return s.TryWrite(reg,Array[Byte](data))
+def sr(reg):return s.Read(reg)
+check('service-no-unconfigured-trigger',not sw(0x73,[0xe9]) and s.Starts==0)
+for k,v in enumerate([0,0x40,4,0x40,8,0x40,2]):check('service-program-'+str(k),sw(0xa24f+k,[v]))
+check('service-power-read',sr(0xa2a7)==0xa5)
+check('service-power-preserves',not sw(0xa2a7,[3]) and sw(0xa2a7,[0xa7]))
+check('service-disabled-saved',sr(0x29)==0xf2 and sr(0x2a)==0x8f)
+for reg,data in [(0x118,[1,0,0,0]),(0x11c,[0,0]),(0x120,[0,0x18]),(0x11e,[0])]:
+    for k,value in enumerate(data):check('service-param-'+str(reg+k),sw(reg+k,[value]))
+check('service-parameters',s.ParameterWrites==9)
+check('service-unmask2',sr(0xa273)==0xd8 and sw(0xa273,[0xd8&~0x20]))
+check('service-enable',sr(0x2a)==0x8f and sw(0x2a,[0xcf]))
+check('service-host',sr(0x73)==0xe9 and sw(0x73,[0xe9]))
+check('service-busy',s.Starts==1 and s.Pending and not base.Idle and s.Read(0xa297)==0)
+check('service-ram-not-early',s.RamByte(0)==0xa5 and s.RamByte(0x17ff)==0xa5)
+check('service-busy-reject',not sw(0x118,[1]) and not sw(0x73,[0xe9]))
+advance(99);check('service-time-not-early',s.Pending and s.Completions==0)
+advance(2);check('service-done',not s.Pending and base.Idle and s.Completions==1 and s.Read(0xa297)==2)
+check('service-ram-range',s.RamByte(0)==0 and s.RamByte(0x17ff)==0 and s.RamByte(0x1800)==0xa5 and s.ClearedBytes==6144 and all(s.RamByte(i)==0 for i in range(0x1800)) and all(s.RamByte(i)==0xa5 for i in range(0x1800,0x2000)))
+check('service-restore-en0',sw(0x29,[0xf2]))
+check('service-restore-en1',sw(0x2a,[0x8f]))
+for reg in [0xa271,0xa272,0xa273]:check('service-mask-initialize',sw(reg,[0x3f]))
+check('service-init-unmask',sr(0xa272)==0x3f and sw(0xa272,[0x1f]))
+check('service-init-en0',sw(0x29,[0]))
+check('service-init-en1',sw(0x2a,[0x42]))
+check('service-init-request',sr(0x73)==0xe9 and sw(0x73,[0xe9]) and s.Starts==2 and s.Pending)
+advance(101);check('service-init-complete',s.Completions==2 and s.DecimationCompletions==1 and s.ClearedBytes==6144)
+s.Reset();check('service-reset',s.Starts==s.Completions==0 and s.ProgramWrites==0 and s.RamByte(0)==0xa5)
+check('service-invalid-program',not sw(0xa24f,[1]) and s.ProgramWrites==0)
+check('service-no-unknown',not sw(0x119,[0]) and not s.Contains(0xa280))
+
+def first_request(z):
+    for k,v in enumerate([0,0x40,4,0x40,8,0x40,2]):check('fixture-program',z.TryWrite(0xa24f+k,Array[Byte]([v])))
+    z.Read(0xa2a7);check('fixture-power',z.TryWrite(0xa2a7,Array[Byte]([0xa7])))
+    z.Read(0x29);z.Read(0x2a)
+    check('wrong-service-param-preserves',not z.TryWrite(0x118,Array[Byte]([2])) and z.ParameterWrites==0)
+    for reg,data in [(0x118,[1,0,0,0]),(0x11c,[0,0]),(0x120,[0,0x18]),(0x11e,[0])]:
+        for k,value in enumerate(data):check('fixture-param',z.TryWrite(reg+k,Array[Byte]([value])))
+    z.Read(0xa273);check('fixture-unmask',z.TryWrite(0xa273,Array[Byte]([0xd8])))
+    z.Read(0x2a);check('fixture-enable',z.TryWrite(0x2a,Array[Byte]([0xcf])))
+    z.Read(0x73);check('fixture-request',z.TryWrite(0x73,Array[Byte]([0xe9])))
+bm=BlackwallImuEdmpQuiesce(m,'f28f',100,True)
+missing=BlackwallImuEdmpService(m,bm,'a5b6c7d8e9',0xa5,100,False)
+first_request(missing);advance(101)
+check('service-missing-completion',missing.Pending and missing.Completions==0 and not bm.Idle and missing.RamByte(0)==0xa5 and missing.Read(0xa297)==0)
+missing.Reset();bm.Reset();advance(1000)
+check('service-missing-reset-cancels',missing.Starts==0 and missing.RamByte(0)==0xa5 and bm.Idle)
+bc=BlackwallImuEdmpQuiesce(m,'f28f',100,True)
+cancel=BlackwallImuEdmpService(m,bc,'a5b6c7d8e9',0xa5,100,True)
+first_request(cancel);advance(50);cancel.Reset();bc.Reset();advance(101)
+check('service-pending-reset-cancels',cancel.Starts==cancel.Completions==0 and cancel.RamByte(0)==0xa5 and bc.Idle)
+check('service-reset-entire-ram',all(cancel.RamByte(i)==0xa5 for i in range(0x2000)))
+
+'''
+harness.DRIVER=harness.DRIVER.replace("Console.WriteLine('BLACKWALL_IMU_UNIT ",EXTRA+"Console.WriteLine('BLACKWALL_IMU_UNIT ")
+if __name__=='__main__':harness.main()

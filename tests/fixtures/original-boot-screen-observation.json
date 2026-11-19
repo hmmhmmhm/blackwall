@@ -1,0 +1,1107 @@
+{
+  "native": {
+    "events_dropped": 0,
+    "guard_accesses": 0,
+    "registers": [
+      1074331884,
+      537982172,
+      1074331648,
+      537355108,
+      537355580,
+      1212,
+      537981800,
+      88,
+      539591672,
+      537358200,
+      269488144,
+      286331153,
+      2147483648,
+      536998336,
+      5649803,
+      5640042
+    ],
+    "pc": 5640042,
+    "vtor": 4423680,
+    "instructions": 203695431,
+    "itcm_written_bytes": 24,
+    "system_control_violations": 0,
+    "events": [
+      {
+        "r2": 0,
+        "pc": 4402354,
+        "r0": 0,
+        "label": "boot-reset",
+        "sequence": 1,
+        "address": 4402354
+      },
+      {
+        "r2": 0,
+        "pc": 4402388,
+        "r0": 537382912,
+        "label": "boot-crt",
+        "sequence": 2,
+        "address": 4402388
+      },
+      {
+        "r2": 0,
+        "pc": 4402416,
+        "r0": 537393912,
+        "label": "boot-fpu",
+        "sequence": 3,
+        "address": 4402416
+      },
+      {
+        "r2": 0,
+        "pc": 4402452,
+        "r0": 33816576,
+        "label": "boot-c-init",
+        "sequence": 4,
+        "address": 4402452
+      },
+      {
+        "r2": 0,
+        "pc": 4402484,
+        "r0": 1,
+        "label": "boot-data-init",
+        "sequence": 5,
+        "address": 4402484
+      },
+      {
+        "r2": 4404548,
+        "pc": 4307042,
+        "r0": 0,
+        "label": "boot-main",
+        "sequence": 6,
+        "address": 4307042
+      },
+      {
+        "r2": 4404548,
+        "pc": 4323848,
+        "r0": 0,
+        "label": "boot-init-dispatch",
+        "sequence": 7,
+        "address": 4323848
+      },
+      {
+        "r2": 4,
+        "pc": 4392246,
+        "r0": 4392247,
+        "label": "boot-board-init",
+        "sequence": 8,
+        "address": 4392246
+      },
+      {
+        "r2": 33686018,
+        "pc": 4384336,
+        "r0": 0,
+        "label": "boot-manager",
+        "sequence": 9,
+        "address": 4384336
+      },
+      {
+        "r2": 0,
+        "pc": 4382696,
+        "r0": 4423680,
+        "label": "stock-handoff",
+        "sequence": 10,
+        "address": 4382696
+      },
+      {
+        "r2": 0,
+        "pc": 6274622,
+        "r0": 4423680,
+        "label": "main-reset",
+        "sequence": 11,
+        "address": 6274622
+      },
+      {
+        "r2": 540167416,
+        "pc": 4478696,
+        "r0": 1,
+        "label": "ui-dispatch",
+        "sequence": 12,
+        "address": 4478696
+      },
+      {
+        "r2": 0,
+        "pc": 4946520,
+        "r0": 2,
+        "label": "app1-callback",
+        "sequence": 13,
+        "address": 4946520
+      },
+      {
+        "r2": 0,
+        "pc": 4471204,
+        "r0": 2,
+        "label": "renderer-entry",
+        "sequence": 14,
+        "address": 4471204
+      },
+      {
+        "r2": 0,
+        "pc": 4946520,
+        "r0": 4,
+        "label": "app1-callback",
+        "sequence": 15,
+        "address": 4946520
+      },
+      {
+        "r2": 0,
+        "pc": 4946520,
+        "r0": 4,
+        "label": "app1-callback",
+        "sequence": 16,
+        "address": 4946520
+      },
+      {
+        "r2": 0,
+        "pc": 4946520,
+        "r0": 4,
+        "label": "app1-callback",
+        "sequence": 17,
+        "address": 4946520
+      }
+    ],
+    "sp": 536998336,
+    "stop_reason": "wire-complete",
+    "hfsr": 0,
+    "itcm40": [
+      1,
+      56,
+      253,
+      209,
+      112,
+      71,
+      112,
+      71
+    ],
+    "virtual_ticks": 20696792000,
+    "guards": [
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "rstgen",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "guard",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "wdt",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "guard_high",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "ppb_guard",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "iom2",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "iom4",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "iom5",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "iom6",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "iom7",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "guard_iom2_tail",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "guard_iom4_tail",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "guard_iom5_tail",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "guard_iom6_tail",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "guard_iom7_tail",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "xip_guard",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      },
+      {
+        "value": 0,
+        "accesses": 0,
+        "name": "guard_mram_tail",
+        "address": 0,
+        "operation": "none",
+        "width": 0
+      }
+    ],
+    "halted": false,
+    "policy": {
+      "pc": 0,
+      "violations": 0,
+      "address": 0,
+      "operation": "none",
+      "width": 0
+    },
+    "cfsr": 0,
+    "points": [
+      {
+        "label": "boot-reset",
+        "hits": 1,
+        "first": 1,
+        "address": 4402354
+      },
+      {
+        "label": "boot-crt",
+        "hits": 1,
+        "first": 2,
+        "address": 4402388
+      },
+      {
+        "label": "boot-fpu",
+        "hits": 1,
+        "first": 3,
+        "address": 4402416
+      },
+      {
+        "label": "boot-c-init",
+        "hits": 1,
+        "first": 4,
+        "address": 4402452
+      },
+      {
+        "label": "boot-data-init",
+        "hits": 1,
+        "first": 5,
+        "address": 4402484
+      },
+      {
+        "label": "boot-main",
+        "hits": 1,
+        "first": 6,
+        "address": 4307042
+      },
+      {
+        "label": "boot-init-dispatch",
+        "hits": 1,
+        "first": 7,
+        "address": 4323848
+      },
+      {
+        "label": "boot-board-init",
+        "hits": 1,
+        "first": 8,
+        "address": 4392246
+      },
+      {
+        "label": "boot-manager",
+        "hits": 1,
+        "first": 9,
+        "address": 4384336
+      },
+      {
+        "label": "stock-handoff",
+        "hits": 1,
+        "first": 10,
+        "address": 4382696
+      },
+      {
+        "label": "main-reset",
+        "hits": 1,
+        "first": 11,
+        "address": 6274622
+      },
+      {
+        "label": "ui-dispatch",
+        "hits": 1,
+        "first": 12,
+        "address": 4478696
+      },
+      {
+        "label": "app1-callback",
+        "hits": 4,
+        "first": 13,
+        "address": 4946520
+      },
+      {
+        "label": "renderer-entry",
+        "hits": 1,
+        "first": 14,
+        "address": 4471204
+      }
+    ]
+  },
+  "wire": {
+    "requests": [
+      {
+        "channel": 1,
+        "payload": [
+          1,
+          9,
+          7,
+          1,
+          0,
+          0,
+          8,
+          0,
+          3,
+          0,
+          0,
+          0,
+          2,
+          0,
+          1,
+          0
+        ],
+        "identifier": 32781,
+        "data": [
+          1,
+          128,
+          13,
+          0,
+          16,
+          0,
+          1,
+          196,
+          226,
+          1,
+          9,
+          7,
+          1,
+          0,
+          0,
+          8,
+          0,
+          3,
+          0,
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          7,
+          205
+        ]
+      },
+      {
+        "channel": 1,
+        "payload": [
+          1,
+          9,
+          8,
+          1,
+          0,
+          0,
+          12,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "identifier": 32782,
+        "data": [
+          1,
+          128,
+          14,
+          0,
+          20,
+          0,
+          1,
+          5,
+          231,
+          1,
+          9,
+          8,
+          1,
+          0,
+          0,
+          12,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          189,
+          1
+        ]
+      },
+      {
+        "channel": 1,
+        "payload": [
+          1,
+          9,
+          7,
+          1,
+          0,
+          0,
+          8,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "identifier": 32783,
+        "data": [
+          1,
+          128,
+          15,
+          0,
+          16,
+          0,
+          1,
+          4,
+          155,
+          1,
+          9,
+          7,
+          1,
+          0,
+          0,
+          8,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          201,
+          140
+        ]
+      },
+      {
+        "channel": 2,
+        "payload": [
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "identifier": 32784,
+        "data": [
+          1,
+          128,
+          16,
+          0,
+          8,
+          0,
+          2,
+          192,
+          206,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          200,
+          144
+        ]
+      }
+    ],
+    "completed": true,
+    "replies": [
+      {
+        "accepted": true,
+        "guest_state_unchanged": true,
+        "identifier": 32781,
+        "kind": 10,
+        "before": {
+          "instructions": 139397840,
+          "ticks": 20086000000,
+          "registers": [
+            0,
+            537238540,
+            520183821,
+            6038055,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1073876992,
+            303174162,
+            537278104,
+            6036683,
+            4514166
+          ]
+        },
+        "after": {
+          "instructions": 139397840,
+          "ticks": 20086000000,
+          "registers": [
+            0,
+            537238540,
+            520183821,
+            6038055,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1073876992,
+            303174162,
+            537278104,
+            6036683,
+            4514166
+          ]
+        },
+        "data": [
+          1,
+          128,
+          13,
+          0,
+          1,
+          0,
+          0,
+          1,
+          115,
+          10,
+          7,
+          128
+        ]
+      },
+      {
+        "accepted": true,
+        "guest_state_unchanged": true,
+        "identifier": 32782,
+        "kind": 10,
+        "before": {
+          "instructions": 139397840,
+          "ticks": 20086000000,
+          "registers": [
+            0,
+            537238540,
+            520183821,
+            6038055,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1073876992,
+            303174162,
+            537278104,
+            6036683,
+            4514166
+          ]
+        },
+        "after": {
+          "instructions": 139397840,
+          "ticks": 20086000000,
+          "registers": [
+            0,
+            537238540,
+            520183821,
+            6038055,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1073876992,
+            303174162,
+            537278104,
+            6036683,
+            4514166
+          ]
+        },
+        "data": [
+          1,
+          128,
+          14,
+          0,
+          1,
+          0,
+          0,
+          1,
+          55,
+          10,
+          7,
+          128
+        ]
+      },
+      {
+        "accepted": true,
+        "guest_state_unchanged": true,
+        "identifier": 32784,
+        "kind": 2,
+        "before": {
+          "instructions": 139462982,
+          "ticks": 20186000000,
+          "registers": [
+            0,
+            537238540,
+            520183821,
+            6038055,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1073876992,
+            303174162,
+            537278104,
+            6036683,
+            4514166
+          ]
+        },
+        "after": {
+          "instructions": 139462982,
+          "ticks": 20186000000,
+          "registers": [
+            0,
+            537238540,
+            520183821,
+            6038055,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1073876992,
+            303174162,
+            537278104,
+            6036683,
+            4514166
+          ]
+        },
+        "data": [
+          1,
+          128,
+          16,
+          0,
+          1,
+          0,
+          0,
+          3,
+          159,
+          2,
+          193,
+          129
+        ]
+      }
+    ],
+    "hardware_accessed": false,
+    "first_complete_stop": {
+      "stopped": true,
+      "pc": 5640042,
+      "checks": 253
+    },
+    "stages": [
+      {
+        "fired": true,
+        "state": {
+          "instructions": 139397840,
+          "ticks": 20086000000,
+          "registers": [
+            0,
+            537238540,
+            520183821,
+            6038055,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1073876992,
+            303174162,
+            537278104,
+            6036683,
+            4514166
+          ]
+        },
+        "ms": 5,
+        "clean": true
+      },
+      {
+        "fired": true,
+        "state": {
+          "instructions": 139462982,
+          "ticks": 20186000000,
+          "registers": [
+            0,
+            537238540,
+            520183821,
+            6038055,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1073876992,
+            303174162,
+            537278104,
+            6036683,
+            4514166
+          ]
+        },
+        "ms": 100,
+        "clean": true
+      },
+      {
+        "fired": false,
+        "state": {
+          "instructions": 140401661,
+          "ticks": 20279902600,
+          "registers": [
+            1,
+            2,
+            540167416,
+            0,
+            537361308,
+            537358172,
+            536880116,
+            537356420,
+            537358184,
+            537358200,
+            269488144,
+            286331153,
+            4,
+            536998680,
+            4470459,
+            4478696
+          ]
+        },
+        "ms": 1000,
+        "clean": true
+      },
+      {
+        "fired": false,
+        "state": {
+          "instructions": 203695431,
+          "ticks": 20696792000,
+          "registers": [
+            1074331884,
+            537982172,
+            1074331648,
+            537355108,
+            537355580,
+            1212,
+            537981800,
+            88,
+            539591672,
+            537358200,
+            269488144,
+            286331153,
+            2147483648,
+            536998336,
+            5649803,
+            5640042
+          ]
+        },
+        "ms": 500,
+        "clean": true
+      }
+    ],
+    "touch": {
+      "accepted": true,
+      "guest_state_unchanged": true,
+      "released": true,
+      "baseline_transfers": 13,
+      "before": {
+        "instructions": 139364994,
+        "ticks": 20081000000,
+        "registers": [
+          0,
+          537238540,
+          520183821,
+          6038055,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1073876992,
+          303174162,
+          537278104,
+          6036683,
+          4514166
+        ]
+      },
+      "after": {
+        "instructions": 139364994,
+        "ticks": 20081000000,
+        "registers": [
+          0,
+          537238540,
+          520183821,
+          6038055,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1073876992,
+          303174162,
+          537278104,
+          6036683,
+          4514166
+        ]
+      }
+    },
+    "cadence": {
+      "mips_after": 167,
+      "architectural_state_unchanged": true,
+      "mode_word": 22,
+      "before": {
+        "instructions": 140401661,
+        "ticks": 20279902600,
+        "registers": [
+          1,
+          2,
+          540167416,
+          0,
+          537361308,
+          537358172,
+          536880116,
+          537356420,
+          537358184,
+          537358200,
+          269488144,
+          286331153,
+          4,
+          536998680,
+          4470459,
+          4478696
+        ]
+      },
+      "mips_before": 10,
+      "after": {
+        "instructions": 140401661,
+        "ticks": 20279902600,
+        "registers": [
+          1,
+          2,
+          540167416,
+          0,
+          537361308,
+          537358172,
+          536880116,
+          537356420,
+          537358184,
+          537358200,
+          269488144,
+          286331153,
+          4,
+          536998680,
+          4470459,
+          4478696
+        ]
+      },
+      "profile": "existing hal-loop-equivalent-v1 HP functional cadence, not physical performance"
+    },
+    "guest_writes": false
+  },
+  "context": {
+    "contexts": [
+      {
+        "pc": 4402354,
+        "vtor": 4259840,
+        "sp": 537393920,
+        "psp": 0,
+        "process_stack_selected": false,
+        "label": "boot-reset",
+        "sequence": 1,
+        "control": 0,
+        "xpsr": 1090519040,
+        "msp": 537393920
+      },
+      {
+        "pc": 4382696,
+        "vtor": 4259840,
+        "sp": 537013640,
+        "psp": 537013640,
+        "process_stack_selected": true,
+        "label": "stock-handoff",
+        "sequence": 10,
+        "control": 2,
+        "xpsr": 1627389952,
+        "msp": 537393808
+      },
+      {
+        "pc": 6274622,
+        "vtor": 4423680,
+        "sp": 537393920,
+        "psp": 537393920,
+        "process_stack_selected": true,
+        "label": "main-reset",
+        "sequence": 11,
+        "control": 2,
+        "xpsr": 1627389952,
+        "msp": 537393808
+      }
+    ],
+    "vrctrl": {
+      "last_address": 0,
+      "buck_phase": "active",
+      "proposed": null,
+      "override_step": 10,
+      "changed_mask": null,
+      "writes": 16,
+      "reads": 16,
+      "mode_word": 22,
+      "before": 1040879,
+      "override_complete": true,
+      "last_operation": "none"
+    }
+  },
+  "screen": {
+    "rejections": 0,
+    "has_detail": true,
+    "fault": "",
+    "bytes": 165888,
+    "address": 538089952,
+    "height": 288,
+    "nonzero": 5545,
+    "captures": 3,
+    "width": 576
+  },
+  "marker": {
+    "last_read_pc": 4732766,
+    "boot_read_pc": 4384130,
+    "boot_reads": 1,
+    "reads": 4,
+    "setter_reads": 2,
+    "startup_reads": 1,
+    "profile": "cleared"
+  },
+  "image_equal": true,
+  "cadence_equal": true,
+  "frame_equal": true,
+  "delegated": {
+    "rtc_accesses": 0,
+    "post_observer_unchanged": true
+  }
+}

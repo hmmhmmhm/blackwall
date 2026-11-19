@@ -1,0 +1,87 @@
+{
+  "schema": "blackwall-offline-audit/1",
+  "scope": "local-files-only",
+  "integrity": "passed",
+  "readyForHardwareInstall": false,
+  "hardwareValidation": "none",
+  "inputs": {
+    "stock_base": {
+      "bytes": 4537963,
+      "sha256": "187ccf2bcc5c17a212106e8a376745511e8289c4232b634a7ea94b9bf25a0979"
+    },
+    "stock_boot": {
+      "bytes": 4701884,
+      "sha256": "26b6067665a441b779c47f6b95427b8b4bb5f502aaf527466dadce628aeb00b2"
+    },
+    "stock_current": {
+      "bytes": 4482361,
+      "sha256": "363198f8d543a5c1181d8a213e9077285cb865700a1885c8dc7c1b9324fd0e05"
+    },
+    "cfw": {
+      "bytes": 4609107,
+      "sha256": "4aac023f49ec6965186d9106e328a516f20a2915ab400d561f662f984023a432"
+    }
+  },
+  "bootResearchBuild": {
+    "sha256": "06f8a8d59f6351461aa9ce45cbc2a6697172cdca872ec77552325301ae175cc4",
+    "bytes": 159744,
+    "keyId": "a8b1b9b094f02ebe77411aaea4caef8cd556fef0fe04ce8c8e477e2d6cda315a",
+    "publicDefaultKey": true
+  },
+  "nonOverlappingAddressRanges": {
+    "boot": {
+      "start": 4259840,
+      "endExclusive": 4419584
+    },
+    "cfwMain": {
+      "start": 4423680,
+      "endExclusive": 8253512
+    }
+  },
+  "componentPayloadsMatchCurrentStock": {
+    "1": false,
+    "3": true,
+    "4": false,
+    "5": true,
+    "6": true
+  },
+  "mainOperationDescriptorsForReviewOnly": [
+    {
+      "kind": "install-cfw",
+      "component": "ota/s200_firmware_ota.bin",
+      "typeId": 0,
+      "sha256": "84bb56c16774e75158adb14b1a5429a24ee005a76b22df5b5f498998b82fb01a",
+      "payloadSha256": "fb175ae3c1cb701a9917ae66d20d98843f9bc677dcdfc832e5e6416ad5839f36",
+      "payloadBytes": 3829864,
+      "headerBytes": 128,
+      "requiresIndependentConfirmation": true,
+      "requiresSingleTemple": true,
+      "automaticNextOperation": false,
+      "touchesBootloader": false,
+      "completion": "transfer-and-readback-required"
+    },
+    {
+      "kind": "restore-stock-main",
+      "component": "ota/s200_firmware_ota.bin",
+      "typeId": 0,
+      "sha256": "320aa240affe49c2e2a0b65c284b20a05ad64423fe6a275c34b22d99c58310db",
+      "payloadSha256": "33f9eb7a47f996b8bcf34ac9df8bc2f7b698a6512cbf370d25b3215ad0dde298",
+      "payloadBytes": 3700100,
+      "headerBytes": 128,
+      "requiresIndependentConfirmation": true,
+      "requiresSingleTemple": true,
+      "automaticNextOperation": false,
+      "touchesBootloader": false,
+      "completion": "transfer-and-readback-required"
+    }
+  ],
+  "unresolved": [
+    "Device hardware, independent left/right main, boot and case identities are unknown.",
+    "Mixed recovery boot 2.3.2.14 + Faceclaw main 2.3.0.24 is not hardware-verified.",
+    "Unmodified full Faceclaw OTA contains stock boot and can overwrite the recovery patch.",
+    "Stock 2.4 and Faceclaw codec payloads differ; main-only migration needs resource review.",
+    "Full-stock restoration needs original appended-page contents, not just a stock boot prefix.",
+    "No browser component writer or device readback has been validated by this audit.",
+    "Boot research build uses the publicly known default recovery key."
+  ]
+}

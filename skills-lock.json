@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "align": {
+      "source": "hmmhmmhm/aligns.md",
+      "sourceType": "github",
+      "skillPath": "skills/align/SKILL.md",
+      "computedHash": "6c5cbc4b13a1f164ac71ee9ce12b749a57d8198be36d6ce31ae368767d9fd162"
+    }
+  }
+}

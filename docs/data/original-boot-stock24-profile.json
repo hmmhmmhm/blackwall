@@ -1,0 +1,82 @@
+{
+  "schema": 2,
+  "profile_id": "stock24-original-boot-screen-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "assets": {
+    "boot": {
+      "path": "recovery/boot-2-4-analysis/boot-2.4.0.24.bin",
+      "sha256": "ecb91896234392e2b98ec80b1ac3ebf4aa27726d3cbed10927edf0b44d83d665",
+      "address": 4259840,
+      "bytes": 149773,
+      "sp": 537393920,
+      "reset": 4402355
+    },
+    "main": {
+      "path": "simulator/sustained-render-guard-native-01/stock24/main.bin",
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a",
+      "address": 4423680,
+      "bytes": 3700068,
+      "sp": 537393920,
+      "reset": 6274623
+    },
+    "sram": {
+      "path": "simulator/sustained-render-guard-native-01/stock24/sram-fill.bin",
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd",
+      "address": 536870912,
+      "bytes": 3670016
+    },
+    "itcm": {
+      "path": "simulator/sustained-render-guard-native-01/stock24/itcm-fill.bin",
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55",
+      "address": 0,
+      "bytes": 262144
+    }
+  },
+  "components": {
+    "strict.cs": {
+      "origin": "private",
+      "path": "simulator/original-boot-ui-cadence-native-bw547-02/strict.cs",
+      "sha256": "71cdb6ac17748ecb53dfc63c67c0997b88899eba42eed14e2f3891f44e7770dd"
+    },
+    "board.repl": {
+      "origin": "private",
+      "path": "simulator/original-boot-ui-cadence-native-bw547-02/board.repl",
+      "sha256": "84c94e1e2196e3f29766a07068585f7572aa6c0b5e0fdf78419e3684f4e4f72a"
+    },
+    "input-delay.cs": {
+      "origin": "private",
+      "path": "simulator/original-boot-ui-cadence-native-bw547-02/input-delay.cs",
+      "sha256": "1ff813b73620994df5b86f206b1bc5187228f30888f621fda468201952b56c54"
+    },
+    "screen-observer.cs": {
+      "origin": "repo",
+      "path": "tools/renode-complete-screen-observer.cs",
+      "sha256": "c40cae4c3e24edf147ec862fb02a5d09f3de33280e7b6bd3ac2ee0114a747f5b"
+    },
+    "probe.resc": {
+      "origin": "private",
+      "path": "simulator/original-boot-ui-cadence-native-bw547-02/probe.resc",
+      "sha256": "b027accd6e6a3f1cc27dedad418ba9eba7d7a586b41c69f4980b90b567452400"
+    },
+    "run.py": {
+      "origin": "repo",
+      "path": "tools/renode-original-boot-runtime.py",
+      "sha256": "27f18515c2465348ecf36791891fe277d3329089969cba7041c40a9fffa958e4"
+    }
+  },
+  "budgets": {
+    "initial_virtual_ms": 20000,
+    "initial_host_seconds": 300,
+    "docker_seconds": 420
+  },
+  "provenance": {
+    "reference": "private:simulator/original-boot-ui-cadence-native-bw547-02/screen-proof.json",
+    "hardware_accessed": false
+  },
+  "scope_notes": [
+    "bootloader reset, not actual Boot ROM",
+    "one virtual temple, stock2.4 boot/main",
+    "declared virtual touch/UART/GAF/ADC/referenceGPU and HP167MIPS cadence",
+    "private frozen hardware-model source required; firmware not distributed"
+  ]
+}

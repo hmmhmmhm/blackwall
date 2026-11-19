@@ -1,0 +1,9 @@
+# UART0 shared-domain shutdown and restart contract
+
+`bw-0226`: The pinned HAL and stock 2.4, stock 2.3, and Faceclaw ARM last-user decision functions were compared. `tools/inspect_uart0_hcpa_restart.py` recorded 79 checks and 60 original-function executions in private `simulator/uart0-hcpa-restart-contract-01/report.json`. This was not a full main rerun or physical device work.
+
+After clearing a UART port's enable bit, the HAL skips status polling if another UART enable remains in the same HCPA domain. The same branch appears in stock 2.4 helper 494dda and disable function 494e96. Stock 2.3/CFW use the corresponding table and enums 11..14 in the originals. Sixty combinations of each UART and enable 0/self/other port/both/non-UART bits were independently executed without code patches or call bypasses. The helper read only DEVPWREN, not DEVPWRSTATUS.
+
+The existing main's UART0 off-requested state results from the model linking shutdown completion only to a status read. Do not force a poll the original does not require. The next model therefore **separates port gate from domain off** in an explicit shared-domain lifecycle profile. If another port is actually modeled on, removing a quiescent port's enable is represented as local gated while retaining the domain and registers. Re-enabling returns it to local on. When the last port turns off and the selected off response succeeds, gated ports are also reset.
+
+Shared-domain coupling has HAL evidence, but exact register retention, delay, and physical power of the local gate are unverified on hardware. The new behavior is not enabled by default. When no other port is on, the port is not quiescent, or the off response is undecided, retain the existing strict boundary. Do not expand this into full boot, display, recovery, or DMA success.

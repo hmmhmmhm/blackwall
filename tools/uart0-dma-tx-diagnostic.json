@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "uart0-sram-tx-debug-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "dcache-address-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "UART-adapter-core",
+      "baseline": "source-model-uart-dma-01/base-core.cs",
+      "candidate": "tools/renode-strict-mmio.cs",
+      "before_sha256": "ba837eb3c74101a432e9ebd9f3042a989ffe8ff49a609a1b56cb087bc5380160",
+      "after_sha256": "56bf24b786784139e50c2f70e1b45f61085cd941fac77b3ed8139114ece29abb"
+    }
+  ],
+  "append_components": [
+    {
+      "name": "SRAM-UART-DMA-TX",
+      "candidate": "tools/renode-uart-dma.cs",
+      "sha256": "6dd2e40129ced9259686130232396e6b2aa2a6806631f2bab748b2142f6c7746"
+    }
+  ],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    idleDmaInterrupts: true\n",
+      "after": "    idleDmaInterrupts: true\n    dmaTx: uart0_dma\n"
+    }
+  ],
+  "board_append": "\nuart0_dma: Miscellaneous.BlackwallUartDmaTx\n    profile: \"sram-tx-complete\"\n",
+  "diagnostics": "dict(selected=g.Uarts[0].DmaTx is not None,tx_bytes=[int(b) for b in g.Uarts[0].TxBytes],irq_entries=int(g.Uarts[0].IrqExceptionEntries),dma=None if g.Uarts[0].DmaTx is None else dict(profile=g.Uarts[0].DmaTx.Profile,phase=g.Uarts[0].DmaTx.Phase,starts=int(g.Uarts[0].DmaTx.Starts),completions=int(g.Uarts[0].DmaTx.Completions),transferred=int(g.Uarts[0].DmaTx.TransferredBytes),control=int(g.Uarts[0].DmaTx.Control),transfers=[dict(target=int(t.Target),data=[int(b) for b in t.Data]) for t in g.Uarts[0].DmaTx.Transfers]),active_vector=int(m.SystemBus.ReadDoubleWord(0xe000ed04)&511),nvic_pending=int(m.SystemBus.ReadDoubleWord(0xe000e200)),nvic_active=int(m.SystemBus.ReadDoubleWord(0xe000e300)),irq_levels=[bool(g.Uarts[i].IRQ.IsSet) for i in range(4)])",
+  "host_capture_seconds": 45
+}

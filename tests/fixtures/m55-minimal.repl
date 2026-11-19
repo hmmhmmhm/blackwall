@@ -1,0 +1,14 @@
+cpu: CPU.CortexM @ sysbus
+    cpuType: "cortex-m55"
+    nvic: nvic
+    PerformanceInMips: 10
+
+nvic: IRQControllers.NVIC @ sysbus 0xe000e000
+    systickFrequency: 1000000
+    -> cpu@0
+
+code: Memory.MappedMemory @ sysbus 0x00000000
+    size: 0x10000
+
+sram: Memory.MappedMemory @ sysbus 0x20000000
+    size: 0x10000

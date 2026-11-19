@@ -1,0 +1,253 @@
+{
+  "schema": "blackwall-simulator-workspace/1",
+  "files": {
+    "display-activation-cli-01/activation.cs": {
+      "bytes": 1261,
+      "sha256": "13e873f019ad2ea99fa2e0defc5354f66c17c1043e7dc474c75f55f5cca5f924"
+    },
+    "display-activation-cli-01/board.repl": {
+      "bytes": 18686,
+      "sha256": "1ebdab2e2c75a6a3f9bb1e2c773ca3f48c64cce786f9b84857823eb43cd4a0fa"
+    },
+    "display-activation-cli-01/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "42ad40e21d2449cc52adac59faf69c09a2846af8f8f4ffaa7b976c5855b1cdfa"
+    },
+    "display-activation-cli-01/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "display-activation-cli-01/main.bin": {
+      "bytes": 3700068,
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a"
+    },
+    "display-activation-cli-01/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "display-activation-cli-01/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "display-activation-cli-01/run.py": {
+      "bytes": 548591,
+      "sha256": "24bb4d94f63bbf89e433056490b9170b39429e9ebb3e0eb17f465f79fb27cdf5"
+    },
+    "display-activation-cli-01/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "display-activation-cli-cfw-01/activation.cs": {
+      "bytes": 1261,
+      "sha256": "13e873f019ad2ea99fa2e0defc5354f66c17c1043e7dc474c75f55f5cca5f924"
+    },
+    "display-activation-cli-cfw-01/board.repl": {
+      "bytes": 18686,
+      "sha256": "a7ea18f8f744b323e62223d58b0e001b12ec5139151d9a7541dfc1eee51f6233"
+    },
+    "display-activation-cli-cfw-01/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "6e2c8ea099a1ab2a1413ca66a43a94fe9e3524ca7dd6cb5350ea4bd6c410f7d3"
+    },
+    "display-activation-cli-cfw-01/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "display-activation-cli-cfw-01/main.bin": {
+      "bytes": 3829832,
+      "sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f"
+    },
+    "display-activation-cli-cfw-01/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "display-activation-cli-cfw-01/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "display-activation-cli-cfw-01/run.py": {
+      "bytes": 548578,
+      "sha256": "04f8e8464d07564f5ac892073e567c948459a21d28376d8f986ec3cc46d648cd"
+    },
+    "display-activation-cli-cfw-01/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "display-activation-cli-stock23-01/activation.cs": {
+      "bytes": 1261,
+      "sha256": "13e873f019ad2ea99fa2e0defc5354f66c17c1043e7dc474c75f55f5cca5f924"
+    },
+    "display-activation-cli-stock23-01/board.repl": {
+      "bytes": 18686,
+      "sha256": "a3e42d8d3d18bc09936ae317fc0361c3b5171224e45089bc913c0b0612bb8e31"
+    },
+    "display-activation-cli-stock23-01/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "5d8a79a0b2efb60d0099f688aff79e7a66f48c546ab3b4cc1c40916c20d8154c"
+    },
+    "display-activation-cli-stock23-01/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "display-activation-cli-stock23-01/main.bin": {
+      "bytes": 3758688,
+      "sha256": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5"
+    },
+    "display-activation-cli-stock23-01/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "display-activation-cli-stock23-01/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "display-activation-cli-stock23-01/run.py": {
+      "bytes": 548578,
+      "sha256": "af27b8337850fa4c4a76197402dd4ddf943cccb594bda827886542d6cf7b793a"
+    },
+    "display-activation-cli-stock23-01/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/cfw/registration/main.bin": {
+      "bytes": 3829846,
+      "sha256": "3a613ac3f171768a0c3c99236dc27fc70cc36e208e1e7fd3eb14e0d4c04d337a"
+    },
+    "firmware-comparison-family-matrix-01/cfw/registration/manifest.json": {
+      "bytes": 7709,
+      "sha256": "33e895c377c7d201ff1dd6acf68e0a829980808a99653c3828fb762726be2b71"
+    },
+    "hci-connection-research-01/manifest.json": {
+      "bytes": 76685,
+      "sha256": "9cd60de99394d7d86b26887d583093b51c258a8c53579a208aaabaf114cce3bf"
+    },
+    "hci-connection-source-05/report.json": {
+      "bytes": 13497,
+      "sha256": "75d3e60b51a7aa31da115d806d5903843056996d5a5f97b1e7438c41176635a1"
+    },
+    "imu-clock-variation-plan-01.json": {
+      "bytes": 45124,
+      "sha256": "8f993b7bbe96ad993557d9e898e8cdf87d7a6c0e388ac47ac117f25e9bf1a8a6"
+    },
+    "imu-clock-variation-source-01/frozen/tools/renode-imu-identity.cs": {
+      "bytes": 73919,
+      "sha256": "3ddefc4c7d372cd5c8bd42da9819bc290e1f52ca898ea865bf3e7e86f5c8c883"
+    },
+    "imu-clock-variation-source-01/verification-manifest.json": {
+      "bytes": 7844,
+      "sha256": "c56fc522eb4719f10357e64c13dd728efd19dc1901cc87853a423734832284eb"
+    },
+    "imu-powersave-main-01/cfw/board.repl": {
+      "bytes": 18611,
+      "sha256": "83609d69c024db708b7f34db4ee4dc01a58c6adee448aea346e5ee1402f36d59"
+    },
+    "imu-powersave-main-01/cfw/derived-inputs.json": {
+      "bytes": 2263,
+      "sha256": "49853c19a83ca96cbf8c31ce71557f629ed29dbfbeedaef188f7b5fee99173b4"
+    },
+    "imu-powersave-main-01/cfw/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "imu-powersave-main-01/cfw/main.bin": {
+      "bytes": 3829832,
+      "sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f"
+    },
+    "imu-powersave-main-01/cfw/probe.resc": {
+      "bytes": 302,
+      "sha256": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48"
+    },
+    "imu-powersave-main-01/cfw/report.json": {
+      "bytes": 1089157,
+      "sha256": "ef215c2690be6b6e6c49a3f596f80b1ea6b1c0764aa08eb5715a683e4c41b589"
+    },
+    "imu-powersave-main-01/cfw/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "imu-powersave-main-01/cfw/run.py": {
+      "bytes": 543531,
+      "sha256": "7ccb568586200f55d6148cf6819e5c4cb8c03ad165454414d353bec05cb3315f"
+    },
+    "imu-powersave-main-01/cfw/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "imu-powersave-main-01/cfw/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "runtime-event-research-01/before-renode-em9305-reset.cs": {
+      "bytes": 38225,
+      "sha256": "5b839952d4bed25f0e138b4cacc0391ba3c9c0afd3af7e7a729981cb7c6e080e"
+    },
+    "runtime-event-research-01/before-renode-strict-mmio.cs": {
+      "bytes": 139483,
+      "sha256": "f15d570a3eb5ee321345c2b4c7448e8e0771aad7c06c0a255bf0936794f2bdf1"
+    },
+    "tpl-time-native-01/cfw/board.repl": {
+      "bytes": 18685,
+      "sha256": "5f203d2428e91eff2c33da21aab2ca53f6fc28b2b116a355c7374fece137f5a7"
+    },
+    "tpl-time-native-01/cfw/capture-files.json": {
+      "bytes": 2053,
+      "sha256": "82ee169f021bd896532dd5cc145bb08f87d91710842d9f3fc2fdea9a5f5a7575"
+    },
+    "tpl-time-native-01/cfw/main.bin": {
+      "bytes": 3829832,
+      "sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f"
+    },
+    "tpl-time-native-01/cfw/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "tpl-time-native-01/cfw/sync-profile.json": {
+      "bytes": 3197,
+      "sha256": "e132d109b38cefb4e43c363fd4820428131ec9ce04cdc1cd0ade77cb0620320d"
+    },
+    "tpl-time-native-01/stock23/board.repl": {
+      "bytes": 18685,
+      "sha256": "2f4f651bda446eb5e38bef57bda6f8bf255ce63cd6e962ce852d793e8ee8e797"
+    },
+    "tpl-time-native-01/stock23/capture-files.json": {
+      "bytes": 2053,
+      "sha256": "c13736ff480a07cb956595f4732226f8950a4b286304b05c92304448e4cbd2a9"
+    },
+    "tpl-time-native-01/stock23/main.bin": {
+      "bytes": 3758688,
+      "sha256": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5"
+    },
+    "tpl-time-native-01/stock23/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "tpl-time-native-01/stock23/sync-profile.json": {
+      "bytes": 3205,
+      "sha256": "962aaeae1dbd51188a0335453160726b1995be76aa48d3ab0b82434b7601ae81"
+    },
+    "tpl-time-native-01/stock24/board.repl": {
+      "bytes": 18685,
+      "sha256": "afda8980e5c144e9987a39e694a769b4211692bcc89bfd3d901b4ba70262254c"
+    },
+    "tpl-time-native-01/stock24/capture-files.json": {
+      "bytes": 2053,
+      "sha256": "549830499b16a54fc4ab561c99927eced3c45f59ae4af3454f337364e913ac8d"
+    },
+    "tpl-time-native-01/stock24/main.bin": {
+      "bytes": 3700068,
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a"
+    },
+    "tpl-time-native-01/stock24/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "tpl-time-native-01/stock24/sync-profile.json": {
+      "bytes": 3197,
+      "sha256": "ce7b524cc8ee3fa610e559e51f7d4bc84f22b626c2b4beba9c240216dfc9ee5e"
+    },
+    "tpl-time-research-01/manifest.json": {
+      "bytes": 158147,
+      "sha256": "48e9e7d843713408cfb2e4ca02972a2848e96f0a067e36b37ca90efdc21f5722"
+    }
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "schema": 2,
+  "id": "m55-stack-empty-hooks-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "em9305-reset-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [],
+  "runtime_edits": [
+    {
+      "before": "    e.StartAll()\n",
+      "after": "    from Antmicro.Renode.Peripherals.Miscellaneous import BlackwallStackLimitObserver\n    stack_probe=BlackwallStackLimitObserver(m['sysbus.cpu'],3700068)\n    for label,pc,reg in ([('pendsv-psp-read', 6339444, 0), ('pendsv-psplim-read', 6339458, 2), ('psplim-write-0x5fbe44', 6274632, 0), ('psplim-write-0x60bb08', 6339340, 1), ('psplim-write-0x60bbbe', 6339522, 2)] if int(m.SystemBus.ReadDoubleWord(0x4380b0))==0x560eaf else [('pendsv-psp-read', 6404804, 0), ('pendsv-psplim-read', 6404818, 2), ('psplim-write-0x601a44', 6298184, 0), ('psplim-write-0x61ba58', 6404700, 1), ('psplim-write-0x61bb0e', 6404882, 2)]):\n        stack_probe.AddEmptyPoint(pc)\n    e.StartAll()\n"
+    }
+  ],
+  "board_edits": [],
+  "board_append": "",
+  "diagnostics": "(dict(paused=bool(m.IsPaused),process_stack_selected=bool(live_cpu.IsUsingProcessSP),sequence=int(stack_probe.Sequence),dropped=int(stack_probe.DroppedEvents),events=[dict(sequence=int(x.Sequence),label=x.Label,pc=int(x.PC),value=int(x.Value),sp=int(x.SP),lr=int(x.LR),control=int(x.Control),xpsr=int(x.Xpsr),process_stack_selected=bool(x.ProcessStackSelected)) for x in stack_probe.Events])) if 'stack_probe' in locals() else dict(paused=bool(m.IsPaused),process_stack_selected=bool(live_cpu.IsUsingProcessSP),sequence=0,dropped=0,events=[])",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776698,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dropped"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "process_stack_selected"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only separate instruction hooks on original MRS/MSR stack-register sites; existing execution/event stream must remain exact"
+        ],
+        "unresolved_differences": [
+          "No GPU IRQ injected; observation is natural existing PendSV activity only"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776698,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dropped"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "process_stack_selected"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only separate instruction hooks on original MRS/MSR stack-register sites; existing execution/event stream must remain exact"
+        ],
+        "unresolved_differences": [
+          "No GPU IRQ injected; observation is natural existing PendSV activity only"
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dropped"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "process_stack_selected"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only separate instruction hooks on original MRS/MSR stack-register sites; existing execution/event stream must remain exact"
+        ],
+        "unresolved_differences": [
+          "No GPU IRQ injected; observation is natural existing PendSV activity only"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dropped"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "process_stack_selected"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only separate instruction hooks on original MRS/MSR stack-register sites; existing execution/event stream must remain exact"
+        ],
+        "unresolved_differences": [
+          "No GPU IRQ injected; observation is natural existing PendSV activity only"
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dropped"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "process_stack_selected"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only separate instruction hooks on original MRS/MSR stack-register sites; existing execution/event stream must remain exact"
+        ],
+        "unresolved_differences": [
+          "No GPU IRQ injected; observation is natural existing PendSV activity only"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dropped"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "process_stack_selected"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only separate instruction hooks on original MRS/MSR stack-register sites; existing execution/event stream must remain exact"
+        ],
+        "unresolved_differences": [
+          "No GPU IRQ injected; observation is natural existing PendSV activity only"
+        ]
+      }
+    }
+  },
+  "append_components": [
+    {
+      "candidate": "tools/renode-stack-limit-observer.cs",
+      "sha256": "7ddd7a0e31f38c9a9427d6ab92e1c079c7721186f078b13654c51c4c72de1e35"
+    }
+  ],
+  "case_points": {
+    "stock24": [
+      [
+        "pendsv-psp-read",
+        6339444,
+        0
+      ],
+      [
+        "pendsv-psplim-read",
+        6339458,
+        2
+      ],
+      [
+        "psplim-write-0x5fbe44",
+        6274632,
+        0
+      ],
+      [
+        "psplim-write-0x60bb08",
+        6339340,
+        1
+      ],
+      [
+        "psplim-write-0x60bbbe",
+        6339522,
+        2
+      ]
+    ],
+    "stock23": [
+      [
+        "pendsv-psp-read",
+        6404804,
+        0
+      ],
+      [
+        "pendsv-psplim-read",
+        6404818,
+        2
+      ],
+      [
+        "psplim-write-0x601a44",
+        6298184,
+        0
+      ],
+      [
+        "psplim-write-0x61ba58",
+        6404700,
+        1
+      ],
+      [
+        "psplim-write-0x61bb0e",
+        6404882,
+        2
+      ]
+    ],
+    "cfw": [
+      [
+        "pendsv-psp-read",
+        6404804,
+        0
+      ],
+      [
+        "pendsv-psplim-read",
+        6404818,
+        2
+      ],
+      [
+        "psplim-write-0x601a44",
+        6298184,
+        0
+      ],
+      [
+        "psplim-write-0x61ba58",
+        6404700,
+        1
+      ],
+      [
+        "psplim-write-0x61bb0e",
+        6404882,
+        2
+      ]
+    ]
+  }
+}

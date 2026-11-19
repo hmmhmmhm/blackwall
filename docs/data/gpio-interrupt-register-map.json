@@ -1,0 +1,567 @@
+{
+  "commit": "61b293a49db34030c545f99101f7ebf6a3050314",
+  "metadata_sha256": "94134fb630f47634e6b39cde05bcc20529009e3201350fe88b873b0e4c7a3158",
+  "header_sha256": "b6ca35dc828ef95825c0a22f06e6ca5ed558a6542dc74310515fdc350051a797",
+  "registers": [
+    {
+      "name": "MCUN0INT0EN",
+      "channel": 0,
+      "group": 0,
+      "kind": "EN",
+      "offset": "0x530",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT0STAT",
+      "channel": 0,
+      "group": 0,
+      "kind": "STAT",
+      "offset": "0x534",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT0CLR",
+      "channel": 0,
+      "group": 0,
+      "kind": "CLR",
+      "offset": "0x538",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT0SET",
+      "channel": 0,
+      "group": 0,
+      "kind": "SET",
+      "offset": "0x53c",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT1EN",
+      "channel": 0,
+      "group": 1,
+      "kind": "EN",
+      "offset": "0x540",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT1STAT",
+      "channel": 0,
+      "group": 1,
+      "kind": "STAT",
+      "offset": "0x544",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT1CLR",
+      "channel": 0,
+      "group": 1,
+      "kind": "CLR",
+      "offset": "0x548",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT1SET",
+      "channel": 0,
+      "group": 1,
+      "kind": "SET",
+      "offset": "0x54c",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT2EN",
+      "channel": 0,
+      "group": 2,
+      "kind": "EN",
+      "offset": "0x550",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT2STAT",
+      "channel": 0,
+      "group": 2,
+      "kind": "STAT",
+      "offset": "0x554",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT2CLR",
+      "channel": 0,
+      "group": 2,
+      "kind": "CLR",
+      "offset": "0x558",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT2SET",
+      "channel": 0,
+      "group": 2,
+      "kind": "SET",
+      "offset": "0x55c",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT3EN",
+      "channel": 0,
+      "group": 3,
+      "kind": "EN",
+      "offset": "0x560",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT3STAT",
+      "channel": 0,
+      "group": 3,
+      "kind": "STAT",
+      "offset": "0x564",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT3CLR",
+      "channel": 0,
+      "group": 3,
+      "kind": "CLR",
+      "offset": "0x568",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT3SET",
+      "channel": 0,
+      "group": 3,
+      "kind": "SET",
+      "offset": "0x56c",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT4EN",
+      "channel": 0,
+      "group": 4,
+      "kind": "EN",
+      "offset": "0x570",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT4STAT",
+      "channel": 0,
+      "group": 4,
+      "kind": "STAT",
+      "offset": "0x574",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT4CLR",
+      "channel": 0,
+      "group": 4,
+      "kind": "CLR",
+      "offset": "0x578",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT4SET",
+      "channel": 0,
+      "group": 4,
+      "kind": "SET",
+      "offset": "0x57c",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT5EN",
+      "channel": 0,
+      "group": 5,
+      "kind": "EN",
+      "offset": "0x580",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT5STAT",
+      "channel": 0,
+      "group": 5,
+      "kind": "STAT",
+      "offset": "0x584",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT5CLR",
+      "channel": 0,
+      "group": 5,
+      "kind": "CLR",
+      "offset": "0x588",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT5SET",
+      "channel": 0,
+      "group": 5,
+      "kind": "SET",
+      "offset": "0x58c",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT6EN",
+      "channel": 0,
+      "group": 6,
+      "kind": "EN",
+      "offset": "0x590",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT6STAT",
+      "channel": 0,
+      "group": 6,
+      "kind": "STAT",
+      "offset": "0x594",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT6CLR",
+      "channel": 0,
+      "group": 6,
+      "kind": "CLR",
+      "offset": "0x598",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN0INT6SET",
+      "channel": 0,
+      "group": 6,
+      "kind": "SET",
+      "offset": "0x59c",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT0EN",
+      "channel": 1,
+      "group": 0,
+      "kind": "EN",
+      "offset": "0x5a0",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT0STAT",
+      "channel": 1,
+      "group": 0,
+      "kind": "STAT",
+      "offset": "0x5a4",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT0CLR",
+      "channel": 1,
+      "group": 0,
+      "kind": "CLR",
+      "offset": "0x5a8",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT0SET",
+      "channel": 1,
+      "group": 0,
+      "kind": "SET",
+      "offset": "0x5ac",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT1EN",
+      "channel": 1,
+      "group": 1,
+      "kind": "EN",
+      "offset": "0x5b0",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT1STAT",
+      "channel": 1,
+      "group": 1,
+      "kind": "STAT",
+      "offset": "0x5b4",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT1CLR",
+      "channel": 1,
+      "group": 1,
+      "kind": "CLR",
+      "offset": "0x5b8",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT1SET",
+      "channel": 1,
+      "group": 1,
+      "kind": "SET",
+      "offset": "0x5bc",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT2EN",
+      "channel": 1,
+      "group": 2,
+      "kind": "EN",
+      "offset": "0x5c0",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT2STAT",
+      "channel": 1,
+      "group": 2,
+      "kind": "STAT",
+      "offset": "0x5c4",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT2CLR",
+      "channel": 1,
+      "group": 2,
+      "kind": "CLR",
+      "offset": "0x5c8",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT2SET",
+      "channel": 1,
+      "group": 2,
+      "kind": "SET",
+      "offset": "0x5cc",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT3EN",
+      "channel": 1,
+      "group": 3,
+      "kind": "EN",
+      "offset": "0x5d0",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT3STAT",
+      "channel": 1,
+      "group": 3,
+      "kind": "STAT",
+      "offset": "0x5d4",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT3CLR",
+      "channel": 1,
+      "group": 3,
+      "kind": "CLR",
+      "offset": "0x5d8",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT3SET",
+      "channel": 1,
+      "group": 3,
+      "kind": "SET",
+      "offset": "0x5dc",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT4EN",
+      "channel": 1,
+      "group": 4,
+      "kind": "EN",
+      "offset": "0x5e0",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT4STAT",
+      "channel": 1,
+      "group": 4,
+      "kind": "STAT",
+      "offset": "0x5e4",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT4CLR",
+      "channel": 1,
+      "group": 4,
+      "kind": "CLR",
+      "offset": "0x5e8",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT4SET",
+      "channel": 1,
+      "group": 4,
+      "kind": "SET",
+      "offset": "0x5ec",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT5EN",
+      "channel": 1,
+      "group": 5,
+      "kind": "EN",
+      "offset": "0x5f0",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT5STAT",
+      "channel": 1,
+      "group": 5,
+      "kind": "STAT",
+      "offset": "0x5f4",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT5CLR",
+      "channel": 1,
+      "group": 5,
+      "kind": "CLR",
+      "offset": "0x5f8",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT5SET",
+      "channel": 1,
+      "group": 5,
+      "kind": "SET",
+      "offset": "0x5fc",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT6EN",
+      "channel": 1,
+      "group": 6,
+      "kind": "EN",
+      "offset": "0x600",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT6STAT",
+      "channel": 1,
+      "group": 6,
+      "kind": "STAT",
+      "offset": "0x604",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT6CLR",
+      "channel": 1,
+      "group": 6,
+      "kind": "CLR",
+      "offset": "0x608",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    },
+    {
+      "name": "MCUN1INT6SET",
+      "channel": 1,
+      "group": 6,
+      "kind": "SET",
+      "offset": "0x60c",
+      "field_diagram_zero_bits": 32,
+      "initial_word_interpretation": "0x0",
+      "actual_g2_state_verified": false
+    }
+  ]
+}

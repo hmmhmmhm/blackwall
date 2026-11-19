@@ -1,0 +1,326 @@
+{
+  "schema": 2,
+  "id": "iom6-retention-legacy-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "iom6-main-01",
+  "cases": {
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "iom-startup-retention",
+      "baseline": "iom6-retention-research-01/base-iom.cs",
+      "candidate": "tools/renode-iom.cs",
+      "before_sha256": "36dc2df43c79eed47da04214e50d060f99b4cda1b71568275cb957f52ed1215c",
+      "after_sha256": "408aaef76ad3a4aa31986427e21b9235fb71340f5302dfb4d4a36b43262a3a0d"
+    },
+    {
+      "name": "cq-startup-retention",
+      "baseline": "iom6-retention-research-01/base-cq.cs",
+      "candidate": "tools/renode-iom-command-queue.cs",
+      "before_sha256": "386659299df79f886df78a99bb8fbfa3c389c867b402e27a872ed067d2b827a5",
+      "after_sha256": "af7d81a4420ecd871133844c701e295540372ee378605899461824213499b24e"
+    }
+  ],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    spiConfigStorage: true\n",
+      "after": "    spiConfigStorage: true\n    cqStartupRetentionPc: 0x57ab2a\n"
+    }
+  ],
+  "board_append": "",
+  "host_capture_seconds": 45,
+  "diagnostics": "dict(retention_reads=int(m['sysbus.iom6'].RetentionSnapshotReads),retention_flags=int(m['sysbus.iom6'].LastRetentionFlags),global_input_levels=int(m['sysbus.iom6'].CommandQueue.InputLevels),iom6=iom_report(6),tx_bytes=[int(v) for v in g.Uarts[0].TxBytes],irq_entries=int(g.Uarts[0].IrqExceptionEntries),irq_mask=int(m['sysbus.iom6'].CommandQueue.IrqMask),submodule_control=int(m['sysbus.iom6'].SubmoduleControl))",
+  "assumptions": {
+    "retention_read": "One representative vector0 at pinned startup save PC only; all32 vectors source-proven equivalent for effective restore writes",
+    "global_inputs": "remain unknown, all other reads/peer checks retain guards",
+    "scope": "not physical inputs or whole-SRAM equivalence",
+    "discovery": "prior strict boundary retained as a negative expectation to observe the next unsupported operation; source review required before acceptance"
+  },
+  "semantics": {
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5547338,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "retention_reads"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_flags"
+            ],
+            "eq": 35904
+          },
+          {
+            "path": [
+              "diagnostics",
+              "global_input_levels"
+            ],
+            "eq": -1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "power_phase"
+            ],
+            "eq": "powered-off"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "power_downs"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_mask"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq": 8
+          }
+        ],
+        "allowed_differences": [
+          "Only the exact first retention copy samples a source-equivalent representative"
+        ],
+        "unresolved_differences": [
+          "GPIO117 EM9305 reset/ready handshake is unmodeled; no peer transfer or physical input validation",
+          "Saved RAM contains a representative low-field sample; no whole-SRAM equivalence claim"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5745450,
+          "address": 1074094644,
+          "operation": "cq-external-flags-unknown",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_reads"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "global_input_levels"
+            ],
+            "eq": -1
+          }
+        ],
+        "allowed_differences": [],
+        "unresolved_differences": [
+          "No physical input or timing verification"
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5547338,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "retention_reads"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_flags"
+            ],
+            "eq": 35904
+          },
+          {
+            "path": [
+              "diagnostics",
+              "global_input_levels"
+            ],
+            "eq": -1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "power_phase"
+            ],
+            "eq": "powered-off"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "power_downs"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_mask"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq": 8
+          }
+        ],
+        "allowed_differences": [
+          "Only the exact first retention copy samples a source-equivalent representative"
+        ],
+        "unresolved_differences": [
+          "GPIO117 EM9305 reset/ready handshake is unmodeled; no peer transfer or physical input validation",
+          "Saved RAM contains a representative low-field sample; no whole-SRAM equivalence claim"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5745450,
+          "address": 1074094644,
+          "operation": "cq-external-flags-unknown",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_reads"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "global_input_levels"
+            ],
+            "eq": -1
+          }
+        ],
+        "allowed_differences": [],
+        "unresolved_differences": [
+          "No physical input or timing verification"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self'; object-src 'none'; base-uri 'none'">
+<title>Blackwall · Virtual installation experiment</title><link rel="stylesheet" href="style.css"></head>
+<body><main><p class="eyebrow">BLACKWALL / VIRTUAL G2</p><h1>Installation experiment on a virtual G2</h1>
+<p class="intro">This page changes only browser RAM. It does not use Bluetooth or physical glasses. Closing the page clears the virtual state.</p>
+<section><h2>One operation on one side at a time</h2>
+<label for="virtual-side">Virtual target</label><select id="virtual-side"><option value="left">Left</option><option value="right">Right</option></select>
+<label for="virtual-kind">Virtual operation</label><select id="virtual-kind"><option value="boot-24">2.4 research recovery boot</option><option value="main-cfw">Faceclaw/38 main</option><option value="main-stock">Restore stock 2.4 main body</option></select>
+<label for="virtual-artifact">Verified component file including OTA header</label><input type="file" id="virtual-artifact" accept=".bin"><p class="hint">Do not select a recovery key file or full OTA bundle. The file is not sent to a server.</p>
+<label for="virtual-fault">Test scenario</label><select id="virtual-fault"><option value="none">Normal transfer</option><option value="disconnect">Disconnect after one block</option><option value="corrupt">Corrupt first block CRC</option><option value="apply">Interrupt after applying 4096 bytes</option><option value="ack">Lose END response after applying</option></select>
+<button type="button" id="virtual-install">Transfer to virtual RAM</button><pre id="virtual-result" role="status" aria-live="polite">This does not install on a physical device. Select a target and file first.</pre></section>
+<section><h2>Two independent virtual stores</h2><pre id="virtual-summary" role="status" aria-live="polite"></pre><p class="hint">The post-transfer apply process and failure points are virtual models. They do not guarantee actual OTA storage or application behavior, or the ability to recover. This page does not run an ARM boot.</p></section>
+<footer><a href="index.html">Physical device installation preparation page</a> · Actual transfers remain blocked on that page.</footer>
+</main><script type="module" src="virtual-app.mjs"></script></body></html>

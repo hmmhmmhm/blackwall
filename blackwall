@@ -1,0 +1,169 @@
+#!/usr/bin/env python3
+"""Run pinned G2 emulator scenarios using a Docker asset volume."""
+import argparse
+import hashlib
+import http.server
+import json
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tempfile
+from datetime import datetime
+from uuid import uuid4
+
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT / 'tools'))
+from run_original_boot_screen import checked_asset
+from volume_storage import IMAGE, extract_volume, import_volume, pinned_inputs, select_profile, volume_name
+
+DEFAULT_VOLUME = 'blackwall-assets'
+SCENARIOS = {
+    'normal': 'Stock 2.4 bootloader → main → virtual touch and screen',
+    'unknown-boot-marker': 'Expected rejection at the virtual boot metadata boundary',
+}
+
+
+def show_assets(profile):
+    print('Docker image:', profile['image_id'])
+    for group in ('assets', 'components'):
+        for name, spec in profile[group].items():
+            print(f"{group}/{name}: {spec['path']} sha256={spec['sha256']}")
+
+
+def apply_images(workspace, profile, boot, main):
+    for key, override in (('boot', boot), ('main', main)):
+        if override:
+            spec = profile['assets'][key]
+            source = checked_asset(workspace, spec, override)
+            target = workspace / spec['path']
+            if source != target:
+                shutil.copyfile(source, target)
+
+
+def setup(args):
+    source = args.source.expanduser().resolve()
+    profile_file = select_profile(source, args.profile)
+    if not profile_file:
+        raise ValueError('Selected profile was not found in the supplied source directory')
+    profile, entries = pinned_inputs(source, profile_file, args.boot_image, args.main_image)
+    import_volume(args.volume, entries)
+    print('Created Docker volume:', args.volume)
+    show_assets(profile)
+    return 0
+
+
+def inspect_volume(args):
+    with tempfile.TemporaryDirectory(prefix='blackwall-inspect-') as folder:
+        root = Path(folder)
+        profile_file = extract_volume(args.volume, root)
+        profile = json.loads(profile_file.read_text())
+        apply_images(root, profile, args.boot_image, args.main_image)
+        pinned_inputs(root, profile_file)
+        print('Verified Docker volume:', args.volume)
+        show_assets(profile)
+    return 0
+
+
+def report(args):
+    if args.capture and (args.scenario or args.scenario_file or args.boot_image or args.main_image):
+        raise ValueError('--capture cannot be combined with a new scenario or firmware input')
+    if args.scenario and args.scenario_file:
+        raise ValueError('--scenario and --scenario-file cannot be combined')
+    if not 1 <= args.port <= 65535:
+        raise ValueError('--port must be 1..65535')
+    output = args.output.expanduser().resolve() if args.output else Path(tempfile.gettempdir()) / ('blackwall-report-' + datetime.now().strftime('%Y%m%d-%H%M%S') + '-' + uuid4().hex[:8])
+    if output.exists() or output.is_relative_to(ROOT):
+        raise ValueError('Output must be a new directory outside the repository')
+    output.mkdir(mode=0o700, parents=True)
+    command = [sys.executable, '-B', str(ROOT / 'tools/blackwall_report.py'), '--workspace', str(output), '--output', str(output / 'run')]
+    try:
+        if args.capture:
+            command += ['--capture', str(args.capture.expanduser().resolve())]
+        else:
+            profile_file = extract_volume(args.volume, output)
+            profile = json.loads(profile_file.read_text())
+            apply_images(output, profile, args.boot_image, args.main_image)
+            pinned_inputs(output, profile_file)
+            command += ['--profile', str(profile_file), '--scenario', args.scenario or 'normal']
+            if args.scenario_file:
+                command += ['--scenario-file', str(args.scenario_file.expanduser().resolve())]
+    except (OSError, ValueError, RuntimeError, subprocess.SubprocessError):
+        # The output was created by this invocation and no emulator run has started.
+        shutil.rmtree(output)
+        raise
+    print('Output:', output, flush=True)
+    result = subprocess.run(command, cwd=ROOT)
+    page = output / 'run/report/index.html'
+    if page.is_file():
+        print('\nReport:', page, flush=True)
+        if args.serve:
+            class Handler(http.server.SimpleHTTPRequestHandler):
+                def __init__(self, *a, **kw):
+                    super().__init__(*a, directory=str(page.parent), **kw)
+            try:
+                server = http.server.ThreadingHTTPServer(('127.0.0.1', args.port), Handler)
+            except OSError as exc:
+                raise ValueError('Could not start local server: ' + str(exc)) from exc
+            print(f'Open http://127.0.0.1:{args.port}/ (Ctrl-C to stop)', flush=True)
+            try:
+                server.serve_forever()
+            except KeyboardInterrupt:
+                pass
+            finally:
+                server.server_close()
+    return result.returncode
+
+
+def main():
+    parser = argparse.ArgumentParser(prog='blackwall', description=__doc__)
+    sub = parser.add_subparsers(dest='command', required=True)
+    sub.add_parser('scenarios', help='List built-in scenarios')
+    assets = sub.add_parser('assets', help='Show required input hashes')
+    assets.add_argument('--source', type=Path, help='Source directory containing a pinned profile')
+    assets.add_argument('--profile', choices=['auto', 'imu', 'detailed', 'timed', 'stock'], default='auto')
+    init = sub.add_parser('setup', help='Import verified inputs into a new Docker volume')
+    init.add_argument('--source', type=Path, required=True, help='Directory containing pinned model and snapshot inputs')
+    init.add_argument('--profile', choices=['auto', 'imu', 'detailed', 'timed', 'stock'], default='auto')
+    init.add_argument('--boot-image', type=Path)
+    init.add_argument('--main-image', type=Path)
+    init.add_argument('--volume', default=DEFAULT_VOLUME)
+    doctor = sub.add_parser('doctor', help='Verify the Docker volume and pinned assets')
+    doctor.add_argument('--volume', default=DEFAULT_VOLUME)
+    doctor.add_argument('--boot-image', type=Path)
+    doctor.add_argument('--main-image', type=Path)
+    run = sub.add_parser('report', help='Run or audit a scenario and generate its HTML report')
+    run.add_argument('--volume', default=DEFAULT_VOLUME)
+    run.add_argument('--scenario', choices=SCENARIOS)
+    run.add_argument('--scenario-file', type=Path)
+    run.add_argument('--capture', type=Path)
+    run.add_argument('--boot-image', type=Path)
+    run.add_argument('--main-image', type=Path)
+    run.add_argument('--output', type=Path, help='New output directory outside the repository')
+    run.add_argument('--serve', action='store_true')
+    run.add_argument('--port', type=int, default=8765)
+    args = parser.parse_args()
+    try:
+        if args.command == 'scenarios':
+            for name, description in SCENARIOS.items():
+                print(f'{name:22} {description}')
+            return 0
+        if args.command == 'assets':
+            profile_file = select_profile(args.source or ROOT, args.profile)
+            if not profile_file:
+                raise ValueError('Selected profile is not available')
+            show_assets(json.loads(profile_file.read_text()))
+            return 0
+        volume_name(args.volume)
+        if args.command == 'setup':
+            return setup(args)
+        if args.command == 'doctor':
+            return inspect_volume(args)
+        return report(args)
+    except (ValueError, OSError, RuntimeError, subprocess.SubprocessError) as exc:
+        print('Blackwall:', exc, file=sys.stderr)
+        return 2
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

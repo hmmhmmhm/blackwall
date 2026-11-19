@@ -1,0 +1,280 @@
+{
+  "schema": 2,
+  "id": "iom6-stuck-off-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "gpio-unchanged-main-01",
+  "cases": {
+    "stock24": "stock_current"
+  },
+  "components": [
+    {
+      "name": "explicit-iom6-power-connection",
+      "baseline": "iom6-research-01/base-core.cs",
+      "candidate": "tools/renode-strict-mmio.cs",
+      "before_sha256": "ef7e60c09e4274ce020e61f5de11eb1935eebcf207604f027480eb47e3b2662c",
+      "after_sha256": "b191b48e9536f5e2e655c24a6a95bd27fe810914e34e96e87436f0a03c6925aa"
+    },
+    {
+      "name": "SPI-configuration-storage-only",
+      "baseline": "iom6-research-01/base-iom.cs",
+      "candidate": "tools/renode-iom.cs",
+      "before_sha256": "19c0a851fa2f3bf255d4ace1979d99e53aa37f5a0d0679c43fe46fac40b76934",
+      "after_sha256": "36dc2df43c79eed47da04214e50d060f99b4cda1b71568275cb957f52ed1215c"
+    }
+  ],
+  "append_components": [],
+  "runtime_edits": [
+    {
+      "before": "'iom5', 'iom7', 'guard_iom2_tail'",
+      "after": "'iom5', 'iom6', 'iom7', 'guard_iom2_tail'"
+    },
+    {
+      "before": "'guard_iom5_tail', 'guard_iom7_tail'",
+      "after": "'guard_iom5_tail', 'guard_iom6_tail', 'guard_iom7_tail'"
+    },
+    {
+      "before": "if module not in (2, 4, 5, 7):return None",
+      "after": "if module not in (2, 4, 5, 6, 7):return None"
+    },
+    {
+      "before": "ioms=[iom_report(module) for module in (2, 4, 5, 7)]",
+      "after": "ioms=[iom_report(module) for module in (2, 4, 5, 6, 7)]"
+    }
+  ],
+  "board_edits": [
+    {
+      "before": "    iom5Power: iom5_power\n",
+      "after": "    iom5Power: iom5_power\n    iom6Power: iom6_power\n"
+    },
+    {
+      "before": "guard_iom5_tail: Miscellaneous.BlackwallG2StartupFixture @ sysbus 0x40055400\n    baseAddress: 0x40055400\n    gpuControlOwner: guard\n    adcInfoZeroFixture: true\n    info1Metadata: \"zero\"\n    size: 0x1c00\n",
+      "after": "guard_iom5_tail: Miscellaneous.BlackwallG2StartupFixture @ sysbus 0x40055400\n    baseAddress: 0x40055400\n    gpuControlOwner: guard\n    adcInfoZeroFixture: true\n    info1Metadata: \"zero\"\n    size: 0xc00\n\nguard_iom6_tail: Miscellaneous.BlackwallG2StartupFixture @ sysbus 0x40056400\n    baseAddress: 0x40056400\n    gpuControlOwner: guard\n    adcInfoZeroFixture: true\n    info1Metadata: \"zero\"\n    size: 0xc00\n"
+    }
+  ],
+  "board_append": "\niom6_power: Miscellaneous.BlackwallPeripheralPower\n    mask: 0x80\n    profile: 0\n    offProfile: 0\niom6: Miscellaneous.BlackwallStrictIom @ sysbus 0x40056000\n    power: iom6_power\n    module: 6\n    spiConfigStorage: true\n    IRQ -> nvic@12\n",
+  "host_capture_seconds": 45,
+  "diagnostics": "dict(selected=bool(g.IomPowers.ContainsKey(6)),iom6=iom_report(6),tx_bytes=[int(v) for v in g.Uarts[0].TxBytes],irq_entries=int(g.Uarts[0].IrqExceptionEntries),gpio_noops=int(g.GpioOutput.UnconfiguredNoOpWrites),spi_storage=None if not g.IomPowers.ContainsKey(6) else bool(m['sysbus.iom6'].SpiConfigStorage),spi_configuration=None if not g.IomPowers.ContainsKey(6) else int(m['sysbus.iom6'].SpiConfiguration))",
+  "assumptions": {
+    "power_response": "stuck-off fault: bit request recorded, status stays0",
+    "peer": "none attached",
+    "SPI": "explicit configuration latch only; transfer and peer remain unsupported",
+    "discovery": "Initial contract preserves active frontier as negative expectation; fault stop requires separate source review."
+  },
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5775266,
+          "address": 1074094340,
+          "operation": "write",
+          "width": 4,
+          "value": 4112
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq": 8
+          },
+          {
+            "path": [
+              "diagnostics",
+              "gpio_noops"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "selected"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "module"
+            ],
+            "eq": 6
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_storage"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "request_word"
+            ],
+            "eq": 128
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "cq",
+              "pairs"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "power_phase"
+            ],
+            "eq": "stuck-off"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "status_word"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "reads"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "writes"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6",
+              "cq",
+              "last_error"
+            ],
+            "eq": "none"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_configuration"
+            ],
+            "eq": 2097152
+          }
+        ],
+        "allowed_differences": [
+          "Post-pause report includes selected IOM6 and guard tail only; no live observer hook changes"
+        ],
+        "unresolved_differences": [
+          "Power fault led to unpowered register write; safe fallback not verified",
+          "This is one synthetic stock24 fault scenario, not physical failure validation"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4803960,
+          "address": 1073876996,
+          "operation": "write",
+          "width": 4,
+          "value": 3712
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "tx_bytes"
+            ],
+            "eq_source": [
+              "diagnostics",
+              "tx_bytes"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "irq_entries"
+            ],
+            "eq": 8
+          },
+          {
+            "path": [
+              "diagnostics",
+              "gpio_noops"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "selected"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "iom6"
+            ],
+            "eq": null
+          }
+        ],
+        "allowed_differences": [],
+        "unresolved_differences": [
+          "Physical timing and actual peer unverified"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,399 @@
+{
+  "schema": 1,
+  "scenario": "ring-wake",
+  "source": "bw455\u2013457 source/raw contracts; no proprietary images",
+  "profiles": {
+    "stock24": {
+      "ring": {
+        "raw_sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a",
+        "receiver": 5172928,
+        "receiver_caller": 5173950,
+        "slider": 5736608,
+        "last_ring_tick": 537359588,
+        "relay_callback": 6339232,
+        "queue_wrapper": 5681096
+      },
+      "wake": {
+        "wake_gate": 4618878,
+        "request_producer": 4629934,
+        "sync_start": 4931842,
+        "finish_return": 4627740,
+        "ui_producer": 4480628,
+        "ui": {
+          "dispatch": 4470834,
+          "call_site": 4478696,
+          "return_site": 4478700,
+          "callback": 4946520,
+          "app_id": 1,
+          "registry_count": 52,
+          "registry_count_slot": 537358180,
+          "registry_table": 537296768,
+          "registry_index": 4,
+          "descriptor": 536872664,
+          "context_slot": 537358176,
+          "payload_buffer": 540167416,
+          "callback_arguments": [
+            "2",
+            "payload-buffer",
+            "payload-length",
+            "context[0x1c]"
+          ]
+        }
+      },
+      "flow": {
+        "callback": 5737702,
+        "helper": 5738048,
+        "forward": 4611104,
+        "receive": 4622744,
+        "reply": 4623524,
+        "event_return": 4471380,
+        "ui_call": 5738600,
+        "role_slot": 536897548,
+        "tick_slot": 537359720
+      },
+      "anchors": [
+        {
+          "address": 4471380,
+          "sha256": "483227ed433ab5c8d8a2c8b31bae68658b8cf63cd3a76771f6e52b16f91cf442"
+        },
+        {
+          "address": 4478696,
+          "sha256": "505a0383b50316c29e330e958f49a5c0e6e0e89fd846feffbc6098638e984616"
+        },
+        {
+          "address": 4480628,
+          "sha256": "6d4c0801ae9cc78103b18ce22bf7dc1aabd4d219b6b958fb62ab52cf06ef02ef"
+        },
+        {
+          "address": 4611104,
+          "sha256": "a9154fa95568cf16efdcb318e028b01079447232397f0d95c8a152acff61ab85"
+        },
+        {
+          "address": 4618878,
+          "sha256": "d1b2bf96890b8e6dc344a35a7e32da6e4aa661e2f8c429dfc00dc9ed740de842"
+        },
+        {
+          "address": 4622744,
+          "sha256": "8667f370ca8d2212aad56fce5363e9520c72148d68c019d1d2883da74fa1d1d9"
+        },
+        {
+          "address": 4623524,
+          "sha256": "603f2422d4c869d2b04bbd5156311d05610684b60296f68b2d69c9f9d73815cc"
+        },
+        {
+          "address": 4627740,
+          "sha256": "1b20c2eeccf07462ad131f775c8ffa9d49e6032d6cd75d8751332bcc0b821551"
+        },
+        {
+          "address": 4629934,
+          "sha256": "42f37b574b669ea5c9296d1b97f015da97bc552b2eec9db8d27b770828e34576"
+        },
+        {
+          "address": 4931842,
+          "sha256": "bbaa287e22c3c088a00e5917fbb49ac1700851a7fe2a5fbe288d517d1e206298"
+        },
+        {
+          "address": 4946520,
+          "sha256": "0b111aa5161dc089f87d4daac098c14335f1dafa014ef3e9d4d47845e6ab6137"
+        },
+        {
+          "address": 5172928,
+          "sha256": "02c578b1d368282393494453809c947945bc1c322c7b53c69b9404b727219d94"
+        },
+        {
+          "address": 5173950,
+          "sha256": "b154f96686311196a1d219a6e61fd16a6896fae9ce2899fa35195271944088d9"
+        },
+        {
+          "address": 5681096,
+          "sha256": "ca041a24cffbcb08b27531154b822d996c893d63e557a9dfeca0a85836b9f12b"
+        },
+        {
+          "address": 5736608,
+          "sha256": "79ed424e2ad9572edbc74c04b306e86a888af5a75787cba8f0cb82c305d9c60d"
+        },
+        {
+          "address": 5737702,
+          "sha256": "759c17096d6bd0e22ce6fe8f1aed4859dc86e306b084fa26978af119d81b5440"
+        },
+        {
+          "address": 5738048,
+          "sha256": "4431a83c3f13fa9367367d8ab9dc47818437b4439038d74a127e784b7bab054f"
+        },
+        {
+          "address": 5738600,
+          "sha256": "4b0d15fe8417c15380f86841429cbb0f14a4c215125a38868824ba22f72f41d9"
+        },
+        {
+          "address": 6339232,
+          "sha256": "1110829acefb26b5639157329bc6012692186c64798c814fcce3f7b04ad339cf"
+        }
+      ]
+    },
+    "stock23": {
+      "ring": {
+        "raw_sha256": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5",
+        "receiver": 4690202,
+        "receiver_caller": 4691224,
+        "slider": 5108324,
+        "last_ring_tick": 537361648,
+        "relay_callback": 6404592,
+        "queue_wrapper": 5107152
+      },
+      "wake": {
+        "wake_gate": 4619628,
+        "request_producer": 4630130,
+        "sync_start": 4890234,
+        "finish_return": 4627944,
+        "ui_producer": 4480536,
+        "ui": {
+          "dispatch": 4472474,
+          "call_site": 4478608,
+          "return_site": 4478612,
+          "callback": 4904932,
+          "app_id": 1,
+          "registry_count": 46,
+          "registry_count_slot": 537360384,
+          "registry_table": 537296784,
+          "registry_index": 4,
+          "descriptor": 536872628,
+          "context_slot": 537360380,
+          "payload_buffer": 540317008,
+          "callback_arguments": [
+            "2",
+            "payload-buffer",
+            "payload-length",
+            "context[0x1c]"
+          ]
+        }
+      },
+      "flow": {
+        "callback": 5109390,
+        "helper": 5109736,
+        "forward": 4611856,
+        "receive": 4622924,
+        "reply": 4623720,
+        "event_return": 4473012,
+        "ui_call": 5110288,
+        "role_slot": 536888580,
+        "tick_slot": 537361788
+      },
+      "anchors": [
+        {
+          "address": 4473012,
+          "sha256": "0c44ae2cb6d849bf5394d4a484aa268ab77616ea54dd89eeb719096db0d4ee72"
+        },
+        {
+          "address": 4478608,
+          "sha256": "8a708c93b555f1786256b7d7aa7d8e91ae5d7ebb71fa346f48fff26dd3bf3ffb"
+        },
+        {
+          "address": 4480536,
+          "sha256": "6d4c0801ae9cc78103b18ce22bf7dc1aabd4d219b6b958fb62ab52cf06ef02ef"
+        },
+        {
+          "address": 4611856,
+          "sha256": "a9154fa95568cf16efdcb318e028b01079447232397f0d95c8a152acff61ab85"
+        },
+        {
+          "address": 4619628,
+          "sha256": "d1b2bf96890b8e6dc344a35a7e32da6e4aa661e2f8c429dfc00dc9ed740de842"
+        },
+        {
+          "address": 4622924,
+          "sha256": "1f42f3012233d5ac06028a6bcaeef23b3edbfee6483981c94450805c8a98fbcd"
+        },
+        {
+          "address": 4623720,
+          "sha256": "96e0494969541cebb0a79d3be8c06cd2e06626ac37010ee0890eb438597457ef"
+        },
+        {
+          "address": 4627944,
+          "sha256": "7354ff107a4c6763e11de4c296486c9ed52ff22ac087c8b00d7df50fd7b7f419"
+        },
+        {
+          "address": 4630130,
+          "sha256": "383c2c9864727b71c94d1df3adb29fd6bb90fd965e0a9fb7bb458cbbd5b2685e"
+        },
+        {
+          "address": 4690202,
+          "sha256": "02c578b1d368282393494453809c947945bc1c322c7b53c69b9404b727219d94"
+        },
+        {
+          "address": 4691224,
+          "sha256": "b154f96686311196a1d219a6e61fd16a6896fae9ce2899fa35195271944088d9"
+        },
+        {
+          "address": 4890234,
+          "sha256": "bbaa287e22c3c088a00e5917fbb49ac1700851a7fe2a5fbe288d517d1e206298"
+        },
+        {
+          "address": 4904932,
+          "sha256": "2f7ac227a00bb885c0e6a9cab23fd5d70d192f4cf72aaff58083ccd239cef464"
+        },
+        {
+          "address": 5107152,
+          "sha256": "ca041a24cffbcb08b27531154b822d996c893d63e557a9dfeca0a85836b9f12b"
+        },
+        {
+          "address": 5108324,
+          "sha256": "d2929186b03d0da3fa88b87dfc2441fe1d08ea62ea79bb3c1674532eaac66652"
+        },
+        {
+          "address": 5109390,
+          "sha256": "d666a9f0780b834626cd2b4f9b9475aeeec7e0313cf99c2831eb416d0359ff17"
+        },
+        {
+          "address": 5109736,
+          "sha256": "3b4978715d276f3e4c2fa820c976a0b21191be22f1d55d58d671d6df4d3b12a9"
+        },
+        {
+          "address": 5110288,
+          "sha256": "c05494d0933de638331cd21299713b9d2f833203d64b6a63e1d70f6f69844f65"
+        },
+        {
+          "address": 6404592,
+          "sha256": "a9f0b73fc2885fcc29de5c9cec6fdc95ff41c75673d349ba3494543b35b278d0"
+        }
+      ]
+    },
+    "cfw": {
+      "ring": {
+        "raw_sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f",
+        "receiver": 4690202,
+        "receiver_caller": 4691224,
+        "slider": 5108324,
+        "last_ring_tick": 537361648,
+        "relay_callback": 6404592,
+        "queue_wrapper": 5107152,
+        "hook": 8214528,
+        "fallback": 8214546,
+        "stock_body": 4690206
+      },
+      "wake": {
+        "wake_gate": 4619628,
+        "request_producer": 4630130,
+        "sync_start": 4890234,
+        "finish_return": 4627944,
+        "ui_producer": 4480536,
+        "ui": {
+          "dispatch": 4472474,
+          "call_site": 4478608,
+          "return_site": 4478612,
+          "callback": 4904932,
+          "app_id": 1,
+          "registry_count": 46,
+          "registry_count_slot": 537360384,
+          "registry_table": 537296784,
+          "registry_index": 4,
+          "descriptor": 536872628,
+          "context_slot": 537360380,
+          "payload_buffer": 540317008,
+          "callback_arguments": [
+            "2",
+            "payload-buffer",
+            "payload-length",
+            "context[0x1c]"
+          ]
+        }
+      },
+      "flow": {
+        "callback": 5109390,
+        "helper": 5109736,
+        "forward": 8214564,
+        "receive": 4622924,
+        "reply": 4623720,
+        "event_return": 4473012,
+        "ui_call": 5110288,
+        "role_slot": 536888580,
+        "tick_slot": 537361788
+      },
+      "anchors": [
+        {
+          "address": 4473012,
+          "sha256": "0c44ae2cb6d849bf5394d4a484aa268ab77616ea54dd89eeb719096db0d4ee72"
+        },
+        {
+          "address": 4478608,
+          "sha256": "8a708c93b555f1786256b7d7aa7d8e91ae5d7ebb71fa346f48fff26dd3bf3ffb"
+        },
+        {
+          "address": 4480536,
+          "sha256": "6d4c0801ae9cc78103b18ce22bf7dc1aabd4d219b6b958fb62ab52cf06ef02ef"
+        },
+        {
+          "address": 4619628,
+          "sha256": "d1b2bf96890b8e6dc344a35a7e32da6e4aa661e2f8c429dfc00dc9ed740de842"
+        },
+        {
+          "address": 4622924,
+          "sha256": "1f42f3012233d5ac06028a6bcaeef23b3edbfee6483981c94450805c8a98fbcd"
+        },
+        {
+          "address": 4623720,
+          "sha256": "96e0494969541cebb0a79d3be8c06cd2e06626ac37010ee0890eb438597457ef"
+        },
+        {
+          "address": 4627944,
+          "sha256": "7354ff107a4c6763e11de4c296486c9ed52ff22ac087c8b00d7df50fd7b7f419"
+        },
+        {
+          "address": 4630130,
+          "sha256": "383c2c9864727b71c94d1df3adb29fd6bb90fd965e0a9fb7bb458cbbd5b2685e"
+        },
+        {
+          "address": 4690202,
+          "sha256": "408e5fef1ab2b577d72fb87bac1a3c123a610f358445cadea153bc653f420f03"
+        },
+        {
+          "address": 4691224,
+          "sha256": "b154f96686311196a1d219a6e61fd16a6896fae9ce2899fa35195271944088d9"
+        },
+        {
+          "address": 4890234,
+          "sha256": "bbaa287e22c3c088a00e5917fbb49ac1700851a7fe2a5fbe288d517d1e206298"
+        },
+        {
+          "address": 4904932,
+          "sha256": "2f7ac227a00bb885c0e6a9cab23fd5d70d192f4cf72aaff58083ccd239cef464"
+        },
+        {
+          "address": 5107152,
+          "sha256": "ca041a24cffbcb08b27531154b822d996c893d63e557a9dfeca0a85836b9f12b"
+        },
+        {
+          "address": 5108324,
+          "sha256": "d2929186b03d0da3fa88b87dfc2441fe1d08ea62ea79bb3c1674532eaac66652"
+        },
+        {
+          "address": 5109390,
+          "sha256": "d666a9f0780b834626cd2b4f9b9475aeeec7e0313cf99c2831eb416d0359ff17"
+        },
+        {
+          "address": 5109736,
+          "sha256": "3b4978715d276f3e4c2fa820c976a0b21191be22f1d55d58d671d6df4d3b12a9"
+        },
+        {
+          "address": 5110288,
+          "sha256": "c05494d0933de638331cd21299713b9d2f833203d64b6a63e1d70f6f69844f65"
+        },
+        {
+          "address": 6404592,
+          "sha256": "a9f0b73fc2885fcc29de5c9cec6fdc95ff41c75673d349ba3494543b35b278d0"
+        },
+        {
+          "address": 8214528,
+          "sha256": "034fb7f64585f9b93efd342d0d0602830e3659f595a6f18924e400310ae189bc"
+        },
+        {
+          "address": 8214546,
+          "sha256": "158e82295d6bdccfa0fc84963948c807e58fdc69d2000b67bfb76fd27a9be8be"
+        },
+        {
+          "address": 8214564,
+          "sha256": "d0f53bf18ac5aa02b696868fb7ca19057ad38ff7bb4cc394d0325e32f7e1318c"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "iom5-pointer-only-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "timer7-pwm-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "IOM-peer-diagnostic-boundary",
+      "baseline": "iom5-first-request-01/base-iom.cs",
+      "candidate": "tools/renode-iom.cs",
+      "before_sha256": "e67b2e6476a88a8d1017148556ba98bddec246e60e49df91fd3506c8b730044e",
+      "after_sha256": "19c0a851fa2f3bf255d4ace1979d99e53aa37f5a0d0679c43fe46fac40b76934"
+    }
+  ],
+  "append_components": [
+    {
+      "candidate": "tools/renode-iom-register-probe.cs",
+      "sha256": "f3afe5d71ffc0f94eee6ffce0a66a55eebe2b77ca67fabee417c36880a065128"
+    }
+  ],
+  "runtime_edits": [],
+  "board_edits": [],
+  "board_append": "\niom5_register_probe: Miscellaneous.BlackwallIomRegisterProbe @ iom5 0xc\n    owner: iom5\n    profile: \"pointer-01-only\"\n",
+  "host_capture_seconds": 45,
+  "diagnostics": "dict(commands=int(m['sysbus.iom5'].Commands),peer=None if int(m['sysbus.iom5'].Commands)==0 else dict(selected=bool(m['sysbus.iom5.iom5_register_probe'].PointerSelected),pointer=int(m['sysbus.iom5.iom5_register_probe'].Pointer),writes=int(m['sysbus.iom5.iom5_register_probe'].PointerWrites),finishes=int(m['sysbus.iom5.iom5_register_probe'].Finishes),read_attempts=int(m['sysbus.iom5.iom5_register_probe'].ReadAttempts),read_count=int(m['sysbus.iom5.iom5_register_probe'].LastReadCount),read_pointer=int(m['sysbus.iom5.iom5_register_probe'].LastReadPointer)),tx_bytes=[int(v) for v in g.Uarts[0].TxBytes],irq_entries=int(g.Uarts[0].IrqExceptionEntries))"
+}

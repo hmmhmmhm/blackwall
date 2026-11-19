@@ -1,0 +1,354 @@
+{
+  "schema": 2,
+  "id": "nema-irq-semaphore-state-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "em9305-reset-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [],
+  "runtime_edits": [],
+  "board_edits": [],
+  "board_append": "",
+  "diagnostics": "dict(paused=bool(m.IsPaused),vector=int(m.SystemBus.ReadDoubleWord(0x4380b0)),records=[dict(handle_slot=slot,handle=q,callback=int(m.SystemBus.ReadDoubleWord(slot+4)),last_id_address=last,last_id=int(m.SystemBus.ReadDoubleWord(last)),valid_queue=bool(0x20000000<=q<=0x20380000-96 and q%4==0),queue_words=[int(m.SystemBus.ReadDoubleWord(q+4*i)) for i in range(24)] if 0x20000000<=q<=0x20380000-96 and q%4==0 else []) for slot,last in [(0x20077384,0x20005e3c) if int(m.SystemBus.ReadDoubleWord(0x4380b0))==0x560eaf else (0x20077bd8,0x20003c8c)] for q in [int(m.SystemBus.ReadDoubleWord(slot))]])",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776698,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "vector"
+            ],
+            "eq": 5639855
+          },
+          {
+            "path": [
+              "diagnostics",
+              "records",
+              0,
+              "valid_queue"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only IRQ semaphore object snapshot after existing stop"
+        ],
+        "unresolved_differences": [
+          "No actual IRQ or semaphore release executed by this capture"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776698,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "vector"
+            ],
+            "eq": 5639855
+          },
+          {
+            "path": [
+              "diagnostics",
+              "records",
+              0,
+              "valid_queue"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only IRQ semaphore object snapshot after existing stop"
+        ],
+        "unresolved_differences": [
+          "No actual IRQ or semaphore release executed by this capture"
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "vector"
+            ],
+            "eq": 5439387
+          },
+          {
+            "path": [
+              "diagnostics",
+              "records",
+              0,
+              "valid_queue"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only IRQ semaphore object snapshot after existing stop"
+        ],
+        "unresolved_differences": [
+          "No actual IRQ or semaphore release executed by this capture"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "vector"
+            ],
+            "eq": 5439387
+          },
+          {
+            "path": [
+              "diagnostics",
+              "records",
+              0,
+              "valid_queue"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only IRQ semaphore object snapshot after existing stop"
+        ],
+        "unresolved_differences": [
+          "No actual IRQ or semaphore release executed by this capture"
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "vector"
+            ],
+            "eq": 5439387
+          },
+          {
+            "path": [
+              "diagnostics",
+              "records",
+              0,
+              "valid_queue"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only IRQ semaphore object snapshot after existing stop"
+        ],
+        "unresolved_differences": [
+          "No actual IRQ or semaphore release executed by this capture"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "vector"
+            ],
+            "eq": 5439387
+          },
+          {
+            "path": [
+              "diagnostics",
+              "records",
+              0,
+              "valid_queue"
+            ],
+            "eq": true
+          }
+        ],
+        "allowed_differences": [
+          "Read-only IRQ semaphore object snapshot after existing stop"
+        ],
+        "unresolved_differences": [
+          "No actual IRQ or semaphore release executed by this capture"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self'; object-src 'none'; base-uri 'none'">
+<title>Blackwall · Installation preparation</title><link rel="stylesheet" href="style.css"></head>
+<body><main><p class="eyebrow">BLACKWALL / LOCAL PREPARATION</p><h1>Recovery comes first.</h1>
+<p class="intro">Check local files for Faceclaw and the recovery bootloader. Files are read only in this browser and are not sent to a server.</p>
+<p><a href="simulator.html">Try installation and interruption on a virtual G2 first</a></p>
+<section><h2>1. Choose an operation and file</h2>
+<label for="operation">Operation to check</label><select id="operation"><option value="main-cfw">Install Faceclaw/38 main</option><option value="boot">Check 2.3.2.14 recovery candidate</option><option value="boot-24">Check 2.4.0.24 recovery candidate</option><option value="main-stock">Restore stock 2.4.0.24 main</option></select>
+<label for="artifact">Single component file with a 128-byte OTA header</label><input id="artifact" type="file" accept=".bin">
+<p class="hint">Full OTA bundles and raw bootloader files are not inputs for this page. Do not select a recovery key file.</p>
+<button id="inspect" type="button">Verify local file</button><pre id="result" role="status" aria-live="polite">Select a file.</pre></section>
+<section><h2>2. Prepare the device</h2><p class="status">Unverified · actual transfer disabled</p>
+<p>Check bootloader, hardware, and case versions for each side and their compatibility when mixed. Passing file verification does not establish device compatibility.</p>
+<p>Restoring stock main differs from a full stock restoration that also removes the recovery bootloader.</p>
+<label for="side">Side to work on</label><select id="side"><option value="">Select a side</option><option value="left">Left</option><option value="right">Right</option></select>
+<label for="device-name">Observed Bluetooth advertising name</label><input id="device-name" type="text" autocomplete="off" placeholder="Enter the name you observed">
+<p class="hint">Entering a name does not connect to the device. The name alone does not establish its version or compatibility.</p>
+<button id="review" type="button">Review installation plan</button><pre id="plan" role="status" aria-live="polite">Choose a target and file to review the plan.</pre>
+<label for="confirmation">Confirmation phrase for this operation</label><input id="confirmation" type="text" disabled autocomplete="off">
+<button id="install" type="button" disabled>Installation preparation incomplete</button></section><footer>Safety First, Reversible Always · Offline review stage</footer></main><script type="module" src="app.mjs"></script></body></html>

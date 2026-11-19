@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "touch-startup-ready-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "touch-version-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "touch-startup-config-state",
+      "baseline": "touch-startup-research-01/base-peer.cs",
+      "candidate": "tools/renode-iom-register-probe.cs",
+      "before_sha256": "69de9e3d3abf1c63db5393f9d0bf77d5be40420b6f443716957c81228a596d3b",
+      "after_sha256": "959ca36c50bf56b5c8fa772e4cf21fd493db93090ca2ed06c5f0cfa87c2e9427"
+    }
+  ],
+  "append_components": [],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    profile: \"package-version-only\"\n",
+      "after": "    profile: \"touch-startup-config\"\n    initialGestureThreshold: 800\n"
+    }
+  ],
+  "board_append": "",
+  "host_capture_seconds": 45,
+  "assumptions": {
+    "initial_gesture_threshold": 800,
+    "initial_value_is_synthetic": true,
+    "physical_default_known": false,
+    "config_completion": "immediate synthetic success for supported nonzero threshold; not silicon timing or persistence"
+  },
+  "diagnostics": "dict(profile=str(m['sysbus.iom5.iom5_register_probe'].Profile),threshold=int(m['sysbus.iom5.iom5_register_probe'].GestureThreshold),initial_threshold=int(m['sysbus.iom5.iom5_register_probe'].InitialGestureThreshold),gesture_reads=int(m['sysbus.iom5.iom5_register_probe'].GestureReads),config_writes=int(m['sysbus.iom5.iom5_register_probe'].ConfigWrites),status_reads=int(m['sysbus.iom5.iom5_register_probe'].StatusReads),reply_pending=bool(m['sysbus.iom5.iom5_register_probe'].ConfigReplyPending),pointer=int(m['sysbus.iom5.iom5_register_probe'].Pointer),pointer_writes=int(m['sysbus.iom5.iom5_register_probe'].PointerWrites),read_attempts=int(m['sysbus.iom5.iom5_register_probe'].ReadAttempts),last_read_count=int(m['sysbus.iom5.iom5_register_probe'].LastReadCount),last_read_pointer=int(m['sysbus.iom5.iom5_register_probe'].LastReadPointer),version_reads=int(m['sysbus.iom5.iom5_register_probe'].VersionReads),returned_bytes=int(m['sysbus.iom5.iom5_register_probe'].ReturnedBytes),finishes=int(m['sysbus.iom5.iom5_register_probe'].Finishes),commands=int(m['sysbus.iom5'].Commands),tx_bytes=[int(v) for v in g.Uarts[0].TxBytes],irq_entries=int(g.Uarts[0].IrqExceptionEntries))"
+}

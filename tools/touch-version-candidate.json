@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "touch-package-version-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "iom5-pointer-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "touch-package-version-response",
+      "baseline": "touch-version-research-01/base-peer.cs",
+      "candidate": "tools/renode-iom-register-probe.cs",
+      "before_sha256": "f3afe5d71ffc0f94eee6ffce0a66a55eebe2b77ca67fabee417c36880a065128",
+      "after_sha256": "69de9e3d3abf1c63db5393f9d0bf77d5be40420b6f443716957c81228a596d3b"
+    }
+  ],
+  "append_components": [],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    profile: \"pointer-01-only\"\n",
+      "after": "    profile: \"package-version-only\"\n"
+    }
+  ],
+  "board_append": "",
+  "host_capture_seconds": 45,
+  "assumptions": {
+    "touch_package_sha256": "c14456cd4d432815d79700b251c9a575f75c76a3710f4148c0df6ddba4cb7ba2",
+    "package_version": "2.2.9.0",
+    "installed_version": "synthetic package-match; physical version unknown"
+  },
+  "diagnostics": "dict(profile=str(m['sysbus.iom5.iom5_register_probe'].Profile),version_reads=int(m['sysbus.iom5.iom5_register_probe'].VersionReads),returned_bytes=int(m['sysbus.iom5.iom5_register_probe'].ReturnedBytes),pointer_writes=int(m['sysbus.iom5.iom5_register_probe'].PointerWrites),read_attempts=int(m['sysbus.iom5.iom5_register_probe'].ReadAttempts),finishes=int(m['sysbus.iom5.iom5_register_probe'].Finishes),cached_version=int(m.SystemBus.ReadDoubleWord(0x20076fac if int(m.SystemBus.ReadDoubleWord(0x438004))==0x5fbe3f else 0x2007783c)),commands=int(m['sysbus.iom5'].Commands),tx_bytes=[int(v) for v in g.Uarts[0].TxBytes],irq_entries=int(g.Uarts[0].IrqExceptionEntries))"
+}

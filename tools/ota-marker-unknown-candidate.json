@@ -1,0 +1,1067 @@
+{
+  "schema": 2,
+  "id": "ota-marker-unknown-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "keydb-record-zero-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "optional-ota-marker-read",
+      "baseline": "ota-marker-read-research-01/base-keydb.cs",
+      "candidate": "tools/renode-keydb-slot-storage.cs",
+      "before_sha256": "e240d2da331f4728df979c16d972707cd08ffedd551ee6c293579dad00a4c16f",
+      "after_sha256": "a842ee8994fa3ee29556f59efd22dc9a45e191198ce43fff1528c595f6f2e0f3"
+    }
+  ],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    readOnlySlots: true\n",
+      "after": "    readOnlySlots: true\n    otaMarker: ota_marker\n"
+    }
+  ],
+  "board_append": "\nota_marker: Miscellaneous.BlackwallOtaMarkerRead @ none\n    profile: \"unknown\"\n    startupPc: 0x44ac6c\n    setterEntry: 0x483708\n",
+  "diagnostics": "dict(paused=bool(m.IsPaused),commands=int(m['sysbus.iom6'].Commands),peer_state=str(m['sysbus.iom6'].SpiWordTransfer.Peer.State),headers=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Headers),payloads=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Payloads),frames=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Frames),accepted_commands=int(m['sysbus.iom6'].SpiWordTransfer.Peer.CommandsAccepted),replies=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Replies),command_hex=str(m['sysbus.iom6'].SpiWordTransfer.Peer.CommandHex),read_data_hex=str(m['sysbus.iom6'].SpiWordTransfer.Peer.ReadDataHex),retention_reads=int(m['sysbus.iom6'].RetentionSnapshotReads),retention_epoch=int(m['sysbus.iom6'].RetentionEpoch),retention_unique=bool(m['sysbus.iom6'].RetentionSnapshotReads<=m['sysbus.iom6'].RetentionEpoch+1),active_log_seen=any('Enter active state' in ''.join(chr(int(b)) for b in m['sysbus.guard'].Uarts[n].TxBytes) for n in range(4)),trim_match_log=any('The trim value is already updated' in ''.join(chr(int(b)) for b in m['sysbus.guard'].Uarts[n].TxBytes) for n in range(4)),trim_zero_log=any('original trim value:0x0, new trim value:0x7' in ''.join(chr(int(b)) for b in m['sysbus.guard'].Uarts[n].TxBytes) for n in range(4)),version_command_hex=str(m['sysbus.iom6'].SpiWordTransfer.Peer.VersionCommandHex),version_data_hex=str(m['sysbus.iom6'].SpiWordTransfer.Peer.VersionDataHex),version_status=int(m['sysbus.iom6'].SpiWordTransfer.Peer.VersionStatus),version_log_seen=any('BLE FW Ver:' in ''.join(chr(int(b)) for b in m['sysbus.guard'].Uarts[n].TxBytes) for n in range(4)),version_sample_log=any('BLE FW Ver: 1.2.3.4' in ''.join(chr(int(b)) for b in m['sysbus.guard'].Uarts[n].TxBytes) for n in range(4)),keydb_profile=str(getattr(m['sysbus.guard_mram_tail'],'Profile','not-selected')),keydb_reads=int(getattr(m['sysbus.guard_mram_tail'],'Reads',0)),keydb_slots=int(getattr(m['sysbus.guard_mram_tail'],'CompletedSlots',0)),keydb_position=int(getattr(m['sysbus.guard_mram_tail'],'SlotPosition',0)),keydb_last_pc=int(getattr(m['sysbus.guard_mram_tail'],'LastReadPc',0)),keydb_heal_log=any('keydb heal: slot[0] uninit fill=0xff -> zeroing' in ''.join(chr(int(b)) for b in m['sysbus.guard'].Uarts[n].TxBytes) for n in range(4)),keydb_backing=bool(m['sysbus.guard_mram_tail'].ReadOnlySlots),keydb_data_reads=int(m['sysbus.guard_mram_tail'].DataReads),keydb_data_bytes=int(m['sysbus.guard_mram_tail'].DataBytes),keydb_word_reads=int(m['sysbus.guard_mram_tail'].DataWordReads),keydb_byte_reads=int(m['sysbus.guard_mram_tail'].DataByteReads),keydb_last_data_address=int(m['sysbus.guard_mram_tail'].LastDataAddress),keydb_record_read_seen=bool(m['sysbus.guard_mram_tail'].DataWordReads>=50),marker_profile=str(m['sysbus.guard_mram_tail'].OtaMarker.Profile) if m['sysbus.guard_mram_tail'].OtaMarker is not None else 'not-selected',marker_reads=int(m['sysbus.guard_mram_tail'].OtaMarker.Reads) if m['sysbus.guard_mram_tail'].OtaMarker is not None else 0,marker_startup_reads=int(m['sysbus.guard_mram_tail'].OtaMarker.StartupReads) if m['sysbus.guard_mram_tail'].OtaMarker is not None else 0,marker_setter_reads=int(m['sysbus.guard_mram_tail'].OtaMarker.SetterReads) if m['sysbus.guard_mram_tail'].OtaMarker is not None else 0,marker_setter_seen=bool(m['sysbus.guard_mram_tail'].OtaMarker.SetterReads>0) if m['sysbus.guard_mram_tail'].OtaMarker is not None else False,marker_last_pc=int(m['sysbus.guard_mram_tail'].OtaMarker.LastReadPc) if m['sysbus.guard_mram_tail'].OtaMarker is not None else 0)",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4500588,
+          "address": 8380416,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "accepted_commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "replies"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "command_hex"
+            ],
+            "eq": "0101fd05884bf00008"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "read_data_hex"
+            ],
+            "eq": "8003000000000000"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_command_hex"
+            ],
+            "eq": "0101fd050020400004"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_data_hex"
+            ],
+            "eq": "04030201"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_status"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_match_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_zero_log"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_unique"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_sample_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_profile"
+            ],
+            "eq": "zero"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_slots"
+            ],
+            "eq": 10
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_reads"
+            ],
+            "eq": 2570
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_backing"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_record_read_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "marker_profile"
+            ],
+            "eq": "unknown"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "marker_startup_reads"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Immutable explicit synthetic marker, exact source startup/setter reads only; no actual device marker or write permission."
+        ],
+        "unresolved_differences": [
+          "Pending logger and conditional MRAM program may meet unsupported operations; no full update/reset, hardware gate, main/display completion."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4500588,
+          "address": 8380416,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "accepted_commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "replies"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "command_hex"
+            ],
+            "eq": "0101fd05884bf00008"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "read_data_hex"
+            ],
+            "eq": "8003000000000000"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_command_hex"
+            ],
+            "eq": "0101fd050020400004"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_data_hex"
+            ],
+            "eq": "04030201"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_status"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_match_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_zero_log"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_unique"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_sample_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_profile"
+            ],
+            "eq": "zero"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_slots"
+            ],
+            "eq": 10
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_reads"
+            ],
+            "eq": 2570
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_record_read_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_backing"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "marker_reads"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Explicit immutable synthetic slot aperture for zero or uninit-ff; declared contents may be read at byte/word/dword/qword widths. All writes and adjacent tail remain denied.",
+          "Reviewed next boundary is the separate OTA-marker address 0x7fe000, outside the declared synthetic keydb aperture; source compare is 0x55555555. Original failed HCI-frontier prediction retained."
+        ],
+        "unresolved_differences": [
+          "Real keydb bytes/ABI unknown. Cache/MRAM writable transaction and EM9305 NVM remain unsupported; full main/display incomplete."
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4499810,
+          "address": 8380416,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "accepted_commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "replies"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "command_hex"
+            ],
+            "eq": "0101fd05884bf00008"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "read_data_hex"
+            ],
+            "eq": "8003000000000000"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_command_hex"
+            ],
+            "eq": "0101fd050020400004"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_data_hex"
+            ],
+            "eq": "04030201"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_status"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_match_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_zero_log"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_unique"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_sample_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_profile"
+            ],
+            "eq": "zero"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_slots"
+            ],
+            "eq": 10
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_reads"
+            ],
+            "eq": 2570
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_backing"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_record_read_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "marker_profile"
+            ],
+            "eq": "unknown"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "marker_startup_reads"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Immutable explicit synthetic marker, exact source startup/setter reads only; no actual device marker or write permission."
+        ],
+        "unresolved_differences": [
+          "Pending logger and conditional MRAM program may meet unsupported operations; no full update/reset, hardware gate, main/display completion."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4499810,
+          "address": 8380416,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "accepted_commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "replies"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "command_hex"
+            ],
+            "eq": "0101fd05884bf00008"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "read_data_hex"
+            ],
+            "eq": "8003000000000000"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_command_hex"
+            ],
+            "eq": "0101fd050020400004"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_data_hex"
+            ],
+            "eq": "04030201"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_status"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_match_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_zero_log"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_unique"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_sample_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_profile"
+            ],
+            "eq": "zero"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_slots"
+            ],
+            "eq": 10
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_reads"
+            ],
+            "eq": 2570
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_record_read_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_backing"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "marker_reads"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Explicit immutable synthetic slot aperture for zero or uninit-ff; declared contents may be read at byte/word/dword/qword widths. All writes and adjacent tail remain denied.",
+          "Reviewed next boundary is the separate OTA-marker address 0x7fe000, outside the declared synthetic keydb aperture; source compare is 0x55555555. Original failed HCI-frontier prediction retained."
+        ],
+        "unresolved_differences": [
+          "Real keydb bytes/ABI unknown. Cache/MRAM writable transaction and EM9305 NVM remain unsupported; full main/display incomplete."
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4499810,
+          "address": 8380416,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "accepted_commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "replies"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "command_hex"
+            ],
+            "eq": "0101fd05884bf00008"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "read_data_hex"
+            ],
+            "eq": "8003000000000000"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_command_hex"
+            ],
+            "eq": "0101fd050020400004"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_data_hex"
+            ],
+            "eq": "04030201"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_status"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_match_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_zero_log"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_unique"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_sample_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_profile"
+            ],
+            "eq": "zero"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_slots"
+            ],
+            "eq": 10
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_reads"
+            ],
+            "eq": 2570
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_backing"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_record_read_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "marker_profile"
+            ],
+            "eq": "unknown"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "marker_startup_reads"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Immutable explicit synthetic marker, exact source startup/setter reads only; no actual device marker or write permission."
+        ],
+        "unresolved_differences": [
+          "Pending logger and conditional MRAM program may meet unsupported operations; no full update/reset, hardware gate, main/display completion."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4499810,
+          "address": 8380416,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "accepted_commands"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "replies"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "command_hex"
+            ],
+            "eq": "0101fd05884bf00008"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "read_data_hex"
+            ],
+            "eq": "8003000000000000"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_command_hex"
+            ],
+            "eq": "0101fd050020400004"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_data_hex"
+            ],
+            "eq": "04030201"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_status"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "frames"
+            ],
+            "eq": 5
+          },
+          {
+            "path": [
+              "diagnostics",
+              "active_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_match_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "trim_zero_log"
+            ],
+            "eq": false
+          },
+          {
+            "path": [
+              "diagnostics",
+              "retention_unique"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_log_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "version_sample_log"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_profile"
+            ],
+            "eq": "zero"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_slots"
+            ],
+            "eq": 10
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_reads"
+            ],
+            "eq": 2570
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_record_read_seen"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "keydb_backing"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "marker_reads"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Explicit immutable synthetic slot aperture for zero or uninit-ff; declared contents may be read at byte/word/dword/qword widths. All writes and adjacent tail remain denied.",
+          "Reviewed next boundary is the separate OTA-marker address 0x7fe000, outside the declared synthetic keydb aperture; source compare is 0x55555555. Original failed HCI-frontier prediction retained."
+        ],
+        "unresolved_differences": [
+          "Real keydb bytes/ABI unknown. Cache/MRAM writable transaction and EM9305 NVM remain unsupported; full main/display incomplete."
+        ]
+      }
+    }
+  },
+  "post_stop_memory_exports": [
+    {
+      "name": "sram-full.bin",
+      "address": 536870912,
+      "length": 3670016
+    }
+  ],
+  "append_components": [
+    {
+      "candidate": "tools/renode-ota-marker-read.cs",
+      "sha256": "1cef47917b6c62e4442806a8f09e9cd1c9d6e2ca5e4e341c9f8d671defad0e53"
+    }
+  ],
+  "reviewed_sources": {
+    "stock24": {
+      "path": "keydb-record-saved-audit-01/stock24/report.json",
+      "sha256": "e202d3fbe499a0a7e5a04468d6b609784eecaa1230213ee52da4db58f360d48e"
+    }
+  }
+}

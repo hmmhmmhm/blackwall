@@ -1,0 +1,2159 @@
+{
+  "kind": "unreviewed-main-rebase-anchors",
+  "patch_generated": false,
+  "hardware_validated": false,
+  "old_bundle_sha256": "187ccf2bcc5c17a212106e8a376745511e8289c4232b634a7ea94b9bf25a0979",
+  "new_bundle_sha256": "363198f8d543a5c1181d8a213e9077285cb865700a1885c8dc7c1b9324fd0e05",
+  "guards": 114,
+  "full_span_unique": 17,
+  "any_prefix_unique": 54,
+  "ram_bindings_reviewed": false,
+  "rows": [
+    {
+      "old_address": "0x00442b64",
+      "label": "stock dependency 00442b64 -> 00442b64",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 232,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x442adc"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00442c4c",
+      "label": "stock dependency 00442c4c -> 00442c4c",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 64,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x00442c8c",
+      "label": "stock dependency 00442c8c -> 00442c8c",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 74,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x00442cf2",
+      "label": "stock dependency 00442cf2 -> 00442cf2",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 82,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x00442ef6",
+      "label": "stock dependency 00442ef6 -> 00442ef6",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 154,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x00442f90",
+      "label": "stock dependency 00442f90 -> 00442f90",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 102,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x442f08"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00442ff6",
+      "label": "stock dependency 00442ff6 -> 00442ff6",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 82,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x442f6e"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00443048",
+      "label": "stock dependency 00443048 -> 00443048",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 44,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0045855e",
+      "label": "stock dependency 00458382 -> 0045855e",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 68,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004585a2",
+      "label": "stock dependency 004583c6 -> 004585a2",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 62,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x00465d4c",
+      "label": "stock dependency 0045cfdc -> 00465d4c",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 8,
+          "matches": [
+            "0x465a5c"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00465f10",
+      "label": "stock dependency 0045d1a0 -> 00465f10",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 252,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x465c20"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00467290",
+      "label": "stock dependency 0045e520 -> 00467290",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 10,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0045deca",
+      "label": "stock dependency 004622d6 -> 0045deca",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 22,
+          "matches": [
+            "0x45d830",
+            "0x45d846"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x45d830",
+            "0x45d846"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0045dee0",
+      "label": "stock dependency 004622ec -> 0045dee0",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 20,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0046a672",
+      "label": "stock dependency 0046a39e -> 0046a672",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 132,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0046a860",
+      "label": "stock dependency 0046a58c -> 0046a860",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 654,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x46a79c"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00470aa0",
+      "label": "stock dependency 004708d0 -> 00470aa0",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 90,
+          "matches": [
+            "0x471670"
+          ]
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x471670"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x471670"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047a31e",
+      "label": "stock dependency 00479482 -> 0047a31e",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 76,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x47e586"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047a36a",
+      "label": "stock dependency 004794ce -> 0047a36a",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 62,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x47e5d2"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047ac1e",
+      "label": "stock dependency 00479d82 -> 0047ac1e",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 176,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x47ee8e"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x47ee8e"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047e316",
+      "label": "stock dependency 0047ce02 -> 0047e316",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 134,
+          "matches": [
+            "0x480d0e"
+          ]
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x480d0e"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x480d0e"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047ee0a",
+      "label": "stock dependency 0047d72c -> 0047ee0a",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 114,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047ef04",
+      "label": "stock dependency 0047d808 -> 0047ef04",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 262,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047f024",
+      "label": "stock dependency 0047d90e -> 0047f024",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 324,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047f17c",
+      "label": "stock dependency 0047da6c -> 0047f17c",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 96,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004806c8",
+      "label": "stock dependency 0047efa8 -> 004806c8",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 46,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0048d980",
+      "label": "stock dependency 0048c1e8 -> 0048d980",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 88,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x499868"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0048da9e",
+      "label": "stock dependency 0048c306 -> 0048da9e",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 72,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x499986"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0049f1a4",
+      "label": "stock dependency 0049da08 -> 0049f1a4",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 12,
+          "matches": [
+            "0x4a4f30"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004addda",
+      "label": "stock dependency 004ac332 -> 004addda",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 8,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004b8864",
+      "label": "stock dependency 004b5be4 -> 004b8864",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 112,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004ba8e8",
+      "label": "stock dependency 004b7b28 -> 004ba8e8",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004baf06",
+      "label": "stock dependency 004b80ee -> 004baf06",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 122,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4c65c2"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004baf80",
+      "label": "stock dependency 004b8160 -> 004baf80",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 122,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4c663c"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004bb010",
+      "label": "stock dependency 004b81d2 -> 004bb010",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 152,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4c66cc"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004c1d0c",
+      "label": "stock dependency 004bedec -> 004c1d0c",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 46,
+          "matches": [
+            "0x4cf6bc"
+          ]
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4cf6bc"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4cf6bc"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004c1e6a",
+      "label": "stock dependency 004bef4a -> 004c1e6a",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 58,
+          "matches": [
+            "0x4cf81a"
+          ]
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4cf81a"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4cf81a"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004c2096",
+      "label": "stock dependency 004bf176 -> 004c2096",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 42,
+          "matches": [
+            "0x4cfa46"
+          ]
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4cfa46"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4cfa46"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004c23a2",
+      "label": "stock dependency 004bf482 -> 004c23a2",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 158,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4cfd52"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004c9fcc",
+      "label": "stock dependency 004c6fbc -> 004c9fcc",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 12,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004ca6bc",
+      "label": "stock dependency 004c76ac -> 004ca6bc",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 94,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4ddf04"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4ddf04",
+            "0x5a0ba2"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004cf470",
+      "label": "stock dependency 004cf3e8 -> 004cf470",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 1274,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4dea98"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4dea98"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004d6938",
+      "label": "stock dependency 004d3350 -> 004d6938",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004d74c8",
+      "label": "stock dependency 004d3e18 -> 004d74c8",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4e491c"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004d74d8",
+      "label": "stock dependency 004d3e28 -> 004d74d8",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004d7bec",
+      "label": "stock dependency 004d44b8 -> 004d7bec",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4e5040"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4e5040"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004ea2ba",
+      "label": "stock dependency 004e644e -> 004ea2ba",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 82,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x508aaa"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x508aaa"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004ea30c",
+      "label": "stock dependency 004e64a0 -> 004ea30c",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 92,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x508afc"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004ea368",
+      "label": "stock dependency 004e64fc -> 004ea368",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 308,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x508b58"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x508b58"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004ef958",
+      "label": "stock dependency 004ebad2 -> 004ef958",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 596,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x50e32c"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004f7cde",
+      "label": "stock dependency 004f3d76 -> 004f7cde",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 10,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0051bc38",
+      "label": "stock dependency 00516e74 -> 0051bc38",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 36,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0051bcce",
+      "label": "stock dependency 00516f0a -> 0051bcce",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0051bd6c",
+      "label": "stock dependency 00516fa8 -> 0051bd6c",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 144,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0051bdfc",
+      "label": "stock dependency 00517038 -> 0051bdfc",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4fea90"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00521530",
+      "label": "stock dependency 0051c484 -> 00521530",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 1066,
+          "matches": [
+            "0x555388"
+          ]
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x555388"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x555388"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00548326",
+      "label": "stock dependency 005426ea -> 00548326",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 56,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x00550864",
+      "label": "stock dependency 0054ac28 -> 00550864",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 754,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x565354",
+            "0x567680",
+            "0x5690b6",
+            "0x56ee88"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0055353c",
+      "label": "stock dependency 0054d8f4 -> 0055353c",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x56dfc0"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0056311a",
+      "label": "stock dependency 0055d4d6 -> 0056311a",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 136,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x005631a2",
+      "label": "stock dependency 0055d55e -> 005631a2",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 106,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x00599500",
+      "label": "stock dependency 00593370 -> 00599500",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 344,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4fcbf0"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00599658",
+      "label": "stock dependency 005934c8 -> 00599658",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 296,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x005aef32",
+      "label": "stock dependency 005a8ca2 -> 005aef32",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 176,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4fc4ea"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x005aefe2",
+      "label": "stock dependency 005a8d52 -> 005aefe2",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 102,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x005af048",
+      "label": "stock dependency 005a8db8 -> 005af048",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 86,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x005af09e",
+      "label": "stock dependency 005a8e0e -> 005af09e",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 96,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x005b1580",
+      "label": "stock dependency 005ab2f0 -> 005b1580",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 42,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x005dbf9a",
+      "label": "stock dependency 005d612a -> 005dbf9a",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 60,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x005dbfd6",
+      "label": "stock dependency 005d6166 -> 005dbfd6",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 206,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x005dc0a4",
+      "label": "stock dependency 005d6234 -> 005dc0a4",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 868,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x007c5ee4",
+      "label": "stock dependency 007b75f8 -> 007c5ee4",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0048dae6",
+      "label": "TLSF arena setup",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 56,
+          "matches": [
+            "0x4999ce"
+          ]
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4999ce"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4999ce"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0048db68",
+      "label": "TLSF arena bases and descriptors",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 24,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004ba842",
+      "label": "ten-row sensor hub dispatch",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 60,
+          "matches": [
+            "0x4c5efe"
+          ]
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4c5efe"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4c5efe"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004bb0e4",
+      "label": "sensor hub table pointer",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 4,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004d74c8",
+      "label": "ANCS connection and handles base+4",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4e491c"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004d8074",
+      "label": "ANCS context literal",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 4,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004d6938",
+      "label": "EUS security-handle path and ordinary ingress",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 174,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004ccb50",
+      "label": "EUS callback registration",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 12,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047bdb0",
+      "label": "BLE mode and generation validation",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 120,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047c698",
+      "label": "fast profile base pointer",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 4,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x007bcb9c",
+      "label": "fast profile layout",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x7aeba4"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00467ce8",
+      "label": "idle gate frame and payload loads",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 42,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0044480a",
+      "label": "raw source/subtype in r6",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 62,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x00445182",
+      "label": "gesture success epilogue",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 6,
+          "matches": [
+            "0x47d264",
+            "0x4a7f5e",
+            "0x506568",
+            "0x5f7752",
+            "0x60794e"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004b90b6",
+      "label": "filtered heading centidegree to degree ABI",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4c4772"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004b95b0",
+      "label": "GAF decode and ring slot layout",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 1056,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4c4c6c"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4c4c6c"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00509fcc",
+      "label": "unaligned TLSF scan false positive",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 14,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x00444940",
+      "label": "Gesture state getter before new menu-off gate",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 4,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x00444d08",
+      "label": "Gesture state getter before new menu-off gate",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 4,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0044484a",
+      "label": "Ring press mode lookup, followed by mov r4,r0; preserves stock dispatcher",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 6,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047911a",
+      "label": "R1 receiver: entry prologue, tick suppression exemptions, subtype mapping and epilogue",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 316,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4eeec0"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4eeec0"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x005b208a",
+      "label": "Panel diagnostics: JBD PIO command writer; (opcode, aligned packed bytes, byte count)",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 48,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x5bb60e"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x005b20fa",
+      "label": "Panel diagnostics: JBD normal PIO reader; (opcode, aligned destination, byte count)",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 52,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x5bb67e"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x005b212e",
+      "label": "Panel diagnostics: JBD addressed PIO reader; fourth arg address, OTP address<<8 includes dummy",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 56,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x5bb6b2"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x005b279e",
+      "label": "Panel diagnostics: JBD full frame DMA then SYNC; six geometry args, registered buffer",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 178,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x5bbd22"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x5bbd22"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x005b2f94",
+      "label": "Panel diagnostics: JBD stock status recovery: power cycle, configure, refresh, calibrated brightness",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 282,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004d904a",
+      "label": "Panel diagnostics: PIO write loads ceil(length/4) words: aligned padded packed buffer ABI",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 74,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4e641e"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4e641e"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004d9094",
+      "label": "Panel diagnostics: PIO read stores words and trailing bytes",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 156,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x4e6468"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x4e6468"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x005b97ae",
+      "label": "Panel diagnostics: Common MSPI request to HAL PIO descriptor",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 70,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x5c0d6a"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0072bd7c",
+      "label": "Panel diagnostics: JBD operations vtable for exact selected-backend guard",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 64,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004e41bc",
+      "label": "Panel diagnostics: ULED manager loads active operations pointer from literal at 4e4268",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 84,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x004e4268",
+      "label": "Panel diagnostics: Active ULED operations RAM slot = 20077868",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 4,
+          "matches": [
+            "0x5483d8"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x005b2cf0",
+      "label": "Panel diagnostics: JBD MSPI handle RAM slot = 2007785c",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 4,
+          "matches": [
+            "0x5477d4",
+            "0x548268",
+            "0x5486cc"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x007a071c",
+      "label": "Panel diagnostics: JBD command/data/read/addressed-read request templates",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 112,
+          "matches": [
+            "0x7900f0"
+          ]
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x6aab30",
+            "0x6f01e8",
+            "0x783dc8",
+            "0x783de8",
+            "0x78b1cc",
+            "0x7900f0",
+            "0x79010c",
+            "0x7a22bc"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x67c3d2",
+            "0x67c820",
+            "0x6aa974",
+            "0x6aab30",
+            "0x6f01e8",
+            "0x783dc8",
+            "0x783de8",
+            "0x788ea4",
+            "0x78987c",
+            "0x78b1cc",
+            "0x78fffc",
+            "0x7900f0",
+            "0x79010c",
+            "0x790128",
+            "0x79013c",
+            "0x790158",
+            "0x7a22bc",
+            "0x7a7ee0",
+            "0x7a7ef4",
+            "0x7afc4c",
+            "0x7b6fd4",
+            "0x7b7054"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00470460",
+      "label": "brightness: calibrated level to current/luminance conversion",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 632,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": [
+            "0x471030"
+          ]
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x471030"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x004e3d9a",
+      "label": "brightness: ULED brightness provider wrapper",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 92,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 32,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x00470020",
+      "label": "brightness: saved level byte getter",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 10,
+          "matches": [
+            "0x470bf0"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047b08c",
+      "label": "brightness: display-task on/off flag literal",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 4,
+          "matches": [
+            "0x53298c"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00470738",
+      "label": "brightness: settings base literal (level at +1)",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 4,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "old_address": "0x0047a88e",
+      "label": "brightness: display event 4 conversion/provider calling convention",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 30,
+          "matches": []
+        },
+        {
+          "prefix_bytes": 16,
+          "matches": [
+            "0x47eafe"
+          ]
+        }
+      ]
+    },
+    {
+      "old_address": "0x00599d78",
+      "label": "Mic diagnostics: PCM app table literal = 20076d4c",
+      "status": "byte-anchors-only-not-ABI-verified",
+      "anchor_search": [
+        {
+          "prefix_bytes": 4,
+          "matches": [
+            "0x472424",
+            "0x473cb4",
+            "0x4747b4",
+            "0x4755c4",
+            "0x4758c0"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,457 @@
+{
+  "schema": 2,
+  "id": "em9305-hci-payload-read-boundary-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "iom6-full-duplex-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "spi-word-transaction",
+      "baseline": "iom6-spi-word-research-01/base-iom.cs",
+      "candidate": "tools/renode-iom.cs",
+      "before_sha256": "1d064f53a59b7f86f71b7091df5d6115c69789c8a643c7dfaa6be63e0c9de194",
+      "after_sha256": "dfa85088d676bffbf8030f93ad2bce62fb809911067f09178af7cdf1c922a1a8"
+    }
+  ],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    spiFullDuplexPreflight: true\n",
+      "after": "    spiFullDuplexPreflight: true\n    spiWordPeer: spi_header\n"
+    }
+  ],
+  "board_append": "\nspi_header: Miscellaneous.BlackwallScriptedSpiPeer @ none\n    expectedHex: \"8100\"\n    responseHex: \"c004\"\n",
+  "diagnostics": "dict(paused=bool(m.IsPaused),commands=int(m['sysbus.iom6'].Commands),spi_config=int(m['sysbus.iom6'].SpiConfiguration),dcx=int(m['sysbus.iom6'].DcxControl),completed=int(m['sysbus.iom6'].SpiWordTransfer.Completed) if m['sysbus.iom6'].SpiWordTransfer is not None else 0,bytes_exchanged=int(m['sysbus.iom6'].SpiWordTransfer.BytesExchanged) if m['sysbus.iom6'].SpiWordTransfer is not None else 0,rx_words=int(m['sysbus.iom6'].SpiWordTransfer.ReceiveWords) if m['sysbus.iom6'].SpiWordTransfer is not None else 0,last_rx_word=int(m['sysbus.iom6'].SpiWordTransfer.LastReceiveWord) if m['sysbus.iom6'].SpiWordTransfer is not None else 0,peer_tx=str(m['sysbus.iom6'].SpiWordTransfer.Peer.Transmitted) if m['sysbus.iom6'].SpiWordTransfer is not None else '',peer_finished=int(m['sysbus.iom6'].SpiWordTransfer.Peer.Finished) if m['sysbus.iom6'].SpiWordTransfer is not None else 0,cs_output_high=bool(int(m['sysbus.guard'].GpioOutput.Words[4])&0x200000))",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5249584,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "completed"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "bytes_exchanged"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "rx_words"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_rx_word"
+            ],
+            "eq": 1216
+          },
+          {
+            "path": [
+              "diagnostics",
+              "peer_tx"
+            ],
+            "eq": "8100"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "peer_finished"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "cs_output_high"
+            ],
+            "eq": false
+          }
+        ],
+        "allowed_differences": [
+          "Explicit header-only 8100/c004 scenario. Original host parses length4 with GPIO149 low and reaches an unsupported post-header RDY read; payload not supplied."
+        ],
+        "unresolved_differences": [
+          "Initial prediction of payload CMD was too late: reset-only RDY model blocks post-header read. Phase-aware CS/RDY peer, RX-only payload, real wiring/timing and BLE boot remain unverified."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776788,
+          "address": 1074094368,
+          "operation": "spi-full-duplex-command-unsupported",
+          "width": 4,
+          "value": 513
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 4
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          }
+        ],
+        "allowed_differences": [
+          "Explicit header-only 8100/c004 scenario; no event payload supplied. Original host reaches SPI READ4 while GPIO149 remains low."
+        ],
+        "unresolved_differences": [
+          "No physical wiring/timing or actual EM9305 state verified. Payload READ/active-event handling and BLE boot remain unsupported."
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5546888,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "completed"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "bytes_exchanged"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "rx_words"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_rx_word"
+            ],
+            "eq": 1216
+          },
+          {
+            "path": [
+              "diagnostics",
+              "peer_tx"
+            ],
+            "eq": "8100"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "peer_finished"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "cs_output_high"
+            ],
+            "eq": false
+          }
+        ],
+        "allowed_differences": [
+          "Explicit header-only 8100/c004 scenario. Original host parses length4 with GPIO149 low and reaches an unsupported post-header RDY read; payload not supplied."
+        ],
+        "unresolved_differences": [
+          "Initial prediction of payload CMD was too late: reset-only RDY model blocks post-header read. Phase-aware CS/RDY peer, RX-only payload, real wiring/timing and BLE boot remain unverified."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747260,
+          "address": 1074094368,
+          "operation": "spi-full-duplex-command-unsupported",
+          "width": 4,
+          "value": 513
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 4
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          }
+        ],
+        "allowed_differences": [
+          "Explicit header-only 8100/c004 scenario; no event payload supplied. Original host reaches SPI READ4 while GPIO149 remains low."
+        ],
+        "unresolved_differences": [
+          "No physical wiring/timing or actual EM9305 state verified. Payload READ/active-event handling and BLE boot remain unsupported."
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5546888,
+          "address": 1073808400,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "completed"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "bytes_exchanged"
+            ],
+            "eq": 2
+          },
+          {
+            "path": [
+              "diagnostics",
+              "rx_words"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "last_rx_word"
+            ],
+            "eq": 1216
+          },
+          {
+            "path": [
+              "diagnostics",
+              "peer_tx"
+            ],
+            "eq": "8100"
+          },
+          {
+            "path": [
+              "diagnostics",
+              "peer_finished"
+            ],
+            "eq": 1
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "cs_output_high"
+            ],
+            "eq": false
+          }
+        ],
+        "allowed_differences": [
+          "Explicit header-only 8100/c004 scenario. Original host parses length4 with GPIO149 low and reaches an unsupported post-header RDY read; payload not supplied."
+        ],
+        "unresolved_differences": [
+          "Initial prediction of payload CMD was too late: reset-only RDY model blocks post-header read. Phase-aware CS/RDY peer, RX-only payload, real wiring/timing and BLE boot remain unverified."
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747260,
+          "address": 1074094368,
+          "operation": "spi-full-duplex-command-unsupported",
+          "width": 4,
+          "value": 513
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 4
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          }
+        ],
+        "allowed_differences": [
+          "Explicit header-only 8100/c004 scenario; no event payload supplied. Original host reaches SPI READ4 while GPIO149 remains low."
+        ],
+        "unresolved_differences": [
+          "No physical wiring/timing or actual EM9305 state verified. Payload READ/active-event handling and BLE boot remain unsupported."
+        ]
+      }
+    }
+  }
+}

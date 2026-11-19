@@ -1,0 +1,629 @@
+{
+  "schema": 1,
+  "id": "bw122-iom-startup-mock0",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "provenance": "Frozen bw122 source and original-three native runs; RTC bw124 excluded",
+  "assumptions": [
+    "isolated main reset, no bootloader initial state",
+    "A5-filled 512 KiB SRAM, 3 MiB System SRAM and 256 KiB ITCM",
+    "main writes denied by synthetic external permission windows before internal MPU",
+    "main padding reads and execution rejected; only guest-written ITCM instructions execute",
+    "ITCM block checks can conservatively reject code written later within the same block",
+    "Renode core/NVIC behavior is not fully verified for Apollo510B",
+    "virtual MIPS and SysTick frequency are synthetic, not hardware timing"
+  ],
+  "cases": [
+    {
+      "name": "stock23",
+      "firmware_profile": "stock_base",
+      "files": {
+        "board.repl": "588474f7fc2b9f8c7ff538f2e23b016329bb4a7920f2c75bcd07cdb6f2ca7fac",
+        "itcm-fill.bin": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55",
+        "main.bin": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5",
+        "probe.resc": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48",
+        "result.py": "c675ebab00aa9084d4ec93213b599192fa273dd70e277182ecf1080292d9e7a5",
+        "run.py": "85798bd72c5d499afdf65aa6174a5c902f2875043c531f486c1f2a2ce02a6611",
+        "sram-fill.bin": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd",
+        "strict.cs": "c42fa1d1d4c76fce3b62bacf954c0c6ecaf749a3f0d7fa9cceab11118406ada9"
+      },
+      "reference_report_sha256": "a795fbe0428548d5a218fdb2bc190858ff9a7d423dcd23fa4e4ac3013770a141",
+      "reference_log_sha256": "1a15ef2ad971ee0ddd8312b2f77d57eb1e2ae22d2f6880b5ead2af305e99cca7",
+      "selected_hypotheses": {
+        "power_mode": "lp",
+        "reset_latch": 2,
+        "nominal_lfrc_watchdog": true,
+        "synthetic_reset_controller": true,
+        "startup_controls": true,
+        "shadow_info1": "mram",
+        "invalid_info1_metadata": "zero",
+        "chip_revision": 35,
+        "spot_control_storage": true,
+        "memory_startup_fixture": true,
+        "hal_startup_storage": true,
+        "mram_control_storage": true,
+        "buck_override_storage": true,
+        "buck_start_storage": true,
+        "coreldo_reduction_storage": true,
+        "memldo_setup_storage": true,
+        "buck_status_fixture": null,
+        "buck_response_model": "active",
+        "mcu_clock_response": "nominal",
+        "gfx_power_storage": true,
+        "hfrc_force_control": true,
+        "gpu_power_preparation": true,
+        "gpu_power_response": "active",
+        "gpu_power_off_response": "off",
+        "gpu_off_sequence_storage": true,
+        "gpio_config_storage": true,
+        "gpio_interrupt_idle": true,
+        "gpio_output_latch": true,
+        "capture_itcm_prefix": true,
+        "adc_info_zero_fixture": true,
+        "adc_calibration_control": true,
+        "adc_power_response": "active",
+        "adc_power_off_response": "off",
+        "iom2_model": "active",
+        "iom_modules": [
+          2,
+          4,
+          5,
+          7
+        ],
+        "iom_cq_input_levels": 0,
+        "iom4_model": null,
+        "iom_power_profiles": {},
+        "iom2_off_response": "off",
+        "uart1_model": "active",
+        "uart_modules": [
+          1,
+          2,
+          3
+        ],
+        "uart1_interrupts": true,
+        "uart1_off_response": "off",
+        "adc_trigger_config_storage": true,
+        "adc_disabled_config_storage": true,
+        "adc_enable_latch": true,
+        "adc_trigger_source_hz": 24000000,
+        "adc_constant_channel3": 2048,
+        "capture_sram_windows": [
+          [
+            537355620,
+            16
+          ],
+          [
+            536881740,
+            128
+          ],
+          [
+            537138128,
+            32
+          ],
+          [
+            537142560,
+            32
+          ]
+        ],
+        "gpu_interrupt_clear": true,
+        "gpu_id_initialization": true,
+        "gpu_ring_configuration": true,
+        "gpu_identity_response": "source-reset",
+        "gpu_initial_resets": true,
+        "gpu_raster_init_storage": true,
+        "gpu_config_low_response": true,
+        "gpu_config_high_hypothesis": "zero",
+        "gpu_initial_status_hypothesis": "zero",
+        "vddf_tempco_storage": true,
+        "coherent_icache_model": true,
+        "coherent_dcache_model": true,
+        "prefetch_control_storage": true
+      },
+      "expected_boundary": {
+        "pc": 5145492,
+        "guards": [
+          {
+            "accesses": 1,
+            "name": "guard",
+            "address": 1073758220,
+            "width": 4,
+            "operation": "read",
+            "value": 0
+          }
+        ],
+        "uarts": [
+          {
+            "module": 1,
+            "writes": 34,
+            "reads": 31,
+            "phase": "on",
+            "requests": 2,
+            "responses": 3,
+            "power_downs": 1,
+            "tx_bytes": [],
+            "irq_exception_entries": 0
+          },
+          {
+            "module": 2,
+            "writes": 26,
+            "reads": 31,
+            "phase": "powered-off",
+            "requests": 1,
+            "responses": 2,
+            "power_downs": 1,
+            "tx_bytes": [],
+            "irq_exception_entries": 0
+          },
+          {
+            "module": 3,
+            "writes": 26,
+            "reads": 31,
+            "phase": "powered-off",
+            "requests": 1,
+            "responses": 2,
+            "power_downs": 1,
+            "tx_bytes": [],
+            "irq_exception_entries": 0
+          }
+        ],
+        "ioms": [
+          {
+            "module": 2,
+            "writes": 6,
+            "reads": 20,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 258672,
+            "cq_pairs": 0
+          },
+          {
+            "module": 4,
+            "writes": 13,
+            "reads": 21,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 143424,
+            "cq_pairs": 0
+          },
+          {
+            "module": 5,
+            "writes": 6,
+            "reads": 20,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 258672,
+            "cq_pairs": 0
+          },
+          {
+            "module": 7,
+            "writes": 6,
+            "reads": 20,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 258672,
+            "cq_pairs": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "cfw",
+      "firmware_profile": "cfw",
+      "files": {
+        "board.repl": "588474f7fc2b9f8c7ff538f2e23b016329bb4a7920f2c75bcd07cdb6f2ca7fac",
+        "itcm-fill.bin": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55",
+        "main.bin": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f",
+        "probe.resc": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48",
+        "result.py": "c675ebab00aa9084d4ec93213b599192fa273dd70e277182ecf1080292d9e7a5",
+        "run.py": "fce996a4aff58d9ffab6bd6f3f10a4ec99b12d43f2aa955f494fe9f14019b5f9",
+        "sram-fill.bin": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd",
+        "strict.cs": "c42fa1d1d4c76fce3b62bacf954c0c6ecaf749a3f0d7fa9cceab11118406ada9"
+      },
+      "reference_report_sha256": "d0bc7f38c28256f5c8cf0a785036ad91dbb2150867b035ff6a0486be72d05c5b",
+      "reference_log_sha256": "74952efd5fce59a4d9e3fcbdc198c97c7d6e3dfcd6a768508efd23430baed341",
+      "selected_hypotheses": {
+        "power_mode": "lp",
+        "reset_latch": 2,
+        "nominal_lfrc_watchdog": true,
+        "synthetic_reset_controller": true,
+        "startup_controls": true,
+        "shadow_info1": "mram",
+        "invalid_info1_metadata": "zero",
+        "chip_revision": 35,
+        "spot_control_storage": true,
+        "memory_startup_fixture": true,
+        "hal_startup_storage": true,
+        "mram_control_storage": true,
+        "buck_override_storage": true,
+        "buck_start_storage": true,
+        "coreldo_reduction_storage": true,
+        "memldo_setup_storage": true,
+        "buck_status_fixture": null,
+        "buck_response_model": "active",
+        "mcu_clock_response": "nominal",
+        "gfx_power_storage": true,
+        "hfrc_force_control": true,
+        "gpu_power_preparation": true,
+        "gpu_power_response": "active",
+        "gpu_power_off_response": "off",
+        "gpu_off_sequence_storage": true,
+        "gpio_config_storage": true,
+        "gpio_interrupt_idle": true,
+        "gpio_output_latch": true,
+        "capture_itcm_prefix": true,
+        "adc_info_zero_fixture": true,
+        "adc_calibration_control": true,
+        "adc_power_response": "active",
+        "adc_power_off_response": "off",
+        "iom2_model": "active",
+        "iom_modules": [
+          2,
+          4,
+          5,
+          7
+        ],
+        "iom_cq_input_levels": 0,
+        "iom4_model": null,
+        "iom_power_profiles": {},
+        "iom2_off_response": "off",
+        "uart1_model": "active",
+        "uart_modules": [
+          1,
+          2,
+          3
+        ],
+        "uart1_interrupts": true,
+        "uart1_off_response": "off",
+        "adc_trigger_config_storage": true,
+        "adc_disabled_config_storage": true,
+        "adc_enable_latch": true,
+        "adc_trigger_source_hz": 24000000,
+        "adc_constant_channel3": 2048,
+        "capture_sram_windows": [
+          [
+            537355620,
+            16
+          ],
+          [
+            536881740,
+            128
+          ],
+          [
+            537138128,
+            32
+          ],
+          [
+            537142560,
+            32
+          ]
+        ],
+        "gpu_interrupt_clear": true,
+        "gpu_id_initialization": true,
+        "gpu_ring_configuration": true,
+        "gpu_identity_response": "source-reset",
+        "gpu_initial_resets": true,
+        "gpu_raster_init_storage": true,
+        "gpu_config_low_response": true,
+        "gpu_config_high_hypothesis": "zero",
+        "gpu_initial_status_hypothesis": "zero",
+        "vddf_tempco_storage": true,
+        "coherent_icache_model": true,
+        "coherent_dcache_model": true,
+        "prefetch_control_storage": true
+      },
+      "expected_boundary": {
+        "pc": 5145492,
+        "guards": [
+          {
+            "address": 1073758220,
+            "accesses": 1,
+            "name": "guard",
+            "value": 0,
+            "width": 4,
+            "operation": "read"
+          }
+        ],
+        "uarts": [
+          {
+            "module": 1,
+            "writes": 34,
+            "reads": 31,
+            "phase": "on",
+            "requests": 2,
+            "responses": 3,
+            "power_downs": 1,
+            "tx_bytes": [],
+            "irq_exception_entries": 0
+          },
+          {
+            "module": 2,
+            "writes": 26,
+            "reads": 31,
+            "phase": "powered-off",
+            "requests": 1,
+            "responses": 2,
+            "power_downs": 1,
+            "tx_bytes": [],
+            "irq_exception_entries": 0
+          },
+          {
+            "module": 3,
+            "writes": 26,
+            "reads": 31,
+            "phase": "powered-off",
+            "requests": 1,
+            "responses": 2,
+            "power_downs": 1,
+            "tx_bytes": [],
+            "irq_exception_entries": 0
+          }
+        ],
+        "ioms": [
+          {
+            "module": 2,
+            "writes": 6,
+            "reads": 20,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 258672,
+            "cq_pairs": 0
+          },
+          {
+            "module": 4,
+            "writes": 13,
+            "reads": 21,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 143424,
+            "cq_pairs": 0
+          },
+          {
+            "module": 5,
+            "writes": 6,
+            "reads": 20,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 258672,
+            "cq_pairs": 0
+          },
+          {
+            "module": 7,
+            "writes": 6,
+            "reads": 20,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 258672,
+            "cq_pairs": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "stock24",
+      "firmware_profile": "stock_current",
+      "files": {
+        "board.repl": "588474f7fc2b9f8c7ff538f2e23b016329bb4a7920f2c75bcd07cdb6f2ca7fac",
+        "itcm-fill.bin": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55",
+        "main.bin": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a",
+        "probe.resc": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48",
+        "result.py": "c675ebab00aa9084d4ec93213b599192fa273dd70e277182ecf1080292d9e7a5",
+        "run.py": "d4c73df5b79aa01b29c5ea2fe883d72a60943967e3d765c2d34c51b4df3b0919",
+        "sram-fill.bin": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd",
+        "strict.cs": "c42fa1d1d4c76fce3b62bacf954c0c6ecaf749a3f0d7fa9cceab11118406ada9"
+      },
+      "reference_report_sha256": "aab7ab302abf36c224a90019576ff8cc4db2f5c18f3384cdd32bc5af1a02b084",
+      "reference_log_sha256": "fb5e3309aab41a7b8811d0fe51d1639f5b52c20c1dcf36e97e01882f5dd65049",
+      "selected_hypotheses": {
+        "power_mode": "lp",
+        "reset_latch": 2,
+        "nominal_lfrc_watchdog": true,
+        "synthetic_reset_controller": true,
+        "startup_controls": true,
+        "shadow_info1": "mram",
+        "invalid_info1_metadata": "zero",
+        "chip_revision": 35,
+        "spot_control_storage": true,
+        "memory_startup_fixture": true,
+        "hal_startup_storage": true,
+        "mram_control_storage": true,
+        "buck_override_storage": true,
+        "buck_start_storage": true,
+        "coreldo_reduction_storage": true,
+        "memldo_setup_storage": true,
+        "buck_status_fixture": null,
+        "buck_response_model": "active",
+        "mcu_clock_response": "nominal",
+        "gfx_power_storage": true,
+        "hfrc_force_control": true,
+        "gpu_power_preparation": true,
+        "gpu_power_response": "active",
+        "gpu_power_off_response": "off",
+        "gpu_off_sequence_storage": true,
+        "gpio_config_storage": true,
+        "gpio_interrupt_idle": true,
+        "gpio_output_latch": true,
+        "capture_itcm_prefix": true,
+        "adc_info_zero_fixture": true,
+        "adc_calibration_control": true,
+        "adc_power_response": "active",
+        "adc_power_off_response": "off",
+        "iom2_model": "active",
+        "iom_modules": [
+          2,
+          4,
+          5,
+          7
+        ],
+        "iom_cq_input_levels": 0,
+        "iom4_model": null,
+        "iom_power_profiles": {},
+        "iom2_off_response": "off",
+        "uart1_model": "active",
+        "uart_modules": [
+          1,
+          2,
+          3
+        ],
+        "uart1_interrupts": true,
+        "uart1_off_response": "off",
+        "adc_trigger_config_storage": true,
+        "adc_disabled_config_storage": true,
+        "adc_enable_latch": true,
+        "adc_trigger_source_hz": 24000000,
+        "adc_constant_channel3": 2048,
+        "capture_sram_windows": [
+          [
+            537355620,
+            16
+          ],
+          [
+            536881740,
+            128
+          ],
+          [
+            537138128,
+            32
+          ],
+          [
+            537142560,
+            32
+          ]
+        ],
+        "gpu_interrupt_clear": true,
+        "gpu_id_initialization": true,
+        "gpu_ring_configuration": true,
+        "gpu_identity_response": "source-reset",
+        "gpu_initial_resets": true,
+        "gpu_raster_init_storage": true,
+        "gpu_config_low_response": true,
+        "gpu_config_high_hypothesis": "zero",
+        "gpu_initial_status_hypothesis": "zero",
+        "vddf_tempco_storage": true,
+        "coherent_icache_model": true,
+        "coherent_dcache_model": true,
+        "prefetch_control_storage": true
+      },
+      "expected_boundary": {
+        "pc": 5270560,
+        "guards": [
+          {
+            "address": 1073758220,
+            "accesses": 1,
+            "operation": "read",
+            "name": "guard",
+            "value": 0,
+            "width": 4
+          }
+        ],
+        "uarts": [
+          {
+            "module": 1,
+            "writes": 34,
+            "reads": 31,
+            "phase": "on",
+            "requests": 2,
+            "responses": 3,
+            "power_downs": 1,
+            "tx_bytes": [],
+            "irq_exception_entries": 0
+          },
+          {
+            "module": 2,
+            "writes": 26,
+            "reads": 31,
+            "phase": "powered-off",
+            "requests": 1,
+            "responses": 2,
+            "power_downs": 1,
+            "tx_bytes": [],
+            "irq_exception_entries": 0
+          },
+          {
+            "module": 3,
+            "writes": 26,
+            "reads": 31,
+            "phase": "powered-off",
+            "requests": 1,
+            "responses": 2,
+            "power_downs": 1,
+            "tx_bytes": [],
+            "irq_exception_entries": 0
+          }
+        ],
+        "ioms": [
+          {
+            "module": 2,
+            "writes": 6,
+            "reads": 20,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 258672,
+            "cq_pairs": 0
+          },
+          {
+            "module": 4,
+            "writes": 13,
+            "reads": 21,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 143424,
+            "cq_pairs": 0
+          },
+          {
+            "module": 5,
+            "writes": 6,
+            "reads": 20,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 258672,
+            "cq_pairs": 0
+          },
+          {
+            "module": 7,
+            "writes": 6,
+            "reads": 20,
+            "power_phase": "powered-off",
+            "power_requests": 1,
+            "power_responses": 2,
+            "power_downs": 1,
+            "commands": 0,
+            "last_i2c_configuration": 258672,
+            "cq_pairs": 0
+          }
+        ]
+      }
+    }
+  ]
+}

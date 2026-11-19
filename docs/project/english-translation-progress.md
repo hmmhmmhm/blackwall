@@ -1,0 +1,683 @@
+# English translation progress
+
+The user requested direct, individual translations of all project documentation. The entries below were translated from their original Korean text; commands, paths, hashes, measurements, and validation boundaries were retained. This is a work log, not a claim that the full task is complete.
+
+## Translated documents
+
+- `README.md`
+- `docs/README.md`
+- `docs/getting-started/README.md`
+- `docs/getting-started/emulator-report-quickstart.md`
+- `docs/getting-started/fresh-simulator-workspace.md`
+- `docs/getting-started/simulator-environment.md`
+- `docs/scenarios/README.md`
+- `docs/scenarios/normal.md`
+- `docs/scenarios/unknown-boot-marker.md`
+- `docs/scenarios/custom-scenarios.md`
+- `scenarios/README.md`
+- `docs/architecture/README.md`
+- `docs/archive/README.md`
+- `docs/bootloader/README.md`
+- `docs/firmware/README.md`
+- `docs/hardware/README.md`
+- `docs/hardware/communication/README.md`
+- `docs/hardware/cpu-memory/README.md`
+- `docs/hardware/display-gpu/README.md`
+- `docs/hardware/power/README.md`
+- `docs/hardware/sensors-input/README.md`
+- `docs/project/README.md`
+- `docs/research/README.md`
+- `tools/README.md`
+- `tools/analysis/README.md`
+- `tools/verification/README.md`
+- `tools/execution/README.md`
+- `tools/preparation/README.md`
+- `tools/renode/README.md`
+- `tools/data/README.md`
+- `tools/support/README.md`
+- `web/README.md`
+- `web/prototypes/README.md`
+- `web/report/README.md`
+- `licenses/README.md`
+- `docs/media/README.md`
+- `docs/data/README.md`
+- `web/prototypes/board-model-bw590/README.md`
+- `docs/architecture/docker-volume-workflow.md`
+- `docs/bootloader/original-boot-reproduction.md`
+- `docs/project/document-reorganization.md`
+- `docs/hardware/communication/uart1-interrupt-model.md`
+
+- `docs/research/upstream-refresh-review.md`
+- `docs/research/board-explorer-prototype.md`
+- `docs/research/offline-asset-revalidation.md`
+
+- `docs/research/public-readme-draft.md`
+
+- `docs/hardware/communication/ring-input-ingress-contract.md`
+
+## Remaining scope
+
+An intermediate Markdown inventory found 591 files containing Korean before the final documents listed above were translated. Historical JSON, TSV, and the preserved agent-guidance text also contain Korean. Some of these are hash-pinned evidence or append-only records and must be assessed against their consumers before modification; do not silently alter evidence or declare completion based only on Markdown. The full inventory and end-to-end checks remain outstanding.
+
+The quickstart setup example previously had two trailing backslashes, which prevent the intended shell line continuation. During translation, this was corrected to one backslash; other compared command blocks were unchanged.
+
+Removed the temporary Markdown inventory (30,761 bytes) after recording the intermediate count; source documents were not removed.
+
+- `docs/research/m0-architecture-proposal.md` (direct translation; historical proposal and superseded status retained).
+- `docs/research/even-g2-protocol-review.md` (direct translation; original findings and historical status retained).
+- `docs/research/even-realities-decomp-review.md` (direct translation; G1/G2 distinctions and historical evidence retained).
+- `docs/research/current-model-comparison.md` (direct translation; commands and model-hash checks retained).
+- `docs/research/icm45608-sdk-source-review.md` (direct translation; source provenance, license notes, and limits retained).
+- `docs/research/frozen-sensor-delayed-disconnect.md` (direct translation; timings, checks, and limitations retained).
+- `docs/research/g2emu-comparison.md` (direct translation; pinned evidence, test outcomes, and limitations retained).
+- `docs/research/package-preparation.md` (direct translation; historical paths and install gates preserved).
+- `docs/research/package-validation-performance.md` (direct translation; benchmark scope, raw results, and limitations retained).
+- `docs/research/paused-observation-snapshot.md` (direct translation; pause contract and evidence retained).
+- `docs/research/ota-marker-read-profiles.md` (direct translation; read-only profile and native audit evidence retained).
+- `docs/research/ota-marker-state-contract.md` (direct translation; write footprint, test evidence, and installation gates retained).
+- `docs/research/pending-metadata-cycle-plan.md` (direct translation; synthetic inputs, failures, and virtual boundaries retained).
+- `docs/research/pending-metadata-cycle-results.md` (direct translation; nine runs, faults, audit and reproduction retained).
+- `docs/research/spot-classification-research.md` (direct translation; synthetic fixtures and original execution evidence retained).
+- `docs/research/scoped-observer-suspension.md` (direct translation; measured ranges, state comparisons, and limits retained).
+- `docs/research/system-reset-boundary-contract.md` (direct translation; synthetic guest scope and reset evidence retained).
+- `docs/research/sync-request-parser-contract.md` (direct translation; framing, negative controls, and isolated execution scope retained).
+- `docs/research/peer-runtime-nor-program-timeout.md` (direct translation; fault outcomes and prior evidence retained).
+- `docs/research/upstream-independent-restore-review.md` (direct translation; component geometry, source evidence, and recovery limits retained).
+- `docs/research/peer-recovery-version-profiles.md` (direct translation; original ABI, observer differences, and recovery limits retained).
+- `docs/research/storage-failure-acceptance.md` (direct translation; scenario coverage and unresolved observer differences retained).
+- `docs/research/peer-failure-acceptance.md` (direct translation; scenario coverage, strict policy, and limitations retained).
+- `docs/research/input-acceptance.md` (direct translation; touch/ring paths, audit failures, and limitations retained).
+- `docs/research/upstream-compatibility-question.md` (direct translation of surrounding record; unpublished draft preserved).
+- `docs/research/safety-first-roadmap.md` (direct translation; superseded scope and historical approval boundaries retained).
+- `docs/research/private-recovery-candidate.md` (direct translation; sensitive-asset handling and unverified compatibility retained).
+- `docs/research/public-release-readiness-review.md` (direct translation; date-specific findings and limitations retained).
+- `docs/research/public-scope-and-visualization-research.md` (direct translation; source rights and evidence labels retained).
+- `docs/research/g2-chip-location-and-3d-preview.md` (direct translation; photo provenance and uncertain component placement retained).
+- `docs/research/wsf-tick-accounting.md` (direct translation; timing derivation and observer limitations retained).
+- `docs/research/virtual-web-install-storage.md` (direct translation; synthetic OTA model and ARM handoff limitations retained).
+- `docs/research/upstream-research.md` (direct translation; pinned sources, evidence levels, and compatibility limits retained).
+- `docs/research/offline-compatibility-check.md` (direct translation; file hashes, mock results, and hardware safety boundaries retained).
+- `docs/architecture/emulator-scope-audit-bw380.md` (direct translation; historical scope, review, and acceptance criteria retained).
+- `docs/architecture/emulator-scope-audit-bw376.md` (direct translation; historical acceptance, execution evidence, and review retained).
+- `docs/architecture/emulator-scope-audit-bw370.md` (direct translation; historical execution boundaries and acceptance criteria retained).
+- `docs/architecture/emulator-scope-audit-bw365.md` (direct translation; historical scenarios, gates, and progress preserved).
+- `docs/architecture/emulator-scope-flow-review-bw359.md` (direct translation; historical criteria and evidence boundaries preserved).
+- `docs/architecture/native-observation-lifetime.md` (direct translation; process lifetime behavior and native-control limits retained).
+- `docs/architecture/native-process-recovery.md` (direct translation; ownership checks and actual test outcomes retained).
+- `docs/architecture/native-replay.md` (direct translation; pinned inputs and execution boundaries retained).
+- `docs/architecture/native-execution-bottleneck.md` (direct translation; profiler data and measurement limitations retained).
+- `docs/architecture/bounded-execution-observation.md` (direct translation; hook scope, controls, and R2 comparison retained).
+- `docs/architecture/renode-info1-fixtures.md` (direct translation; synthetic provenance and 12-run comparisons retained).
+- `docs/architecture/renode-hal-startup-storage.md` (direct translation; register values, controls, and six-run evidence retained).
+- `docs/architecture/renode-m55-probe.md` (direct translation; synthetic guest tests and isolation retained).
+- `docs/architecture/renode-main-probe.md` (direct translation; original binary execution and strict MMIO boundaries retained).
+- `docs/architecture/renode-startup-fixtures.md` (direct translation; virtual power assumptions and six-image comparisons retained).
+- `docs/architecture/renode-watchdog-model.md` (direct translation; watchdog assumptions, tests, and reset limitations retained).
+- `docs/architecture/renode-reset-controller-model.md` (direct translation; watchdog gate semantics and six-image results retained).
+- `docs/architecture/renode-startup-controls.md` (direct translation; fixture assumptions and original-image comparisons retained).
+- `docs/architecture/renode-memory-policy.md` (direct translation; protection mechanisms and reset limitations retained).
+- `docs/architecture/emulator-reuse-research.md` (direct translation; pinned sources and historical execution limits retained).
+- `docs/architecture/renode-runtime-readiness.md` (direct translation; runtime failure and register-only evidence retained).
+- `docs/architecture/emulator-current-scope-audit.md` (direct translation; historical progress and Astra review scope retained).
+- `docs/architecture/runtime-cli-import-isolation.md` (direct translation; dependency behavior and audit evidence retained).
+- `docs/architecture/runtime-candidate-integration-plan.md` (direct translation; completed steps and retained comparison failure preserved).
+- `docs/architecture/simulator-asset-storage.md` (direct translation; space recovery evidence and constraints retained).
+- `docs/architecture/runtime-gaf-profile-integration.md` (direct translation; three-image results and failed long-wait boundary retained).
+- `docs/architecture/runtime-local-version-query.md` (direct translation; virtual identity and watchdog stop evidence retained).
+- `docs/architecture/runtime-reconnect-frontier.md` (direct translation; original packet observation and unverified reconnection retained).
+- `docs/architecture/runtime-readvertise-reconnect.md` (direct translation; successful virtual reconnect and delayed failure separated).
+- `docs/architecture/runtime-candidate-state-lineage.md` (direct translation; five-byte lineage and preserved regression failure retained).
+- `docs/architecture/runtime-cli-comparison.md` (direct translation; CLI commands and separate candidate/comparison outcomes retained).
+- `docs/architecture/runtime-registered-candidate-integration.md` (direct translation; actual candidate results and preserved regression failure retained).
+- `docs/architecture/runtime-nor-program-timeout.md` (direct translation; lost error chain and restart limitations retained).
+- `docs/architecture/renode-silicon-fixtures.md` (direct translation; virtual revisions and 18 comparisons retained).
+- `docs/architecture/renode-memory-startup.md` (direct translation; virtual power assumptions and engine comparisons retained).
+- `docs/architecture/runtime-att-time-device-ingress.md` (direct translation; virtual peer roles and original RTC consumption evidence retained).
+- `docs/architecture/tpl-native-request-production.md` (direct translation; original task path and API-input limitations retained).
+- `docs/architecture/tpl-time-native-rtc-consumption.md` (direct translation; TPL API boundary and RTC evidence retained).
+- `docs/architecture/tpl-service-app-terminal-contract.md` (direct translation; isolated ARM scenarios and message-field evidence retained).
+- `docs/architecture/simulator-runner-plan.md` (direct translation; original runner scope and test plan retained).
+- `docs/architecture/simulator-workbench-preview.md` (direct translation; illustrative assets and virtual timing distinguished).
+- `docs/architecture/runtime-peer-failure-contract.md` (direct translation; historical checkpoints and integrated E14 assessment retained).
+- `docs/architecture/emulator-final-audit.md` (direct translation; 16 criteria and v3 completion boundaries retained).
+- `docs/architecture/simulator-next-behavior-plan.md` (direct translation; historical priorities, prerequisites, and subsequent evidence retained).
+- `docs/architecture/emulator-full-fidelity-reestimate.md` (direct translation; historical estimates and proposed scope retained).
+- `docs/architecture/emulator-fidelity-goal-proposal.md` (direct translation; proposed scope, estimates, and evidence requirements retained).
+- `docs/architecture/emulator-scope-review.md` (direct translation; historical one-off reviews and approval boundaries retained).
+- `docs/architecture/emulator-html-report.md` (direct translation; scenario evidence, visualization provenance, and historical changes retained).
+- `docs/project/align-setup.md` (direct translation; historical skill installation and verification retained).
+- `docs/project/project-brief.md` (direct translation; original project scope and safety approvals preserved as historical context).
+- `docs/project/astra-iom6-direction-review.md` (direct translation; historic reviewer findings, test evidence, and authorization limits retained).
+- `docs/project/astra-current-direction-review.md` (direct translation; historical findings, simulator-only contract, and limitations preserved).
+- `docs/project/astra-direction-review.md` (direct translation; review findings, source hashes, and historical limits preserved).
+- `docs/project/astra-emulator-direction-review.md` (direct translation; historical sequencing, emulator assumptions, and evidence limits retained).
+- `docs/project/progress-tracking.md` (direct translation; historical scope, duplicate prevention, and evidence rules retained).
+- `docs/project/development-tools-acceptance.md` (direct translation; historical acceptance evidence, run counts, and limitations retained).
+- `docs/project/completion-audit.md` (direct translation; superseded blocker and historical evidence explicitly preserved).
+- `docs/hardware/cpu-memory/hal-loop-time-profile.md` (direct translation; timing derivation, preserved failure, and evidence limits retained).
+- `docs/hardware/cpu-memory/mspi1-clear-all-command.md` (direct translation; strict register contract, test evidence, and physical limitations retained).
+- `docs/hardware/cpu-memory/mspi1-power-off-model.md` (direct translation; mock power assumptions, execution results, and failure evidence preserved).
+- `docs/hardware/cpu-memory/chip-identity-contract.md` (direct translation; synthetic identity values, evidence, and unknowns retained).
+- `docs/hardware/cpu-memory/mspi1-xip-turnaround-storage.md` (direct translation; register contract, original execution and controls retained).
+- `docs/hardware/cpu-memory/mram-direct-store-protection.md` (direct translation; original failure, virtual write boundary, and verification retained).
+- `docs/hardware/cpu-memory/mspi1-guarded-xip-control.md` (direct translation; guard boundaries, synthetic tests, and original execution evidence retained).
+- `docs/hardware/cpu-memory/mspi1-pio-reset-contract.md` (direct translation; observed versus static paths, manufacturer evidence, and proposed work preserved).
+- `docs/hardware/cpu-memory/cpu-retention-staging-contract.md` (direct translation; virtual reset evidence, disk recovery, and sleep limitations retained).
+- `docs/hardware/cpu-memory/kvtime-schema-version-contract.md` (direct translation; schema policy, 108-case evidence, and compatibility limits retained).
+- `docs/hardware/cpu-memory/mspi0-first-pio-contract.md` (direct translation; 141 ARM scenarios, FIFO semantics, and unverified bus behavior retained).
+- `docs/hardware/cpu-memory/nvdb-consumer-contract.md` (direct translation; factory-data boundaries, static erase path, and recovery limits retained).
+- `docs/hardware/cpu-memory/prefetch-control-storage.md` (direct translation; PFCR contract, cross-engine results, and D-cache guard retained).
+- `docs/hardware/cpu-memory/nor-kvdb-region-contract.md` (direct translation; partition evidence, static header analysis, and unknown backing limits retained).
+- `docs/hardware/cpu-memory/mspi0-queue-irq-retention-contract.md` (direct translation; queue configuration, isolated IRQ and retention evidence retained).
+- `docs/hardware/cpu-memory/mspi1-write-enable-model.md` (direct translation; virtual WEL behavior, controls, and original execution limits retained).
+- `docs/hardware/cpu-memory/crypto-power-ready-contract.md` (direct translation; source prerequisites, readiness model, and security limits retained).
+- `docs/hardware/cpu-memory/mspi1-cqflags-mock-model.md` (direct translation; routing correction, mock inputs, and original execution evidence retained).
+- `docs/hardware/cpu-memory/otp-read-readiness-model.md` (direct translation; readiness gating, original results, and OTP content limits retained).
+- `docs/hardware/cpu-memory/mspi0-clock-config-storage-model.md` (direct translation; shared register rules, original execution, and controls retained).
+- `docs/hardware/cpu-memory/littlefs-geometry-mount-policy.md` (direct translation; active configuration, format policy, and hardware safety boundary retained).
+- `docs/hardware/cpu-memory/mspi1-continuous-status-read.md` (direct translation; logical transport assumptions, source evidence, and native results retained).
+- `docs/hardware/cpu-memory/p256-asynchronous-event-peer.md` (direct translation; P-256 mock profiles, FIFO limits, and native results retained).
+- `docs/hardware/cpu-memory/mspi1-rdid-contract.md` (direct translation; manufacturer ID provenance and RX FIFO limits retained).
+- `docs/hardware/cpu-memory/mspi1-post-scan-rdid-contract.md` (direct translation; original request, source comparison, and receive limits retained).
+- `docs/hardware/cpu-memory/mram-auto-wakeup-control.md` (direct translation; source reset assumptions, two-engine comparisons, and limits retained).
+- `docs/hardware/cpu-memory/mspi1-status-read-contract.md` (direct translation; original polling behavior, manufacturer status semantics, and assumptions retained).
+- `docs/hardware/cpu-memory/dcache-address-contract.md` (direct translation; SRAM maintenance scope and original instruction evidence retained).
+- `docs/hardware/cpu-memory/nvdb-blank-scenario.md` (direct translation; blank factory fixture, original results, and data recovery limits retained).
+- `docs/hardware/cpu-memory/otp-shared-power-model.md` (direct translation; shared bank semantics, original execution, and negative tests retained).
+- `docs/hardware/cpu-memory/mspi1-page-program.md` (direct translation; virtual program semantics, original KVDB execution, and recovery limits retained).
+- `docs/hardware/cpu-memory/mspi0-rx-identity-pixel-buffer-contract.md` (direct translation; isolated original pixel rendering and RX evidence retained).
+- `docs/hardware/cpu-memory/mspi0-retention-response-model.md` (direct translation; restricted response, original power-down, and fault limits retained).
+- `docs/hardware/cpu-memory/mspi1-cqflags-contract.md` (direct translation; peripheral distinction, unknown inputs, and retention scope retained).
+- `docs/hardware/cpu-memory/jedec-mock-personality.md` (direct translation; explicit mock identity, original query, and SKU inconsistency retained).
+- `docs/hardware/cpu-memory/mspi1-power-off-contract.md` (direct translation; power request, unchecked error path, and NOR retention assumptions retained).
+- `docs/hardware/cpu-memory/littlefs-read-only-blank-volume.md` (direct translation; isolated volume permissions, original failure path, and follow-up retained).
+- `docs/hardware/cpu-memory/memory-power-model.md` (direct translation; explicit power fixtures, staged results, and retention limits retained).
+- `docs/hardware/cpu-memory/coherent-data-cache-model.md` (direct translation; cache profile, cross-engine results, and historical corrections retained).
+- `docs/hardware/cpu-memory/mspi1-pio-reset-model.md` (direct translation; virtual timing, review fixes, and original replay retained).
+- `docs/hardware/cpu-memory/mspi0-tx-controller-model.md` (direct translation; virtual TX timing, original frames, and evidence controls retained).
+- `docs/hardware/cpu-memory/crypto-host-idle-contract.md` (direct translation; corrected OTP bank interpretation, readiness checks, and source research retained).
+- `docs/hardware/cpu-memory/mspi0-power-contract.md` (direct translation; original enum mapping, unchecked return, and test scope retained).
+- `docs/hardware/cpu-memory/mspi1-rdid-fifo-model.md` (direct translation; explicit identity, original byte copy, and bounded trace limits retained).
+- `docs/hardware/cpu-memory/mspi1-write-disable-model.md` (direct translation; WRDI behavior, fixture defect, and original execution retained).
+- `docs/hardware/cpu-memory/privacy-length-initialization-contract.md` (direct translation; isolated original calls, test vectors, and security limitations retained).
+- `docs/hardware/cpu-memory/privacy-length-initialization-peer.md` (direct translation; opt-in virtual responses and natural M55 evidence retained).
+- `docs/hardware/cpu-memory/keydb-slot-read-profiles.md` (direct translation; synthetic slots, original paths, and persistent-write restrictions retained).
+- `docs/hardware/cpu-memory/hal-state-model.md` (direct translation; source-defined signature, virtual storage, and clock-recovery limits retained).
+- `docs/hardware/cpu-memory/mspi1-write-enable-contract.md` (direct translation; WREN source contract and original readback limits retained).
+- `docs/hardware/cpu-memory/cpu-normal-sleep-storage-model.md` (direct translation; post-WFI evidence, virtual flush, and wake limitations retained).
+- `docs/hardware/cpu-memory/otp-window-consumer-contract.md` (direct translation; INFOC mapping correction, isolated helper tests, and fixture limits retained).
+- `docs/hardware/cpu-memory/mram-keydb-source-contract.md` (direct translation; BLE slot analysis, write intent, and pairing recovery limits retained).
+- `docs/hardware/cpu-memory/otp-synthetic-serial-slots.md` (direct translation; synthetic profiles, original SRAM output, and power limits retained).
+- `docs/hardware/cpu-memory/otp-readiness-power-generations.md` (direct translation; stale-state fix, regression results, and original execution retained).
+- `docs/hardware/cpu-memory/crypto-otp-power-off-contract.md` (direct translation; shutdown order, unchecked errors, and model prerequisites retained).
+- `docs/hardware/cpu-memory/mspi0-cq-dma-submission-contract.md` (direct translation; prepared descriptors, original execution controls, and DMA unknowns retained).
+- `docs/hardware/cpu-memory/cpu-normal-sleep-contract.md` (direct translation; original versus SDK behavior and isolated ARM test scope retained).
+- `docs/hardware/cpu-memory/mspi1-command-queue-init.md` (direct translation; disabled CQ setup, strict guards, and original execution retained).
+- `docs/hardware/cpu-memory/mspi1-interrupt-model.md` (direct translation; IRQ register model, synthetic ISR, and original execution retained).
+- `docs/hardware/cpu-memory/littlefs-format-remount-ram.md` (direct translation; RAM-only format results, GPIO boundary, and physical limitations retained).
+- `docs/hardware/cpu-memory/mspi0-shared-power-model.md` (direct translation; virtual power responses, native boundaries, and controls retained).
+- `docs/hardware/cpu-memory/p256-asynchronous-event-contract.md` (direct translation; event formats, original WSF path, and security limitations retained).
+- `docs/hardware/cpu-memory/mspi1-sector-erase.md` (direct translation; RAM-only erase semantics, fault observations, and evidence retained).
+- `docs/hardware/cpu-memory/mspi1-config-storage.md` (direct translation; register storage limits, source pins, and original execution retained).
+- `docs/hardware/cpu-memory/dcache-address-model.md` (direct translation; original CPU cache-maintenance evidence and historical audit correction retained).
+- `docs/hardware/cpu-memory/mspi1-array-rx-stream.md` (direct translation; bounded FIFO streaming, original consumption, and timing assumptions retained).
+- `docs/hardware/cpu-memory/mspi0-diagnostic-rx-model.md` (direct translation; virtual RX fixture, black DMA frames, and IOM4 correction retained).
+- `docs/hardware/cpu-memory/cpu-retention-preparation.md` (direct translation; virtual reset, WFI observations, and bounded evidence retained).
+- `docs/hardware/cpu-memory/kvtime-persistent-restart.md` (direct translation; persistence evidence, later boot failure, and environment history retained).
+- `docs/hardware/cpu-memory/nor-program-interruption-restart.md` (direct translation; interrupted program boundary, prior-record selection, and oracle correction retained).
+- `docs/hardware/cpu-memory/keydb-record-load-transaction.md` (direct translation; read-only synthetic slots, original record path, and unknown OTA marker retained).
+- `docs/hardware/cpu-memory/aes-initialization-contract.md` (direct translation; AES-CMAC verification, isolated ARM scope, and security limits retained).
+- `docs/hardware/cpu-memory/mspi1-clock-control.md` (direct translation; source reset, clock storage limits, and original execution retained).
+- `docs/hardware/cpu-memory/mspi1-ideal-sdr-sampling.md` (direct translation; ideal sampling assumptions, original scan, and host failures retained).
+- `docs/hardware/cpu-memory/coherent-instruction-cache-model.md` (direct translation; functional cache assumptions, two-engine tests, and limits retained).
+- `docs/hardware/cpu-memory/mspi0-disabled-queue-irq-model.md` (direct translation; nonexecuting queue, IRQ setup, and original main evidence retained).
+- `docs/hardware/cpu-memory/nor-program-commit-boundary-pair.md` (direct translation; commit boundary comparison, controls, and incomplete recovery retained).
+- `docs/hardware/cpu-memory/otp-power-request-contract.md` (direct translation; power bits, original caller behavior, and physical limitations retained).
+- `docs/hardware/cpu-memory/mspi1-power.md` (direct translation; virtual power response, original execution, and later NOR evidence retained).
+- `docs/hardware/cpu-memory/mspi1-bounded-array-read.md` (direct translation; synthetic backing, original header rejection, and strict limits retained).
+- `docs/hardware/cpu-memory/mspi1-status-byte-model.md` (direct translation; immutable status fixtures, original polling, and observation overflow retained).
+- `docs/hardware/cpu-memory/post-nvdb-mspi-read-contract.md` (direct translation; LittleFS read path, candidate geometry, and later verification retained).
+- `docs/hardware/cpu-memory/mspi0-cq-dma-completion-contract.md` (direct translation; IRQ callback evidence, DMA serialization assumptions, and limitations retained).
+- `docs/hardware/cpu-memory/aes-initialization-peer.md` (direct translation; AES peer transaction evidence, controls, and limitations retained).
+- `docs/hardware/cpu-memory/mspi1-address-mode-contract.md` (direct translation; reset distinctions, callback uncertainty, and subsequent evidence preserved).
+- `docs/hardware/cpu-memory/crypto-otp-power-off-model.md` (direct translation; lifecycle gates, seven runs, later correction, and validation retained).
+- `docs/hardware/cpu-memory/mspi0-retention-flags-contract.md` (direct translation; bounded ARM evidence, retention assumptions, and reproduction retained).
+- `docs/hardware/cpu-memory/mspi1-post-scan-rdid-model.md` (direct translation; profile guards, original execution, and verification retained).
+- `docs/hardware/cpu-memory/mspi1-xip-retention-restore.md` (direct translation; opt-in restore, execution evidence, and later status work retained).
+- `docs/hardware/cpu-memory/mspi0-cq-dma-engine.md` (direct translation; engine behavior and limits retained).
+- `docs/hardware/cpu-memory/mspi0-clock-config-contract.md` (direct translation; clock contract and evidence retained).
+- `docs/hardware/cpu-memory/mspi1-address-mode-model.md` (direct translation; model and verification retained).
+- `docs/hardware/cpu-memory/mspi1-sampling-scan-contract.md` (direct translation; sampling contract and evidence retained).
+- `docs/hardware/cpu-memory/mspi1-xip-mixed-storage.md` (direct translation; storage behavior and limits retained).
+- `docs/hardware/cpu-memory/nor-timeout-fal-propagation.md` (direct translation; timeout and error propagation retained).
+- `docs/hardware/cpu-memory/nor-erase-error-propagation.md` (direct translation; erase error evidence retained).
+- `docs/hardware/cpu-memory/mspi1-xip-contract.md` (direct translation; original contract and limits retained).
+- `docs/firmware/firmware-candidate-registration-design.md` (direct translation; registration design retained).
+- `docs/firmware/firmware-comparison-acceptance.md` (direct translation; comparison criteria and evidence retained).
+- `docs/firmware/main-read-routing-pilot.md` (direct translation; routing pilot and limitations retained).
+- `docs/hardware/sensors-input/imu-identity-failure-native.md` (direct translation; native failure evidence retained).
+- `docs/hardware/sensors-input/adc-shared-power-model.md` (direct translation; shared power model retained).
+- `docs/hardware/sensors-input/imu-b2s-parameter-storage.md` (direct translation; parameter storage behavior retained).
+- `docs/hardware/sensors-input/adc-delay-model.md` (direct translation; ADC delay behavior retained).
+- `docs/hardware/sensors-input/gaf-execution-source-refresh.md` (direct translation; source evidence retained).
+- `docs/hardware/sensors-input/gaf-edmp-execution-contract.md` (direct translation; execution contract retained).
+- `docs/firmware/pinned-main-loader.md` (direct translation; loader and pinned inputs retained).
+- `docs/firmware/original-main-system-reset.md` (direct translation; reset evidence retained).
+- `docs/hardware/sensors-input/imu-fifo-gpio-integration-plan.md` (direct translation; integration plan retained).
+- `docs/hardware/sensors-input/imu-fifo-threshold-status.md` (direct translation; threshold and status evidence retained).
+- `docs/hardware/sensors-input/imu-auxiliary-bootstrap.md` (direct translation; bootstrap observations retained).
+- `docs/firmware/arm-display-mutation-oracle.md` (direct translation; ARM display mutation evidence retained).
+- `docs/hardware/sensors-input/gaf-functional-model-options.md` (direct translation; model alternatives retained).
+- `docs/hardware/sensors-input/gaf-host-correction-evidence.md` (direct translation; correction evidence retained).
+- `docs/hardware/sensors-input/gaf-original-arm-correction-comparison.md` (direct translation; original ARM comparisons retained).
+- `docs/hardware/sensors-input/imu-clock-variation-contract.md` (direct translation; clock contract retained).
+- `docs/hardware/sensors-input/imu-edmp-patch-loader-contract.md` (direct translation; patch-loader contract retained).
+- `docs/hardware/sensors-input/imu-edmp-quiesce-lifecycle.md` (direct translation; quiesce lifecycle retained).
+- `docs/hardware/sensors-input/gaf-natural-timeout-controller-frontier.md` (direct translation; timeout frontier retained).
+- `docs/hardware/sensors-input/gaf-after-first-timeout.md` (direct translation; timeout findings retained).
+- `docs/hardware/sensors-input/gaf-derived-effect-feasibility.md` (direct translation; feasibility and limitations retained).
+- `docs/hardware/sensors-input/imu-fifo-i2c-transport.md` (direct translation; FIFO transport retained).
+- `docs/hardware/sensors-input/imu-fifo-native-configuration.md` (direct translation; native configuration retained).
+- `docs/hardware/sensors-input/imu-fifo-gpio-irq-integration.md` (direct translation; GPIO and IRQ integration retained).
+- `docs/archive/faceclaw-stock-comparison-review.md` (direct translation; comparison retained).
+- `docs/archive/device-inventory.md` (direct translation; inventory retained).
+- `docs/archive/device-inspection-boundaries.md` (direct translation; inspection boundaries retained).
+- `docs/hardware/sensors-input/adc-calibration-control.md` (direct translation; calibration control retained).
+- `docs/hardware/sensors-input/adc-enable-latch.md` (direct translation; enable latch retained).
+- `docs/hardware/sensors-input/adc-power-off-model.md` (direct translation; power-off model retained).
+- `docs/archive/faceclaw-2-4-rebase-scope.md` (direct translation; rebase scope retained).
+- `docs/archive/web-flasher-research.md` (direct translation; web flasher research retained).
+- `docs/hardware/sensors-input/imu-edmp-initialization-contract.md` (direct translation; EDMP initialization contract retained).
+- `docs/hardware/sensors-input/imu-advanced-tag-initialization.md` (direct translation; tag initialization retained).
+- `docs/hardware/sensors-input/imu-fifo-gate-and-pin-contract.md` (direct translation; FIFO gate and pin contract retained).
+- `docs/hardware/sensors-input/imu-edmp-service-lifecycle.md` (direct translation; EDMP service lifecycle retained).
+- `docs/hardware/sensors-input/imu-fifo-i2c-plan.md` (direct translation; FIFO I2C plan retained).
+- `docs/hardware/sensors-input/imu-fifo-parser-contract.md` (direct translation; FIFO parser contract retained).
+- `docs/hardware/sensors-input/active-hud-input-integration.md` (direct translation; HUD input integration retained).
+- `docs/hardware/sensors-input/active-hud-touch-family-contract.md` (direct translation; touch-family contract retained).
+- `docs/hardware/sensors-input/active-hud-ui-consumer-contract.md` (direct translation; UI consumer contract retained).
+- `docs/archive/cfw-log-flush-interval.md` (direct translation; log flush evidence retained).
+- `docs/hardware/sensors-input/gaf-on-demand-control-capabilities.md` (direct translation; control capabilities retained).
+- `docs/hardware/sensors-input/gaf-render-scheduler-dependency.md` (direct translation; scheduler dependencies retained).
+- `docs/hardware/sensors-input/gaf-timeout-cadence.md` (direct translation; timeout cadence retained).
+- `docs/hardware/sensors-input/imu-device-expectation.md` (direct translation; device expectations retained).
+- `docs/hardware/sensors-input/imu-fifo-read-transport-contract.md` (direct translation; read transport contract retained).
+- `docs/hardware/sensors-input/imu-fifo-guest-configuration-contract.md` (direct translation; guest configuration contract retained).
+- `docs/hardware/sensors-input/adc-disabled-config-storage.md` (direct translation; disabled configuration storage retained).
+- `docs/hardware/sensors-input/adc-trigger-config-storage.md` (direct translation; trigger configuration retained).
+- `docs/hardware/sensors-input/adc-constant-scan-model.md` (direct translation; scan model retained).
+- `docs/hardware/sensors-input/imu-gaf-default-getter.md` (direct translation; default getter retained).
+- `docs/hardware/sensors-input/imu-gaf-bias-storage.md` (direct translation; bias storage retained).
+- `docs/hardware/sensors-input/imu-gaf-configuration-contract.md` (direct translation; configuration contract retained).
+- `docs/archive/web-preparation-ui.md` (direct translation; UI preparation and anchor updated).
+- `docs/archive/cfw-renderer-probe.md` (direct translation; renderer probe retained).
+- `docs/archive/web-protocol-verification.md` (direct translation; protocol verification retained).
+- `docs/archive/web-installer-design.md` (direct translation; installer design retained).
+- `docs/hardware/communication/ring-public-scenario-plan.md` (direct translation; ring scenario retained).
+- `docs/hardware/sensors-input/gaf-delay-clock-contract.md` (direct translation; delay clock contract retained).
+- `docs/hardware/sensors-input/gaf-frozen-core-fault.md` (direct translation; fault evidence retained).
+- `docs/hardware/sensors-input/gaf-family-guide-and-access-evidence.md` (direct translation; guide and access evidence retained).
+- `docs/hardware/sensors-input/imu-gpio38-runtime-ingress.md` (direct translation; GPIO runtime ingress retained).
+- `docs/hardware/sensors-input/imu-indirect-endianness-peer.md` (direct translation; peer endianness retained).
+- `docs/hardware/sensors-input/imu-fifo32-parser-and-transport.md` (direct translation; FIFO parser and transport retained).
+- `docs/hardware/sensors-input/adc-info-zero-fixture.md` (direct translation; ADC fixture retained).
+- `docs/hardware/sensors-input/gaf-public-evaluation-package.md` (direct translation; package evidence retained).
+- `docs/hardware/communication/uart0-hcpa-restart-contract.md` (direct translation; restart contract retained).
+- `docs/hardware/communication/uart0-interrupt-mask-contract.md` (direct translation; interrupt mask contract retained).
+- `docs/hardware/communication/controller-reset-generations.md` (direct translation; reset generations retained).
+- `docs/hardware/sensors-input/imu-powersave-passthrough.md` (direct translation; powersave behavior retained).
+- `docs/hardware/sensors-input/imu-odr-filter-configuration.md` (direct translation; ODR filter configuration retained).
+- `docs/hardware/sensors-input/imu-gaf-service-contract.md` (direct translation; GAF service contract retained).
+- `docs/hardware/communication/uart1-clock-shared-word.md` (direct translation; shared clock word retained).
+- `docs/hardware/communication/controller-reset-boundary.md` (direct translation; reset boundary retained).
+- `docs/hardware/communication/ring-family-and-duplicate-contract.md` (direct translation; ring contract retained).
+- `docs/hardware/sensors-input/adc-software-scan-research.md` (direct translation; software scan research retained).
+- `docs/hardware/sensors-input/adc-trigger-conversion-model.md` (direct translation; conversion model retained).
+- `docs/hardware/sensors-input/imu-interrupt-configuration.md` (direct translation; interrupt configuration retained).
+- `docs/hardware/sensors-input/sensor-role-initialization-dependency.md` (direct translation; role dependencies retained).
+- `docs/hardware/sensors-input/imu-gpio38-runtime-plan.md` (direct translation; GPIO runtime plan retained).
+- `docs/hardware/communication/uart0-idle-dma-mask-model.md` (direct translation; DMA mask model retained).
+- `docs/hardware/communication/post-timeout-reconnect.md` (direct translation; reconnect evidence retained).
+- `docs/hardware/sensors-input/codec-update-ingress.md` (direct translation; codec ingress retained).
+- `docs/hardware/sensors-input/codec-execution-backend-comparison.md` (direct translation; backend comparison retained).
+- `docs/hardware/sensors-input/imu-i2cm-magnetometer-bootstrap.md` (direct translation; magnetometer bootstrap retained).
+- `docs/hardware/sensors-input/imu-hal-fifo-m55.md` (direct translation; FIFO M55 evidence retained).
+- `docs/hardware/sensors-input/imu-initial-indirect-profile.md` (direct translation; indirect profile retained).
+- `docs/hardware/communication/advertising-initialization-peer.md` (direct translation; advertising initialization retained).
+- `docs/hardware/communication/uart-hcpa-gate-lifecycle.md` (direct translation; gate lifecycle retained).
+- `docs/hardware/sensors-input/codec-version-comparison.md` (direct translation; version comparison retained).
+- `docs/hardware/sensors-input/imu-power-fifo-initialization.md` (direct translation; power and FIFO initialization retained).
+- `docs/hardware/sensors-input/imu-parameter-consumer-prefix.md` (direct translation; consumer prefix retained).
+- `docs/hardware/sensors-input/imu-raw-event-consumer-contract.md` (direct translation; raw event contract retained).
+- `docs/hardware/communication/uart1-model-proposal.md` (direct translation; model proposal retained).
+- `docs/hardware/sensors-input/imu-platform-fifo-m55.md` (direct translation; platform FIFO evidence retained).
+- `docs/hardware/sensors-input/imu-raw-fifo-plan.md` (direct translation; raw FIFO plan retained).
+- `docs/hardware/sensors-input/imu-patch-ram-transport.md` (direct translation; patch RAM transport retained).
+- `docs/hardware/power/rtc-module-contract.md` (direct translation; RTC contract retained).
+- `docs/hardware/power/pmic-buck-storage.md` (direct translation; PMIC storage retained).
+- `docs/hardware/power/buck-status-branch-fixtures.md` (direct translation; status fixtures retained).
+- `docs/hardware/communication/em9305-first-write-command.md` (direct translation; first write command retained).
+- `docs/hardware/power/iom4-nonblocking-path.md` (direct translation; nonblocking path retained).
+- `docs/hardware/power/iom6-retention-copy-contract.md` (direct translation; retention contract retained).
+- `docs/hardware/sensors-input/touch-peer-reply-ingress.md` (direct translation; touch ingress retained).
+- `docs/hardware/sensors-input/imu-reset-lifecycle-contract.md` (direct translation; reset lifecycle retained).
+- `docs/hardware/sensors-input/touch-event-frame-contract.md` (direct translation; touch frame contract retained).
+- `docs/hardware/communication/uart1-power-lifecycle.md` (direct translation; UART power lifecycle retained).
+- `docs/hardware/power/pmic-adc-reset-profile.md` (direct translation; reset profile retained).
+- `docs/hardware/power/pmic-scratch-storage.md` (direct translation; scratch storage retained).
+- `docs/hardware/sensors-input/touch-app-consumer-contract.md` (direct translation; touch consumer contract retained).
+- `docs/hardware/sensors-input/imu-wom-configuration.md` (direct translation; WOM configuration retained).
+- `docs/hardware/sensors-input/touch-idle-wake-and-uart-timeout.md` (direct translation; wake and timeout evidence retained).
+- `docs/hardware/communication/multi-uart-reuse-proposal.md` (direct translation; UART reuse proposal retained).
+- `docs/hardware/power/iom7-first-request.md` (direct translation; IOM7 first request retained).
+- `docs/hardware/power/hfrc2-mcu-mode-response.md` (direct translation; clock response retained).
+- `docs/hardware/sensors-input/imu-startup-ui-dependency-audit.md` (direct translation; startup dependency audit retained).
+- `docs/hardware/sensors-input/imu-timed-reset-peer.md` (direct translation; timed reset peer retained).
+- `docs/hardware/sensors-input/sensor-task-consumption.md` (direct translation; sensor task consumption retained).
+- `docs/hardware/communication/uart-tx-interrupt-policy.md` (direct translation; UART interrupt policy retained).
+- `docs/hardware/power/pmic-gpio-storage.md` (direct translation; PMIC GPIO storage retained).
+- `docs/hardware/power/pmic-vbus-status-model.md` (direct translation; VBUS status model retained).
+- `docs/hardware/sensors-input/imu-raw-fifo-storage.md` (direct translation; raw FIFO storage retained).
+- `docs/hardware/sensors-input/touch-repeat-family-contract.md` (direct translation; touch repeat contract retained).
+- `docs/hardware/sensors-input/touch-family-app-and-idle-routing.md` (direct translation; touch routing retained).
+- `docs/hardware/communication/em9305-reset-hypothesis.md` (direct translation; reset hypothesis retained).
+- `docs/hardware/power/pmic-adc-config-probe.md` (direct translation; ADC probe retained).
+- `docs/hardware/power/iom7-pointer-probe.md` (direct translation; pointer probe retained).
+- `docs/hardware/sensors-input/touch-event-bus-ingress.md` (direct translation; touch event ingress retained).
+- `docs/hardware/sensors-input/touch-gpio-event-request.md` (direct translation; GPIO request retained).
+- `docs/hardware/sensors-input/touch-repeat-frame-lifecycle.md` (direct translation; repeat lifecycle retained).
+- `docs/hardware/communication/em9305-hci-framing-contract.md` (direct translation; HCI framing retained).
+- `docs/hardware/power/trim-reset-fixture.md` (direct translation; trim reset fixture retained).
+- `docs/hardware/power/pmic-restore-profile.md` (direct translation; restore profile retained).
+- `docs/hardware/sensors-input/touch-repeat-frame-plan.md` (direct translation; repeat frame plan retained).
+- `docs/hardware/sensors-input/touch-version-response-model.md` (direct translation; version response retained).
+- `docs/hardware/sensors-input/touch-wake-family-contract.md` (direct translation; wake family contract retained).
+- `docs/hardware/communication/controller-information-profiles.md` (direct translation; controller profiles retained).
+- `docs/hardware/power/timer7-pwm-contract.md` (direct translation; PWM contract retained).
+- `docs/hardware/power/timer14-counter-model.md` (direct translation; counter model retained).
+- `docs/hardware/sensors-input/touch-startup-configuration-model.md` (direct translation; startup configuration retained).
+- `docs/hardware/sensors-input/touch-runtime-irq-ingress.md` (direct translation; IRQ ingress retained).
+- `docs/hardware/communication/hci-response-loss-timeout.md` (direct translation; timeout behavior retained).
+- `docs/hardware/power/hfrc-force-control.md` (direct translation; oscillator control retained).
+- `docs/hardware/power/buck-start-request-storage.md` (direct translation; buck request storage retained).
+- `docs/hardware/display-gpu/xip-font-resource-contract.md` (direct translation; font resource contract retained).
+- `docs/hardware/display-gpu/display-cli-comparison.md` (direct translation; display CLI comparison retained).
+- `docs/hardware/display-gpu/post-font-uart0-contract.md` (direct translation; post-font UART contract retained).
+- `docs/hardware/power/pmic-charger-storage.md` (direct translation; charger storage retained).
+- `docs/hardware/communication/em9305-version-read-transport.md` (direct translation; version transport retained).
+- `docs/hardware/display-gpu/gpu-interrupt-clear-model.md` (direct translation; interrupt model retained).
+- `docs/hardware/display-gpu/display-runtime-candidate.md` (direct translation; runtime candidate retained).
+- `docs/hardware/display-gpu/gpu-packing-reference-design.md` (direct translation; packing reference retained).
+- `docs/hardware/communication/application-hci-ready-contract.md` (direct translation; HCI readiness retained).
+- `docs/hardware/power/pmic-charger-status-snapshots.md` (direct translation; charger snapshots retained).
+- `docs/hardware/display-gpu/gpu-packing-producer-contract.md` (direct translation; producer contract retained).
+- `docs/hardware/display-gpu/sustained-screen-plan.md` (direct translation; sustained screen plan retained).
+- `docs/hardware/display-gpu/missing-font-header-diagnostic.md` (direct translation; font diagnostic retained).
+- `docs/hardware/communication/sync-uart0-native-diagnostic.md` (direct translation; native diagnostic retained).
+- `docs/hardware/power/iom6-first-spi-command.md` (direct translation; first SPI command retained).
+- `docs/hardware/display-gpu/gpu-power-off-research.md` (direct translation; power-off research retained).
+- `docs/hardware/display-gpu/ui-peer-reply-ingress-contract.md` (direct translation; reply ingress retained).
+- `docs/hardware/display-gpu/gpu-power-off-model.md` (direct translation; power-off model retained).
+- `docs/hardware/communication/ring-app-wake-contract.md` (direct translation; ring wake contract retained).
+- `docs/hardware/power/stimer-clock-counter.md` (direct translation; STIMER counter retained).
+- `docs/hardware/display-gpu/gpu-initialization-research.md` (direct translation; initialization research retained).
+- `docs/hardware/display-gpu/gpu-power-preparation-sequence.md` (direct translation; preparation sequence retained).
+- `docs/hardware/display-gpu/nema-command-pixel-reference.md` (direct translation; pixel reference retained).
+- `docs/hardware/power/pmic-interrupt-initialization.md` (direct translation; interrupt initialization retained).
+- `docs/hardware/communication/application-hci-reset-peer.md` (direct translation; reset peer retained).
+- `docs/hardware/display-gpu/gpu-runtime-wake-and-command-packet.md` (direct translation; GPU wake and command packet retained).
+- `docs/hardware/display-gpu/ui-post-callback-broadcast.md` (direct translation; callback broadcast retained).
+- `docs/hardware/display-gpu/nema-reference-ring-framebuffer.md` (direct translation; framebuffer reference retained).
+- `docs/hardware/communication/controller-notification-consumption.md` (direct translation; notification consumption retained).
+- `docs/hardware/power/timer0-sync-start-contract.md` (direct translation; timer start contract retained).
+- `docs/hardware/display-gpu/nema-submission-contract.md` (direct translation; submission contract retained).
+- `docs/hardware/display-gpu/gpu-quad-coverage-contract.md` (direct translation; quad coverage retained).
+- `docs/hardware/display-gpu/nema-blend-state-contract.md` (direct translation; blend state retained).
+- `docs/hardware/communication/application-hci-reset-transaction.md` (direct translation; reset transaction retained).
+- `docs/hardware/power/pmic-watchdog-recovery-contract.md` (direct translation; watchdog recovery retained).
+- `docs/hardware/display-gpu/ui-queue-producer-contract.md` (direct translation; UI queue contract retained).
+- `docs/hardware/display-gpu/ui-content-render-ingress.md` (direct translation; render ingress retained).
+- `docs/hardware/display-gpu/ambiq-target-buffer-contract.md` (direct translation; target buffer contract retained).
+- `docs/hardware/power/iom-platform-research.md` (direct translation; IOM research retained).
+- `docs/hardware/communication/uart0-rx-device-ingress.md` (direct translation; UART ingress retained).
+- `docs/hardware/display-gpu/nema-rtos-context-readiness.md` (direct translation; RTOS readiness retained).
+- `docs/hardware/display-gpu/nema-execution-reuse-research.md` (direct translation; execution reuse retained).
+- `docs/hardware/display-gpu/nema-irq-completion-wait-contract.md` (direct translation; IRQ wait contract retained).
+- `docs/hardware/power/power-switch-model.md` (direct translation; power switch model retained).
+- `docs/hardware/communication/uart-rx-display-mspi0-integration.md` (direct translation; integration retained).
+- `docs/hardware/display-gpu/gpu-identity-response-model.md` (direct translation; identity response retained).
+- `docs/hardware/display-gpu/ui-layout-initialization-frontier.md` (direct translation; initialization frontier retained).
+- `docs/hardware/power/gpio-config-storage.md` (direct translation; GPIO configuration retained).
+- `docs/hardware/communication/em9305-active-event-transport.md` (direct translation; event transport retained).
+- `docs/hardware/display-gpu/display-runtime-candidate-plan.md` (direct translation; runtime plan retained).
+- `docs/hardware/display-gpu/sustained-execution-costs.md` (direct translation; execution costs retained).
+- `docs/hardware/power/pmic-queued-adc.md` (direct translation; queued ADC retained).
+- `docs/hardware/communication/le-buffer-response-contract.md` (direct translation; buffer response retained).
+- `docs/hardware/display-gpu/first-native-dashboard-frame.md` (direct translation; dashboard frame evidence retained).
+- `docs/hardware/display-gpu/nema-native-blocking-wake.md` (direct translation; blocking wake retained).
+- `docs/hardware/display-gpu/draw-unit-selection.md` (direct translation; draw unit selection retained).
+- `docs/hardware/power/clock-control-model.md` (direct translation; clock model retained).
+- `docs/hardware/communication/em9305-version-and-trim-nvm-contract.md` (direct translation; version and trim contract retained).
+- `docs/hardware/display-gpu/gpu-id-initialization-capture.md` (direct translation; initialization capture retained).
+- `docs/hardware/display-gpu/ambiq-glyph-draw-commands.md` (direct translation; glyph commands retained).
+- `docs/hardware/display-gpu/ambiq-glyph-m55-replay.md` (direct translation; M55 replay retained).
+- `docs/hardware/power/watchdog-reset-delivery.md` (direct translation; watchdog delivery retained).
+- `docs/hardware/communication/address-advertising-contract.md` (direct translation; advertising contract retained).
+- `docs/hardware/display-gpu/gpu-post-off-power-sequence.md` (direct translation; power sequence retained).
+- `docs/hardware/display-gpu/gpu-initial-reset-controls.md` (direct translation; reset controls retained).
+- `docs/hardware/display-gpu/builtin-font-glyph-contract.md` (direct translation; glyph examples preserved as code points).
+- `docs/hardware/power/watchdog-natural-request-contract.md` (direct translation; watchdog request retained).
+- `docs/hardware/communication/standard-hci-initialization.md` (direct translation; HCI initialization retained).
+- `docs/hardware/display-gpu/nema-live-draw-framebuffer.md` (direct translation; framebuffer evidence retained).
+- `docs/hardware/display-gpu/display-activation-native-diagnostic.md` (direct translation; activation diagnostic retained).
+- `docs/hardware/display-gpu/sustained-final-six-second-results.md` (direct translation; sustained results retained).
+- `docs/hardware/power/coreldo-saturated-reduction.md` (direct translation; reduction evidence retained).
+- `docs/hardware/communication/application-vendor-address-contract.md` (direct translation; vendor address contract retained).
+- `docs/hardware/display-gpu/nema-native-irq-completion.md` (direct translation; IRQ completion retained).
+- `docs/hardware/display-gpu/gpu-sampling-source-boundaries.md` (direct translation; sampling boundaries retained).
+- `docs/hardware/display-gpu/ui-initialization-font-progress.md` (direct translation; font progress retained).
+- `docs/hardware/power/post-reset-advertising-order.md` (direct translation; post-reset ordering retained).
+- `docs/hardware/communication/ring-public-scenario.md` (direct translation; ring scenario retained).
+- `docs/hardware/display-gpu/gpu-ring-setup-research.md` (direct translation; ring setup retained).
+- `docs/hardware/display-gpu/destination-glyph-command-batch.md` (direct translation; glyph batch retained).
+- `docs/hardware/display-gpu/gpu-native-shape-stream.md` (direct translation; shape stream retained).
+- `docs/hardware/power/stimer-interrupt-contract.md` (direct translation; interrupt contract retained).
+- `docs/hardware/communication/em9305-runtime-event-gpio-ingress.md` (direct translation; event ingress retained).
+- `docs/hardware/display-gpu/gpu-power-domain-response.md` (direct translation; power response retained).
+- `docs/hardware/display-gpu/font-asset-distribution-research.md` (direct translation; asset research retained).
+- `docs/hardware/display-gpu/font-wrapper-renderer-boundary.md` (direct translation; renderer boundary retained).
+- `docs/hardware/power/gpio-role-input-model.md` (direct translation; GPIO role input retained).
+- `docs/hardware/communication/hci-connection-complete-ingress-contract.md` (direct translation; connection ingress retained).
+- `docs/hardware/display-gpu/display-queue-producer-contract.md` (direct translation; queue producer retained).
+- `docs/hardware/display-gpu/ambiq-command-list-emission.md` (direct translation; command list retained).
+- `docs/hardware/display-gpu/sustained-screen-six-second-results.md` (direct translation; sustained screen results retained).
+- `docs/hardware/power/watchdog-reset-restart.md` (direct translation; watchdog restart retained).
+- `docs/hardware/communication/em9305-first-read-command-transport.md` (direct translation; first read transport retained).
+- `docs/hardware/display-gpu/gpu-ring-configuration-model.md` (direct translation; ring configuration retained).
+- `docs/hardware/display-gpu/display-cli-comparison-plan.md` (direct translation; comparison plan retained).
+- `docs/hardware/display-gpu/sustained-uart-history.md` (direct translation; UART history retained).
+- `docs/hardware/power/pmic-adc-conversion.md` (direct translation; ADC conversion retained).
+- `docs/hardware/communication/uart0-hcpa-status-model.md` (direct translation; status model retained).
+- `docs/hardware/display-gpu/sustained-screen-dashboard.md` (direct translation; sustained-screen dashboard retained).
+- `docs/hardware/power/iom-command-queue-contract.md` (direct translation; command queue retained).
+- `docs/hardware/communication/uart0-dma-tx-flow.md` (direct translation; DMA transmission retained).
+- `docs/hardware/display-gpu/gpu-raster-init-storage.md` (direct translation; raster initialization retained).
+- `docs/hardware/display-gpu/jbd-display-status-and-render-task.md` (direct translation; display status retained).
+- `docs/hardware/display-gpu/sustained-controller-startup-version.md` (direct translation; startup version retained).
+- `docs/hardware/power/rtc-strict-adapter.md` (direct translation; RTC adapter retained).
+- `docs/hardware/communication/eus-att-device-ingress-contract.md` (direct translation; ATT ingress retained).
+- `docs/hardware/display-gpu/gpu-extension-register-research.md` (direct translation; register research retained).
+- `docs/hardware/display-gpu/gfx-power-selection-storage.md` (direct translation; graphics power selection retained).
+- `docs/hardware/display-gpu/ui-font-callback-selection.md` (direct translation; font callback selection retained).
+- `docs/hardware/power/timer0-shared-engine-model.md` (direct translation; shared timer model retained).
+- `docs/bootloader/original-boot-hfadj-disable-contract.md` (direct translation; boot clock contract retained).
+- `docs/hardware/display-gpu/gpu-config-submission-observation.md` (direct translation; submission observation retained).
+- `docs/hardware/display-gpu/sustained-required-material-gaps.md` (direct translation; required material gaps retained).
+- `docs/hardware/display-gpu/sustained-first-sixty-second-results.md` (direct translation; sixty-second results retained).
+- `docs/hardware/power/iom6-spi-word-transaction.md` (direct translation; SPI transaction retained).
+- `docs/bootloader/original-boot-clock-gate-contract.md` (direct translation; boot clock gate retained).
+- `docs/hardware/display-gpu/sustained-hci-advertising-stop.md` (direct translation; advertising stop retained).
+- `docs/hardware/display-gpu/sustained-rtc-write-lifecycle.md` (direct translation; RTC lifecycle retained).
+- `docs/hardware/display-gpu/sustained-goal-completion.md` (direct translation; sustained criteria retained).
+- `docs/hardware/power/buck-ldo-override-sequence.md` (direct translation; override sequence retained).
+- `docs/bootloader/original-boot-warm-vddf.md` (direct translation; warm VDDF behavior retained).
+- `docs/hardware/display-gpu/builtin-font-bitmap-contract.md` (direct translation; font bitmap contract retained).
+- `docs/hardware/display-gpu/glyph-itcm-read-contract.md` (direct translation; glyph ITCM read retained).
+- `docs/hardware/power/active-board-reset-acceptance.md` (direct translation; reset acceptance retained).
+- `docs/bootloader/original-boot-warm-vrctrl.md` (direct translation; warm VRCTRL behavior retained).
+- `docs/hardware/display-gpu/screen-first-functional-profile.md` (direct translation; complete functional profile retained).
+- `docs/hardware/power/iom-command-queue-engine.md` (direct translation; command queue engine retained).
+- `docs/bootloader/original-boot-uart-clock-contract.md` (direct translation; UART clock contract retained).
+- `docs/hardware/display-gpu/display-request-root-contract.md` (direct translation; request root retained).
+- `docs/hardware/display-gpu/nema-native-pendsv-resume.md` (direct translation; PendSV resume retained).
+- `docs/hardware/power/ton-configuration-model.md` (direct translation; TON configuration retained).
+- `docs/bootloader/original-boot-cold-clock-contract.md` (direct translation; cold boot clock contract retained).
+- `docs/architecture/simulator-scope.md` (direct translation; scope and historical limits retained).
+- `docs/hardware/power/iom7-pointer-probe-design.md` (direct translation; pointer probe design retained).
+- `docs/bootloader/original-boot-cold-uart-contract.md` (direct translation; cold UART contract retained).
+- `docs/hardware/power/rtc-oscillator-selection.md` (direct translation; oscillator selection retained).
+- `docs/bootloader/original-boot-adc-cold-contract.md` (direct translation; cold ADC contract retained).
+- `docs/architecture/emulator-capability-catalog.md` (direct translation; complete capability catalog, links and checkpoints retained).
+- `docs/hardware/power/pmic-charger-status-contract.md` (direct translation; charger status contract retained).
+- `docs/bootloader/original-boot-cold-iom-contract.md` (direct translation; cold IOM contract retained).
+- `docs/hardware/power/stimer-interrupt-storage.md` (direct translation; interrupt storage retained).
+- `docs/bootloader/original-boot-adc-power-cycle.md` (direct translation; ADC power cycle retained).
+- `docs/architecture/emulator-roadmap.md` (direct translation; complete roadmap, links and checkpoints retained).
+- `docs/hardware/power/iom4-imu-identity-peer.md` (direct translation; IMU identity peer retained).
+- `docs/bootloader/original-boot-adc-trigger-cycle.md` (direct translation; ADC trigger cycle retained).
+- `docs/hardware/power/gpio-output-latch-model.md` (direct translation; output latch retained).
+- `docs/bootloader/original-boot-selection-metadata.md` (direct translation; selection metadata retained).
+- `docs/architecture/simulator-usage.md` (direct translation; commands, options and links retained).
+- `docs/hardware/power/pmic-adc-config-storage.md` (direct translation; ADC configuration retained).
+- `docs/bootloader/original-boot-pre-handoff-lp.md` (direct translation; pre-handoff state retained).
+- `docs/hardware/power/iom4-polling-imu-contract.md` (direct translation; IMU polling contract retained).
+- `docs/bootloader/original-boot-mspi1-retention-setup.md` (direct translation; MSPI retention setup retained).
+- `docs/hardware/power/iom5-first-transfer-contract.md` (direct translation; first transfer retained).
+- `docs/bootloader/original-boot-retry-diagnostics.md` (direct translation; retry diagnostics retained).
+- `docs/hardware/power/iom6-shared-power-restart.md` (direct translation; shared power restart retained).
+- `docs/bootloader/original-boot-focused-observation.md` (direct translation; boot observations retained).
+- `docs/architecture/simulator-runner-status.md` (direct translation; complete runner history, commands and links retained).
+- `docs/hardware/power/iom6-startup-flow.md` (direct translation; startup flow retained).
+- `docs/bootloader/original-boot-handoff-context.md` (direct translation; handoff context retained).
+- `docs/hardware/power/reset-restart-version-profiles.md` (direct translation; restart profiles retained).
+- `docs/bootloader/original-boot-main-input-readiness.md` (direct translation; input readiness retained).
+- `docs/hardware/power/iom4-strict-integration.md` (direct translation; IOM integration retained).
+- `docs/bootloader/original-boot-main-extended-observation.md` (direct translation; boot observations retained).
+- `docs/data/emulator-fidelity-scope-proposal.json` (direct translation of 27 descriptions; structure and identifiers checked).
+- `docs/hardware/power/gpio-role-input-contract.md` (direct translation; GPIO input contract retained).
+- `docs/bootloader/original-boot-extended-observation.md` (direct translation; extended boot observations retained).
+- `docs/data/project-scope-v1.json` (direct translation of 46 descriptions; structure, identifiers and progress tests checked).
+- `docs/hardware/power/buck-state-response-model.md` (direct translation; buck response retained).
+- `docs/bootloader/pending-boot-rom-request.md` (direct translation; boot ROM request retained).
+- `docs/hardware/power/reset-memory-protection-lifecycle.md` (direct translation; memory protection lifecycle retained).
+- `docs/bootloader/original-boot-touch-wire-activation.md` (direct translation; touch activation retained).
+- `docs/data/sustained-screen-progress.json` (direct translation of 12 display strings; structure and sustained tests checked; broader reference search pending).
+- `docs/hardware/power/pmic-vbus-storage.md` (direct translation; VBUS storage retained).
+- `docs/bootloader/boot-vector-and-restore-boundaries.md` (direct translation; vector and restoration boundaries retained).
+- `docs/data/original-boot-screen-progress.json` (direct translation of 9 descriptions; structure and boot-screen tests checked; broader reference search pending).
+- `docs/hardware/power/pmic-vbus-status-contract.md` (direct translation; VBUS status contract retained).
+- `docs/bootloader/original-boot-repeat-and-rejection.md` (direct translation; repetition and rejection evidence retained).
+- `docs/hardware/power/gpio-interrupt-idle-model.md` (direct translation; idle interrupt model retained).
+- `docs/bootloader/original-boot-first-screen.md` (direct translation; first screen evidence retained).
+- `docs/hardware/power/memldo-post-enable-setup.md` (direct translation; post-enable setup retained).
+- `docs/bootloader/boot-report-observation-gaps.md` (direct translation; observation gaps retained).
+- `docs/hardware/power/pmic-virtual-watchdog.md` (direct translation; virtual watchdog retained).
+- `docs/bootloader/boot-retention-auth-results.md` (direct translation; retention authentication results retained).
+- `docs/data/bootloader-validation-progress.json` (direct translation of 29 descriptions; structure checked, 3 compatibility tests passed; 11 validation tests failed setup due to PRIVATE import).
+- `docs/hardware/power/reset-domain-acceptance-audit.md` (direct translation; reset audit retained).
+- `docs/bootloader/dwt-auth-main-results.md` (direct translation; DWT authentication results retained).
+- Validation note: `test_boot_validation.py` imports the removed `PRIVATE` constant through `run_boot_validation.py`; standard execution fails at import. A diagnostic in-memory shim passed 11 tests but is not a supported fix or asset validation.
+- `docs/hardware/power/gpio-unchanged-write-policy.md` (direct translation; GPIO write policy retained).
+- `docs/bootloader/peer-boot-nor-erase-timeout.md` (direct translation; erase timeout retained).
+- `docs/hardware/power/iom-unused-field-semantics.md` (direct translation; IOM field semantics retained).
+- `docs/bootloader/boot-nor-erase-timeout.md` (direct translation; NOR erase timeout retained).
+- `docs/hardware/power/iom-fifo-engine-fix.md` (direct translation; FIFO engine changes retained).
+- `docs/bootloader/stock-main-mram-probe-plan.md` (direct translation; MRAM probe plan retained).
+- `docs/hardware/power/iom-startup-instance-set.md` (direct translation; startup instance set retained).
+- `docs/bootloader/stock-main-ota-callback-plan.md` (direct translation; OTA callback plan retained).
+- `docs/data/project-scope-v2.json` (direct translation of 141 descriptions and history entries; structure and 18 progress tests checked).
+- `docs/hardware/power/iom4-nak-error-recovery.md` (direct translation; NAK recovery retained).
+- `docs/bootloader/boot-self-restore-plan.md` (direct translation; self-restoration plan retained).
+- `docs/hardware/power/pmic-ldsw-storage.md` (direct translation; LDSW storage retained).
+- `docs/bootloader/main-driven-boot-restore-plan.md` (direct translation; main-driven restore plan retained).
+- `docs/hardware/power/iom-strict-integration.md` (direct translation; IOM integration retained).
+- `docs/bootloader/full-main-restore-plan.md` (direct translation; restoration plan retained).
+- `docs/hardware/power/iom-shared-power-lifecycle.md` (direct translation; shared power lifecycle retained).
+- `docs/bootloader/recovery-load-boundaries.md` (direct translation; recovery load boundaries retained).
+- `docs/data/project-scope.json` (direct translation of 135 descriptions and history entries; E08/E14 comparison constants synchronized, structure and 18 progress tests checked; acceptance entry and mismatch rejection verified).
+- `docs/hardware/power/timer7-pwm-model.md` (direct translation; PWM model retained).
+- `docs/bootloader/recovery-owner-flow.md` (direct translation; recovery owner flow retained).
+- `docs/bootloader/recovery-m55-resident-writer.md` (direct translation; resident recovery writer retained).
+- `docs/bootloader/recovery-pmic-feed-integration.md` (direct translation; PMIC feed integration retained).
+- `docs/firmware/vendor-startup-sequence.md` (direct translation; startup sequence retained).
+- `docs/firmware/native-candidate-semantic-contract.md` (direct translation; candidate contract retained).
+- `docs/data/agent-guidance-history.txt` (direct translation; historical dates, approvals, paths and links retained).
+- `docs/bootloader/bootloader-upstream-trim-review.md` (direct translation; upstream trim review retained).
+- `docs/firmware/original-main-full-memory.md` (direct translation; original main memory evidence retained).
+- `docs/firmware/raw-firmware-execution-audit.md` (direct translation; raw execution audit retained).
+- `docs/firmware/firmware-candidate-registration.md` (direct translation; candidate registration retained).
+- `docs/bootloader/bootloader-2-4-candidate.md` (direct translation; version 2.4 candidate retained).
+- `docs/firmware/main-display-integration-frontier.md` (direct translation; integration frontier retained).
+- `docs/bootloader/combined-handoff-verification.md` (direct translation; handoff verification retained).
+- Work-log translation: first 50 Korean rows translated to a temporary snapshot and validated; live append-only log remains unchanged and new appended rows require reconciliation.
+- `docs/firmware/firmware-compatibility-matrix.md` (direct translation; compatibility matrix retained).
+- `docs/bootloader/b0-power-recovery-results.md` (direct translation; power recovery results retained).
+- Work-log translation: first 100 Korean rows translated in a temporary snapshot and checked; live append-only log remains unchanged.
+- `docs/firmware/firmware-simulator-proposal.md` (direct translation; simulator proposal retained).
+- `docs/bootloader/same-board-uart2-auth-results.md` (direct translation; UART2 authentication results retained).
+- Work-log translation: first 150 Korean rows translated in a temporary snapshot and checked; live append-only log remains unchanged.
+- `docs/firmware/native-main-boot-acceptance.md` (direct translation; boot acceptance retained).
+- `docs/bootloader/recovery-risk-assessment.md` (direct translation; recovery risks retained and translated target anchor corrected).
+- Work-log translation: first 200 Korean rows translated in a temporary snapshot and checked; live append-only log remains unchanged.
+- `docs/bootloader/timed-boot-observation.md` (direct translation; timed boot observations retained).
+- Work-log translation: first 250 Korean rows translated in a temporary snapshot and checked; live append-only log remains unchanged.
+- `docs/bootloader/recovery-info1-contract-results.md` (direct translation; Info1 recovery results retained).
+- Work-log translation: Korean rows 1–300 in a checked temporary snapshot and rows 301–350 in a separate checked mapping; live append-only log remains unchanged.
+- `docs/bootloader/stock-main-mram-probe-results.md` (direct translation; MRAM probe results retained).
+- Work-log translation: Korean rows 1–300 in a checked temporary snapshot and rows 301–450 in separate mappings; live append-only log remains unchanged.
+- `docs/bootloader/stock-main-ota-callback-results.md` (direct translation; callback results retained).
+- Work-log translation: Korean rows 1–300 in a checked temporary snapshot and rows 301–550 in separate mappings; live append-only log remains unchanged.
+- `docs/bootloader/boot-family-first-screen.md` (direct translation; boot family first-screen evidence retained).
+- Work-log translation: Korean rows 1–300 in a checked temporary snapshot and rows 301–650 in separate mappings; live append-only log remains unchanged.
+- `docs/bootloader/boot-family-post-screen-lifecycle.md` (direct translation; post-screen lifecycle retained).
+- Work-log translation: Korean rows 1–300 in a checked temporary snapshot and rows 301–750 in separate mappings; live append-only log remains unchanged.
+- `docs/bootloader/post-screen-boot-lifecycle.md` (direct translation; post-screen lifecycle retained).
+- Work-log translation: Korean rows 1–300 in a checked temporary snapshot and rows 301–850 in separate mappings; live append-only log remains unchanged.
+- `docs/bootloader/boot-self-restore-results.md` (direct translation; self-restoration results retained).
+- Work-log translation: Korean rows 1–300 in a checked temporary snapshot and rows 301–950 in separate mappings; live append-only log remains unchanged.
+- `docs/bootloader/main-driven-boot-restore-results.md` (direct translation; main-driven restoration results retained).
+- Work-log translation: Korean rows 1–300 in a checked temporary snapshot and rows 301–1050 in separate mappings; live append-only log remains unchanged.
+- `docs/bootloader/full-main-restore-results.md` (direct translation; main restoration results retained).
+- Work-log translation: Korean rows 1–300 in a checked temporary snapshot and rows 301–1150 in separate mappings; live append-only log remains unchanged.
+- `docs/bootloader/same-board-mram-recovery-results.md` (direct translation; MRAM recovery evidence retained).
+- Work-log translation: Korean rows 1–300 in a checked temporary snapshot and rows 301–1250 in separate mappings; live append-only log remains unchanged.
+- `docs/bootloader/bounded-recovery-execution-results.md` (direct translation; bounded recovery evidence retained).
+- Work-log translation: Korean rows 1–300 in a checked temporary snapshot and rows 301–1350 in separate mappings; live append-only log remains unchanged.
+- `docs/bootloader/bootloader-compatibility-results.md` (direct translation; compatibility results retained).
+- Work-log translation: all 1,440 Korean-containing rows in the fixed snapshot have temporary translations; integration and live appended-row reconciliation remain pending.
+- `docs/bootloader/detailed-boot-trace.md` (direct translation; boot trace retained).
+- `docs/hardware/cpu-memory/crypto-power-ready-model.md` (direct translation; power readiness retained).
+- `docs/hardware/cpu-memory/m55-natural-stack-limits.md` (direct translation; natural stack limits retained).
+- `docs/hardware/cpu-memory/kvtime-corruption-reload-policy.md` (direct translation; corruption and reload policy retained).
+- `docs/data/work-log.tsv` (direct translation of 1,440 historical Korean rows; 18 appended rows preserved, 11-column structure and 18 progress tests checked; original backed up outside Git).
+- `docs/project-dashboard.md` regenerated from the English dashboard template and translated data; 18 progress tests passed.
+- `docs/bootloader/bootloader-validation-gaps.md` (direct translation; validation gaps retained).
+- `docs/bootloader/original-boot-screen-plan.md` (direct translation; screen plan retained).
+- `docs/bootloader/original-boot-startup-frontier.md` (direct translation; startup frontier retained).
+- `docs/bootloader/recovery-manual.md` (direct translation; recovery manual and limits retained).
+- `docs/bootloader/bootloader-validation-results.md` (direct translation; validation results retained).
+- `docs/bootloader/original-boot-completion-audit.md` (direct translation; completion audit retained).
+- `docs/bootloader/bootloader-2-4-analysis.md` (direct translation; version analysis retained).
+- `docs/bootloader/bootloader-final-acceptance.md` (direct translation; final acceptance retained).
+- `docs/bootloader/bootloader-validation-plan.md` (direct translation; validation plan retained).
+- `docs/bootloader/original-boot-screen-dashboard.md` (direct translation; 29 original links checked).
+- `web/index.html`, `web/simulator.html`, `web/prototypes/board-model-viewer.html` (direct translation of visible text; HTML structure and scripts checked; browser test skipped in this environment).
+- Full docs text search completed with no Hangul matches; tracked documentation-like files in root/tools/scenarios/web were scanned, and three matching HTML files translated.
+- Markdown link audit checked 2,700 inline local links and repaired eight translated heading fragments; reference-style and non-Markdown fragments remain outside that check.
+- Translated dynamic web messages, progress-tool messages, and generated audit HTML. Safari verified the no-file error in English; asset-dependent web tests were skipped. Progress tests 18 and sustained-screen tests 8 passed.
+- `.agents/skills/align/` four Markdown files translated; Korean trigger examples are represented by Unicode code points, whose equivalence for automatic skill discovery has not been verified.
+- The 16 tracked Markdown files not listed individually in this log were read and checked; all contained no Hangul. Four align skill documents had already been directly translated.
+- Align skill description explicitly includes Korean-language requests; skill format validation passed. Automatic skill-selection behavior remains unverified because the loader was unavailable.
+- Web tests using locally available pinned main assets: 10 passed, 5 boot-asset-dependent tests skipped, 0 failed; no physical device was accessed.
+- Final verification: all 644 tracked Markdown files were translated or checked as already English. A search of documentation text found no Hangul. Reference-style and percent-encoded Markdown links were also checked across 633 files, with no issues found; this check does not cover every possible link syntax.
+- Web tests with local main and boot assets: 64 passed, none skipped. Progress tests: 18 passed. The tracked PNG and samples from the GIF and MP4 contained no visible Korean; the videos were not inspected frame by frame. `git diff --check` passed.

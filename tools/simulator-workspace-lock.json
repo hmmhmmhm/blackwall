@@ -1,0 +1,1997 @@
+{
+  "schema": "blackwall-simulator-workspace/1",
+  "files": {
+    "arm-display-mutation-research-01/live-black-candidate/activation.cs": {
+      "bytes": 2442,
+      "sha256": "36120bf90de1af9c1c94c1fb98132a0707d622e25556db3325eb56ef8e1ab9bb"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/board.repl": {
+      "bytes": 18873,
+      "sha256": "c7841425b96fc8c085a684ae69424b6319202ab650668c8ac897c298ad870c1d"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/compiler.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/exports/activation.json": {
+      "bytes": 2011,
+      "sha256": "dc410da7c50880cd15a5a5e201c444c927a6592f44787b2bb6200d71230980fa"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/exports/content-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "ecd254be11ae8db89339727be1ec894f2cfafe25f045b0bd0c19ac2ce7faefd1"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/exports/content-trace.json": {
+      "bytes": 9540,
+      "sha256": "535f0e8cf314c21968024b4360c1b2e0bd78e55a98c861ec3531baba830605bc"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/exports/display-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "ed9f7654ddd1b6290e2d650db2ec05d8b7bd14a3827ad7d40798e4ba169e8376"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/exports/display-on.json": {
+      "bytes": 197,
+      "sha256": "f4f2753a43993da51f614840ebf9dd13af162dffeb398e9de68c421bbe625a93"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/exports/gpu-last-frame.bin": {
+      "bytes": 165888,
+      "sha256": "89d111e13da934fd2c233e48ca07bcae7c41da0d26b6423c0c47d40dca38bede"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "42ad40e21d2449cc52adac59faf69c09a2846af8f8f4ffaa7b976c5855b1cdfa"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/exports/ui-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "8c26fea102e8506dc0a28499c339ffeb79d207fe9bf59ca851214d3aaa227980"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-baseline/board.repl": {
+      "bytes": 19000,
+      "sha256": "55e35f94add3c583835abc46d927c8eee19a7b57f791b71da93c43015c8a9702"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-baseline/derived-inputs.json": {
+      "bytes": 2241,
+      "sha256": "4220516b0760dfe756a34b314d5e7e0296cd50a2a0ecc94256ccd11ed25a5318"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-baseline/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-baseline/main.bin": {
+      "bytes": 3700068,
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-baseline/probe.resc": {
+      "bytes": 302,
+      "sha256": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-baseline/report.json": {
+      "bytes": 1336316,
+      "sha256": "f297a26372640267de26c81c8b501d511dd92ba8c34ffc858c335340759b5230"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-baseline/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-baseline/run.py": {
+      "bytes": 634794,
+      "sha256": "9ee6ece9fc751e66df8fd0cffa92f015645658840a777f85e7da628381188c78"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-baseline/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-baseline/strict.cs": {
+      "bytes": 604317,
+      "sha256": "b796d054be7aad9e2499818fccc0f45425b9d3a8b97a2f503863d36c3354f0fe"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-candidate.json": {
+      "bytes": 7715,
+      "sha256": "d1b034d603157e78a74a190cc88889fdafb404e9918b7d7321e7a60491b2fedd"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/firmware-runtime-anchors.json": {
+      "bytes": 3403,
+      "sha256": "16cb852341465fe8340ddeda42513a5c677f99512fdfb4ce7b9b596e854a7e6d"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/gpu-runtime-component.cs": {
+      "bytes": 140627,
+      "sha256": "c0f9339bee3205a09f553240c388a2fe1dac1d1ec0871bb8c9a64b321319de92"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/harness.bin": {
+      "bytes": 176,
+      "sha256": "2d05a8126be07370a36622a667b48694a412eeb480fb1c07cd0a05660170b6ed"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/harness.elf": {
+      "bytes": 65728,
+      "sha256": "838def612b75fb7e4be6e84bceacc73cca715d8d6c481b68a48862aa83eaedfa"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/harness.s": {
+      "bytes": 786,
+      "sha256": "70e55462bdfdddb949685b10b7d32d7c6f6c2de2d0a1b498e998b08e301add67"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/main.bin": {
+      "bytes": 3700082,
+      "sha256": "786caf868ff7d8b831ac7112ba5e6bc2db62890ac97e7aa728d50740558cb6ed"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/mspi0-status-component.cs": {
+      "bytes": 45588,
+      "sha256": "109a4b8fc2dd0f1ed1ad0a96ef43bd551af4e77c1db7edce11ee3d91dc3efc9b"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/nema-ring-consumer.cs": {
+      "bytes": 15250,
+      "sha256": "f17fad33bc28e748b1f38b0142a3b711b2cd76935267515b743bb0c6de877efe"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/objcopy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/profile.json": {
+      "bytes": 6122,
+      "sha256": "ca6a27f52dcf0a3f9b35788e60fd124b74d8775e7ee4828db249c264e3978c8e"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/renode-nema-ring-device.cs": {
+      "bytes": 4367,
+      "sha256": "f1405252ce7fa23374171d8c067cbc81d875e7070163fa4468b055225297095a"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/renode.log": {
+      "bytes": 919881,
+      "sha256": "e96523fb2dec5d12cd66969588a283166acebccc0cb4a979c2650806bab8c850"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/run.py": {
+      "bytes": 552906,
+      "sha256": "95159126c0d9d877b03e6b1be54b63dd79fa16acebf8f6eae5da0c7afe97e1a2"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/runner-source.py": {
+      "bytes": 53525,
+      "sha256": "a06a0060c0bd4963cb597c17a5ae9968f41ab85357e52c8238b88e9f8c6616b4"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/status-plan.json": {
+      "bytes": 2506,
+      "sha256": "1fffd3dd121be76f36fd6504478f9028680aacba476a86763c89028ab4bccabe"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/status-source.json": {
+      "bytes": 252912,
+      "sha256": "c80b5aa7443bf578782774d7c227948009f13162f5dc6706a32e880a9812120e"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/strict.cs": {
+      "bytes": 624489,
+      "sha256": "6c5aa87683c8f84b221b60fffae62ded321be4259a3c11bf2829fc8a05aad87d"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/verification/auditor.py": {
+      "bytes": 53525,
+      "sha256": "a06a0060c0bd4963cb597c17a5ae9968f41ab85357e52c8238b88e9f8c6616b4"
+    },
+    "arm-display-mutation-research-01/live-black-candidate/verification/report.json": {
+      "bytes": 29675,
+      "sha256": "69bff03d1cac9deba84e8c41dd27b825028ef8c595820972c35d8a866f7331cc"
+    },
+    "arm-display-mutation-research-01/predeclared-diagnostic-expectation.json": {
+      "bytes": 334,
+      "sha256": "71f72237b518b2194071795fe7cca642668c6550664ab08d5369dc92abb16320"
+    },
+    "arm-display-mutation-research-01/registration/main.bin": {
+      "bytes": 3700082,
+      "sha256": "786caf868ff7d8b831ac7112ba5e6bc2db62890ac97e7aa728d50740558cb6ed"
+    },
+    "arm-display-mutation-research-01/registration/manifest.json": {
+      "bytes": 7715,
+      "sha256": "d1b034d603157e78a74a190cc88889fdafb404e9918b7d7321e7a60491b2fedd"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/activation.cs": {
+      "bytes": 4874,
+      "sha256": "32ea86e7d6beb3a13fba8cd123929772a2b9177dbec22a78000cee6d4a603595"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/att-observer.cs": {
+      "bytes": 1236,
+      "sha256": "a06803bf520296d3e25d2a6fb6433932057891c5b796f8a3df96faaeb8e5cbd2"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/board.repl": {
+      "bytes": 19296,
+      "sha256": "d49be1aa0a28324b0f1ada863b0d736cd3161d0cbcd87a4f615d9c9b4274dbf5"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/capture-files.json": {
+      "bytes": 3050,
+      "sha256": "b31fd45a4c79d0a20ad41e9a0357b2df173465d5acb2fc707ad963f3561e9371"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/connection-inputs.json": {
+      "bytes": 2360,
+      "sha256": "1a365393a4b17fd0999d4655177a379971b6a6ae89f4d37913116f27f1e87bc9"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/connection-observer.cs": {
+      "bytes": 2375,
+      "sha256": "0de8e63ac33e993ae04f067ee0898dab59d3fbb922e6b4bb974edf0b728c63ae"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/connection-profile.json": {
+      "bytes": 1934,
+      "sha256": "280f94375f1390987e1acc73f12beb210da76f42557e27882ce7054115327c49"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/exports/connected-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "9c573a8ed71b8bb624a11a9e97066aa6313a94511988160756e016dc7e01aab4"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/exports/connection-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "b89514c3e69c21f72d5faf1e3e6f45277432173733541e59b0fc39fa1153ebd7"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/exports/connection.json": {
+      "bytes": 2484,
+      "sha256": "d128b3d4c3157b8b168bf81e39cfa84a2e074c55cce749317321e1b7f7fd17f8"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "42ad40e21d2449cc52adac59faf69c09a2846af8f8f4ffaa7b976c5855b1cdfa"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-baseline/board.repl": {
+      "bytes": 19000,
+      "sha256": "55e35f94add3c583835abc46d927c8eee19a7b57f791b71da93c43015c8a9702"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-baseline/derived-inputs.json": {
+      "bytes": 2241,
+      "sha256": "4220516b0760dfe756a34b314d5e7e0296cd50a2a0ecc94256ccd11ed25a5318"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-baseline/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-baseline/main.bin": {
+      "bytes": 3700068,
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-baseline/probe.resc": {
+      "bytes": 302,
+      "sha256": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-baseline/report.json": {
+      "bytes": 1336316,
+      "sha256": "f297a26372640267de26c81c8b501d511dd92ba8c34ffc858c335340759b5230"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-baseline/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-baseline/run.py": {
+      "bytes": 634794,
+      "sha256": "9ee6ece9fc751e66df8fd0cffa92f015645658840a777f85e7da628381188c78"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-baseline/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-baseline/strict.cs": {
+      "bytes": 604317,
+      "sha256": "b796d054be7aad9e2499818fccc0f45425b9d3a8b97a2f503863d36c3354f0fe"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-candidate.json": {
+      "bytes": 7715,
+      "sha256": "d1b034d603157e78a74a190cc88889fdafb404e9918b7d7321e7a60491b2fedd"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/firmware-runtime-anchors.json": {
+      "bytes": 1448,
+      "sha256": "f43110fe4f53127f65f8ec735485ca331d9107b69a5e707e98f1c2f22550f0f3"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/main.bin": {
+      "bytes": 3700082,
+      "sha256": "786caf868ff7d8b831ac7112ba5e6bc2db62890ac97e7aa728d50740558cb6ed"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/renode.log": {
+      "bytes": 910477,
+      "sha256": "3b90cc9dcf225c4fa13241869a302552392c7255cb0c6454eec3035153cceb17"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/run.py": {
+      "bytes": 553756,
+      "sha256": "c072e696df13c12bfc15e28bc85d68cac6cdff4628b12f2cb7cc8b88103a85a7"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/runner-source.py": {
+      "bytes": 45586,
+      "sha256": "5bcf484fba7cee82c094182776025b82f19e27a041650ba8aef49d584e1efb26"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "arm-display-mutation-research-01/runtime-preservation/strict.cs": {
+      "bytes": 609438,
+      "sha256": "dd06b77bb946effa467a8958bf575232dfe43876bcfeb23a18d6e572317df135"
+    },
+    "display-activation-cli-01/activation.cs": {
+      "bytes": 1261,
+      "sha256": "13e873f019ad2ea99fa2e0defc5354f66c17c1043e7dc474c75f55f5cca5f924"
+    },
+    "display-activation-cli-01/board.repl": {
+      "bytes": 18686,
+      "sha256": "1ebdab2e2c75a6a3f9bb1e2c773ca3f48c64cce786f9b84857823eb43cd4a0fa"
+    },
+    "display-activation-cli-01/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "42ad40e21d2449cc52adac59faf69c09a2846af8f8f4ffaa7b976c5855b1cdfa"
+    },
+    "display-activation-cli-01/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "display-activation-cli-01/main.bin": {
+      "bytes": 3700068,
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a"
+    },
+    "display-activation-cli-01/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "display-activation-cli-01/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "display-activation-cli-01/run.py": {
+      "bytes": 548591,
+      "sha256": "24bb4d94f63bbf89e433056490b9170b39429e9ebb3e0eb17f465f79fb27cdf5"
+    },
+    "display-activation-cli-01/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "display-activation-cli-cfw-01/activation.cs": {
+      "bytes": 1261,
+      "sha256": "13e873f019ad2ea99fa2e0defc5354f66c17c1043e7dc474c75f55f5cca5f924"
+    },
+    "display-activation-cli-cfw-01/board.repl": {
+      "bytes": 18686,
+      "sha256": "a7ea18f8f744b323e62223d58b0e001b12ec5139151d9a7541dfc1eee51f6233"
+    },
+    "display-activation-cli-cfw-01/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "6e2c8ea099a1ab2a1413ca66a43a94fe9e3524ca7dd6cb5350ea4bd6c410f7d3"
+    },
+    "display-activation-cli-cfw-01/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "display-activation-cli-cfw-01/main.bin": {
+      "bytes": 3829832,
+      "sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f"
+    },
+    "display-activation-cli-cfw-01/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "display-activation-cli-cfw-01/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "display-activation-cli-cfw-01/run.py": {
+      "bytes": 548578,
+      "sha256": "04f8e8464d07564f5ac892073e567c948459a21d28376d8f986ec3cc46d648cd"
+    },
+    "display-activation-cli-cfw-01/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "display-activation-cli-stock23-01/activation.cs": {
+      "bytes": 1261,
+      "sha256": "13e873f019ad2ea99fa2e0defc5354f66c17c1043e7dc474c75f55f5cca5f924"
+    },
+    "display-activation-cli-stock23-01/board.repl": {
+      "bytes": 18686,
+      "sha256": "a3e42d8d3d18bc09936ae317fc0361c3b5171224e45089bc913c0b0612bb8e31"
+    },
+    "display-activation-cli-stock23-01/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "5d8a79a0b2efb60d0099f688aff79e7a66f48c546ab3b4cc1c40916c20d8154c"
+    },
+    "display-activation-cli-stock23-01/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "display-activation-cli-stock23-01/main.bin": {
+      "bytes": 3758688,
+      "sha256": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5"
+    },
+    "display-activation-cli-stock23-01/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "display-activation-cli-stock23-01/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "display-activation-cli-stock23-01/run.py": {
+      "bytes": 548578,
+      "sha256": "af27b8337850fa4c4a76197402dd4ddf943cccb594bda827886542d6cf7b793a"
+    },
+    "display-activation-cli-stock23-01/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "display-activation-source-04/report.json": {
+      "bytes": 82128,
+      "sha256": "2124219f2b4d858422dfadfa0436d1b13a044ced10735465b29aa9b85b38da3e"
+    },
+    "display-activation-verification-01/manifest.json": {
+      "bytes": 3801,
+      "sha256": "60cf57fc5b8f36f0ecfe4741b8e532808f1e2c8e7e7b2547f127396bdec15294"
+    },
+    "display-queue-producer-05/report.json": {
+      "bytes": 25572,
+      "sha256": "022623325dade3a2251c14082ad67a81b4bb2d11dd52e3f150efb5a6bdc3c650"
+    },
+    "display-queue-verification-02/manifest.json": {
+      "bytes": 56564,
+      "sha256": "881aa0339bf42d9244dc95a3474fd30989d5598fbbf1fa2d71ce5993e9670b20"
+    },
+    "display-root-research-01/manifest.json": {
+      "bytes": 77413,
+      "sha256": "126ce0c54e3b6eaf378d87db3a8184293ad058d917ea47975a38fb8bd8c789be"
+    },
+    "display-root-source-05/report.json": {
+      "bytes": 16680,
+      "sha256": "ebba0102f806f616b9d3470d03115268088a8f181132342c6593d2b9470c8522"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/activation.cs": {
+      "bytes": 2442,
+      "sha256": "36120bf90de1af9c1c94c1fb98132a0707d622e25556db3325eb56ef8e1ab9bb"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/board.repl": {
+      "bytes": 18873,
+      "sha256": "c7841425b96fc8c085a684ae69424b6319202ab650668c8ac897c298ad870c1d"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/compiler.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/exports/activation.json": {
+      "bytes": 2011,
+      "sha256": "155dfa0a7ed6593d9074038366b81b484321d5a56dc315f580b5cb9fe6bae057"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/exports/content-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "bc294620113a7c1de2b0115c49b525e300d026b4ad6e03c5f68207c1322f4b01"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/exports/content-trace.json": {
+      "bytes": 9540,
+      "sha256": "8905bf179a61382669be9ad2fbf5892e91cca9f06d8b9a184fc58fe1512ce2ae"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/exports/display-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "ed9f7654ddd1b6290e2d650db2ec05d8b7bd14a3827ad7d40798e4ba169e8376"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/exports/display-on.json": {
+      "bytes": 197,
+      "sha256": "2228e2d9ed4797ae5e51bc34060457b73b3703789da1ed10a7a8a7f8bd1f5c96"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/exports/gpu-last-frame.bin": {
+      "bytes": 165888,
+      "sha256": "289cde09202715f253c6732974fe6f8d9b2209685f1a77b65f6dfa27f75b484a"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "42ad40e21d2449cc52adac59faf69c09a2846af8f8f4ffaa7b976c5855b1cdfa"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/exports/ui-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "8c26fea102e8506dc0a28499c339ffeb79d207fe9bf59ca851214d3aaa227980"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/gpu-runtime-component.cs": {
+      "bytes": 140627,
+      "sha256": "c0f9339bee3205a09f553240c388a2fe1dac1d1ec0871bb8c9a64b321319de92"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/harness.bin": {
+      "bytes": 176,
+      "sha256": "2d05a8126be07370a36622a667b48694a412eeb480fb1c07cd0a05660170b6ed"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/harness.elf": {
+      "bytes": 65728,
+      "sha256": "838def612b75fb7e4be6e84bceacc73cca715d8d6c481b68a48862aa83eaedfa"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/harness.s": {
+      "bytes": 786,
+      "sha256": "70e55462bdfdddb949685b10b7d32d7c6f6c2de2d0a1b498e998b08e301add67"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/main.bin": {
+      "bytes": 3700068,
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/mspi0-status-component.cs": {
+      "bytes": 45588,
+      "sha256": "109a4b8fc2dd0f1ed1ad0a96ef43bd551af4e77c1db7edce11ee3d91dc3efc9b"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/nema-ring-consumer.cs": {
+      "bytes": 15250,
+      "sha256": "f17fad33bc28e748b1f38b0142a3b711b2cd76935267515b743bb0c6de877efe"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/objcopy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/profile.json": {
+      "bytes": 5405,
+      "sha256": "7ef690467f5859c8de347d1993f4e54eb393d081e0f9fe2964f1841d49181937"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/renode-nema-ring-device.cs": {
+      "bytes": 4367,
+      "sha256": "f1405252ce7fa23374171d8c067cbc81d875e7070163fa4468b055225297095a"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/renode.log": {
+      "bytes": 919889,
+      "sha256": "31b3f28ff93f70897f70a3a7aa7ebe7a5f840689c5811f30b246a6eb8869e167"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/run.py": {
+      "bytes": 552906,
+      "sha256": "61e8e32c06f0ebcdd51b513f6e4ba8b3942cabf6ded1ac9a1828b2f0dc1e8259"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/runner-source.py": {
+      "bytes": 51861,
+      "sha256": "7ab3c2d60ab2bb83e572cf244c3d0232609d619080c0ba2cdd83d4fac6aaf341"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/status-plan.json": {
+      "bytes": 2302,
+      "sha256": "b287fea5912fcf102810cb3c236ab41c332bb2197dae42b66c66da1c973edb3c"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/status-source.json": {
+      "bytes": 252912,
+      "sha256": "c80b5aa7443bf578782774d7c227948009f13162f5dc6706a32e880a9812120e"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/strict.cs": {
+      "bytes": 624489,
+      "sha256": "6c5aa87683c8f84b221b60fffae62ded321be4259a3c11bf2829fc8a05aad87d"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/verification/auditor.py": {
+      "bytes": 51861,
+      "sha256": "7ab3c2d60ab2bb83e572cf244c3d0232609d619080c0ba2cdd83d4fac6aaf341"
+    },
+    "display-runtime-candidate-research-01/live-original-current-model/verification/report.json": {
+      "bytes": 27599,
+      "sha256": "1a4eacb5114e605a15a87b8ddce69c7093a8f8106d15685937c02347274108b5"
+    },
+    "display-status-research-01/base-config.cs": {
+      "bytes": 44651,
+      "sha256": "b06ca81da7bfe18b5b457b836477b09ad4ba1c22514bcaa55ee79417203a1677"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/activation.cs": {
+      "bytes": 2442,
+      "sha256": "36120bf90de1af9c1c94c1fb98132a0707d622e25556db3325eb56ef8e1ab9bb"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/board.repl": {
+      "bytes": 18873,
+      "sha256": "c8324820c37fcf8ccff4784947396795c7f9c7f1076baccf14d1ccdc35cfd8a7"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/compiler.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/exports/activation.json": {
+      "bytes": 2011,
+      "sha256": "371fbaf25e923824430995efbdc71a1cf82dd82325046af939be90391ecca239"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/exports/content-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "e31b6153ecf901f9d0c09b63af93372551fa73754e29813b5545c577232e6a4f"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/exports/content-trace.json": {
+      "bytes": 9189,
+      "sha256": "760b1e0dd566ab6e68cf94fddc29ec14db30500b797250e85653af80c43f436d"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/exports/display-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "004095cf9b9791d44938a92dcf4c9439db53586021e4854c2d67096e46678152"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/exports/display-on.json": {
+      "bytes": 197,
+      "sha256": "cd047cee398e662c6b36c9d441af004eea841341413d4bb9c901cf2792b08b14"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/exports/gpu-last-frame.bin": {
+      "bytes": 165888,
+      "sha256": "89d111e13da934fd2c233e48ca07bcae7c41da0d26b6423c0c47d40dca38bede"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "6e2c8ea099a1ab2a1413ca66a43a94fe9e3524ca7dd6cb5350ea4bd6c410f7d3"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/exports/ui-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "7d744a558b8f485a452cefb212e69453592d90714aaddbc557b76415d87bd92d"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-baseline/board.repl": {
+      "bytes": 18611,
+      "sha256": "83609d69c024db708b7f34db4ee4dc01a58c6adee448aea346e5ee1402f36d59"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-baseline/derived-inputs.json": {
+      "bytes": 2263,
+      "sha256": "49853c19a83ca96cbf8c31ce71557f629ed29dbfbeedaef188f7b5fee99173b4"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-baseline/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-baseline/main.bin": {
+      "bytes": 3829832,
+      "sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-baseline/probe.resc": {
+      "bytes": 302,
+      "sha256": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-baseline/report.json": {
+      "bytes": 1089157,
+      "sha256": "ef215c2690be6b6e6c49a3f596f80b1ea6b1c0764aa08eb5715a683e4c41b589"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-baseline/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-baseline/run.py": {
+      "bytes": 543531,
+      "sha256": "7ccb568586200f55d6148cf6819e5c4cb8c03ad165454414d353bec05cb3315f"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-baseline/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-baseline/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-candidate.json": {
+      "bytes": 7709,
+      "sha256": "33e895c377c7d201ff1dd6acf68e0a829980808a99653c3828fb762726be2b71"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/firmware-runtime-anchors.json": {
+      "bytes": 3403,
+      "sha256": "826d5b0bf756046b8ecbca6ea0a381b1ebd9509fb4205866e66ba11a83420fba"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/gpu-runtime-component.cs": {
+      "bytes": 140627,
+      "sha256": "c0f9339bee3205a09f553240c388a2fe1dac1d1ec0871bb8c9a64b321319de92"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/harness.bin": {
+      "bytes": 176,
+      "sha256": "fc337da209bd7eccda31e9fe64d5733da8a1637e91fc0cb2b2fc2c78db8932a8"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/harness.elf": {
+      "bytes": 65728,
+      "sha256": "6a57c579addea35c586dfeaf7ab2c68592c5a4a0fd1c9f9f1642644f5b9d1c42"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/harness.s": {
+      "bytes": 786,
+      "sha256": "6100542ed6fcad941d0a6d0df3f668aa1c54c6851224b912f4b3fd07924a39c3"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/main.bin": {
+      "bytes": 3829846,
+      "sha256": "3a613ac3f171768a0c3c99236dc27fc70cc36e208e1e7fd3eb14e0d4c04d337a"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/mspi0-status-component.cs": {
+      "bytes": 45588,
+      "sha256": "109a4b8fc2dd0f1ed1ad0a96ef43bd551af4e77c1db7edce11ee3d91dc3efc9b"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/nema-ring-consumer.cs": {
+      "bytes": 15250,
+      "sha256": "f17fad33bc28e748b1f38b0142a3b711b2cd76935267515b743bb0c6de877efe"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/objcopy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/profile.json": {
+      "bytes": 6112,
+      "sha256": "d0f56d0cf3a90bf0eb617a1e059b1de22e6bcf13ecd8823ac9a6414ee252edcc"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/renode-nema-ring-device.cs": {
+      "bytes": 4367,
+      "sha256": "f1405252ce7fa23374171d8c067cbc81d875e7070163fa4468b055225297095a"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/renode.log": {
+      "bytes": 912188,
+      "sha256": "b6b1d7e0718a18c2c622508b7df785634a25a3c6aca4bf2a0bd8b483990f79a1"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/run.py": {
+      "bytes": 552893,
+      "sha256": "ebf40b9f74263a5475f322e957cd1be9e6f333f748c1d6ea4ac1e806b591d22c"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/runner-source.py": {
+      "bytes": 53525,
+      "sha256": "a06a0060c0bd4963cb597c17a5ae9968f41ab85357e52c8238b88e9f8c6616b4"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/status-plan.json": {
+      "bytes": 2502,
+      "sha256": "9bdce995796bb1904dd69c617f55200ff5ceda4a3069f4de278dfacf7ee68351"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/status-source.json": {
+      "bytes": 252912,
+      "sha256": "c80b5aa7443bf578782774d7c227948009f13162f5dc6706a32e880a9812120e"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/strict.cs": {
+      "bytes": 624489,
+      "sha256": "6c5aa87683c8f84b221b60fffae62ded321be4259a3c11bf2829fc8a05aad87d"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/verification/auditor.py": {
+      "bytes": 53525,
+      "sha256": "a06a0060c0bd4963cb597c17a5ae9968f41ab85357e52c8238b88e9f8c6616b4"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-candidate/verification/report.json": {
+      "bytes": 28857,
+      "sha256": "68af4742457735fa411eb343df25330398d634144ec907c39782c9787ad24097"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/activation.cs": {
+      "bytes": 2442,
+      "sha256": "36120bf90de1af9c1c94c1fb98132a0707d622e25556db3325eb56ef8e1ab9bb"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/board.repl": {
+      "bytes": 18873,
+      "sha256": "c8324820c37fcf8ccff4784947396795c7f9c7f1076baccf14d1ccdc35cfd8a7"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/compiler.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/exports/activation.json": {
+      "bytes": 2011,
+      "sha256": "f3c3311fd8a5469e35a414caeb0de531b8c52d001b744498493e543a6a8ae2a9"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/exports/content-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "de8db0fc277e4f4598205245ab958c9677602a90976d4ddc9308fac3fdfb8047"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/exports/content-trace.json": {
+      "bytes": 9189,
+      "sha256": "c6d057195ccaff2d7e28b574669a00dad3d8cf0ce75444861e29b9855240f7b0"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/exports/display-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "004095cf9b9791d44938a92dcf4c9439db53586021e4854c2d67096e46678152"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/exports/display-on.json": {
+      "bytes": 197,
+      "sha256": "50c464dc56e2ba3c42f6a9de9323cba68c7969b70255ec1669c2bd39dd899824"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/exports/gpu-last-frame.bin": {
+      "bytes": 165888,
+      "sha256": "289cde09202715f253c6732974fe6f8d9b2209685f1a77b65f6dfa27f75b484a"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "6e2c8ea099a1ab2a1413ca66a43a94fe9e3524ca7dd6cb5350ea4bd6c410f7d3"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/exports/ui-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "7d744a558b8f485a452cefb212e69453592d90714aaddbc557b76415d87bd92d"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/gpu-runtime-component.cs": {
+      "bytes": 140627,
+      "sha256": "c0f9339bee3205a09f553240c388a2fe1dac1d1ec0871bb8c9a64b321319de92"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/harness.bin": {
+      "bytes": 176,
+      "sha256": "fc337da209bd7eccda31e9fe64d5733da8a1637e91fc0cb2b2fc2c78db8932a8"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/harness.elf": {
+      "bytes": 65728,
+      "sha256": "6a57c579addea35c586dfeaf7ab2c68592c5a4a0fd1c9f9f1642644f5b9d1c42"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/harness.s": {
+      "bytes": 786,
+      "sha256": "6100542ed6fcad941d0a6d0df3f668aa1c54c6851224b912f4b3fd07924a39c3"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/main.bin": {
+      "bytes": 3829832,
+      "sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/mspi0-status-component.cs": {
+      "bytes": 45588,
+      "sha256": "109a4b8fc2dd0f1ed1ad0a96ef43bd551af4e77c1db7edce11ee3d91dc3efc9b"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/nema-ring-consumer.cs": {
+      "bytes": 15250,
+      "sha256": "f17fad33bc28e748b1f38b0142a3b711b2cd76935267515b743bb0c6de877efe"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/objcopy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/profile.json": {
+      "bytes": 5401,
+      "sha256": "adfce0c9459426ed6c4bd2674a6c1495ee6942c24db2d6c363ed83cf9888a7e3"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/renode-nema-ring-device.cs": {
+      "bytes": 4367,
+      "sha256": "f1405252ce7fa23374171d8c067cbc81d875e7070163fa4468b055225297095a"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/renode.log": {
+      "bytes": 912197,
+      "sha256": "2a240d75f22c2f8938614bb5204ce53fdbc30c4b6c5c471bbdd98fc2d2e44a88"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/run.py": {
+      "bytes": 552893,
+      "sha256": "e061c19982ed7717fe78edda101288397d87d621e045756cac58ad2d261bc14b"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/runner-source.py": {
+      "bytes": 53525,
+      "sha256": "a06a0060c0bd4963cb597c17a5ae9968f41ab85357e52c8238b88e9f8c6616b4"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/status-plan.json": {
+      "bytes": 2298,
+      "sha256": "c4a968034e4490e2d97a0d58832778cdb0dca577a0b6715c943ec8baa6200dd9"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/status-source.json": {
+      "bytes": 252912,
+      "sha256": "c80b5aa7443bf578782774d7c227948009f13162f5dc6706a32e880a9812120e"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/strict.cs": {
+      "bytes": 624489,
+      "sha256": "6c5aa87683c8f84b221b60fffae62ded321be4259a3c11bf2829fc8a05aad87d"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/verification/auditor.py": {
+      "bytes": 53525,
+      "sha256": "a06a0060c0bd4963cb597c17a5ae9968f41ab85357e52c8238b88e9f8c6616b4"
+    },
+    "firmware-comparison-family-matrix-01/cfw/display-original/verification/report.json": {
+      "bytes": 26787,
+      "sha256": "475187a1fb864c2975746405986c1307962afe34c4ee6ce5194c2ca338eb8d01"
+    },
+    "firmware-comparison-family-matrix-01/cfw/predeclared-display-expectation.json": {
+      "bytes": 334,
+      "sha256": "adb459cec01241d58540e2a62b16f1cf16f340ef91bd1369180f9131d9ae4d9d"
+    },
+    "firmware-comparison-family-matrix-01/cfw/registration/main.bin": {
+      "bytes": 3829846,
+      "sha256": "3a613ac3f171768a0c3c99236dc27fc70cc36e208e1e7fd3eb14e0d4c04d337a"
+    },
+    "firmware-comparison-family-matrix-01/cfw/registration/manifest.json": {
+      "bytes": 7709,
+      "sha256": "33e895c377c7d201ff1dd6acf68e0a829980808a99653c3828fb762726be2b71"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/activation.cs": {
+      "bytes": 4874,
+      "sha256": "32ea86e7d6beb3a13fba8cd123929772a2b9177dbec22a78000cee6d4a603595"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/att-observer.cs": {
+      "bytes": 1236,
+      "sha256": "a06803bf520296d3e25d2a6fb6433932057891c5b796f8a3df96faaeb8e5cbd2"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/board.repl": {
+      "bytes": 19296,
+      "sha256": "c869ea6d4e956f3283ea524e51b1b024b269327717fcb553ecc729875a9414c1"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/capture-files.json": {
+      "bytes": 3050,
+      "sha256": "3a28d8740cb368105f37f2350c1841a5d7c5831403c099b3c3f0a940dfe4dd0f"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/connection-inputs.json": {
+      "bytes": 2360,
+      "sha256": "fffa9088fa4e8ff88a08ab195b19b6a840ccd75d5fc3d057e8c9e56e725d0d3a"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/connection-observer.cs": {
+      "bytes": 2375,
+      "sha256": "0de8e63ac33e993ae04f067ee0898dab59d3fbb922e6b4bb974edf0b728c63ae"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/connection-profile.json": {
+      "bytes": 1928,
+      "sha256": "71a8e3d2eaea26732e0967a39c1053bfa5ea87d269bc245a47fccae7a2ab4056"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/exports/connected-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "dc011c60effc6242c5da7336215829c37e846ef388e06e26dbd9d9282ac05fe3"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/exports/connection-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "155a250c35561dedb51c7266cd190ad77e62e27beadc9dd38aadf57284d2fe10"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/exports/connection.json": {
+      "bytes": 2484,
+      "sha256": "cf37e88d75a9c94f973f77318a9c2df54756487385f587e3dd445fd9345620d3"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "6e2c8ea099a1ab2a1413ca66a43a94fe9e3524ca7dd6cb5350ea4bd6c410f7d3"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-baseline/board.repl": {
+      "bytes": 18611,
+      "sha256": "83609d69c024db708b7f34db4ee4dc01a58c6adee448aea346e5ee1402f36d59"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-baseline/derived-inputs.json": {
+      "bytes": 2263,
+      "sha256": "49853c19a83ca96cbf8c31ce71557f629ed29dbfbeedaef188f7b5fee99173b4"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-baseline/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-baseline/main.bin": {
+      "bytes": 3829832,
+      "sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-baseline/probe.resc": {
+      "bytes": 302,
+      "sha256": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-baseline/report.json": {
+      "bytes": 1089157,
+      "sha256": "ef215c2690be6b6e6c49a3f596f80b1ea6b1c0764aa08eb5715a683e4c41b589"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-baseline/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-baseline/run.py": {
+      "bytes": 543531,
+      "sha256": "7ccb568586200f55d6148cf6819e5c4cb8c03ad165454414d353bec05cb3315f"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-baseline/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-baseline/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-candidate.json": {
+      "bytes": 7709,
+      "sha256": "33e895c377c7d201ff1dd6acf68e0a829980808a99653c3828fb762726be2b71"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/firmware-runtime-anchors.json": {
+      "bytes": 1448,
+      "sha256": "fcfd7a3f017cf9d5ac0bfab60b9ed042297888ef2c7914eda4fc27b989e7cbb0"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/main.bin": {
+      "bytes": 3829846,
+      "sha256": "3a613ac3f171768a0c3c99236dc27fc70cc36e208e1e7fd3eb14e0d4c04d337a"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/renode.log": {
+      "bytes": 903063,
+      "sha256": "7b5bf88a46f7f7eeb6027c8de6c8763c086de2202582c101277adc75cf245a36"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/run.py": {
+      "bytes": 553743,
+      "sha256": "ad87a8f3e89708833eec1fb4c52136761dc333474201bf4476b511933fe4602a"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/runner-source.py": {
+      "bytes": 45586,
+      "sha256": "5bcf484fba7cee82c094182776025b82f19e27a041650ba8aef49d584e1efb26"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-candidate/strict.cs": {
+      "bytes": 609438,
+      "sha256": "dd06b77bb946effa467a8958bf575232dfe43876bcfeb23a18d6e572317df135"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/activation.cs": {
+      "bytes": 4874,
+      "sha256": "32ea86e7d6beb3a13fba8cd123929772a2b9177dbec22a78000cee6d4a603595"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/att-observer.cs": {
+      "bytes": 1236,
+      "sha256": "a06803bf520296d3e25d2a6fb6433932057891c5b796f8a3df96faaeb8e5cbd2"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/board.repl": {
+      "bytes": 19296,
+      "sha256": "c869ea6d4e956f3283ea524e51b1b024b269327717fcb553ecc729875a9414c1"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/capture-files.json": {
+      "bytes": 1798,
+      "sha256": "7d9b3d41d190a9b4d54e68b70a43f8dfe36a26c733e078ec0db718471b5d9481"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/connection-inputs.json": {
+      "bytes": 1132,
+      "sha256": "1a60846c0a5a10be3ab8b8238995735510e9f982c53b125d8684f97cf5cacd37"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/connection-observer.cs": {
+      "bytes": 2375,
+      "sha256": "0de8e63ac33e993ae04f067ee0898dab59d3fbb922e6b4bb974edf0b728c63ae"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/connection-profile.json": {
+      "bytes": 1488,
+      "sha256": "204446b5c5209e88f60f16ca2bf2dd5128e2da83c5a6c9f59661fe4e7428ff93"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/exports/connected-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "dc011c60effc6242c5da7336215829c37e846ef388e06e26dbd9d9282ac05fe3"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/exports/connection-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "155a250c35561dedb51c7266cd190ad77e62e27beadc9dd38aadf57284d2fe10"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/exports/connection.json": {
+      "bytes": 2484,
+      "sha256": "259f8f0b67f11b3643c8618858810b5b1fa6b3675f0f8a3dd1d7f77cb895b753"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "6e2c8ea099a1ab2a1413ca66a43a94fe9e3524ca7dd6cb5350ea4bd6c410f7d3"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/main.bin": {
+      "bytes": 3829832,
+      "sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/renode.log": {
+      "bytes": 903156,
+      "sha256": "45002887abb4eaef68ed1f60670e7dfc1633678b9dbb94651f4c689817032510"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/run.py": {
+      "bytes": 553743,
+      "sha256": "38d1965a9baae21153d766e5570a4a8dfe3ce8af7d55b4f90b9833944aef458f"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/runner-source.py": {
+      "bytes": 45586,
+      "sha256": "5bcf484fba7cee82c094182776025b82f19e27a041650ba8aef49d584e1efb26"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/cfw/runtime-original/strict.cs": {
+      "bytes": 609438,
+      "sha256": "dd06b77bb946effa467a8958bf575232dfe43876bcfeb23a18d6e572317df135"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/activation.cs": {
+      "bytes": 2442,
+      "sha256": "36120bf90de1af9c1c94c1fb98132a0707d622e25556db3325eb56ef8e1ab9bb"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/board.repl": {
+      "bytes": 18873,
+      "sha256": "f69e3c25f2f8a1f74ad4753bd4417a55dd7e32171210e81ba59c82e4f5a96b9a"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/compiler.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/exports/activation.json": {
+      "bytes": 2011,
+      "sha256": "977d0f39cd5b6ec8471f10d2216a232fa449ab294f8dfb102e7143783db8703d"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/exports/content-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "11b8ae9ae6e57a6607275a3e363e11119095164270d0860098dd8a33c71113b7"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/exports/content-trace.json": {
+      "bytes": 9189,
+      "sha256": "a8e9430fdaa9c4a1d0c29f095f610391bbe0e34f1e80c072b07cdd93c1596a7e"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/exports/display-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "1116b243602172ba9f3de181c74d922fd8293748522f2eb179d837d28e43a8d0"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/exports/display-on.json": {
+      "bytes": 197,
+      "sha256": "d3cac4d66c77603ee3e998dd8023f37fcfaf447b2d5d76672f63447ef78c80e7"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/exports/gpu-last-frame.bin": {
+      "bytes": 165888,
+      "sha256": "89d111e13da934fd2c233e48ca07bcae7c41da0d26b6423c0c47d40dca38bede"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "5d8a79a0b2efb60d0099f688aff79e7a66f48c546ab3b4cc1c40916c20d8154c"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/exports/ui-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "022863dcd516f0cae63e7a065fed303d7e0d4bb9076a67910058bc4a170a594f"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-baseline/board.repl": {
+      "bytes": 18611,
+      "sha256": "37bbb86581774eacd745888c27bac6df164e7261f726cd2481377ae3e05bd749"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-baseline/derived-inputs.json": {
+      "bytes": 2263,
+      "sha256": "523e9ac658921172974b3faebeade1ea2d7c1d263919611c7c740ba0c3d8baca"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-baseline/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-baseline/main.bin": {
+      "bytes": 3758688,
+      "sha256": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-baseline/probe.resc": {
+      "bytes": 302,
+      "sha256": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-baseline/report.json": {
+      "bytes": 1093638,
+      "sha256": "f6725920b754a005d675ad68e7621c317841557448e05e456f63376522a69136"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-baseline/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-baseline/run.py": {
+      "bytes": 543531,
+      "sha256": "b0cb5b8803cb2925c765ebde29447cff3cc1494ffb13d6d5945959795c3cdd0d"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-baseline/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-baseline/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-candidate.json": {
+      "bytes": 7720,
+      "sha256": "db7da413b7e4138e2ac0b50f82d2e4b6133f79fcebce0829cd5f69d06ee1dc7d"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/firmware-runtime-anchors.json": {
+      "bytes": 3403,
+      "sha256": "9d86e3024e6ddcb6cd133e27f247d06e07d360f867e46f3ca96d36df538475e0"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/gpu-runtime-component.cs": {
+      "bytes": 140627,
+      "sha256": "c0f9339bee3205a09f553240c388a2fe1dac1d1ec0871bb8c9a64b321319de92"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/harness.bin": {
+      "bytes": 176,
+      "sha256": "fc337da209bd7eccda31e9fe64d5733da8a1637e91fc0cb2b2fc2c78db8932a8"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/harness.elf": {
+      "bytes": 65728,
+      "sha256": "6a57c579addea35c586dfeaf7ab2c68592c5a4a0fd1c9f9f1642644f5b9d1c42"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/harness.s": {
+      "bytes": 786,
+      "sha256": "6100542ed6fcad941d0a6d0df3f668aa1c54c6851224b912f4b3fd07924a39c3"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/main.bin": {
+      "bytes": 3758702,
+      "sha256": "23b668fd51a46482e590151fdd52c6fe1487fb5cd75df85410fae40757d22865"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/mspi0-status-component.cs": {
+      "bytes": 45588,
+      "sha256": "109a4b8fc2dd0f1ed1ad0a96ef43bd551af4e77c1db7edce11ee3d91dc3efc9b"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/nema-ring-consumer.cs": {
+      "bytes": 15250,
+      "sha256": "f17fad33bc28e748b1f38b0142a3b711b2cd76935267515b743bb0c6de877efe"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/objcopy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/profile.json": {
+      "bytes": 6127,
+      "sha256": "f6f5c96ceb031dbbc21ecdaeaa01de7a26d240d3a4408ed027690100a8629058"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/renode-nema-ring-device.cs": {
+      "bytes": 4367,
+      "sha256": "f1405252ce7fa23374171d8c067cbc81d875e7070163fa4468b055225297095a"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/renode.log": {
+      "bytes": 915197,
+      "sha256": "8f8d247bd9cb438c5b83093b79e3ab835fce9f29e5f01662ad9084bb61ff40c0"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/run.py": {
+      "bytes": 552893,
+      "sha256": "71b00888200b9ca4d0eff12394f55ed20c51924f078756c825516ebe5c5d45c2"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/runner-source.py": {
+      "bytes": 53525,
+      "sha256": "a06a0060c0bd4963cb597c17a5ae9968f41ab85357e52c8238b88e9f8c6616b4"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/status-plan.json": {
+      "bytes": 2506,
+      "sha256": "b57e1412c3301214f237c21c1aef75b82423a07a7a3e5bc96a3b812e1a5554c2"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/status-source.json": {
+      "bytes": 252912,
+      "sha256": "c80b5aa7443bf578782774d7c227948009f13162f5dc6706a32e880a9812120e"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/strict.cs": {
+      "bytes": 624489,
+      "sha256": "6c5aa87683c8f84b221b60fffae62ded321be4259a3c11bf2829fc8a05aad87d"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/verification/auditor.py": {
+      "bytes": 53525,
+      "sha256": "a06a0060c0bd4963cb597c17a5ae9968f41ab85357e52c8238b88e9f8c6616b4"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-candidate/verification/report.json": {
+      "bytes": 28872,
+      "sha256": "7c9875d18600fe0473e2d876390758c4dc494c97c54ed0a8ac73c9f31f688eb8"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/activation.cs": {
+      "bytes": 2442,
+      "sha256": "36120bf90de1af9c1c94c1fb98132a0707d622e25556db3325eb56ef8e1ab9bb"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/board.repl": {
+      "bytes": 18873,
+      "sha256": "f69e3c25f2f8a1f74ad4753bd4417a55dd7e32171210e81ba59c82e4f5a96b9a"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/compiler.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/exports/activation.json": {
+      "bytes": 2011,
+      "sha256": "51d3074151a67e17e00284b32e3bffb6eebb3a7d23dade2102ec22f885b8a1e8"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/exports/content-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "0cb7add283bcc7df1fb948928a38bd0fb3f471820af2f7e395f718682d3e2766"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/exports/content-trace.json": {
+      "bytes": 9189,
+      "sha256": "3c2add5627abc3e4fd53dd8b44cc028aa1267feb31a4b9d4d1e5aacb60809437"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/exports/display-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "1116b243602172ba9f3de181c74d922fd8293748522f2eb179d837d28e43a8d0"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/exports/display-on.json": {
+      "bytes": 197,
+      "sha256": "bcea5ebafffe9340295a6609cbd550ebb1cc8fa153baa2df6930896051b00ddb"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/exports/gpu-last-frame.bin": {
+      "bytes": 165888,
+      "sha256": "289cde09202715f253c6732974fe6f8d9b2209685f1a77b65f6dfa27f75b484a"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "5d8a79a0b2efb60d0099f688aff79e7a66f48c546ab3b4cc1c40916c20d8154c"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/exports/ui-after-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "022863dcd516f0cae63e7a065fed303d7e0d4bb9076a67910058bc4a170a594f"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/gpu-runtime-component.cs": {
+      "bytes": 140627,
+      "sha256": "c0f9339bee3205a09f553240c388a2fe1dac1d1ec0871bb8c9a64b321319de92"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/harness.bin": {
+      "bytes": 176,
+      "sha256": "fc337da209bd7eccda31e9fe64d5733da8a1637e91fc0cb2b2fc2c78db8932a8"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/harness.elf": {
+      "bytes": 65728,
+      "sha256": "6a57c579addea35c586dfeaf7ab2c68592c5a4a0fd1c9f9f1642644f5b9d1c42"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/harness.s": {
+      "bytes": 786,
+      "sha256": "6100542ed6fcad941d0a6d0df3f668aa1c54c6851224b912f4b3fd07924a39c3"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/main.bin": {
+      "bytes": 3758688,
+      "sha256": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/mspi0-status-component.cs": {
+      "bytes": 45588,
+      "sha256": "109a4b8fc2dd0f1ed1ad0a96ef43bd551af4e77c1db7edce11ee3d91dc3efc9b"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/nema-ring-consumer.cs": {
+      "bytes": 15250,
+      "sha256": "f17fad33bc28e748b1f38b0142a3b711b2cd76935267515b743bb0c6de877efe"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/objcopy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/profile.json": {
+      "bytes": 5405,
+      "sha256": "fccd7adb9d649dd87f4d3e4f2bac021059c09d4ccd33e6a2d0d8385e5ff93b06"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/renode-nema-ring-device.cs": {
+      "bytes": 4367,
+      "sha256": "f1405252ce7fa23374171d8c067cbc81d875e7070163fa4468b055225297095a"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/renode.log": {
+      "bytes": 915191,
+      "sha256": "7425a52763a2cfe8a8a09054e7d3d37f48d07176b1a36ffaa68679fc4e300592"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/run.py": {
+      "bytes": 552893,
+      "sha256": "e05c51e102a87d2e4b1d3b4d9265542bb5e94d5f5e6a74040b20ee85d26bb552"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/runner-source.py": {
+      "bytes": 53525,
+      "sha256": "a06a0060c0bd4963cb597c17a5ae9968f41ab85357e52c8238b88e9f8c6616b4"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/status-plan.json": {
+      "bytes": 2302,
+      "sha256": "1953a303fa1ad9d54f690d8c32177dc904b271a5a07f1b70e080660369ea0dbc"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/status-source.json": {
+      "bytes": 252912,
+      "sha256": "c80b5aa7443bf578782774d7c227948009f13162f5dc6706a32e880a9812120e"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/strict.cs": {
+      "bytes": 624489,
+      "sha256": "6c5aa87683c8f84b221b60fffae62ded321be4259a3c11bf2829fc8a05aad87d"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/verification/auditor.py": {
+      "bytes": 53525,
+      "sha256": "a06a0060c0bd4963cb597c17a5ae9968f41ab85357e52c8238b88e9f8c6616b4"
+    },
+    "firmware-comparison-family-matrix-01/stock23/display-original/verification/report.json": {
+      "bytes": 26791,
+      "sha256": "16b5766cf4dd31bbed54720288b401dd29e3571a6b27833b6a5440dcc336f435"
+    },
+    "firmware-comparison-family-matrix-01/stock23/predeclared-display-expectation.json": {
+      "bytes": 334,
+      "sha256": "9eaa9d610d2009c6e79df564911f2ba85e9597ca5f4b886e6440ac5865717027"
+    },
+    "firmware-comparison-family-matrix-01/stock23/registration/main.bin": {
+      "bytes": 3758702,
+      "sha256": "23b668fd51a46482e590151fdd52c6fe1487fb5cd75df85410fae40757d22865"
+    },
+    "firmware-comparison-family-matrix-01/stock23/registration/manifest.json": {
+      "bytes": 7720,
+      "sha256": "db7da413b7e4138e2ac0b50f82d2e4b6133f79fcebce0829cd5f69d06ee1dc7d"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/activation.cs": {
+      "bytes": 4874,
+      "sha256": "32ea86e7d6beb3a13fba8cd123929772a2b9177dbec22a78000cee6d4a603595"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/att-observer.cs": {
+      "bytes": 1236,
+      "sha256": "a06803bf520296d3e25d2a6fb6433932057891c5b796f8a3df96faaeb8e5cbd2"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/board.repl": {
+      "bytes": 19296,
+      "sha256": "3556f2493e8b805f7003955bbbd3bd89cabb64d14cd80c66657f15348dbd417a"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/capture-files.json": {
+      "bytes": 3050,
+      "sha256": "1b326568cfb1ecb62f1349d1d711ca83cdabb63bffe6d4083720ad05bf8a1121"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/connection-inputs.json": {
+      "bytes": 2360,
+      "sha256": "6006f0de8fa57f7b552a8d0e77b1b9eb3fd7d5e267605a77f82e532d010e3f10"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/connection-observer.cs": {
+      "bytes": 2375,
+      "sha256": "0de8e63ac33e993ae04f067ee0898dab59d3fbb922e6b4bb974edf0b728c63ae"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/connection-profile.json": {
+      "bytes": 1947,
+      "sha256": "2743a5730b62f8adb13ea015b197bc8a69b7a36e55236241a50b1ce0fa167d2c"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/exports/connected-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "d2d64160ec7188e912a956f787cd13273512a809571d41f8c39bcd34e2bf785b"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/exports/connection-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "2d5627d44143d7bd00f1b60de3059f5ce4cca5cb2220ad14cfbb651aed483dcc"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/exports/connection.json": {
+      "bytes": 2484,
+      "sha256": "6ccef19a19339a5b9b24d91847e33be870082e0280dc34bad433474ee56f5a0c"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "5d8a79a0b2efb60d0099f688aff79e7a66f48c546ab3b4cc1c40916c20d8154c"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-baseline/board.repl": {
+      "bytes": 18611,
+      "sha256": "37bbb86581774eacd745888c27bac6df164e7261f726cd2481377ae3e05bd749"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-baseline/derived-inputs.json": {
+      "bytes": 2263,
+      "sha256": "523e9ac658921172974b3faebeade1ea2d7c1d263919611c7c740ba0c3d8baca"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-baseline/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-baseline/main.bin": {
+      "bytes": 3758688,
+      "sha256": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-baseline/probe.resc": {
+      "bytes": 302,
+      "sha256": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-baseline/report.json": {
+      "bytes": 1093638,
+      "sha256": "f6725920b754a005d675ad68e7621c317841557448e05e456f63376522a69136"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-baseline/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-baseline/run.py": {
+      "bytes": 543531,
+      "sha256": "b0cb5b8803cb2925c765ebde29447cff3cc1494ffb13d6d5945959795c3cdd0d"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-baseline/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-baseline/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-candidate.json": {
+      "bytes": 7720,
+      "sha256": "db7da413b7e4138e2ac0b50f82d2e4b6133f79fcebce0829cd5f69d06ee1dc7d"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/firmware-runtime-anchors.json": {
+      "bytes": 1448,
+      "sha256": "6daeaca1717d899f0efc5b78e827b6bd4f0283b6d720c55b262cc1b3f9ce1ab5"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/main.bin": {
+      "bytes": 3758702,
+      "sha256": "23b668fd51a46482e590151fdd52c6fe1487fb5cd75df85410fae40757d22865"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/renode.log": {
+      "bytes": 906048,
+      "sha256": "3d3a70e79ca6c41299ecedb2aab9bc4105653a8a4134e018862388fdf03fe1b9"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/run.py": {
+      "bytes": 553743,
+      "sha256": "5d686dd5d01c27ecb47f6bc70df14d33c2f597b61d51041226d440fc67c11c43"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/runner-source.py": {
+      "bytes": 45586,
+      "sha256": "5bcf484fba7cee82c094182776025b82f19e27a041650ba8aef49d584e1efb26"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-candidate/strict.cs": {
+      "bytes": 609438,
+      "sha256": "dd06b77bb946effa467a8958bf575232dfe43876bcfeb23a18d6e572317df135"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/activation.cs": {
+      "bytes": 4874,
+      "sha256": "32ea86e7d6beb3a13fba8cd123929772a2b9177dbec22a78000cee6d4a603595"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/att-observer.cs": {
+      "bytes": 1236,
+      "sha256": "a06803bf520296d3e25d2a6fb6433932057891c5b796f8a3df96faaeb8e5cbd2"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/board.repl": {
+      "bytes": 19296,
+      "sha256": "3556f2493e8b805f7003955bbbd3bd89cabb64d14cd80c66657f15348dbd417a"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/capture-files.json": {
+      "bytes": 1798,
+      "sha256": "801d9855b91be42dcde8a11d4f6b10c9ac3914fb5cefdf7dd2e56864ee03c8f9"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/connection-inputs.json": {
+      "bytes": 1132,
+      "sha256": "0e5fe4750a09bfcf737d2e1835df06b2d3a1685a6ca6b094df6af5a635a8396b"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/connection-observer.cs": {
+      "bytes": 2375,
+      "sha256": "0de8e63ac33e993ae04f067ee0898dab59d3fbb922e6b4bb974edf0b728c63ae"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/connection-profile.json": {
+      "bytes": 1496,
+      "sha256": "389a45e3af6d7711a672c22cf1f959b2219b4a8dab341ac17e8e50703cf81bbc"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/exports/connected-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "d2d64160ec7188e912a956f787cd13273512a809571d41f8c39bcd34e2bf785b"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/exports/connection-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "2d5627d44143d7bd00f1b60de3059f5ce4cca5cb2220ad14cfbb651aed483dcc"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/exports/connection.json": {
+      "bytes": 2484,
+      "sha256": "fca096f02db7e08408f9565e4164eb2b6b5b587689c88d00894702e7c93afead"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "5d8a79a0b2efb60d0099f688aff79e7a66f48c546ab3b4cc1c40916c20d8154c"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/main.bin": {
+      "bytes": 3758688,
+      "sha256": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/renode.log": {
+      "bytes": 906034,
+      "sha256": "e982d7ecec368fa011385dd6cec26ab25271e30767a50189cfdfe6385d4eddb7"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/run.py": {
+      "bytes": 553743,
+      "sha256": "7330e441e6a9cc7d335cf7ed58e6ab80d3f5026f65f6ed8dbcf89c95b9c8f3fc"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/runner-source.py": {
+      "bytes": 45586,
+      "sha256": "5bcf484fba7cee82c094182776025b82f19e27a041650ba8aef49d584e1efb26"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "firmware-comparison-family-matrix-01/stock23/runtime-original/strict.cs": {
+      "bytes": 609438,
+      "sha256": "dd06b77bb946effa467a8958bf575232dfe43876bcfeb23a18d6e572317df135"
+    },
+    "gpu-runtime-wake-research-01/base-renode-strict-mmio.cs": {
+      "bytes": 132448,
+      "sha256": "68c46e64defc360c83245ba5f952f654931c939f7fc0d8df5d7e0eacb58d7069"
+    },
+    "hci-connection-research-01/manifest.json": {
+      "bytes": 76685,
+      "sha256": "9cd60de99394d7d86b26887d583093b51c258a8c53579a208aaabaf114cce3bf"
+    },
+    "hci-connection-source-05/report.json": {
+      "bytes": 13497,
+      "sha256": "75d3e60b51a7aa31da115d806d5903843056996d5a5f97b1e7438c41176635a1"
+    },
+    "imu-powersave-main-01/cfw/board.repl": {
+      "bytes": 18611,
+      "sha256": "83609d69c024db708b7f34db4ee4dc01a58c6adee448aea346e5ee1402f36d59"
+    },
+    "imu-powersave-main-01/cfw/derived-inputs.json": {
+      "bytes": 2263,
+      "sha256": "49853c19a83ca96cbf8c31ce71557f629ed29dbfbeedaef188f7b5fee99173b4"
+    },
+    "imu-powersave-main-01/cfw/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "ac8ecce2f08351ee876febfaa2e928dd99c4f97643204da08b90736105bb8908"
+    },
+    "imu-powersave-main-01/cfw/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "imu-powersave-main-01/cfw/main.bin": {
+      "bytes": 3829832,
+      "sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f"
+    },
+    "imu-powersave-main-01/cfw/probe.resc": {
+      "bytes": 302,
+      "sha256": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48"
+    },
+    "imu-powersave-main-01/cfw/report.json": {
+      "bytes": 1089157,
+      "sha256": "ef215c2690be6b6e6c49a3f596f80b1ea6b1c0764aa08eb5715a683e4c41b589"
+    },
+    "imu-powersave-main-01/cfw/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "imu-powersave-main-01/cfw/run.py": {
+      "bytes": 543531,
+      "sha256": "7ccb568586200f55d6148cf6819e5c4cb8c03ad165454414d353bec05cb3315f"
+    },
+    "imu-powersave-main-01/cfw/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "imu-powersave-main-01/cfw/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "imu-powersave-main-01/stock23/board.repl": {
+      "bytes": 18611,
+      "sha256": "37bbb86581774eacd745888c27bac6df164e7261f726cd2481377ae3e05bd749"
+    },
+    "imu-powersave-main-01/stock23/derived-inputs.json": {
+      "bytes": 2263,
+      "sha256": "523e9ac658921172974b3faebeade1ea2d7c1d263919611c7c740ba0c3d8baca"
+    },
+    "imu-powersave-main-01/stock23/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "934848fda71dbe6486de98184234d62fb4638f8d5cecf047747bd216faf7c41d"
+    },
+    "imu-powersave-main-01/stock23/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "imu-powersave-main-01/stock23/main.bin": {
+      "bytes": 3758688,
+      "sha256": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5"
+    },
+    "imu-powersave-main-01/stock23/probe.resc": {
+      "bytes": 302,
+      "sha256": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48"
+    },
+    "imu-powersave-main-01/stock23/report.json": {
+      "bytes": 1093638,
+      "sha256": "f6725920b754a005d675ad68e7621c317841557448e05e456f63376522a69136"
+    },
+    "imu-powersave-main-01/stock23/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "imu-powersave-main-01/stock23/run.py": {
+      "bytes": 543531,
+      "sha256": "b0cb5b8803cb2925c765ebde29447cff3cc1494ffb13d6d5945959795c3cdd0d"
+    },
+    "imu-powersave-main-01/stock23/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "imu-powersave-main-01/stock23/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "imu-powersave-main-01/stock24/board.repl": {
+      "bytes": 18611,
+      "sha256": "5a0f32a208710651f8c652a63255d1c9836585fe9f491f77b7ee521e58d60d88"
+    },
+    "imu-powersave-main-01/stock24/derived-inputs.json": {
+      "bytes": 2571,
+      "sha256": "a4830e66773c8ba471fcefd4c84ed4317efcafd5ebdf43d9b463db321c2f807a"
+    },
+    "imu-powersave-main-01/stock24/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "3eb1cacb764919de744d2108c828634df280d67a36814852ea799e1c3adc7612"
+    },
+    "imu-powersave-main-01/stock24/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "imu-powersave-main-01/stock24/main.bin": {
+      "bytes": 3700068,
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a"
+    },
+    "imu-powersave-main-01/stock24/probe.resc": {
+      "bytes": 302,
+      "sha256": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48"
+    },
+    "imu-powersave-main-01/stock24/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "imu-powersave-main-01/stock24/run.py": {
+      "bytes": 543544,
+      "sha256": "0e248cc2d131c8e668cc1a34ded06cab017d74b5bbd0ecc68b02f93879e30a80"
+    },
+    "imu-powersave-main-01/stock24/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "imu-powersave-main-01/stock24/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "imu-ui-dependency-source-02/report.json": {
+      "bytes": 187246,
+      "sha256": "d7b73bf47885a418337810484d0af5461f5403ae5b5c6787b8921f501437a9c9"
+    },
+    "jbd-status-consumer-source-02/report.json": {
+      "bytes": 252912,
+      "sha256": "c80b5aa7443bf578782774d7c227948009f13162f5dc6706a32e880a9812120e"
+    },
+    "runtime-candidate-control-01/stock24/activation.cs": {
+      "bytes": 4874,
+      "sha256": "32ea86e7d6beb3a13fba8cd123929772a2b9177dbec22a78000cee6d4a603595"
+    },
+    "runtime-candidate-control-01/stock24/att-observer.cs": {
+      "bytes": 1236,
+      "sha256": "a06803bf520296d3e25d2a6fb6433932057891c5b796f8a3df96faaeb8e5cbd2"
+    },
+    "runtime-candidate-control-01/stock24/board.repl": {
+      "bytes": 19296,
+      "sha256": "d49be1aa0a28324b0f1ada863b0d736cd3161d0cbcd87a4f615d9c9b4274dbf5"
+    },
+    "runtime-candidate-control-01/stock24/capture-files.json": {
+      "bytes": 1798,
+      "sha256": "f3471c8febf86242dc081541eeec7e834e0438bae6c7396b1e4fe19ace539581"
+    },
+    "runtime-candidate-control-01/stock24/connection-inputs.json": {
+      "bytes": 1132,
+      "sha256": "26f8f7b2d25e954ecbaccb5578cfac636b1388a994ca28bf8d88696dc1641ba8"
+    },
+    "runtime-candidate-control-01/stock24/connection-observer.cs": {
+      "bytes": 2375,
+      "sha256": "0de8e63ac33e993ae04f067ee0898dab59d3fbb922e6b4bb974edf0b728c63ae"
+    },
+    "runtime-candidate-control-01/stock24/connection-profile.json": {
+      "bytes": 1488,
+      "sha256": "1aeae8da1e900d259ba500b9d351416f6bfa48d909dd2a86037e1ea4329ed0ef"
+    },
+    "runtime-candidate-control-01/stock24/exports/connected-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "9c573a8ed71b8bb624a11a9e97066aa6313a94511988160756e016dc7e01aab4"
+    },
+    "runtime-candidate-control-01/stock24/exports/connection-sram.bin": {
+      "bytes": 3670016,
+      "sha256": "b89514c3e69c21f72d5faf1e3e6f45277432173733541e59b0fc39fa1153ebd7"
+    },
+    "runtime-candidate-control-01/stock24/exports/connection.json": {
+      "bytes": 2484,
+      "sha256": "023e66e891bd7b5b9b322951d62091e92f2edda4d6c062691cdcedcad1c8433f"
+    },
+    "runtime-candidate-control-01/stock24/exports/sram-full.bin": {
+      "bytes": 3670016,
+      "sha256": "42ad40e21d2449cc52adac59faf69c09a2846af8f8f4ffaa7b976c5855b1cdfa"
+    },
+    "runtime-candidate-control-01/stock24/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "runtime-candidate-control-01/stock24/main.bin": {
+      "bytes": 3700068,
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a"
+    },
+    "runtime-candidate-control-01/stock24/probe.resc": {
+      "bytes": 331,
+      "sha256": "ba1f50bac7f8f4db9897db79df22184b1588b0bf8ea43986595c0c8c53817feb"
+    },
+    "runtime-candidate-control-01/stock24/renode.log": {
+      "bytes": 910379,
+      "sha256": "8af6fe9ff43ccbb62290f2ae3727a25244a78cb36c8921eb1f478528951ed706"
+    },
+    "runtime-candidate-control-01/stock24/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "runtime-candidate-control-01/stock24/run.py": {
+      "bytes": 553756,
+      "sha256": "0057c1e73f0ecdefc1b7c6a35214253bd221c2792a9fa2f0f4c32fdc44e60239"
+    },
+    "runtime-candidate-control-01/stock24/runner-source.py": {
+      "bytes": 43829,
+      "sha256": "2b820e311f1e85f90ed6f8e1efce82fd4e23cdaddae171a8e9e7e34f44797a73"
+    },
+    "runtime-candidate-control-01/stock24/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "runtime-candidate-control-01/stock24/strict.cs": {
+      "bytes": 609438,
+      "sha256": "dd06b77bb946effa467a8958bf575232dfe43876bcfeb23a18d6e572317df135"
+    },
+    "runtime-candidate-native-01/stock24/firmware-baseline/board.repl": {
+      "bytes": 19000,
+      "sha256": "55e35f94add3c583835abc46d927c8eee19a7b57f791b71da93c43015c8a9702"
+    },
+    "runtime-candidate-native-01/stock24/firmware-baseline/derived-inputs.json": {
+      "bytes": 2241,
+      "sha256": "4220516b0760dfe756a34b314d5e7e0296cd50a2a0ecc94256ccd11ed25a5318"
+    },
+    "runtime-candidate-native-01/stock24/firmware-baseline/itcm-fill.bin": {
+      "bytes": 262144,
+      "sha256": "b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55"
+    },
+    "runtime-candidate-native-01/stock24/firmware-baseline/main.bin": {
+      "bytes": 3700068,
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a"
+    },
+    "runtime-candidate-native-01/stock24/firmware-baseline/probe.resc": {
+      "bytes": 302,
+      "sha256": "b4da6c74a4756ac6c0dacbc1d56f36b348f83aea0ff9edb610331b685668fe48"
+    },
+    "runtime-candidate-native-01/stock24/firmware-baseline/report.json": {
+      "bytes": 1336316,
+      "sha256": "f297a26372640267de26c81c8b501d511dd92ba8c34ffc858c335340759b5230"
+    },
+    "runtime-candidate-native-01/stock24/firmware-baseline/result.py": {
+      "bytes": 29966,
+      "sha256": "34a9fb57a6b71cd4544bfdfdc80211cb3783e6e333cd8b066af287b33f7db1d7"
+    },
+    "runtime-candidate-native-01/stock24/firmware-baseline/run.py": {
+      "bytes": 634794,
+      "sha256": "9ee6ece9fc751e66df8fd0cffa92f015645658840a777f85e7da628381188c78"
+    },
+    "runtime-candidate-native-01/stock24/firmware-baseline/sram-fill.bin": {
+      "bytes": 3670016,
+      "sha256": "392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd"
+    },
+    "runtime-candidate-native-01/stock24/firmware-baseline/strict.cs": {
+      "bytes": 604317,
+      "sha256": "b796d054be7aad9e2499818fccc0f45425b9d3a8b97a2f503863d36c3354f0fe"
+    },
+    "runtime-event-research-01/before-renode-em9305-reset.cs": {
+      "bytes": 38225,
+      "sha256": "5b839952d4bed25f0e138b4cacc0391ba3c9c0afd3af7e7a729981cb7c6e080e"
+    },
+    "runtime-event-research-01/before-renode-strict-mmio.cs": {
+      "bytes": 139483,
+      "sha256": "f15d570a3eb5ee321345c2b4c7448e8e0771aad7c06c0a255bf0936794f2bdf1"
+    },
+    "tpl-time-native-01/cfw/board.repl": {
+      "bytes": 18685,
+      "sha256": "5f203d2428e91eff2c33da21aab2ca53f6fc28b2b116a355c7374fece137f5a7"
+    },
+    "tpl-time-native-01/cfw/capture-files.json": {
+      "bytes": 2053,
+      "sha256": "82ee169f021bd896532dd5cc145bb08f87d91710842d9f3fc2fdea9a5f5a7575"
+    },
+    "tpl-time-native-01/cfw/main.bin": {
+      "bytes": 3829832,
+      "sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f"
+    },
+    "tpl-time-native-01/cfw/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "tpl-time-native-01/cfw/sync-profile.json": {
+      "bytes": 3197,
+      "sha256": "e132d109b38cefb4e43c363fd4820428131ec9ce04cdc1cd0ade77cb0620320d"
+    },
+    "tpl-time-native-01/stock23/board.repl": {
+      "bytes": 18685,
+      "sha256": "2f4f651bda446eb5e38bef57bda6f8bf255ce63cd6e962ce852d793e8ee8e797"
+    },
+    "tpl-time-native-01/stock23/capture-files.json": {
+      "bytes": 2053,
+      "sha256": "c13736ff480a07cb956595f4732226f8950a4b286304b05c92304448e4cbd2a9"
+    },
+    "tpl-time-native-01/stock23/main.bin": {
+      "bytes": 3758688,
+      "sha256": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5"
+    },
+    "tpl-time-native-01/stock23/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "tpl-time-native-01/stock23/sync-profile.json": {
+      "bytes": 3205,
+      "sha256": "962aaeae1dbd51188a0335453160726b1995be76aa48d3ab0b82434b7601ae81"
+    },
+    "tpl-time-native-01/stock24/board.repl": {
+      "bytes": 18685,
+      "sha256": "afda8980e5c144e9987a39e694a769b4211692bcc89bfd3d901b4ba70262254c"
+    },
+    "tpl-time-native-01/stock24/capture-files.json": {
+      "bytes": 2053,
+      "sha256": "549830499b16a54fc4ab561c99927eced3c45f59ae4af3454f337364e913ac8d"
+    },
+    "tpl-time-native-01/stock24/main.bin": {
+      "bytes": 3700068,
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a"
+    },
+    "tpl-time-native-01/stock24/strict.cs": {
+      "bytes": 595754,
+      "sha256": "a277cdcbeb3273dbbe831dde79d4c127baebb0f46b5259f0bd90ae2926c460fe"
+    },
+    "tpl-time-native-01/stock24/sync-profile.json": {
+      "bytes": 3197,
+      "sha256": "ce7b524cc8ee3fa610e559e51f7d4bc84f22b626c2b4beba9c240216dfc9ee5e"
+    },
+    "tpl-time-research-01/manifest.json": {
+      "bytes": 158147,
+      "sha256": "48e9e7d843713408cfb2e4ca02972a2848e96f0a067e36b37ca90efdc21f5722"
+    }
+  }
+}

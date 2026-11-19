@@ -1,0 +1,331 @@
+{
+  "schema": 2,
+  "id": "iom6-dcx-no-pins-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "em9305-reset-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "dcx-enable-with-zero-ce-selection",
+      "baseline": "em9305-spi-spec-research-01/base-iom.cs",
+      "candidate": "tools/renode-iom.cs",
+      "before_sha256": "0e885f2022996e39262b4e5615c27db380bf886976efbe83935fe67a1f85d287",
+      "after_sha256": "e76cbb56e9f1c051b5d5824d6c3f6317edfdc16eaed26670bf3f2f09d040ef77"
+    }
+  ],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    spiConfigStorage: true\n",
+      "after": "    spiConfigStorage: true\n    spiDcxNoPinsStorage: true\n"
+    }
+  ],
+  "board_append": "",
+  "diagnostics": "dict(paused=bool(m.IsPaused),dcx=int(m['sysbus.iom6'].DcxControl),commands=int(m['sysbus.iom6'].Commands),spi_config=int(m['sysbus.iom6'].SpiConfiguration),fifo_control=int(m['sysbus.iom6'].FifoControl),submodule=int(m['sysbus.iom6'].SubmoduleControl),clock=int(m['sysbus.iom6'].ClockConfiguration))",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776780,
+          "address": 1074094720,
+          "operation": "write",
+          "width": 4,
+          "value": 4
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Only explicit DCX enable without selected CE channels; no SPI transfer or peer response"
+        ],
+        "unresolved_differences": [
+          "Master full-duplex execution, peer state and real RDY timing remain unsupported"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776698,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Only explicit DCX enable without selected CE channels; no SPI transfer or peer response"
+        ],
+        "unresolved_differences": [
+          "Master full-duplex execution, peer state and real RDY timing remain unsupported"
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747252,
+          "address": 1074094720,
+          "operation": "write",
+          "width": 4,
+          "value": 4
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Only explicit DCX enable without selected CE channels; no SPI transfer or peer response"
+        ],
+        "unresolved_differences": [
+          "Master full-duplex execution, peer state and real RDY timing remain unsupported"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Only explicit DCX enable without selected CE channels; no SPI transfer or peer response"
+        ],
+        "unresolved_differences": [
+          "Master full-duplex execution, peer state and real RDY timing remain unsupported"
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747252,
+          "address": 1074094720,
+          "operation": "write",
+          "width": 4,
+          "value": 4
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Only explicit DCX enable without selected CE channels; no SPI transfer or peer response"
+        ],
+        "unresolved_differences": [
+          "Master full-duplex execution, peer state and real RDY timing remain unsupported"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747170,
+          "address": 1074094372,
+          "operation": "spi-dcx-unsupported",
+          "width": 4,
+          "value": 16
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Only explicit DCX enable without selected CE channels; no SPI transfer or peer response"
+        ],
+        "unresolved_differences": [
+          "Master full-duplex execution, peer state and real RDY timing remain unsupported"
+        ]
+      }
+    }
+  }
+}

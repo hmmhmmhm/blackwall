@@ -1,0 +1,17 @@
+# G2 Chip Location Comparison and 3D-Style Preview
+
+2026-11-18 · bw-0588. Two user photographs and prior video samples were compared against the [FCC internal photos](https://fccid.io/2BFKR-G2/Internal-Photos/Internal-photos-8787893.pdf). This does not claim the FCC regulatory-submission board and the board in the user's photos are the same unit. Independent GPT-6.2 Sol research was compared with samples from the original PDF.
+
+- The large chip on the side opposite the connector in FCC PDF page 3 Photo 6 and page 4 Photo 8 bears the marking `AP510BFA`. This matches the designation in [Ambiq Apollo510B material](https://contentportal.ambiq.com/documents/20123/4530417/Apollo510B-SoC-Datasheet.pdf#page=2). This back side is not directly visible in the user's photos.
+- The large central chip on the connector side in FCC page 2 Photo 4 reads `U25643`, consistent with Macronix MX25U25643G flash in the [openCFW hardware analysis](https://github.com/kalanihelekunihi/evenRealities-openCFW/blob/main/docs/hardware/g2-glasses.md). Relative arrangement makes correspondence with the center of user photo 1 and near the center of photo 2 likely. The marking and exact part number on the user's device remain unconfirmed.
+- The small chip next to flash in FCC Photo 4 reads `CY8C40`/`46FNI`, consistent with openCFW's Infineon CY8C4046FNI touch-controller analysis. The corresponding position in the user's photo is an inference from placement; the model's detailed suffix is unconfirmed.
+- The chip marking at the opposite end in FCC Photo 6 reads `GX8002D`. openCFW firmware analysis specifies GX8002B; preserve this discrepancy and do not assert they are the same component. [NationalChip material](https://document.nationalchip.com/hardware/%E8%8A%AF%E7%89%87%E6%95%B0%E6%8D%AE%E6%89%8B%E5%86%8C/datasheet/GX8002_datasheet_V1.15.pdf#page=36) lists B/D separately.
+- ICM-45608 and others are candidates identified from firmware/drivers, but their actual chip positions in these photos, left/right identity of each temple, and physical PMIC/BLE placement remain unknown. Allow for differences between the actual device's component versions and the FCC sample.
+
+## Temporary preview
+
+`web/prototypes/board-explorer.html` is a **3D-style conceptual illustration** of glasses and chips using CSS perspective. It is not an independent 3D mesh or rotatable measured model. Frame shape, board component placement, and chip package shapes are schematic and do not reproduce actual dimensions or lens optics. Detail clicks and step UI are retained.
+
+`guest-dashboard-preview.png` is a brightness-enhanced preview of virtual stock 2.3 guest output copied from `simulator/boot-family-screen-viewer-01/stock23-gain-16.png`. Green was applied in CSS. It does not represent a photograph through actual glasses lenses or physical pixel accuracy. The image and HTML were served at a temporary Cloudflare address. Image rights and sensitive-information review for public distribution remain separate.
+
+The temporary tunnel served only `web/prototypes` through local HTTP, not the home or private research directories. The access URL was a temporary quick-tunnel address and neither the address nor availability persists. HTTP 200 for HTML and image and the actual document DOM were confirmed in a dedicated minimized Safari window, which was then closed. Mobile visual completeness and interactive 3D were not validated. No physical-device access occurred.

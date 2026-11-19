@@ -1,0 +1,11 @@
+# The 20-second interval and observation gaps in the boot report
+
+bw-0599. `run.py`, `exports/boot-reset.json`, `wire-activation.json`, `retry-diagnostic.json`, and audit results in `report-bw595-integrated/capture` were compared. This is a virtual board and does not represent physical hardware performance.
+
+- The runner's initial loop observes until 20 virtual seconds and then pauses unless a completed screen or error occurs first. In this run no screen appeared before input, so virtual touch was supplied at about 20.0492 seconds. This includes experimental observation-window and input policy, not measured firmware boot time. Host 10 ms polling introduces virtual-time overshoot.
+- Reset→stock main handoff takes 5.181546 virtual seconds. Immediately before injection at 20.0492 seconds, PC was 0x44e176, the ISB boundary after WFI according to prior code analysis. That is an observation at one instant, not evidence that nothing occurred throughout the interval.
+- The existing observation profile stores only 17 limited PCs, times of three replies, and times of three frames. Untimed UI-code events are not inserted into the chronological log at the user's request. Gaps therefore reflect observation/display scope.
+- The final UART1 buffer retains original output strings for NOR initialization, filesystem initialization, OTA decision, main handoff, virtual BLE initialization, and more. UART0 retains binary transmission. Both have collected byte order only, without per-byte/message virtual times, so cannot be retrospectively placed on the 5–20 second timeline. Model fixtures/responses are not treated as physical chip or BLE firmware verification.
+- The next experiment proceeds through a separate pinned observation profile adding virtual clock to existing hooks/UART DMA callbacks; bounded collection of UART1 byte→line times and UART0 TX completion times; capacity/overflow display; observer-on/off normal/negative controls; and linking raw trace to report. Reducing boot time is a separate experiment. Do not arbitrarily omit the initial 20 seconds or manipulate guest branches/memory.
+
+The “Brightness adjusted” text guidance was removed from the screen while retaining the original-view button. Switching between original/adjusted results and Chrome execution were confirmed.

@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "id": "sram-cache-address-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "uart-hcpa-gate-main-01",
+  "cases": {"stock24": "stock_current", "stock23": "stock_base", "cfw": "cfw"},
+  "components": [{
+    "name": "system-control",
+    "baseline": "dcache-address-contract-01/base-system-control.cs",
+    "candidate": "tools/renode-system-control.cs",
+    "before_sha256": "f56920dba6aae3d85b743afcc20d190f8f0132cb8d1c25b1ae91c29848040e91",
+    "after_sha256": "82067ed1bdc22110330293a607718714e92b074d6835bee55cd761ae9e58d53c"
+  }],
+  "runtime_edits": [{
+    "before": "system_control=BlackwallSystemControl(m,m['sysbus.cpu'],m['sysbus.nvic'],True,True)",
+    "after": "system_control=BlackwallSystemControl(m,m['sysbus.cpu'],m['sysbus.nvic'],True,True,True)"
+  }],
+  "diagnostics": "dict(selected=bool(system_control.DataCache.SramAddressMaintenance),cleans=int(system_control.DataCache.AddressCleans),invalidations=int(system_control.DataCache.AddressInvalidations),both=int(system_control.DataCache.AddressCleanInvalidations),last_line=int(system_control.DataCache.LastAddressLine))"
+}

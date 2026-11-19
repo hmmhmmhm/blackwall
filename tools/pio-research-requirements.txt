@@ -1,0 +1,2 @@
+# Additional dependency for inspect_mspi1_pio_contract.py in the existing research venv.
+pypdf==7.0.1

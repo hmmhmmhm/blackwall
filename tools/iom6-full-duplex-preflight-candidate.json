@@ -1,0 +1,352 @@
+{
+  "schema": 2,
+  "id": "iom6-full-duplex-command-preflight-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "iom6-dcx-no-pins-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "full-duplex-first-command-preflight",
+      "baseline": "iom6-full-duplex-research-01/base-iom.cs",
+      "candidate": "tools/renode-iom.cs",
+      "before_sha256": "e76cbb56e9f1c051b5d5824d6c3f6317edfdc16eaed26670bf3f2f09d040ef77",
+      "after_sha256": "1d064f53a59b7f86f71b7091df5d6115c69789c8a643c7dfaa6be63e0c9de194"
+    }
+  ],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    spiDcxNoPinsStorage: true\n",
+      "after": "    spiDcxNoPinsStorage: true\n    spiFullDuplexPreflight: true\n"
+    }
+  ],
+  "board_append": "",
+  "diagnostics": "dict(paused=bool(m.IsPaused),dcx=int(m['sysbus.iom6'].DcxControl),commands=int(m['sysbus.iom6'].Commands),spi_config=int(m['sysbus.iom6'].SpiConfiguration),fifo_control=int(m['sysbus.iom6'].FifoControl),submodule=int(m['sysbus.iom6'].SubmoduleControl),clock=int(m['sysbus.iom6'].ClockConfiguration))",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776788,
+          "address": 1074094368,
+          "operation": "spi-full-duplex-command-unsupported",
+          "width": 4,
+          "value": 513
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 4
+          }
+        ],
+        "allowed_differences": [
+          "Only opt-in full-duplex config latch; first SPI command blocked before engine or peer side effects"
+        ],
+        "unresolved_differences": [
+          "No FIFO transfer, SPI response, peer/timing or complete BLE initialization implemented"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5776780,
+          "address": 1074094720,
+          "operation": "write",
+          "width": 4,
+          "value": 4
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Only opt-in full-duplex config latch; first SPI command blocked before engine or peer side effects"
+        ],
+        "unresolved_differences": [
+          "No FIFO transfer, SPI response, peer/timing or complete BLE initialization implemented"
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747260,
+          "address": 1074094368,
+          "operation": "spi-full-duplex-command-unsupported",
+          "width": 4,
+          "value": 513
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 4
+          }
+        ],
+        "allowed_differences": [
+          "Only opt-in full-duplex config latch; first SPI command blocked before engine or peer side effects"
+        ],
+        "unresolved_differences": [
+          "No FIFO transfer, SPI response, peer/timing or complete BLE initialization implemented"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747252,
+          "address": 1074094720,
+          "operation": "write",
+          "width": 4,
+          "value": 4
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Only opt-in full-duplex config latch; first SPI command blocked before engine or peer side effects"
+        ],
+        "unresolved_differences": [
+          "No FIFO transfer, SPI response, peer/timing or complete BLE initialization implemented"
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747260,
+          "address": 1074094368,
+          "operation": "spi-full-duplex-command-unsupported",
+          "width": 4,
+          "value": 513
+        },
+        "comparison": {
+          "policy": "prefix",
+          "path": [
+            "selected_observation",
+            "events"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 4
+          }
+        ],
+        "allowed_differences": [
+          "Only opt-in full-duplex config latch; first SPI command blocked before engine or peer side effects"
+        ],
+        "unresolved_differences": [
+          "No FIFO transfer, SPI response, peer/timing or complete BLE initialization implemented"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 5747252,
+          "address": 1074094720,
+          "operation": "write",
+          "width": 4,
+          "value": 4
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "dcx"
+            ],
+            "eq": 16
+          },
+          {
+            "path": [
+              "diagnostics",
+              "commands"
+            ],
+            "eq": 0
+          },
+          {
+            "path": [
+              "diagnostics",
+              "spi_config"
+            ],
+            "eq": 0
+          }
+        ],
+        "allowed_differences": [
+          "Only opt-in full-duplex config latch; first SPI command blocked before engine or peer side effects"
+        ],
+        "unresolved_differences": [
+          "No FIFO transfer, SPI response, peer/timing or complete BLE initialization implemented"
+        ]
+      }
+    }
+  }
+}

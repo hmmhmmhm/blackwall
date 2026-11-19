@@ -1,0 +1,323 @@
+{
+  "schema": "blackwall-boot-validation-matrix/1",
+  "scope": "offline virtual planning only; no execution or installation authorization",
+  "physical_hardware_revision": null,
+  "left_boot_version": null,
+  "right_boot_version": null,
+  "charging_case_version": null,
+  "user_main_report": "2.4.0.24 aggregate, not both temple verification",
+  "case_fixture_version": "1.2.57 source fixture only",
+  "artifacts": {
+    "stock-boot24": {
+      "kind": "boot",
+      "version": "2.4.0.24",
+      "sha256": "ecb91896234392e2b98ec80b1ac3ebf4aa27726d3cbed10927edf0b44d83d665"
+    },
+    "research-patch24": {
+      "kind": "boot",
+      "version": "2.4.0.24 research patch",
+      "sha256": "5ac1b02d337b57e0d25886a06296df2d5932af1f31168c416e64b50c5417a91d"
+    },
+    "upstream-current23": {
+      "kind": "boot",
+      "version": "2.3.2.14 release 42e27e9",
+      "sha256": "7010d103d02a49333362ec185fb04c9657626f97cec5240063375d1c52e55a7e"
+    },
+    "upstream-previous23": {
+      "kind": "boot",
+      "version": "2.3.2.14 previous",
+      "sha256": "06f8a8d59f6351461aa9ce45cbc2a6697172cdca872ec77552325301ae175cc4"
+    },
+    "research-patch23": {
+      "kind": "boot",
+      "version": "2.3.2.14 custom-key research",
+      "sha256": "aa6f9991522a0f7b413f9a50263b04d2be992424768351d96601573bcff99e55"
+    },
+    "stock-boot23": {
+      "kind": "boot",
+      "version": "2.3.2.14 original",
+      "sha256": "22a2b98e606b4d296e957a3a8b600a2158497638d79485c817c2025536329ba7"
+    },
+    "stock-main24": {
+      "kind": "main",
+      "version": "2.4.0.24",
+      "sha256": "df8cfddf3bd29a8351129a8364a8e0dafb347ffc7bfcbca5b52fdd973a7cce4a"
+    },
+    "stock-main23-release": {
+      "kind": "main",
+      "version": "2.3.2.14 same bundle",
+      "sha256": "69f9ef63997c9bb53e5b97f83cc330e93651577ab1595ac57dcb481c3e513b9c"
+    },
+    "stock-main23-legacy": {
+      "kind": "main",
+      "version": "2.3.0.24",
+      "sha256": "fffbf74b3439bf0e4752fb620a7990d0a133898c54f6fb08005ea6b7029655c5"
+    },
+    "faceclaw38-main": {
+      "kind": "main",
+      "version": "Faceclaw/38 base2.3.0.24",
+      "sha256": "4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f"
+    }
+  },
+  "profiles": [
+    {
+      "id": "stock24",
+      "boot": "stock-boot24",
+      "main": "stock-main24",
+      "model": "synthetic-chip23-trim0",
+      "capabilities": {
+        "boot-main-screen": {
+          "status": "verified-compatible",
+          "evidence": [
+            "docs/original-boot-completion-audit.md"
+          ],
+          "reason": "Original virtual boot/main/frame profile"
+        },
+        "pending-metadata-cycle": {
+          "status": "verified-compatible",
+          "evidence": [
+            "docs/pending-metadata-cycle-results.md"
+          ],
+          "reason": "Bounded functional ROM16byte/POR-request plus fresh cold profile"
+        },
+        "uart2-auth": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-validation-progress.json"
+          ],
+          "reason": "No recovery patch installed"
+        }
+      }
+    },
+    {
+      "id": "research24",
+      "boot": "research-patch24",
+      "main": "stock-main24",
+      "model": "synthetic-chip23-trim0",
+      "capabilities": {
+        "boot-main-screen": {
+          "status": "verified-compatible",
+          "evidence": [
+            "docs/full-main-restore-results.md"
+          ],
+          "reason": "Patched boot to restored stock main/frame"
+        },
+        "boot-manager-fallback": {
+          "status": "verified-compatible",
+          "evidence": [
+            "docs/bootloader-validation-results.md"
+          ],
+          "reason": "Protection fallback is verified; worker absent"
+        },
+        "virtual-main-restore": {
+          "status": "verified-compatible",
+          "evidence": [
+            "docs/full-main-restore-results.md"
+          ],
+          "reason": "Isolated ARM writer and fresh reboot"
+        },
+        "virtual-full-stock-restore": {
+          "status": "verified-compatible",
+          "evidence": [
+            "docs/main-driven-boot-restore-results.md"
+          ],
+          "reason": "Original main callback/functional ROM/full4MiB/fresh stock boot; diagnostic caller"
+        },
+        "uart2-auth": {
+          "status": "incompatible",
+          "evidence": [
+            "docs/bootloader-upstream-trim-review.md"
+          ],
+          "reason": "This synthetic trim0 profile reaches protective fallback, no worker"
+        },
+        "same-board-recovery": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-validation-progress.json"
+          ],
+          "reason": "Same-board worker/authentication not verified"
+        }
+      }
+    },
+    {
+      "id": "current23",
+      "boot": "upstream-current23",
+      "main": "stock-main23-release",
+      "model": "synthetic-chip23-trim0",
+      "capabilities": {
+        "boot-manager-fallback": {
+          "status": "verified-compatible",
+          "evidence": [
+            "docs/bootloader-upstream-trim-review.md"
+          ],
+          "reason": "Exact same-bundle reset/fallback/main entry, not frame"
+        },
+        "uart2-auth": {
+          "status": "incompatible",
+          "evidence": [
+            "docs/bootloader-upstream-trim-review.md"
+          ],
+          "reason": "Synthetic trim0 protective fallback disables worker"
+        },
+        "virtual-full-stock-restore": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-upstream-trim-review.md"
+          ],
+          "reason": "No whole restoration/frame evidence for this pair"
+        }
+      }
+    },
+    {
+      "id": "previous23",
+      "boot": "upstream-previous23",
+      "main": "stock-main23-release",
+      "model": "synthetic-chip23-trim0",
+      "capabilities": {
+        "boot-manager-fallback": {
+          "status": "verified-compatible",
+          "evidence": [
+            "docs/bootloader-upstream-trim-review.md"
+          ],
+          "reason": "Exact same-bundle reset/fallback/main entry, not frame"
+        },
+        "uart2-auth": {
+          "status": "incompatible",
+          "evidence": [
+            "docs/bootloader-upstream-trim-review.md"
+          ],
+          "reason": "Synthetic trim0 protective fallback disables worker"
+        },
+        "virtual-full-stock-restore": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-upstream-trim-review.md"
+          ],
+          "reason": "No whole restoration/frame evidence for this pair"
+        }
+      }
+    },
+    {
+      "id": "custom23",
+      "boot": "research-patch23",
+      "main": "stock-main23-release",
+      "model": "synthetic-chip23-trim0",
+      "capabilities": {
+        "boot-main-screen": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-upstream-trim-review.md"
+          ],
+          "reason": "Upstream claim or isolated handoff/artifact pairing is insufficient for this operation"
+        },
+        "virtual-full-stock-restore": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-validation-progress.json"
+          ],
+          "reason": "Unsupported restoration pair; must not infer from matching version text"
+        }
+      }
+    },
+    {
+      "id": "stock23",
+      "boot": "stock-boot23",
+      "main": "stock-main23-release",
+      "model": "synthetic-chip23-trim0",
+      "capabilities": {
+        "boot-main-screen": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-upstream-trim-review.md"
+          ],
+          "reason": "Upstream claim or isolated handoff/artifact pairing is insufficient for this operation"
+        },
+        "virtual-full-stock-restore": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-validation-progress.json"
+          ],
+          "reason": "Unsupported restoration pair; must not infer from matching version text"
+        }
+      }
+    },
+    {
+      "id": "mixed23-24",
+      "boot": "upstream-current23",
+      "main": "stock-main24",
+      "model": "synthetic-chip23-trim0",
+      "capabilities": {
+        "boot-main-screen": {
+          "status": "source-supported-untested",
+          "evidence": [
+            "docs/bootloader-upstream-trim-review.md"
+          ],
+          "reason": "Upstream claim or isolated handoff/artifact pairing is insufficient for this operation"
+        },
+        "virtual-full-stock-restore": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-validation-progress.json"
+          ],
+          "reason": "Unsupported restoration pair; must not infer from matching version text"
+        }
+      }
+    },
+    {
+      "id": "patch24-faceclaw38",
+      "boot": "research-patch24",
+      "main": "faceclaw38-main",
+      "model": "synthetic-chip23-trim0",
+      "capabilities": {
+        "boot-main-screen": {
+          "status": "unknown",
+          "evidence": [
+            "docs/combined-handoff-verification.md"
+          ],
+          "reason": "Upstream claim or isolated handoff/artifact pairing is insufficient for this operation"
+        },
+        "virtual-full-stock-restore": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-validation-progress.json"
+          ],
+          "reason": "Unsupported restoration pair; must not infer from matching version text"
+        }
+      }
+    },
+    {
+      "id": "patch24-legacy23",
+      "boot": "research-patch24",
+      "main": "stock-main23-legacy",
+      "model": "synthetic-chip23-trim0",
+      "capabilities": {
+        "boot-main-screen": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-upstream-trim-review.md"
+          ],
+          "reason": "Upstream claim or isolated handoff/artifact pairing is insufficient for this operation"
+        },
+        "virtual-full-stock-restore": {
+          "status": "unknown",
+          "evidence": [
+            "docs/bootloader-validation-progress.json"
+          ],
+          "reason": "Unsupported restoration pair; must not infer from matching version text"
+        }
+      }
+    }
+  ],
+  "operations": [
+    "boot-main-screen",
+    "pending-metadata-cycle",
+    "boot-manager-fallback",
+    "virtual-main-restore",
+    "virtual-full-stock-restore",
+    "uart2-auth",
+    "same-board-recovery"
+  ],
+  "default_unregistered_status": "unknown",
+  "installable": false,
+  "hardware_validated": false
+}

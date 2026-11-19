@@ -1,0 +1,85 @@
+{
+  "manifest_chain": {
+    "commit": {
+      "sha": "d3278ec49a534728384537557dd44b205ec72129",
+      "tree": "7def48fd64118c988ce098ae55badc8a19ed0681",
+      "url": "https://github.com/AmbiqMicro/ambiqhal_ambiq/commit/d3278ec49a534728384537557dd44b205ec72129"
+    },
+    "manifest_chain": {
+      "zephyr_commit": "89c8a36fb2af42b8ce83a30ea8b5dcada9442ccc",
+      "hal_commit": "d3278ec49a534728384537557dd44b205ec72129"
+    }
+  },
+  "sources": [
+    {
+      "repo": "AmbiqMicro/ambiqhal_ambiq",
+      "commit": "d3278ec49a534728384537557dd44b205ec72129",
+      "path": "components/graphics/NemaGFX_SDK/headers/NemaGFX/Nema/nema_regs.h",
+      "git_blob": "1c5933b5a4571665e4bbec566ac53cb0ea08ec3a",
+      "sha256": "7ac2f2ad9bda610df64ca02ab4974ca93fada09898f3cbfdb3466ed2a4cf957c"
+    },
+    {
+      "repo": "AmbiqMicro/ambiqhal_ambiq",
+      "commit": "d3278ec49a534728384537557dd44b205ec72129",
+      "path": "components/graphics/NemaGFX_SDK/headers/NemaGFX/Nema/nema_ringbuffer.h",
+      "git_blob": "fd2fd952b4ce2e7011858eb0b1f379f6ffb36696",
+      "sha256": "899ab16187af2c86a65d0d44e632432bb2a271eb9587023ea6efaee7e6806cf8"
+    },
+    {
+      "repo": "AmbiqMicro/ambiqhal_ambiq",
+      "commit": "d3278ec49a534728384537557dd44b205ec72129",
+      "path": "components/graphics/NemaGFX_SDK/headers/NemaGFX/Nema/nema_programHW.h",
+      "git_blob": "c02071bd509c07ca5e3617fbdd1d935a5d0fa056",
+      "sha256": "0d7634f65fe3a04088b3895f0b8467823a73cf4496b7e5cb95e641c4cf84c465"
+    },
+    {
+      "repo": "AmbiqMicro/ambiqhal_ambiq",
+      "commit": "d3278ec49a534728384537557dd44b205ec72129",
+      "path": "components/graphics/NemaGFX_SDK/headers/LICENSE",
+      "git_blob": "4ba5d2cc1db909af5c8111414976cc9ce23e215b",
+      "sha256": "bb504491bd00c656c9622c9b9cfe805273c8c626ceb35480b5907983de718fbc"
+    },
+    {
+      "repo": "AmbiqMicro/ambiqhal_ambiq",
+      "commit": "d3278ec49a534728384537557dd44b205ec72129",
+      "path": "components/graphics/NemaGFX_SDK/headers/include/tsi/NemaGFX/nema_version.h",
+      "git_blob": "76df02be5ddc189887e5e15e98bfac43b2b4fdb4",
+      "sha256": "c0b2ec7681603a6b9f4268f665f73e9ea3038cf9763dd94453412a40c8cce7b7"
+    },
+    {
+      "repo": "AmbiqMicro/ambiqhal_ambiq",
+      "commit": "d3278ec49a534728384537557dd44b205ec72129",
+      "path": "components/graphics/NemaGFX_SDK/headers/include/tsi/NemaGFX/nema_cmdlist.h",
+      "git_blob": "c55109c9e1f13aee4d391229f337ce6d0ef6cfa5",
+      "sha256": "ea582be2bd7f90d40256de52f6eb4276c785b352522f63c09ef5c45291f82edd"
+    },
+    {
+      "repo": "AmbiqMicro/ambiqhal_ambiq",
+      "commit": "d3278ec49a534728384537557dd44b205ec72129",
+      "path": "components/graphics/NemaGFX_SDK/headers/include/tsi/NemaGFX/nema_raster.h",
+      "git_blob": "770fbcd32a38cdeb459d4e7a19a2e6f280980302",
+      "sha256": "f07b4d8da69424f9630ac4a275d6f2cc9a2c4dd8318f92dbc5ba59a716617036"
+    },
+    {
+      "repo": "AmbiqMicro/ambiqhal_ambiq",
+      "commit": "d3278ec49a534728384537557dd44b205ec72129",
+      "path": "components/graphics/NemaGFX_SDK/headers/NemaGFX/Nema/nema_shaderSpecific.h",
+      "git_blob": "61a504d1cd8db26b1a6e76ebb103a4734b50cee4",
+      "sha256": "7f6a48b2c8912adc400f3b081c9aa8d4d36e59f6f971ddc9f861dd3d3de75348"
+    },
+    {
+      "repo": "AmbiqMicro/ambiqzephyr",
+      "commit": "89c8a36fb2af42b8ce83a30ea8b5dcada9442ccc",
+      "path": "drivers/gpu/gpu_ambiq.c",
+      "git_blob": "29f738c01da3d7f95007b3059c9c1159feababbc",
+      "sha256": "2bc9219e17e26e66b716c3b198680bf776b179c8c5ff7813d024bfd3a6ab4b7e"
+    },
+    {
+      "repo": "AmbiqMicro/ambiqzephyr",
+      "commit": "89c8a36fb2af42b8ce83a30ea8b5dcada9442ccc",
+      "path": "west.yml",
+      "git_blob": "1f19a99c343d7e441e210af560efc1d83feaa92c",
+      "sha256": "39e07bf38cf8b0b028d1b9611ab568bf7153ff0afacb90bd2a745a38077e29b4"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+node_modules/
+.cache/
+local/
+dist/
+*.bin
+*.raw
+*.key
+*.secret
+.DS_Store

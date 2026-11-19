@@ -1,0 +1,123 @@
+{
+  "kind": "candidate-bindings-not-a-supported-profile",
+  "hardware_validated": false,
+  "patch_generated": false,
+  "old_sha256": "22a2b98e606b4d296e957a3a8b600a2158497638d79485c817c2025536329ba7",
+  "new_sha256": "ecb91896234392e2b98ec80b1ac3ebf4aa27726d3cbed10927edf0b44d83d665",
+  "old_bytes": 149760,
+  "new_bytes": 149773,
+  "candidates": [
+    {
+      "name": "tick",
+      "old": "0x4160e8",
+      "candidate": "0x4160e8",
+      "span_bytes": 16,
+      "selected_bytes_identical": true,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "delay",
+      "old": "0x416378",
+      "candidate": "0x416378",
+      "span_bytes": 16,
+      "selected_bytes_identical": true,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "thread_new",
+      "old": "0x4160fe",
+      "candidate": "0x4160fe",
+      "span_bytes": 16,
+      "selected_bytes_identical": true,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "task_delete",
+      "old": "0x417f0a",
+      "candidate": "0x417f0a",
+      "span_bytes": 16,
+      "selected_bytes_identical": true,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "gpio",
+      "old": "0x41d92c",
+      "candidate": "0x41d92c",
+      "span_bytes": 16,
+      "selected_bytes_identical": true,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "uart_wake",
+      "old": "0x41f846",
+      "candidate": "0x41f846",
+      "span_bytes": 116,
+      "selected_bytes_identical": false,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "uart_sleep",
+      "old": "0x41f8ba",
+      "candidate": "0x41f8ba",
+      "span_bytes": 94,
+      "selected_bytes_identical": false,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "update_flag",
+      "old": "0x42e56c",
+      "candidate": "0x42e57c",
+      "span_bytes": 48,
+      "selected_bytes_identical": false,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "handoff",
+      "old": "0x42dfd8",
+      "candidate": "0x42dfe8",
+      "span_bytes": 18,
+      "selected_bytes_identical": true,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "mram_wrapper",
+      "old": "0x42e83c",
+      "candidate": "0x42e84c",
+      "span_bytes": 26,
+      "selected_bytes_identical": true,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "uart_pin_table",
+      "old": "0x434210",
+      "candidate": "0x434220",
+      "span_bytes": 24,
+      "selected_bytes_identical": true,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "hook_manager",
+      "old": "0x42e656",
+      "candidate": "0x42e666",
+      "span_bytes": 4,
+      "selected_bytes_identical": true,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "hook_update",
+      "old": "0x42e3d4",
+      "candidate": "0x42e3e4",
+      "span_bytes": 4,
+      "selected_bytes_identical": true,
+      "status": "unreviewed-binding"
+    },
+    {
+      "name": "hook_boot",
+      "old": "0x42e440",
+      "candidate": "0x42e450",
+      "span_bytes": 4,
+      "selected_bytes_identical": true,
+      "status": "unreviewed-binding"
+    }
+  ]
+}

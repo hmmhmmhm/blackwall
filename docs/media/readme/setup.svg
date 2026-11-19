@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" role="img" aria-label="Prepare a reproducible workspace">
+<rect width="1200" height="250" rx="18" fill="#101113"/><rect x="1" y="1" width="1198" height="248" rx="17" fill="none" stroke="#34363a"/>
+<text x="34" y="34" font-family="Arial,sans-serif" font-size="11" letter-spacing="2.5" fill="#8f9399">SETUP</text>
+<text x="34" y="65" font-family="Arial,sans-serif" font-size="22" font-weight="600" fill="#f0f0f2">Prepare a reproducible workspace</text>
+<rect x="34" y="96" width="245" height="108" rx="10" fill="#17191c" stroke="#383b40"/>
+<text x="52" y="124" font-family="monospace" font-size="12" fill="#898d93">01</text>
+<text x="52" y="155" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="#f2f2f3">Support files</text>
+<text x="52" y="181" font-family="Arial,sans-serif" font-size="12" fill="#a5a8ad">Inspect required paths and hashes</text>
+<path d="M291 150h20m-5-5 5 5-5 5" fill="none" stroke="#878b91" stroke-width="1.5"/>
+<rect x="330" y="96" width="245" height="108" rx="10" fill="#17191c" stroke="#383b40"/>
+<text x="348" y="124" font-family="monospace" font-size="12" fill="#898d93">02</text>
+<text x="348" y="155" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="#f2f2f3">Docker volume</text>
+<text x="348" y="181" font-family="Arial,sans-serif" font-size="12" fill="#a5a8ad">Store the required inputs</text>
+<path d="M587 150h20m-5-5 5 5-5 5" fill="none" stroke="#878b91" stroke-width="1.5"/>
+<rect x="626" y="96" width="245" height="108" rx="10" fill="#17191c" stroke="#383b40"/>
+<text x="644" y="124" font-family="monospace" font-size="12" fill="#898d93">03</text>
+<text x="644" y="155" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="#f2f2f3">Doctor</text>
+<text x="644" y="181" font-family="Arial,sans-serif" font-size="12" fill="#a5a8ad">Check input and runtime status</text>
+<path d="M883 150h20m-5-5 5 5-5 5" fill="none" stroke="#878b91" stroke-width="1.5"/>
+<rect x="922" y="96" width="245" height="108" rx="10" fill="#17191c" stroke="#383b40"/>
+<text x="940" y="124" font-family="monospace" font-size="12" fill="#898d93">04</text>
+<text x="940" y="155" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="#f2f2f3">Report</text>
+<text x="940" y="181" font-family="Arial,sans-serif" font-size="12" fill="#a5a8ad">Run a scenario and open HTML</text>
+</svg>

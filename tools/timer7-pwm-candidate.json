@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "timer7-pwm-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "uart-tx-events-main-02",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "shared-timer-PWM-engine",
+      "baseline": "timer7-model-research-01/base-engine.cs",
+      "candidate": "local/generated/timer7-engine.cs",
+      "before_sha256": "cb7f473751566fa8f72009385d7dc01c24b35da39174cf10ef6004f37718f965",
+      "after_sha256": "1f3d9159649ecfb0e6b46072594a867302626e88bbd9b2a8cd2cd16c24c74e41"
+    },
+    {
+      "name": "timer7-strict-adapter",
+      "baseline": "timer7-model-research-01/base-adapter.cs",
+      "candidate": "tools/renode-timer14.cs",
+      "before_sha256": "de5a6b466844602a02e742d9bd5eea6d00ac59632c524b30919a9804c0454aee",
+      "after_sha256": "cf4516776f9e8edf0ba5ec5118d5b36585afa1f0598c59c72803f8e0f7894be0"
+    }
+  ],
+  "append_components": [],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "    timer0Profile: \"nominal-hfrc96-upcount\"\n",
+      "after": "    timer0Profile: \"nominal-hfrc96-upcount\"\n    timer7Profile: \"nominal-hfrc96-pwm\"\n    Timer7IRQ -> nvic@74\n"
+    }
+  ],
+  "board_append": "",
+  "host_capture_seconds": 45,
+  "diagnostics": "dict(timer7=dict(selected=bool(g.Timer14.Timer7Enabled),control=int(g.Timer14.Timer7Control),counter=int(g.Timer14.Timer7Counter),compare0=int(g.Timer14.Timer7Compare0),compare1=int(g.Timer14.Timer7Compare1),mode=int(g.Timer14.Timer7Mode),outcfg=int(g.Timer14.Timer7OutputConfig),running=bool(g.Timer14.Timer7Running),irq=bool(g.Timer14.Timer7IRQ.IsSet)),tx_bytes=[int(v) for v in g.Uarts[0].TxBytes],irq_entries=int(g.Uarts[0].IrqExceptionEntries),dma_starts=int(g.Uarts[0].DmaTx.Starts),dma_completions=int(g.Uarts[0].DmaTx.Completions))"
+}

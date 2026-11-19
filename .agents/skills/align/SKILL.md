@@ -1,0 +1,345 @@
+---
+name: align
+description: Establish and maintain project or optional cross-project personal alignment in ALIGNS.md, including review of selected personal documents, PR feedback, or conversations for scoped criteria. Use for natural-language self-alignment requests in any language, including a Korean request to start or resume self-alignment (for example, the phrase represented by Unicode code points `U+C790 U+AC00 U+C815 U+B82C U+0020 U+C9C4 U+D589 U+D574 U+BD05 U+C2DC U+B2E4`) or “Let’s do a self-alignment check,” or when goals or priorities are unclear, important decisions diverge from the user's expectations, repeated corrections expose a missing criterion, or a long autonomous run needs judgment calibration. Also use for requested collection or export of confirmed alignment decision examples for personal fine-tuning. Apply existing agreements without reopening routine decisions.
+license: MIT
+metadata:
+  version: "0.11.0"
+---
+
+# Align
+
+Help a user and their agent agree on what good work means and keep decisions
+consistent with that agreement. The maintained skill supplies the method;
+project-root `ALIGNS.md` holds project criteria. An optional, explicitly linked
+personal ALIGNS.md holds confirmed defaults across projects. Updating the skill
+must never replace, reconfirm, or migrate those criteria automatically.
+Here, self-alignment means helping the user clarify their preferences and decision
+criteria and checking the agent’s work against them. The optional data path
+prepares examples for user-run fine-tuning; this skill does not train models or
+let the agent set its own values.
+Use the user's language and project conventions. Do not import preferences
+from the skill's source repository.
+
+## Existing installations
+
+The agreement filename is now `ALIGNS.md`. If a project still has `ALIGN.md`,
+read it as the existing agreement. When migration is authorized, rename the file
+and update its instruction references without changing its criteria or confirmation
+date. If both files exist, compare them with the user before choosing or merging;
+never silently overwrite either. The skill name remains `align`; users can request it in natural language.
+
+## Read before asking
+
+Identify the target project, applicable instructions, existing `ALIGNS.md`,
+relevant conversation, and changes that could affect the current decision.
+Check whether Git is available and this is a work tree. Use available history
+and uncommitted work; a timestamp does not prove all later work was reviewed.
+If history is unavailable, explain only material gaps. Do not initialize Git
+or create an alternative alignment log without a request.
+
+At initial setup, or after the user changes tools, read
+[environment setup](references/environment.md). Establish which CLI is primary
+and whether it is the current client. Reuse explicit context; ask once if it
+is unclear. Do not infer the main client just from a filename or installed binary.
+Inspect the actual instruction entrypoints before proposing any changes.
+For setup or discovery repair, verify the required skills from the actual session
+workspace using the environment reference. When connecting project instructions,
+make align required for alignment work and preserve the user's other scoped skill
+requirements. A recommendation or installed skill is not automatically required.
+For an open-purpose invocation, defer setup questions until a path is selected.
+
+## Start with a numbered choice when the purpose is open
+
+When the user invokes align without a clear purpose, show this short menu in
+their language after reading the available project context. Keep numbers stable:
+
+1. Set or review the project's direction and personal criteria.
+2. Review a recent decision that missed expectations.
+3. Find candidate criteria in selected PR or conversation history.
+4. Rehearse judgment before a long autonomous run.
+5. Recommend a starting point from the current project context.
+6. Set up or review personal ALIGNS.md defaults across projects (optional).
+7. Add the ALIGNS.md badge to this project's README (only when absent).
+8. Set up or review personal training-data collection and export (optional).
+
+Before offering path 7, inspect the target README using [README badge](references/badge.md).
+Omit it when the badge is already present, declined, deferred, or outside the
+requested scope; preserve the other numbers. If the README cannot be inspected,
+report that limitation rather than guessing that a badge is missing.
+
+Accept a numbered choice or a clear natural-language request as the starting
+path without showing the menu again. Preserve existing command aliases for users
+who already use them, but do not require or suggest a command to continue. Otherwise ask for a number or a free-form answer.
+Use the client's available structured-question UI when its active mode supports
+it. Follow [session flow](references/session-flow.md) for capability limits,
+progress tracking, and the next-choice step. Keep stable numbers in labels and
+accept natural-language replies. Treat a number as an answer to the most recent
+pending menu, including a history-scope menu.
+Do not show the start menu again after a valid choice. For an ambiguous answer,
+clarify only the ambiguous part. An unanswered menu does not select a default.
+
+Skip this menu when the request, earlier choice, or active task already gives a
+clear purpose, including implicit activation during a mismatch. Do not turn a
+routine task, conceptual question, or known execution error into a menu session.
+For option 5, recommend one path with a reason from known context and begin its
+first useful question, if one remains. Do not invent preferences or collect
+history to recommend.
+
+Option 3 opens the source, scope and time-estimate choice in
+[history review](references/history.md);
+it does not authorize reading unspecified logs or all PRs. Reuse scope already given.
+
+Option 6 follows [personal alignment](references/personal.md). Offer user-selected
+personal documents or notes as input, and local storage or an optional
+personal repository. Selection alone does not authorize cloning, publishing, or
+promoting source content to confirmed global criteria. Keep project-only use simple.
+
+Option 7 follows [README badge](references/badge.md). Selection authorizes the
+scoped README edit, not publishing, remote changes, or a new alignment interview.
+Recheck before editing and skip an existing badge without duplication.
+
+Option 8 follows [training data](references/training-data.md). For explicitly requested
+team batches, also use [team training data](references/team-training.md). Selection opens
+setup or review; agree on sources, scope, storage and review mode before collection.
+Reuse existing authorization without enabling unrelated collection. Keep data
+separate from ALIGNS.md. Do not train a model, commit, upload, or start a background
+collector merely because this path was selected. Developing this skill does not
+authorize collecting the developer's conversations as training data.
+
+After selecting a path, give one brief outline of the relevant steps:
+**check context → clarify unresolved choices → summarize criteria → save authorized
+changes**. Name the current step at meaningful transitions, not on every reply.
+Adapt the outline: history review starts with source/scope selection and evidence;
+rehearsal uses hypothetical decisions without executing the run; badge setup checks
+for an existing badge, adds it if absent, and verifies the README; training-data
+setup agrees on collection settings, records authorized candidates, and reviews
+examples before a requested export. Skip completed
+steps and do not add confirmation gates. Saving follows the authorization rules
+below; selecting a path alone does not confirm lasting criteria. If no criterion
+changes, report that outcome without rewriting the agreement, then use the
+continuation rule below. Only include
+environment setup or instruction-file connection when needed for the selected task.
+
+## Keep the conversation moving
+
+Users can ask in ordinary language whenever the skill is available: “Help me align
+this project's criteria,” “That decision missed what I meant,” or “Let's organize
+my preferences across projects.” Treat requests in Korean or any other language to start or resume self-alignment as explicit requests to start or resume alignment, using available session progress. This includes the Korean phrase represented by Unicode code points `U+C790 U+AC00 U+C815 U+B82C U+0020 U+C9C4 U+D589 U+D574 U+BD05 U+C2DC U+B2E4`. Accept
+“self alignment” and “self-alignment” in requests such as “Let’s do a self-alignment
+check” or “Help me with self alignment.” Keep earlier natural-language examples
+valid, including “Let’s review my alignment.” No exact
+phrase or command is required. Resolve
+intent from the conversation; unrelated uses of words like alignment do not trigger
+an interview. Do not promise invocation when the client cannot discover or load
+the skill.
+
+Treat menu answers, client selection, source selection, and storage choices as
+intermediate steps in the active request. Keep the chosen purpose, scope, answered
+questions, and pending step in conversation context. After an answer, resume that
+step in the same turn: do the authorized work or ask the next consequential question.
+Do not end with “this path is suitable,” “run the skill,” or “say continue” when the
+user already asked for that work. Installation or discovery repair is a substep
+when setup and alignment were requested together; return to the alignment work
+after verifying it. An installation-only request does not authorize an interview.
+
+When an item is ready to save, show the concrete criterion and destination scope,
+and ask once if saving has not already been authorized. Reuse clear authorization;
+do not ask again for each sentence or treat a pending answer as consent. After
+confirmation, save the item, complete its authorized connection and verification,
+and state what was actually saved. A single-item confirmation updates only that
+item's confirmation annotation, not the whole document's Last aligned time.
+
+After completing an item in an active alignment session, always provide a next-choice
+step unless the user requested stopping or only that item. Follow
+[session flow](references/session-flow.md): summarize completion, exclude already
+completed or declined topics, recommend the best remaining eligible topic with a
+reason, show all other remaining paths, and offer a finish choice. Account for
+all eight paths before filtering: not yet explored is not completed or inapplicable.
+Path 7 is an exception: offer it only after confirming the README badge is absent.
+An unchosen history source or personal setup remains an optional next direction;
+a mismatch review can invite an example without asserting that one exists. Path 5
+is navigation, not another exercise. Use the supported question UI, or one numbered
+text question if it cannot fit every remaining path. Do not silently end because
+the selected item is finished. If no eligible topic remains after the coverage check in session flow, explain the
+exclusions, recommend finishing and offer space for a user-named topic;
+do not invent a gap or restart the menu.
+
+Continue already authorized multi-item work without another selection gate.
+Otherwise wait for the user's choice before starting new scope. Reuse an answered
+selection without asking for an invocation or “continue.” Respect tool availability
+and mode restrictions, and do not equate a default selection with an answer.
+In Codex, do not send a final/completion response immediately after an asynchronous
+question whose answer is required. Keep the question pending and use a supported
+interruptible wait. An accepted request does not prove UI display. Follow the
+Codex question-lifecycle guidance in [session flow](references/session-flow.md#codex-keep-questions-open-until-answered);
+include a question-resume link only when officially supplied or documented.
+In routine non-alignment work, apply existing criteria without a follow-up menu.
+
+## Make it easy to return
+
+Offer a brief return invitation only when closing a session that actually used
+align to perform self-alignment. Show it at most once per session, not after each
+item. For example: “Whenever you want to revisit your criteria, say ‘Let’s do a
+self-alignment check.’” Adapt naturally for other languages. Omit it during
+ordinary project work, installation-only work, and skill development or editing.
+Reading the skill or applying existing criteria does not count as a self-alignment
+session. Honor requests to omit reminders. Never load align just to add one.
+Keep required next choices and pending answers intact; an invitation must not
+close an unfinished session. Do not promise native routing or availability that
+has not been verified.
+
+During authorized instruction refresh, replace older managed blocks that ask for
+ordinary-task reminders. A method update alone does not refresh existing blocks.
+Preserve other instructions and personal criteria.
+
+## Choose the smallest useful alignment
+
+| Situation | Action |
+| --- | --- |
+| New project | Clarify intended outcome and consequential trade-offs before choosing implementation details. |
+| Existing work without ALIGNS.md | Describe what exists, then ask what should stay or change. Existing code is not evidence of consent. |
+| Routine task within the agreement | Apply the criteria and proceed. No interview or gratuitous report. |
+| Important disagreement or repeated correction | Compare expectation and result, repair what is already clear, then use the focused drift review below. |
+| User does not know what to do next | Offer a brief alignment conversation with concrete options. Do not invent a roadmap or start work without a direction. |
+| Long autonomous or repeated run | Check agreed boundaries and offer a short hypothetical rehearsal if consequential judgments are untested. |
+| Loop or goal configured, stopped, or marked complete against expectations | Compare the request, configured objective, actual state, and results. Repair known errors; clarify only unresolved scope, completion, or stopping criteria. |
+
+For drift, uncertainty, or autonomous work, read
+[recurring alignment](references/recurring.md). A suggestion is not a new
+scheduled task or permission to run unattended.
+
+## Personal and project scope
+
+When personal setup is requested or a personal agreement is explicitly linked,
+read [personal alignment](references/personal.md). Apply relevant confirmed
+personal defaults alongside project criteria and agreed exceptions. Do not scan
+for unlinked profiles, copy private criteria into shared repositories, or promote
+project feedback to global rules. Confirm and update only the affected scope.
+
+## Work with specialist skills
+
+When another skill is relevant, carry the applicable confirmed criteria from
+ALIGNS.md into its brief and result review. Pass only what affects this task,
+including scope and agreed exceptions; do not copy private history or the entire
+agreement into external services. Use the specialist's method within those
+criteria. Do not install, invoke, or replace a specialist merely because align
+is active.
+
+Keep the specialist's defaults, house style and scores separate from the user's
+preferences. Using a skill or accepting one result does not make all its defaults
+lasting criteria. Save a preference only when the user explicitly requests or
+confirms it; do not rewrite ALIGNS.md to make a specialist's output pass review.
+
+Resolve conflicts using the current request, confirmed criteria and applicable
+instruction hierarchy. Adjust discretionary defaults when the existing agreement
+settles the choice; do not ask again. An agreement does not override permissions,
+required technical constraints or higher-priority instructions. If a specialist's
+check cannot accept an authorized exception, report the exception and actual
+check result instead of claiming a pass or silently changing the user's criterion.
+Ask only when a consequential choice remains unresolved, and continue independent
+work. Review the result against both the agreed criteria and applicable specialist
+checks. Correct known implementation errors without another alignment interview.
+
+## Learn from selected history
+
+When earlier feedback could reduce the user's effort, offer the optional
+[history review](references/history.md). Let the user choose recent or full PR
+history, accessible project conversations, or neither, with estimated retrieval
+and analysis times. Reuse a clear choice; never scan all personal logs by default.
+
+Use **taste invariants** as candidates for criteria that hold across observed
+situations within a stated scope. Find supporting decisions and counterexamples;
+keep personal preferences separate from team requirements and one-off exceptions.
+Repeated feedback is evidence to discuss, not permission to save a permanent rule.
+Apply confirmed criteria during self-alignment and revisit them when new user
+evidence changes the agreement. Do not claim a personality trait is immutable.
+
+## When context is missing
+
+A short request may delegate judgment. Read relevant project context and apply
+confirmed criteria before asking for more detail. Do not infer a user's ability,
+personality, or preferred questioning style from message length.
+
+Ask when a missing fact could materially change the result or scope. Briefly
+explain what depends on the answer, and group related questions in one round.
+Offer concrete options when useful. Within authorized scope, proceed with minor,
+reversible choices and judgments already delegated; state assumptions when they
+matter. An unanswered question is not consent. Continue independent work while
+a consequential choice remains open.
+
+If repeated misunderstandings suggest a mismatch in when to ask, use the
+[context review](references/recurring.md#when-missing-context-causes-rework).
+Keep task facts in task context. Record a lasting questioning preference in
+ALIGNS.md only when explicitly requested or confirmed, with its scope. Do not
+require a preference interview for every short request.
+
+If the user asks you to learn or remember their preferences but has supplied no
+concrete criterion, ask for one before creating an agreement. Keep proposals in
+the conversation unless a file draft was requested. Do not fill ALIGNS.md with
+copied tool restrictions or setup metadata to stand in for missing preferences.
+An explicit lasting criterion can be saved directly; do not reconfirm it.
+
+## Agree through conversation
+
+Ask 1-3 related questions about consequential unresolved matters. Reuse clear
+answers and accepted decisions. Cover only relevant gaps: outcome, success,
+scope, priorities, constraints, things to avoid, and autonomy boundaries.
+Use a concrete choice to clarify a vague preference. Label inferences and
+hypotheticals; neither is an agreement.
+
+Once the essentials are clear, show a short draft. Do not keep interviewing
+to fill categories. Save after confirmation or explicit authorization for the
+specific lasting change. Honor delegated drafting scope, marking unconfirmed
+parts as draft. A correction to one result is not automatically a lasting rule.
+
+## Keep the agreement current
+
+Preserve unrelated content. Record requirements separately from defaults, with
+a reason where it changes decisions. Keep detailed tasks and the skill's full
+method out of ALIGNS.md. At initial setup or a requested full review, include a
+short **Revisit alignment** section with the items below. A narrow criterion
+update must not expand into environment setup merely because this section is
+missing; mention a material discovery problem only when it affects the work.
+
+- A working invocation for this client, plus the portable request
+  “Use the align skill to review this project's ALIGNS.md with me.”
+- The trusted source `https://github.com/hmmhmmhm/aligns.md`, installed route and
+  supported update method. Never claim an unverified installation or auto-update.
+- The chosen primary CLI and canonical instruction file, and any unresolved
+  setup issue. Keep this current instead of accumulating setup history.
+- User-agreed review occasions or autonomy boundaries when relevant. Do not
+  invent a daily schedule, reminders, telemetry, or an alignment diary.
+
+Keep current criteria only and use Git history when available. Git availability
+does not authorize staging, committing, or publishing. Never revise agreements
+to justify the agent's mistake or its preferred outcome. Follow the applicable
+instruction hierarchy and distinguish a one-off exception from a lasting change.
+
+End with `Last aligned: YYYY-MM-DD HH:mm (time zone)` only at actual full user
+confirmation. Use a known zone, or explicitly labeled UTC. Reading, editing,
+updating the skill, and automatic review are not confirmation. For partial
+confirmation, annotate only affected criteria with their latest confirmation
+times and preserve the full timestamp. Replace superseded annotations instead
+of logging them. An unconfirmed draft ends `Last aligned: Not yet confirmed.`
+Do not invent a date for an undated agreement.
+
+## Connect future sessions
+
+Use the environment reference to connect the canonical instruction file to
+ALIGNS.md and to the installed skill. Prefer a short maintained trigger block
+from [the instruction template](assets/instruction-block.md), not a copy of
+this workflow. Add it once and preserve other instructions. For additional
+clients, use safe relative symlinks when their format and loading rules allow;
+never replace distinct files or nested policies with links without reconciling
+and obtaining authorization for the concrete replacement.
+
+Method updates use the installer's supported route. Read
+[installation and updates](references/installation.md) when installing,
+repairing discovery, or updating. During ordinary work use the installed version;
+do not fetch or change it every turn. An update does not authorize publishing
+project data or changing the user's criteria.
+
+Finish each alignment item with the agreed changes, consequential open issues,
+and saved paths, then follow the continuation rule above. Separate item completion from session completion. Use the finish choice when
+no eligible topics remain; close directly on a stop or single-item-only request. In routine work, return to the task without a closing approval
+question. Do not repeat declined suggestions without new evidence.

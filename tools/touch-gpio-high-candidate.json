@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "touch-gpio-high-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "touch-startup-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [
+    {
+      "name": "bounded-GPIO27-input",
+      "baseline": "touch-gpio-research-01/base-core.cs",
+      "candidate": "tools/renode-strict-mmio.cs",
+      "before_sha256": "7d3ff6c3df6d70cb4445a33b7d6225af2a7e9cddcf57ae564a4db497a77d821a",
+      "after_sha256": "049b404ec2a3b978ee201b5c0c3eb0acdf961a2f798e0384b8f2eb3c0ca4ccf7"
+    }
+  ],
+  "append_components": [],
+  "runtime_edits": [],
+  "board_edits": [
+    {
+      "before": "gpio_role_input: Miscellaneous.BlackwallGpioRoleInput @ none\n",
+      "after": "gpio_role_input: Miscellaneous.BlackwallGpioRoleInput @ none\n    touchLevel: 1\n    touchReadBudget: 1\n"
+    }
+  ],
+  "board_append": "",
+  "host_capture_seconds": 45,
+  "assumptions": {
+    "gpio27_level": 1,
+    "physical_level_known": false,
+    "other_bank_bits": "padding restricted to the original pin27 consumer",
+    "edges_and_irqs": "not generated"
+  },
+  "diagnostics": "dict(touch_level=int(g.GpioRoleInput.TouchLevel),touch_reads=int(g.GpioRoleInput.TouchReads),touch_budget=int(g.GpioRoleInput.TouchReadBudget),last_touch_pc=int(g.GpioRoleInput.LastTouchContextPc),last_touch_pin=int(g.GpioRoleInput.LastTouchContextPin),role_reads=int(g.GpioRoleInput.Reads),role_last_pin=int(g.GpioRoleInput.LastContextPin),threshold=int(m['sysbus.iom5.iom5_register_probe'].GestureThreshold),gesture_reads=int(m['sysbus.iom5.iom5_register_probe'].GestureReads),config_writes=int(m['sysbus.iom5.iom5_register_probe'].ConfigWrites),commands=int(m['sysbus.iom5'].Commands),tx_bytes=[int(v) for v in g.Uarts[0].TxBytes],irq_entries=int(g.Uarts[0].IrqExceptionEntries))"
+}

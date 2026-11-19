@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "id": "iom5-first-request-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "timer7-pwm-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [],
+  "append_components": [],
+  "runtime_edits": [],
+  "board_edits": [],
+  "board_append": "",
+  "host_capture_seconds": 45,
+  "diagnostics": "dict(address=int(m['sysbus.iom5'].ReadDoubleWord(0x2c4)),descriptor_address=int(c.GetRegister(13).RawValue)+80,descriptor_words=[int(m.SystemBus.ReadDoubleWord(int(c.GetRegister(13).RawValue)+80+i*4)) for i in range(14)],fifo_source_address=int(c.GetRegister(13).RawValue)+160,fifo_source_word=int(m.SystemBus.ReadDoubleWord(int(c.GetRegister(13).RawValue)+160)),stopped_iom5_host_reads=1)"
+}

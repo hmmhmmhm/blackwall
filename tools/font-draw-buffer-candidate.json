@@ -1,0 +1,300 @@
+{
+  "schema": 2,
+  "id": "font-draw-buffer-snapshot-v1",
+  "image_id": "sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649",
+  "source_root": "builtin-font-memory-main-01",
+  "cases": {
+    "stock24": "stock_current",
+    "stock23": "stock_base",
+    "cfw": "cfw"
+  },
+  "components": [],
+  "runtime_edits": [],
+  "board_edits": [],
+  "board_append": "",
+  "diagnostics": "dict(paused=bool(m.IsPaused),base=0x20070000,words=[int(m.SystemBus.ReadDoubleWord(0x20070000+4*i)) for i in range(1024)])",
+  "semantics": {
+    "stock24": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4677722,
+          "address": 2148532224,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "base"
+            ],
+            "eq": 537329664
+          }
+        ],
+        "allowed_differences": [
+          "Additional post-pause read-only SRAM snapshot only"
+        ],
+        "unresolved_differences": [
+          "Main stopped at missing external font; no natural render call observed"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4677722,
+          "address": 2148532224,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "base"
+            ],
+            "eq": 537329664
+          }
+        ],
+        "allowed_differences": [
+          "Additional post-pause read-only SRAM snapshot only"
+        ],
+        "unresolved_differences": [
+          "Main stopped at missing external font; no natural render call observed"
+        ]
+      }
+    },
+    "stock23": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4657964,
+          "address": 2148532224,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "base"
+            ],
+            "eq": 537329664
+          }
+        ],
+        "allowed_differences": [
+          "Additional post-pause read-only SRAM snapshot only"
+        ],
+        "unresolved_differences": [
+          "Main stopped at missing external font; no natural render call observed"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4657964,
+          "address": 2148532224,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "base"
+            ],
+            "eq": 537329664
+          }
+        ],
+        "allowed_differences": [
+          "Additional post-pause read-only SRAM snapshot only"
+        ],
+        "unresolved_differences": [
+          "Main stopped at missing external font; no natural render call observed"
+        ]
+      }
+    },
+    "cfw": {
+      "candidate": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4657964,
+          "address": 2148532224,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "base"
+            ],
+            "eq": 537329664
+          }
+        ],
+        "allowed_differences": [
+          "Additional post-pause read-only SRAM snapshot only"
+        ],
+        "unresolved_differences": [
+          "Main stopped at missing external font; no natural render call observed"
+        ]
+      },
+      "control": {
+        "boundary": {
+          "kind": "strict-mmio",
+          "pc": 4657964,
+          "address": 2148532224,
+          "operation": "read",
+          "width": 4,
+          "value": 0
+        },
+        "comparison": {
+          "policy": "exact",
+          "path": [
+            "observed"
+          ]
+        },
+        "checks": [
+          {
+            "path": [
+              "selected_observation"
+            ],
+            "eq_source": [
+              "selected_observation"
+            ]
+          },
+          {
+            "path": [
+              "diagnostics",
+              "paused"
+            ],
+            "eq": true
+          },
+          {
+            "path": [
+              "diagnostics",
+              "base"
+            ],
+            "eq": 537329664
+          }
+        ],
+        "allowed_differences": [
+          "Additional post-pause read-only SRAM snapshot only"
+        ],
+        "unresolved_differences": [
+          "Main stopped at missing external font; no natural render call observed"
+        ]
+      }
+    }
+  }
+}

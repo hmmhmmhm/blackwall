@@ -1,0 +1,192 @@
+{
+  "observed_on": "2026-11-10",
+  "record_kind": "initial-observation-before-offline-builds",
+  "superseded_status_reference": "offline-compatibility-check.md",
+  "scope": "static-source-and-local-file-analysis-only",
+  "hardware_accessed": false,
+  "upstream_scripts_executed": false,
+  "sources": [
+    {
+      "repository": "hmmhmmhm/sandevistan",
+      "commit": "7d68cb9a9d3668a7e24bc4b730a3daa505d0ab3f",
+      "license_observation": "MIT"
+    },
+    {
+      "repository": "jimrandomh/faceclaw",
+      "commit": "70ec2a0d6afd92e8185234e57ab013fcb596bf4d",
+      "license_observation": "GPL-3.0"
+    },
+    {
+      "repository": "jimrandomh/g2flash",
+      "commit": "845f665e0dfdcfd06b7d3a294388de6f17a5bd59",
+      "license_observation": "GPL-3.0"
+    },
+    {
+      "repository": "drdaeman/g2-bootloader-patch",
+      "commit": "6198d70e18293caebf8314d2e40bd3b1d0a5ee16",
+      "license_observation": "MIT"
+    },
+    {
+      "repository": "kalanihelekunihi/evenRealities-openCFW-Research",
+      "commit": "524b9b0814395c517065e11edeb844a36155ae19",
+      "license_observation": "root-license-not-found"
+    }
+  ],
+  "patch_comparison": {
+    "op_count": 39,
+    "operations_identical": true,
+    "base_sha256": "187ccf2bcc5c17a212106e8a376745511e8289c4232b634a7ea94b9bf25a0979",
+    "expected_output_sha256_not_built": "4aac023f49ec6965186d9106e328a516f20a2915ab400d561f662f984023a432",
+    "faceclaw_contract_revision": 38
+  },
+  "official_bundles": [
+    {
+      "local_filename": "stock-2.3.0.24.bin",
+      "official_source_url": "https://cdn.evenreal.co/firmware/1dbdf37b03a1169c384945e94d671371.bin",
+      "sha256": "187ccf2bcc5c17a212106e8a376745511e8289c4232b634a7ea94b9bf25a0979",
+      "bytes": 4537963,
+      "pinned_sha_match": true,
+      "header_version": "s200_v2.3.0.24",
+      "components": [
+        {
+          "entry_id": 1,
+          "filename": "firmware/codec.bin",
+          "bundle_offset": 176,
+          "payload_bytes": 326092,
+          "payload_sha256": "b06dfef7faa2f1e52d2aacd07958d4b96ffc36dca5077ac9149e48f19fc9c4d0",
+          "stored_crc32c_msb": "bdcfeeac"
+        },
+        {
+          "entry_id": 2,
+          "filename": "firmware/ble_em9305.bin",
+          "bundle_offset": 326396,
+          "payload_bytes": 211948,
+          "payload_sha256": "91a38f7fc05555f86181ecb22b363e3239bfcaaa2ff6171e98524ae64821eca9",
+          "stored_crc32c_msb": "c074baf7"
+        },
+        {
+          "entry_id": 3,
+          "filename": "firmware/touch.bin",
+          "bundle_offset": 538472,
+          "payload_bytes": 34720,
+          "payload_sha256": "c14456cd4d432815d79700b251c9a575f75c76a3710f4148c0df6ddba4cb7ba2",
+          "stored_crc32c_msb": "903ca49a"
+        },
+        {
+          "entry_id": 4,
+          "filename": "firmware/box.bin",
+          "bundle_offset": 573320,
+          "payload_bytes": 55784,
+          "payload_sha256": "36ca0c13558f252af286ae2b36b5e576d087d21d37b15d778e7da9f502a70374",
+          "stored_crc32c_msb": "7d443be0"
+        },
+        {
+          "entry_id": 5,
+          "filename": "ota/s200_bootloader.bin",
+          "bundle_offset": 629232,
+          "payload_bytes": 149755,
+          "payload_sha256": "52ed1c4d043f278f9011d2f2e6555b668ef2ff1e312695f5c28fa7986523b75b",
+          "stored_crc32c_msb": "04b60910"
+        },
+        {
+          "entry_id": 6,
+          "filename": "ota/s200_firmware_ota.bin",
+          "bundle_offset": 779115,
+          "payload_bytes": 3758720,
+          "payload_sha256": "c07813ceaf7ed16502e94406c957eb8cf9d6e8a94ac4ba9bafaefa50ebc9ff46",
+          "stored_crc32c_msb": "2a32c6c0"
+        }
+      ],
+      "raw_case_sha256_excluding_32_byte_preamble": "773b6d4cfdaf0a5a74a557e3babe8222a0ae813436b76a7437c1096d2c60d677",
+      "device_backup": false,
+      "known_good_on_user_device": false
+    },
+    {
+      "local_filename": "stock-boot-patch-bundle.bin",
+      "official_source_url": "https://cdn.evenreal.co/firmware/7892790e40cffbae6db8a635b335e17f.bin",
+      "sha256": "26b6067665a441b779c47f6b95427b8b4bb5f502aaf527466dadce628aeb00b2",
+      "bytes": 4701884,
+      "pinned_sha_match": true,
+      "header_version": "s200_v2.3.2.14",
+      "components": [
+        {
+          "entry_id": 1,
+          "filename": "firmware/codec.bin",
+          "bundle_offset": 176,
+          "payload_bytes": 326092,
+          "payload_sha256": "b06dfef7faa2f1e52d2aacd07958d4b96ffc36dca5077ac9149e48f19fc9c4d0",
+          "stored_crc32c_msb": "bdcfeeac"
+        },
+        {
+          "entry_id": 2,
+          "filename": "firmware/ble_em9305.bin",
+          "bundle_offset": 326396,
+          "payload_bytes": 211948,
+          "payload_sha256": "91a38f7fc05555f86181ecb22b363e3239bfcaaa2ff6171e98524ae64821eca9",
+          "stored_crc32c_msb": "c074baf7"
+        },
+        {
+          "entry_id": 3,
+          "filename": "firmware/touch.bin",
+          "bundle_offset": 538472,
+          "payload_bytes": 34720,
+          "payload_sha256": "c14456cd4d432815d79700b251c9a575f75c76a3710f4148c0df6ddba4cb7ba2",
+          "stored_crc32c_msb": "903ca49a"
+        },
+        {
+          "entry_id": 4,
+          "filename": "firmware/box.bin",
+          "bundle_offset": 573320,
+          "payload_bytes": 55784,
+          "payload_sha256": "36ca0c13558f252af286ae2b36b5e576d087d21d37b15d778e7da9f502a70374",
+          "stored_crc32c_msb": "7d443be0"
+        },
+        {
+          "entry_id": 5,
+          "filename": "ota/s200_bootloader.bin",
+          "bundle_offset": 629232,
+          "payload_bytes": 149760,
+          "payload_sha256": "22a2b98e606b4d296e957a3a8b600a2158497638d79485c817c2025536329ba7",
+          "stored_crc32c_msb": "cb153beb"
+        },
+        {
+          "entry_id": 6,
+          "filename": "ota/s200_firmware_ota.bin",
+          "bundle_offset": 779120,
+          "payload_bytes": 3922636,
+          "payload_sha256": "d6d29ec6a6d7d3f7e0abb260c54493e2e5dd0ed978346dc41061ee6522d40fc6",
+          "stored_crc32c_msb": "fbdb3e67"
+        }
+      ],
+      "raw_case_sha256_excluding_32_byte_preamble": "773b6d4cfdaf0a5a74a557e3babe8222a0ae813436b76a7437c1096d2c60d677",
+      "device_backup": false,
+      "known_good_on_user_device": false
+    }
+  ],
+  "bootloader_patch_target": {
+    "stock_sha256": "22a2b98e606b4d296e957a3a8b600a2158497638d79485c817c2025536329ba7",
+    "stock_bytes": 149760,
+    "main_version_documented": "2.4.0.24",
+    "hardware_documented": 5,
+    "case_version_documented": "1.2.57",
+    "wire_protocol": 2,
+    "ram_api": 3
+  },
+  "environment": {
+    "xcode": "27.2",
+    "build": "27B52",
+    "iphone_signing_install_launch": "not-checked"
+  },
+  "user_device_inventory": "unknown",
+  "firmware_built": false,
+  "patched_bootloader_sha256": null,
+  "offline_validation": {
+    "all_12_component_sha256_match": true,
+    "all_12_component_toc_and_subheader_crc32c_match": true,
+    "expected_old_byte_guards_checked": 38,
+    "expected_old_byte_guards_match": true,
+    "append_operations_not_applied": 1,
+    "patch_output_generated": false,
+    "hardware_validation": false
+  }
+}

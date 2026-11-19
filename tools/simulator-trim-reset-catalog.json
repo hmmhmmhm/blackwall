@@ -1,0 +1,515 @@
+{
+  "schema": "blackwall-trim-reset-catalog/1",
+  "upstream_commit": "61b293a49db34030c545f99101f7ebf6a3050314",
+  "source_sha256": {
+    "apollo510.h": "b6ca35dc828ef95825c0a22f06e6ca5ed558a6542dc74310515fdc350051a797",
+    "mcuctrl_regs.html": "fe7f1181b7ee9c88b70cc20570dab268acef4da825458b9e34c8ed8eb8560545",
+    "pwrctrl_regs.html": "405d102950db0ef10b9c1f446d2bc7d694835142549a3484d6c089e14f3638c9"
+  },
+  "scope": "Read-only documented reset values for the observed calibration-cache prefix; not valid device calibration",
+  "registers": {
+    "0x4002036c": {
+      "name": "MCUCTRL.SIMOBUCK12",
+      "reset": 0,
+      "fields": {
+        "LPTRIMVDDF": {
+          "reset": "0x0",
+          "position": 26,
+          "mask": "0xfc000000"
+        },
+        "ACTTRIMVDDF": {
+          "reset": "0x0",
+          "position": 20,
+          "mask": "0x3f00000"
+        },
+        "VDDCLVBRNOUTTRIM": {
+          "reset": "0x0",
+          "position": 10,
+          "mask": "0xffc00"
+        },
+        "VDDCLVCOMPTRIMPLUS": {
+          "reset": "0x0",
+          "position": 5,
+          "mask": "0x3e0"
+        },
+        "VDDCLVCOMPTRIMMINUS": {
+          "reset": "0x0",
+          "position": 0,
+          "mask": "0x1f"
+        }
+      },
+      "html_only_zero_fields": []
+    },
+    "0x40020088": {
+      "name": "MCUCTRL.LDOREG2",
+      "reset": 544999284,
+      "fields": {
+        "TRIMANALDO": {
+          "reset": "0x8",
+          "position": 26,
+          "mask": "0x3c000000"
+        },
+        "MEMLDOIBIASSEL": {
+          "reset": "0x0",
+          "position": 25,
+          "mask": "0x2000000"
+        },
+        "MEMLPLDOIBIASTRIM": {
+          "reset": "0x0",
+          "position": 24,
+          "mask": "0x1000000"
+        },
+        "MEMLPLDOTRIM": {
+          "reset": "0x1f",
+          "position": 18,
+          "mask": "0xfc0000"
+        },
+        "MEMLDOLPALTTRIM": {
+          "reset": "0x0",
+          "position": 12,
+          "mask": "0x3f000"
+        },
+        "MEMLDOLPTRIM": {
+          "reset": "0x1d",
+          "position": 6,
+          "mask": "0xfc0"
+        },
+        "MEMLDOACTIVETRIM": {
+          "reset": "0x34",
+          "position": 0,
+          "mask": "0x3f"
+        }
+      },
+      "html_only_zero_fields": []
+    },
+    "0x40020044": {
+      "name": "MCUCTRL.VREFGEN2",
+      "reset": 65472,
+      "fields": {
+        "TVRGCCURRENTTRIM": {
+          "reset": "0x1",
+          "position": 15,
+          "mask": "0x8000"
+        },
+        "TVRGCHSENRESDIV": {
+          "reset": "0x1",
+          "position": 14,
+          "mask": "0x4000"
+        },
+        "TVRGCPDNB": {
+          "reset": "0x1",
+          "position": 13,
+          "mask": "0x2000"
+        },
+        "TVRGCSELVREF": {
+          "reset": "0x1",
+          "position": 12,
+          "mask": "0x1000"
+        },
+        "TVRGCTEMPCOTRIM": {
+          "reset": "0x1f",
+          "position": 7,
+          "mask": "0xf80"
+        },
+        "TVRGCVREFTRIM": {
+          "reset": "0x40",
+          "position": 0,
+          "mask": "0x7f"
+        }
+      },
+      "html_only_zero_fields": []
+    },
+    "0x4002004c": {
+      "name": "MCUCTRL.VREFGEN4",
+      "reset": 2092992,
+      "fields": {
+        "TVRGFCURRENTTRIM": {
+          "reset": "0x1",
+          "position": 20,
+          "mask": "0x100000"
+        },
+        "TVRGFHSENRESDIV": {
+          "reset": "0x1",
+          "position": 19,
+          "mask": "0x80000"
+        },
+        "TVRGFPDNB": {
+          "reset": "0x1",
+          "position": 18,
+          "mask": "0x40000"
+        },
+        "TVRGFPWLTEMPCOTRIM": {
+          "reset": "0x1f",
+          "position": 13,
+          "mask": "0x3e000"
+        },
+        "TVRGFSELVREF": {
+          "reset": "0x0",
+          "position": 12,
+          "mask": "0x1000"
+        },
+        "TVRGFTEMPCOTRIM": {
+          "reset": "0x1f",
+          "position": 7,
+          "mask": "0xf80"
+        },
+        "TVRGFVREFTRIM": {
+          "reset": "0x40",
+          "position": 0,
+          "mask": "0x7f"
+        }
+      },
+      "html_only_zero_fields": []
+    },
+    "0x40020374": {
+      "name": "MCUCTRL.SIMOBUCK14",
+      "reset": 0,
+      "fields": {
+        "VDDCLKGEN": {
+          "reset": "0x0",
+          "position": 31,
+          "mask": "0x80000000"
+        },
+        "VDDCLKGTRIM": {
+          "reset": "0x0",
+          "position": 29,
+          "mask": "0x60000000"
+        },
+        "VDDFLKGEN": {
+          "reset": "0x0",
+          "position": 28,
+          "mask": "0x10000000"
+        },
+        "VDDFLKGTRIM": {
+          "reset": "0x0",
+          "position": 26,
+          "mask": "0xc000000"
+        },
+        "VDDSLKGEN": {
+          "reset": "0x0",
+          "position": 25,
+          "mask": "0x2000000"
+        },
+        "VDDSLKGTRIM": {
+          "reset": "0x0",
+          "position": 23,
+          "mask": "0x1800000"
+        },
+        "VDDCLVLKGEN": {
+          "reset": "0x0",
+          "position": 22,
+          "mask": "0x400000"
+        },
+        "VDDCLVLKGTRIM": {
+          "reset": "0x0",
+          "position": 20,
+          "mask": "0x300000"
+        },
+        "VDDFBRNOUTTRIM": {
+          "reset": "0x0",
+          "position": 10,
+          "mask": "0xffc00"
+        },
+        "VDDFCOMPTRIMPLUS": {
+          "reset": "0x0",
+          "position": 5,
+          "mask": "0x3e0"
+        },
+        "VDDFCOMPTRIMMINUS": {
+          "reset": "0x0",
+          "position": 0,
+          "mask": "0x1f"
+        }
+      },
+      "html_only_zero_fields": []
+    },
+    "0x40020080": {
+      "name": "MCUCTRL.LDOREG1",
+      "reset": 447444,
+      "fields": {
+        "CORELDOIBIASSEL": {
+          "reset": "0x0",
+          "position": 21,
+          "mask": "0x200000"
+        },
+        "CORELDOIBIASTRIM": {
+          "reset": "0x0",
+          "position": 20,
+          "mask": "0x100000"
+        },
+        "CORELDOLPTRIM": {
+          "reset": "0x1b",
+          "position": 14,
+          "mask": "0xfc000"
+        },
+        "CORELDOTEMPCOTRIM": {
+          "reset": "0x4",
+          "position": 10,
+          "mask": "0x3c00"
+        },
+        "CORELDOACTIVETRIM": {
+          "reset": "0x3d4",
+          "position": 0,
+          "mask": "0x3ff"
+        }
+      },
+      "html_only_zero_fields": []
+    },
+    "0x40021108": {
+      "name": "PWRCTRL.VRSTATUS",
+      "reset": 0,
+      "fields": {
+        "SIMOBUCKST": {
+          "reset": "0x0",
+          "position": 4,
+          "mask": "0x30"
+        },
+        "MEMLDOST": {
+          "reset": "0x0",
+          "position": 2,
+          "mask": "0xc"
+        },
+        "CORELDOST": {
+          "reset": "0x0",
+          "position": 0,
+          "mask": "0x3"
+        }
+      },
+      "html_only_zero_fields": []
+    },
+    "0x400201b0": {
+      "name": "MCUCTRL.D2ASPARE",
+      "reset": 0,
+      "fields": {
+        "INFO1ACCESS": {
+          "reset": "0x0",
+          "position": 31,
+          "mask": "0x80000000"
+        },
+        "UART3PLL": {
+          "reset": "0x0",
+          "position": 25,
+          "mask": "0x2000000"
+        },
+        "UART2PLL": {
+          "reset": "0x0",
+          "position": 24,
+          "mask": "0x1000000"
+        },
+        "UART1PLL": {
+          "reset": "0x0",
+          "position": 23,
+          "mask": "0x800000"
+        },
+        "UART0PLL": {
+          "reset": "0x0",
+          "position": 22,
+          "mask": "0x400000"
+        },
+        "PLLISOLATIONVDDHVDDF": {
+          "reset": "0x0",
+          "position": 21,
+          "mask": "0x200000"
+        },
+        "MEMLDOREF": {
+          "reset": "0x0",
+          "position": 15,
+          "mask": "0x18000"
+        },
+        "SIMOVDDCBOOST": {
+          "reset": "0x0",
+          "position": 8,
+          "mask": "0x100"
+        }
+      },
+      "html_only_zero_fields": []
+    },
+    "0x40020344": {
+      "name": "MCUCTRL.SIMOBUCK2",
+      "reset": 0,
+      "fields": {
+        "VDDCACTLOWTONTRIM": {
+          "reset": "0x0",
+          "position": 25,
+          "mask": "0x3e000000"
+        },
+        "VDDCACTLOWTOFFTRIM": {
+          "reset": "0x0",
+          "position": 20,
+          "mask": "0x1f00000"
+        },
+        "VDDCACTHIGHTONTRIM": {
+          "reset": "0x0",
+          "position": 11,
+          "mask": "0xf800"
+        },
+        "VDDCACTHIGHTOFFTRIM": {
+          "reset": "0x0",
+          "position": 6,
+          "mask": "0x7c0"
+        },
+        "VDDCACTDRVSTRTRIM": {
+          "reset": "0x0",
+          "position": 0,
+          "mask": "0x3"
+        }
+      },
+      "html_only_zero_fields": [
+        "VDDCINPREFSEL",
+        "VDDCACTLOWTOFFTRIMFINE",
+        "VDDCACTHIGHTOFFTRIMFINE"
+      ]
+    },
+    "0x4002034c": {
+      "name": "MCUCTRL.SIMOBUCK4",
+      "reset": 0,
+      "fields": {
+        "VDDCLVINPREFSEL": {
+          "reset": "0x0",
+          "position": 30,
+          "mask": "0x40000000"
+        },
+        "VDDCLVACTLOWTONTRIM": {
+          "reset": "0x0",
+          "position": 25,
+          "mask": "0x3e000000"
+        },
+        "VDDCLVACTLOWTOFFTRIM": {
+          "reset": "0x0",
+          "position": 20,
+          "mask": "0x1f00000"
+        },
+        "VDDCLVACTLOWTOFFTRIMFINE": {
+          "reset": "0x0",
+          "position": 16,
+          "mask": "0xf0000"
+        },
+        "VDDCLVACTHIGHTONTRIM": {
+          "reset": "0x0",
+          "position": 11,
+          "mask": "0xf800"
+        },
+        "VDDCLVACTHIGHTOFFTRIM": {
+          "reset": "0x0",
+          "position": 6,
+          "mask": "0x7c0"
+        },
+        "VDDCLVACTHIGHTOFFTRIMFINE": {
+          "reset": "0x0",
+          "position": 2,
+          "mask": "0x3c"
+        },
+        "VDDCLVACTDRVSTRTRIM": {
+          "reset": "0x0",
+          "position": 0,
+          "mask": "0x3"
+        }
+      },
+      "html_only_zero_fields": []
+    },
+    "0x40020358": {
+      "name": "MCUCTRL.SIMOBUCK7",
+      "reset": 0,
+      "fields": {
+        "VDDFLPTRIM": {
+          "reset": "0x0",
+          "position": 25,
+          "mask": "0x7e000000"
+        },
+        "VDDFLPINPREFSEL": {
+          "reset": "0x0",
+          "position": 23,
+          "mask": "0x1800000"
+        },
+        "ZXCOMPZXTRIM": {
+          "reset": "0x0",
+          "position": 18,
+          "mask": "0x7c0000"
+        },
+        "VDDFLPFBCDACTRIM": {
+          "reset": "0x0",
+          "position": 16,
+          "mask": "0x30000"
+        },
+        "VDDFLPFBCDACEN": {
+          "reset": "0x0",
+          "position": 15,
+          "mask": "0x8000"
+        },
+        "VDDFLPDRVSTRTRIM": {
+          "reset": "0x0",
+          "position": 13,
+          "mask": "0x6000"
+        },
+        "VDDFACTLOWTONTRIM": {
+          "reset": "0x0",
+          "position": 8,
+          "mask": "0x1f00"
+        },
+        "VDDFACTLOWTOFFTRIM": {
+          "reset": "0x0",
+          "position": 3,
+          "mask": "0xf8"
+        },
+        "VDDFACTLOWTOFFTRIMFINE": {
+          "reset": "0x0",
+          "position": 0,
+          "mask": "0x7"
+        }
+      },
+      "html_only_zero_fields": []
+    },
+    "0x40020354": {
+      "name": "MCUCTRL.SIMOBUCK6",
+      "reset": 0,
+      "fields": {
+        "VDDFLEAKAGETRIM": {
+          "reset": "0x0",
+          "position": 30,
+          "mask": "0xc0000000"
+        },
+        "VDDFINPREFSEL": {
+          "reset": "0x0",
+          "position": 29,
+          "mask": "0x20000000"
+        },
+        "VDDFACTTRIM": {
+          "reset": "0x0",
+          "position": 23,
+          "mask": "0x1f800000"
+        },
+        "VDDFACTINPREFSEL": {
+          "reset": "0x0",
+          "position": 22,
+          "mask": "0x400000"
+        },
+        "VDDFACTHIGHTONTRIM": {
+          "reset": "0x0",
+          "position": 17,
+          "mask": "0x3e0000"
+        },
+        "VDDFACTHIGHTOFFTRIM": {
+          "reset": "0x0",
+          "position": 12,
+          "mask": "0x1f000"
+        },
+        "VDDFACTHIGHTOFFTRIMFINE": {
+          "reset": "0x0",
+          "position": 8,
+          "mask": "0xf00"
+        },
+        "VDDFACTFBTRIM": {
+          "reset": "0x0",
+          "position": 2,
+          "mask": "0xfc"
+        },
+        "VDDFACTDRVSTRTRIM": {
+          "reset": "0x0",
+          "position": 0,
+          "mask": "0x3"
+        }
+      },
+      "html_only_zero_fields": []
+    }
+  }
+}

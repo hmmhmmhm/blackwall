@@ -1,0 +1,197 @@
+{
+  "state": "proposal-not-activated",
+  "supersedes_on_approval_only": "scope-v3",
+  "purpose": "Verify ROM cold boot, long-duration behavior, and precision against independent evidence for paths used by G2",
+  "existing_v3_status": "16/16 fixed functional criteria; not inherited as fidelity completion",
+  "progress_rule": "Each area weight / 5 × number of conditions with verified evidence. New conditions are not yet evaluated. All 25 conditions must pass for overall completion.",
+  "development_hours_range": [
+    177,
+    494
+  ],
+  "long_run_compute_hours": "unknown until measured wall/virtual ratio per workload",
+  "external_asset_wait": "unknown; exact ROM and independent GAF/GPU oracle can block completion indefinitely",
+  "areas": [
+    {
+      "id": "boot",
+      "weight": 30,
+      "criteria": [
+        {
+          "id": "B01",
+          "acceptance": "Pin provenance and compatibility scope of exact Boot ROM/bootloader/main and initial state. Do not replace unavailable images with dummies.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "B02",
+          "acceptance": "Observe actual initialization, verification, and handoff from original bootloader reset and connect to main without forcing branches, returns, or TCB. Distinguish results using a functional ROM API model from actual ROM execution.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "B03",
+          "acceptance": "Execute continuously from actual Boot ROM reset through original bootloader/main/UI. Reject paths replacing required ROM/security effects with success stubs.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "B04",
+          "acceptance": "Pin allowed reset/update states and invalid image/verification failure inputs; assess original errors, blocking, and return outcomes. Do not install on physical hardware.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "B05",
+          "acceptance": "Preserve cold-boot lineage/state and execution and new-environment reproduction for three originals/registered candidate, and check that ROM/bootloader are unmodified.",
+          "status": "not-evaluated",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "stability",
+      "weight": 25,
+      "criteria": [
+        {
+          "id": "S01",
+          "acceptance": "Measure bounded resources, progress/normal idle, intentional fault detection, and wall/virtual cost per workload for long-duration observation.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "S02",
+          "acceptance": "For each of three originals, maintain six virtual seconds after first screen in two cold runs without fault/unknown/overflow, and assess original task, input, UI progress and normal waiting.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "S03",
+          "acceptance": "For each of three originals, verify 60 virtual seconds after first screen, repeated input, sensors, and disconnects in pinned scenarios across two cold runs.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "S04",
+          "acceptance": "Compare stock24 and registered CFW candidate on the same workload for 10 virtual minutes with three pinned seeds; check resource/queue/IRQ/response, screen, and failure regressions.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "S05",
+          "acceptance": "For each of three originals and three pinned seeds, run one virtual hour after cold boot and verify normal idle/input response, resource trends, original termination state, reproducibility, and absence of errors.",
+          "status": "not-evaluated",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "gpu",
+      "weight": 15,
+      "criteria": [
+        {
+          "id": "G01",
+          "acceptance": "Before execution, pin the supported command/shader/format corpus for three G2 originals/candidate and independent pixel ground truth, provenance, and tolerance. Absence of a physical reference leaves this incomplete.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "G02",
+          "acceptance": "Distinguishing inputs and boundaries for coverage, clip, blend, sampling, half-pixel, nibble, packing, and quantization match the relevant independent oracle.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "G03",
+          "acceptance": "Compare effects and ordering of original command submission → DMA/cache/IRQ/completion, reset, and invalid inputs against independent evidence.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "G04",
+          "acceptance": "For the pinned corpus, actual ARM-generated lists from three originals/CFW → guest framebuffer match independent ground truth; functional reference assumptions alone do not constitute a pass.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "G05",
+          "acceptance": "Detect accuracy/memory/IRQ/error regressions in a long-duration mixed workload and leave unsupported opcodes as explicit failures.",
+          "status": "not-evaluated",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "fusion",
+      "weight": 15,
+      "criteria": [
+        {
+          "id": "F01",
+          "acceptance": "Pin exact sensor/patch/initial calibration state, input time series, independent GAF output, and units/timing/tolerances. Do not count raw FIFO/host API as fusion ground truth.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "F02",
+          "acceptance": "Match GAF initialization/requests 2 and 4/calibration/ready and numerical state effects to exact implementation/specification/independent output.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "F03",
+          "acceptance": "Compare quaternion/bias/accuracy/timestamp during stillness, rotation, acceleration, and magnetic disturbance against independent output and predetermined tolerances.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "F04",
+          "acceptance": "Verify output/state for reset, recalibration, drop/overflow, time changes, and long-duration drift against independent evidence.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "F05",
+          "acceptance": "Verify original main sensor configuration → FIFO/IRQ → task consumption → fusion-dependent behavior and long-duration integration; do not claim substitute AHRS/fixtures are exact GAF.",
+          "status": "not-evaluated",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "peripherals",
+      "weight": 15,
+      "criteria": [
+        {
+          "id": "P01",
+          "acceptance": "Pin G2-used peripherals, registers/state machines, accuracy grades, independent evidence, and unsupported list. Unknown required items are not complete.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "P02",
+          "acceptance": "Verify clock/timer/IRQ priorities, power/reset/retention/cache lifecycle, and tolerances against independent evidence. Cycle and power accuracy are excluded.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "P03",
+          "acceptance": "Verify ordering, asynchronous side effects, and error/buffer boundaries for IOM/SPI/UART/DMA/FIFO/GPIO and required touch/auxiliary sensors/peer transport.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "P04",
+          "acceptance": "Compare original storage program/erase/busy/failure/interruption/post-reset reads against independent evidence within the pinned actual-use scope.",
+          "status": "not-evaluated",
+          "evidence": []
+        },
+        {
+          "id": "P05",
+          "acceptance": "Integrate device contracts required by ROM cold boot and long-duration three-original/CFW scenarios; reproduce comparison, failure-cause, and new-environment reports without automatic ACK/ready for unknowns.",
+          "status": "not-evaluated",
+          "evidence": []
+        }
+      ]
+    }
+  ],
+  "hardware_operations_authorized": false,
+  "astra_authorized": false
+}

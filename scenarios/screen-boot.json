@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "name": "Boot and screen checks",
+  "base": "normal",
+  "require_facts": [
+    "original_boot_main_path",
+    "profile_pin",
+    "frame_is_actual_guest_buffer"
+  ]
+}

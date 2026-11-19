@@ -1,0 +1,19 @@
+{
+  "schema": "blackwall-simulator-wheels/1",
+  "platform": "darwin-arm64",
+  "python": [3, 14],
+  "packages": [
+    {
+      "name": "unicorn",
+      "version": "2.1.4",
+      "wheel": "unicorn-2.1.4-cp37-abi3-macosx_11_0_arm64.whl",
+      "sha256": "d6c93e0f60328d8f4a1792af3f834137a28050fcc2305f2ec01efe8558a9844e"
+    },
+    {
+      "name": "capstone",
+      "version": "5.0.9",
+      "wheel": "capstone-5.0.9-py3-none-macosx_11_0_arm64.whl",
+      "sha256": "fc269c5082e17d7f9f265cd6980e2fdc6ab572df913951d76db0357e06b8001d"
+    }
+  ]
+}
