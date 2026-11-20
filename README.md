@@ -26,6 +26,8 @@ Explore firmware boot, display changes, and virtual hardware events in one place
 > **Current support:** The stock 2.4 hardware model is included, its initial memory patterns are generated automatically, and the pinned Renode image is available as a public container. You must provide the two matching stock firmware files.
 >
 > The stock boot report accepts only its pinned G2 2.4 bootloader and main image. The separate Faceclaw 38 command below starts at the main firmware reset vector; it does not run the stock bootloader. Arbitrary custom firmware is not yet supported.
+>
+> See the [public reproducibility corrections](docs/research/public-reproducibility-2026-11-20.md) for the test environment and remaining limits.
 
 ![Setup: support files, Docker volume, doctor, and report](docs/media/readme/setup.svg)
 

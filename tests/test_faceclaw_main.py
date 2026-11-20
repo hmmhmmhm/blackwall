@@ -2,6 +2,7 @@ import hashlib
 import json
 from pathlib import Path
 import struct
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -12,6 +13,18 @@ import faceclaw_main
 
 
 class FaceclawMainTests(unittest.TestCase):
+    def test_cli_rejects_unknown_image_before_creating_output(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            image = root / 'unknown.bin'
+            image.write_bytes(b'not a reviewed image')
+            output = root / 'output'
+            cli = Path(__file__).resolve().parents[1] / 'blackwall'
+            result = subprocess.run([sys.executable, str(cli), 'faceclaw38', '--main-image', str(image), '--output', str(output)], capture_output=True)
+            self.assertEqual(result.returncode, 2)
+            self.assertIn(b'Faceclaw 38', result.stderr)
+            self.assertFalse(output.exists())
+
     def test_rejects_unreviewed_firmware_and_checks_vectors(self):
         with tempfile.TemporaryDirectory() as folder:
             image = Path(folder) / 'main.bin'
