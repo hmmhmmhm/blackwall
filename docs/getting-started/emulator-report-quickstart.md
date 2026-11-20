@@ -1,12 +1,12 @@
 # Emulator report quickstart
 
-> **Availability:** A fresh public checkout cannot currently reproduce this report. The required model, snapshots, and pinned Docker image are not available in this repository or a published release. The report runner supports one pinned stock 2.4 boot/main pair; Faceclaw and other custom firmware are not selectable here.
+> **Availability:** A fresh public checkout cannot currently reproduce this report because the pinned Docker image is not yet available. The stock model is included, and its initial memory fill patterns can be generated automatically. The report runner supports one pinned stock 2.4 boot/main pair; Faceclaw and other custom firmware are not selectable here.
 
 ## Required files
 
 You need Python 3.9 or later, a running Docker installation, and the pinned Renode Docker image. Host Python manages commands and reports; Renode runs in a network-isolated container. No glasses are connected or flashed.
 
-In addition to the stock bootloader and main images, you need the selected profile's virtual hardware model and SRAM/ITCM snapshots. Firmware and private assets are not included in the repository. Prepare the files in their original directory structure from an existing research environment or another source. This repository does not yet provide a complete installer that recreates the private snapshots and pinned model.
+For the stock profile, the virtual hardware model is included and the SRAM/ITCM initial patterns are reproducible synthetic `0xa5` fills. Missing fill files are regenerated and checked against the pinned hashes during setup. You must provide the matching stock bootloader and main images; firmware is not included. Other research profiles may still require private files.
 
 ```sh
 python3 blackwall assets --source /path/to/support-files
@@ -19,7 +19,7 @@ This command prints the relative paths and SHA-256 hashes required by the profil
 Check and store the input files in a new volume once. You can specify the bootloader and main image paths separately.
 
 ```sh
-python3 blackwall setup --source /path/to/support-files \
+python3 blackwall setup --source . --profile stock \
   --boot-image /path/to/boot.bin --main-image /path/to/main.bin
 python3 blackwall doctor
 ```

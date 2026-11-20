@@ -1,0 +1,12 @@
+include @/work/strict.cs
+include @/work/input-delay.cs
+include @/work/screen-observer.cs
+mach create "blackwall-original-boot-reset"
+machine LoadPlatformDescription @/work/board.repl
+sysbus LoadBinary @/reference/itcm-fill.bin 0
+sysbus LoadBinary @/reference/sram-fill.bin 0x20000000
+sysbus LoadBinary @/reference/main.bin 0x438000
+sysbus LoadBinary @/input-boot.bin 0x410000
+cpu VectorTableOffset 0x410000
+include @/work/run.py
+quit

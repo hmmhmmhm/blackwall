@@ -23,23 +23,23 @@ Explore firmware boot, display changes, and virtual hardware events in one place
 
 ## Getting started
 
-> **Public reproducibility:** The report runner currently requires private hardware-model files, memory snapshots, and a pinned Docker image that are not distributed in this repository. A fresh public checkout cannot yet reproduce the recorded boot run. See [preparing the files and Docker image](docs/getting-started/emulator-report-quickstart.md) for the current requirements.
+> **Public reproducibility:** The stock 2.4 hardware model is included and its initial memory patterns are generated automatically. The required pinned Renode Docker image is not yet distributed, so a fresh public checkout cannot currently reproduce the recorded boot run. See [preparing the files and Docker image](docs/getting-started/emulator-report-quickstart.md) for the current requirements.
 >
 > The runnable stock boot profile accepts only its pinned G2 2.4 bootloader and main image. It does not currently load Faceclaw or arbitrary custom firmware through `blackwall report`. Faceclaw results below are historical research runs, not a public runnable profile.
 
 ![Setup: support files, Docker volume, doctor, and report](docs/media/readme/setup.svg)
 
-Blackwall runs Renode in Docker and generates an HTML report. You need Python 3.9 or later and Docker. Prepare the stock G2 2.4 images, pinned model and memory snapshots, and Renode Docker image separately. Firmware and private assets are not included in this repository.
+Blackwall runs Renode in Docker and generates an HTML report. You need Python 3.9 or later, Docker, the stock G2 2.4 boot and main images, and the pinned Renode Docker image. Firmware and the Docker image are not included in this repository.
 
 Create a Docker volume once by specifying the required files. Replace the example paths with the locations of your files.
 
 ```sh
-python3 blackwall assets --source /path/to/support-files
-python3 blackwall setup --source /path/to/support-files --boot-image /path/to/boot.bin --main-image /path/to/main.bin
+python3 blackwall assets --profile stock
+python3 blackwall setup --source . --profile stock --boot-image /path/to/boot.bin --main-image /path/to/main.bin
 python3 blackwall doctor
 ```
 
-`--source` points to the directory containing the model files and memory snapshots specified by the profile. `assets` displays the required paths and hashes. If the files are already present in an existing research environment, the bootloader and main image options can be omitted. The default volume is named `blackwall-assets`; use `--volume` to choose another name. Existing volumes are never overwritten.
+For the stock profile, the model comes from this repository and missing initial memory files are generated as verified `0xa5` fill patterns. `assets` displays the expected paths and hashes. If firmware files are already present at the profile paths under `--source`, the bootloader and main image options can be omitted. The default volume is named `blackwall-assets`; use `--volume` to choose another name. Existing volumes are never overwritten.
 
 On Windows, you can use `python` instead of `python3`. See [preparing the files and Docker image](docs/getting-started/emulator-report-quickstart.md).
 

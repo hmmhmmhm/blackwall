@@ -1,4 +1,6 @@
 import io
+import hashlib
+import json
 from pathlib import Path
 import subprocess
 import sys
@@ -12,6 +14,64 @@ import volume_storage as storage
 
 
 class VolumeStorageTests(unittest.TestCase):
+    def test_stock_profile_publishes_the_pinned_model_components(self):
+        profile = json.loads((storage.ROOT / 'docs/data/original-boot-stock24-profile.json').read_text())
+        for name in ('strict.cs', 'board.repl', 'input-delay.cs', 'probe.resc'):
+            spec = profile['components'][name]
+            self.assertEqual(spec['origin'], 'repo')
+            self.assertEqual(storage.sha(storage.ROOT / spec['path']), spec['sha256'])
+
+    def test_stock_initial_memory_is_reproducible_without_snapshot_files(self):
+        profile = json.loads((storage.ROOT / 'docs/data/original-boot-stock24-profile.json').read_text())
+        for name in ('sram', 'itcm'):
+            spec = profile['assets'][name]
+            data = storage.synthetic_initial_memory(name, spec)
+            self.assertEqual(len(data), spec['bytes'])
+            self.assertEqual(hashlib.sha256(data).hexdigest(), spec['sha256'])
+            self.assertEqual(set(data), {0xa5})
+
+    def test_other_or_modified_memory_profiles_are_not_synthesized(self):
+        profile = json.loads((storage.ROOT / 'docs/data/original-boot-stock24-profile.json').read_text())
+        self.assertIsNone(storage.synthetic_initial_memory('boot', profile['assets']['boot']))
+        spec = dict(profile['assets']['sram'], sha256='0' * 64)
+        self.assertIsNone(storage.synthetic_initial_memory('sram', spec))
+
+    def test_setup_input_collection_recreates_only_missing_memory(self):
+        profile = json.loads((storage.ROOT / 'docs/data/original-boot-stock24-profile.json').read_text())
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            profile_file = root / 'profile.json'
+            profile['components'] = {}
+            profile_file.write_text(json.dumps(profile))
+            fake_image = root / 'image'
+            fake_image.write_bytes(b'image')
+            def checked(root_path, spec, override=None):
+                if spec in (profile['assets']['sram'], profile['assets']['itcm']):
+                    raise FileNotFoundError(spec['path'])
+                return fake_image
+            with patch.object(storage, 'validate_profile'), patch.object(storage, 'checked_asset', side_effect=checked):
+                _, entries = storage.pinned_inputs(root, profile_file)
+            for name in ('sram', 'itcm'):
+                spec = profile['assets'][name]
+                self.assertEqual(hashlib.sha256(entries[spec['path']]).hexdigest(), spec['sha256'])
+                self.assertFalse((root / spec['path']).exists())
+
+    def test_corrupt_existing_memory_is_not_silently_replaced(self):
+        profile = json.loads((storage.ROOT / 'docs/data/original-boot-stock24-profile.json').read_text())
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            profile_file = root / 'profile.json'
+            profile_file.write_text(json.dumps(profile))
+            fake_image = root / 'image'
+            fake_image.write_bytes(b'image')
+            def checked(root_path, spec, override=None):
+                if spec == profile['assets']['sram']:
+                    raise ValueError('Asset size/hash mismatch')
+                return fake_image
+            with patch.object(storage, 'validate_profile'), patch.object(storage, 'checked_asset', side_effect=checked):
+                with self.assertRaisesRegex(ValueError, 'size/hash mismatch'):
+                    storage.pinned_inputs(root, profile_file)
+
     def test_existing_volume_is_never_overwritten(self):
         with patch.object(storage.subprocess, 'run', return_value=subprocess.CompletedProcess([], 0, b'', b'')), \
              patch.object(storage, 'docker') as docker:

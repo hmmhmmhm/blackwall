@@ -1,5 +1,6 @@
 """Store pinned, explicitly supplied emulator inputs in a Docker named volume."""
 import io
+import hashlib
 import json
 import re
 import subprocess
@@ -12,6 +13,21 @@ from run_original_boot_screen import checked_asset, checked_path, sha, validate_
 ROOT = Path(__file__).resolve().parents[1]
 IMAGE = 'sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649'
 MAX_ARCHIVE_BYTES = 64 * 1024 * 1024
+INITIAL_MEMORY = {
+    'sram': (3670016, '392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd'),
+    'itcm': (262144, 'b9b8561490d31103a2783ddcbf67ffcb6aa02b1aa71a9800aad615aeb20c8c55'),
+}
+
+
+def synthetic_initial_memory(name, spec):
+    """Recreate only the independently verified stock profile's A5 fill patterns."""
+    expected = INITIAL_MEMORY.get(name)
+    if expected is None or (spec.get('bytes'), spec.get('sha256')) != expected:
+        return None
+    data = b'\xa5' * expected[0]
+    if hashlib.sha256(data).hexdigest() != expected[1]:
+        raise ValueError('Synthetic memory hash mismatch: ' + name)
+    return data
 
 
 def volume_name(value):
@@ -48,8 +64,15 @@ def pinned_inputs(source, profile_file, boot=None, main=None):
     entries = {'profile.json': profile_file.read_bytes()}
     for name, spec in profile['assets'].items():
         override = boot if name == 'boot' else main if name == 'main' else None
-        path = checked_asset(source, spec, override)
-        entries[spec['path']] = path.read_bytes()
+        try:
+            path = checked_asset(source, spec, override)
+        except FileNotFoundError:
+            data = synthetic_initial_memory(name, spec) if override is None else None
+            if data is None:
+                raise
+            entries[spec['path']] = data
+        else:
+            entries[spec['path']] = path.read_bytes()
     for name, spec in profile['components'].items():
         base = ROOT if spec['origin'] == 'repo' else source
         path = checked_path(base, spec['path'])

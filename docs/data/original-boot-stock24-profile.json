@@ -34,18 +34,18 @@
   },
   "components": {
     "strict.cs": {
-      "origin": "private",
-      "path": "simulator/original-boot-ui-cadence-native-bw547-02/strict.cs",
+      "origin": "repo",
+      "path": "models/stock24/strict.cs",
       "sha256": "71cdb6ac17748ecb53dfc63c67c0997b88899eba42eed14e2f3891f44e7770dd"
     },
     "board.repl": {
-      "origin": "private",
-      "path": "simulator/original-boot-ui-cadence-native-bw547-02/board.repl",
+      "origin": "repo",
+      "path": "models/stock24/board.repl",
       "sha256": "84c94e1e2196e3f29766a07068585f7572aa6c0b5e0fdf78419e3684f4e4f72a"
     },
     "input-delay.cs": {
-      "origin": "private",
-      "path": "simulator/original-boot-ui-cadence-native-bw547-02/input-delay.cs",
+      "origin": "repo",
+      "path": "models/stock24/input-delay.cs",
       "sha256": "1ff813b73620994df5b86f206b1bc5187228f30888f621fda468201952b56c54"
     },
     "screen-observer.cs": {
@@ -54,8 +54,8 @@
       "sha256": "c40cae4c3e24edf147ec862fb02a5d09f3de33280e7b6bd3ac2ee0114a747f5b"
     },
     "probe.resc": {
-      "origin": "private",
-      "path": "simulator/original-boot-ui-cadence-native-bw547-02/probe.resc",
+      "origin": "repo",
+      "path": "models/stock24/probe.resc",
       "sha256": "b027accd6e6a3f1cc27dedad418ba9eba7d7a586b41c69f4980b90b567452400"
     },
     "run.py": {
@@ -77,6 +77,6 @@
     "bootloader reset, not actual Boot ROM",
     "one virtual temple, stock2.4 boot/main",
     "declared virtual touch/UART/GAF/ADC/referenceGPU and HP167MIPS cadence",
-    "private frozen hardware-model source required; firmware not distributed"
+    "frozen hardware-model source included; firmware not distributed"
   ]
 }
