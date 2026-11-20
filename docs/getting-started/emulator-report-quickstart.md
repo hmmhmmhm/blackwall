@@ -1,10 +1,18 @@
 # Emulator report quickstart
 
-> **Availability:** A fresh public checkout cannot currently reproduce this report because the pinned Docker image is not yet available. The stock model is included, and its initial memory fill patterns can be generated automatically. The report runner supports one pinned stock 2.4 boot/main pair; Faceclaw and other custom firmware are not selectable here.
+> **Current support:** The stock model and pinned Renode container are available, and initial memory fill patterns are generated automatically. The report runner supports one pinned stock 2.4 boot/main pair; Faceclaw and other custom firmware are not selectable here.
 
 ## Required files
 
 You need Python 3.9 or later, a running Docker installation, and the pinned Renode Docker image. Host Python manages commands and reports; Renode runs in a network-isolated container. No glasses are connected or flashed.
+
+Pull the public image by manifest digest. It is a Linux ARM64 image; other CPU architectures require Docker support for ARM64 emulation.
+
+```sh
+docker pull --platform linux/arm64 ghcr.io/hmmhmmhm/blackwall-renode@sha256:4f5f20c390e8c0d2b6336cdb708023cd2110e98ebaed9ae59f995bc057cbc0f8
+```
+
+The resulting image ID must be `sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649`. The manifest digest and image ID identify different objects.
 
 For the stock profile, the virtual hardware model is included and the SRAM/ITCM initial patterns are reproducible synthetic `0xa5` fills. Missing fill files are regenerated and checked against the pinned hashes during setup. You must provide the matching stock bootloader and main images; firmware is not included. Other research profiles may still require private files.
 
@@ -26,7 +34,9 @@ python3 blackwall doctor
 
 If the images already exist at the profile paths under the source directory, both image options can be omitted. Files are stored only after validating profile sizes, SHA-256 hashes, vectors, and model hashes. The default volume is `blackwall-assets`. To use another name, pass the same `--volume NAME` to `setup`, `doctor`, and `report`. Existing volumes are not overwritten.
 
-To move the pinned Renode image to another Docker environment, export it from the existing environment with `docker image save -o blackwall-renode.tar blackwall-renode:1.17.0-local` and import it on the target with `docker image load -i blackwall-renode.tar`. Rebuilding the [Dockerfile](../../tools/renode-container.Dockerfile) does not guarantee the same image ID. Other CPU architectures require Docker support for running arm64 images.
+The image can also be moved with `docker image save` and `docker image load`. Rebuilding the [Dockerfile](../../tools/renode-container.Dockerfile) does not guarantee the same image ID.
+
+For development, the Dockerfile's build context must contain the official [Renode 1.17.0 Linux ARM64 portable archive](https://github.com/renode/renode/releases/download/v1.17.0/renode-1.17.0.linux-arm64-portable.tar.gz), named `renode-1.17.0.linux-arm64-portable.tar.gz`. Its expected SHA-256 is `e9051578411441bfb47b77de0381cfba3badce03663367fab561472fd7807f1f`; the Dockerfile verifies it. Build using `docker build --platform linux/arm64 -f tools/renode-container.Dockerfile -t blackwall-renode:dev .` with the archive in the repository root. A rebuilt development image is not automatically accepted by the pinned report runner; use the published image above for the reviewed profile.
 
 ## Run stock firmware
 

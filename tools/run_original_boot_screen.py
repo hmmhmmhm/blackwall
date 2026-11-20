@@ -1,6 +1,6 @@
 """Reproduce pinned stock G2 bootloader → main → screen on a virtual temple.
 
-Firmware and the reviewed frozen hardware model remain in the private asset tree.
+Firmware remains outside the repository; the reviewed frozen hardware model is included.
 No physical device discovery or hardware installation operations are provided.
 """
 import argparse

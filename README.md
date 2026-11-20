@@ -23,7 +23,7 @@ Explore firmware boot, display changes, and virtual hardware events in one place
 
 ## Getting started
 
-> **Public reproducibility:** The stock 2.4 hardware model is included and its initial memory patterns are generated automatically. The required pinned Renode Docker image is not yet distributed, so a fresh public checkout cannot currently reproduce the recorded boot run. See [preparing the files and Docker image](docs/getting-started/emulator-report-quickstart.md) for the current requirements.
+> **Current support:** The stock 2.4 hardware model is included, its initial memory patterns are generated automatically, and the pinned Renode image is available as a public container. You must provide the two matching stock firmware files.
 >
 > The runnable stock boot profile accepts only its pinned G2 2.4 bootloader and main image. It does not currently load Faceclaw or arbitrary custom firmware through `blackwall report`. Faceclaw results below are historical research runs, not a public runnable profile.
 
@@ -31,9 +31,10 @@ Explore firmware boot, display changes, and virtual hardware events in one place
 
 Blackwall runs Renode in Docker and generates an HTML report. You need Python 3.9 or later, Docker, the stock G2 2.4 boot and main images, and the pinned Renode Docker image. Firmware and the Docker image are not included in this repository.
 
-Create a Docker volume once by specifying the required files. Replace the example paths with the locations of your files.
+Pull the pinned Linux ARM64 image, then create a Docker volume by specifying the required firmware files. Replace the example paths with the locations of your files.
 
 ```sh
+docker pull --platform linux/arm64 ghcr.io/hmmhmmhm/blackwall-renode@sha256:4f5f20c390e8c0d2b6336cdb708023cd2110e98ebaed9ae59f995bc057cbc0f8
 python3 blackwall assets --profile stock
 python3 blackwall setup --source . --profile stock --boot-image /path/to/boot.bin --main-image /path/to/main.bin
 python3 blackwall doctor
