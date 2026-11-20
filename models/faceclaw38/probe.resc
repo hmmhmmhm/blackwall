@@ -1,0 +1,10 @@
+include @/work/strict.cs
+include @/work/activation.cs
+mach create "blackwall-main-probe"
+machine LoadPlatformDescription @/work/board.repl
+sysbus LoadBinary @/work/itcm-fill.bin 0
+sysbus LoadBinary @/work/sram-fill.bin 0x20000000
+sysbus LoadBinary @/work/main.bin 0x438000
+cpu VectorTableOffset 0x438000
+include @/work/run.py
+quit

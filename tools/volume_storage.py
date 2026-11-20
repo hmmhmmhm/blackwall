@@ -12,6 +12,7 @@ from run_original_boot_screen import checked_asset, checked_path, sha, validate_
 
 ROOT = Path(__file__).resolve().parents[1]
 IMAGE = 'sha256:e840c2b9a83dbf9be060047839aaaf6d434e7d4c52635191319afc14f4217649'
+IMAGE_PULL = 'ghcr.io/hmmhmmhm/blackwall-renode@sha256:4f5f20c390e8c0d2b6336cdb708023cd2110e98ebaed9ae59f995bc057cbc0f8'
 MAX_ARCHIVE_BYTES = 64 * 1024 * 1024
 INITIAL_MEMORY = {
     'sram': (3670016, '392ed4b29e6313b1f531663893b348dd68e9fa5a56f989505236a0bca186c8fd'),
@@ -106,6 +107,10 @@ def import_volume(name, entries):
         raise ValueError('Volume already exists; choose another name')
     if b'No such volume' not in existing.stderr and b'no such volume' not in existing.stderr.lower():
         raise RuntimeError('Cannot inspect Docker volumes: ' + existing.stderr.decode(errors='replace').strip())
+    try:
+        docker('image', 'inspect', IMAGE)
+    except RuntimeError as exc:
+        raise RuntimeError('Pinned Renode image unavailable. Run: docker pull --platform linux/arm64 ' + IMAGE_PULL) from exc
     payload = archive(entries)
     token = uuid4().hex
     docker('volume', 'create', '--label', 'io.blackwall.asset-volume=1', '--label', 'io.blackwall.creation-token=' + token, name)

@@ -1,6 +1,6 @@
 # Emulator report quickstart
 
-> **Current support:** The stock model and pinned Renode container are available, and initial memory fill patterns are generated automatically. The report runner supports one pinned stock 2.4 boot/main pair; Faceclaw and other custom firmware are not selectable here.
+> **Current support:** The stock model and pinned Renode container are available, and initial memory fill patterns are generated automatically. The stock report runner supports one pinned stock 2.4 boot/main pair. A separate `faceclaw38` command starts the pinned Faceclaw 38 main image at its reset vector; arbitrary custom firmware is not supported.
 
 ## Required files
 

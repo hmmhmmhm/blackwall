@@ -19,7 +19,7 @@ from volume_storage import IMAGE, extract_volume, import_volume, pinned_inputs, 
 
 DEFAULT_VOLUME = 'blackwall-assets'
 SCENARIOS = {
-    'normal': 'Stock 2.4 bootloader → main → virtual touch and screen',
+    'normal': 'Stock 2.4 bootloader -> main -> virtual touch and screen',
     'unknown-boot-marker': 'Expected rejection at the virtual boot metadata boundary',
 }
 
@@ -122,6 +122,9 @@ def main():
     assets = sub.add_parser('assets', help='Show required input hashes')
     assets.add_argument('--source', type=Path, help='Source directory containing a pinned profile')
     assets.add_argument('--profile', choices=['auto', 'imu', 'detailed', 'timed', 'stock'], default='auto')
+    faceclaw = sub.add_parser('faceclaw38', help='Run the reviewed Faceclaw 38 main-reset-to-frame profile')
+    faceclaw.add_argument('--main-image', type=Path, required=True, help='Pinned Faceclaw 38 main firmware image')
+    faceclaw.add_argument('--output', type=Path, required=True, help='New private output directory outside the repository')
     init = sub.add_parser('setup', help='Import verified inputs into a new Docker volume')
     init.add_argument('--source', type=Path, required=True, help='Directory containing pinned model and snapshot inputs')
     init.add_argument('--profile', choices=['auto', 'imu', 'detailed', 'timed', 'stock'], default='auto')
@@ -153,6 +156,10 @@ def main():
             if not profile_file:
                 raise ValueError('Selected profile is not available')
             show_assets(json.loads(profile_file.read_text()))
+            return 0
+        if args.command == 'faceclaw38':
+            from faceclaw_main import run as run_faceclaw
+            print('Report:', run_faceclaw(args.main_image, args.output), flush=True)
             return 0
         volume_name(args.volume)
         if args.command == 'setup':

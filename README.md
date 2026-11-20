@@ -25,7 +25,7 @@ Explore firmware boot, display changes, and virtual hardware events in one place
 
 > **Current support:** The stock 2.4 hardware model is included, its initial memory patterns are generated automatically, and the pinned Renode image is available as a public container. You must provide the two matching stock firmware files.
 >
-> The runnable stock boot profile accepts only its pinned G2 2.4 bootloader and main image. It does not currently load Faceclaw or arbitrary custom firmware through `blackwall report`. Faceclaw results below are historical research runs, not a public runnable profile.
+> The stock boot report accepts only its pinned G2 2.4 bootloader and main image. The separate Faceclaw 38 command below starts at the main firmware reset vector; it does not run the stock bootloader. Arbitrary custom firmware is not yet supported.
 
 ![Setup: support files, Docker volume, doctor, and report](docs/media/readme/setup.svg)
 
@@ -42,7 +42,7 @@ python3 blackwall doctor
 
 For the stock profile, the model comes from this repository and missing initial memory files are generated as verified `0xa5` fill patterns. `assets` displays the expected paths and hashes. If firmware files are already present at the profile paths under `--source`, the bootloader and main image options can be omitted. The default volume is named `blackwall-assets`; use `--volume` to choose another name. Existing volumes are never overwritten.
 
-On Windows, you can use `python` instead of `python3`. See [preparing the files and Docker image](docs/getting-started/emulator-report-quickstart.md).
+On Windows, you can use `python` instead of `python3`. The published image is Linux ARM64; other host architectures require Docker's ARM64 emulation. The current end-to-end public-checkout run was performed on macOS ARM64, not Windows or Linux. See [preparing the files and Docker image](docs/getting-started/emulator-report-quickstart.md).
 
 ## Booting stock firmware
 
@@ -61,6 +61,16 @@ python3 blackwall report --scenario normal --boot-image /path/to/boot.bin --main
 Open `http://127.0.0.1:8765/` to inspect the boot process and captured screens; press `Ctrl-C` to stop the server. Execution starts at the virtual bootloader entry and does not install firmware on physical glasses.
 
 Reports and re-audit artifacts are stored in the directory printed by the command. Use `--output /path/to/new-folder` to choose a location. This directory contains copies of firmware and model inputs, so do not add it to the repository or share it.
+
+## Faceclaw 38 main-reset test
+
+After pulling the Renode image above, supply the extracted Faceclaw 38 main firmware image. This profile accepts the reviewed 3,829,832-byte image with SHA-256 `4118af85ebb8e634493a61a3ce4a62ae37451e17cea6d0b8b08465f29538dd8f` and validates its reset vectors. The firmware is not included.
+
+```sh
+python3 blackwall faceclaw38 --main-image /path/to/faceclaw-main.bin --output /path/to/new-private-output
+```
+
+Open the resulting `index.html` to see the captured frame and bounded execution checks. This separate profile starts directly at the main reset vector; it does not establish bootloader-to-main compatibility or support other Faceclaw versions. Its output contains a copy of the firmware and must not be shared.
 
 ## Scenarios
 
@@ -90,6 +100,7 @@ python3 blackwall report --scenario-file scenarios/screen-boot.json --serve
 | `python3 blackwall scenarios` | List built-in scenarios |
 | `python3 blackwall report --serve` | Generate a report and start a local server |
 | `python3 blackwall report --help` | Show firmware, output, and other options |
+| `python3 blackwall faceclaw38 --main-image /path/to/main.bin --output /path/to/new-folder` | Run the reviewed Faceclaw 38 main-reset test |
 
 Report timestamps use virtual time; some component locations in the 3D board model are estimates. No physical flashing or OTA is performed.
 
@@ -104,7 +115,7 @@ The results below apply to the pinned inputs and virtual models described in eac
 | Area | Verified behavior | Evidence |
 | --- | --- | --- |
 | Stock boot | Continuous execution from stock 2.4 original ARM bootloader reset through main firmware, UI, and display | [Boot completion audit](docs/bootloader/original-boot-completion-audit.md) |
-| Main firmware | Historical private research runs recorded service startup and UI wait/resume paths from main reset for stock 2.4, stock 2.3, and Faceclaw; these are not public runnable profiles | [Main boot validation](docs/firmware/native-main-boot-acceptance.md) |
+| Main firmware | Historical research runs recorded service startup and UI wait/resume paths from main reset for stock 2.4, stock 2.3, and Faceclaw; the public Faceclaw 38 command provides a separate bounded main-reset-to-frame test | [Main boot validation](docs/firmware/native-main-boot-acceptance.md) |
 | Display and fonts | Original UI and font processing, 576×288 framebuffer output, and successive frames | [First screen](docs/bootloader/boot-family-first-screen.md) · [Post-screen lifecycle](docs/bootloader/boot-family-post-screen-lifecycle.md) |
 | Touch input | Virtual touch through original handlers and UI commands to a visible frame change | [Touch input](docs/hardware/sensors-input/active-hud-touch-family-contract.md) |
 | Ring input path | Original ring input reflected in the UI and display through a virtual opposite-temple UART relay | [Input validation](docs/research/input-acceptance.md) |

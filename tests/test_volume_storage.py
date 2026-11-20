@@ -83,11 +83,19 @@ class VolumeStorageTests(unittest.TestCase):
         missing = subprocess.CompletedProcess([], 1, b'', b'No such volume')
         other_owner = b'[{"Labels":{"io.blackwall.creation-token":"other"}}]'
         with patch.object(storage.subprocess, 'run', return_value=missing), \
-             patch.object(storage, 'docker', side_effect=[b'volume', other_owner]) as docker:
+             patch.object(storage, 'docker', side_effect=[b'image', b'volume', other_owner]) as docker:
             with self.assertRaisesRegex(RuntimeError, 'raced'):
                 storage.import_volume('shared', {'profile.json': b'{}'})
-            self.assertEqual(docker.call_count, 2)
-            self.assertEqual(docker.call_args_list[1].args[:2], ('volume', 'inspect'))
+            self.assertEqual(docker.call_count, 3)
+            self.assertEqual(docker.call_args_list[2].args[:2], ('volume', 'inspect'))
+
+    def test_missing_image_does_not_create_a_volume_and_explains_pull(self):
+        missing = subprocess.CompletedProcess([], 1, b'', b'No such volume')
+        with patch.object(storage.subprocess, 'run', return_value=missing), \
+             patch.object(storage, 'docker', side_effect=RuntimeError('No such image')) as docker:
+            with self.assertRaisesRegex(RuntimeError, 'docker pull'):
+                storage.import_volume('fresh', {'profile.json': b'{}'})
+            docker.assert_called_once_with('image', 'inspect', storage.IMAGE)
 
     def test_archive_rejects_traversal_and_symlinks(self):
         for name, symlink in (('../escape', False), ('nested/link', True)):

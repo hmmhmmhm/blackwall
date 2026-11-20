@@ -1,0 +1,568 @@
+cpu: CPU.CortexM @ sysbus
+    cpuType: "cortex-m55"
+    nvic: nvic
+    PerformanceInMips: 10
+
+nvic: IRQControllers.NVIC @ sysbus 0xe000e000
+    systickFrequency: 1000000
+    -> cpu@0
+
+main: Memory.MappedMemory @ sysbus 0x438000
+    size: 0x3c0000
+
+itcm: Memory.MappedMemory @ sysbus 0x00000000
+    size: 0x40000
+
+sram: Memory.MappedMemory @ sysbus 0x20000000
+    size: 0x80000
+
+system_sram: Memory.MappedMemory @ sysbus 0x20080000
+    size: 0x300000
+
+guard: Miscellaneous.BlackwallG2StartupFixture @ sysbus 0x40001000
+    baseAddress: 0x40001000
+    cryptoOtpPowerLifecycle: crypto_otp_lifecycle
+    otpSerialSlots: otp_serial_slots
+    otpReadReadiness: otp_read_readiness
+    cryptoPower: crypto_power
+    cryptoNvmIdle: 1
+    otpPower: otp_power
+    gpioRoleInput: gpio_role_input
+    em9305Reset: em9305_reset
+    timer14: timer14
+    mspi1Config: mspi1_config
+    mspi1Clock: mspi1_clock
+    mspi1Power: mspi1_power
+    mspi0Power: mspi0_power
+    mspi0Config: mspi0_config
+    cpuNormalSleep: cpu_normal_sleep
+    rtc: rtc_model
+    stimer: stimer_model
+    jedecMockPart: 0
+    jedecMockCid: 0
+    chipInfo: true
+    iom2Power: iom2_power
+    iom4Power: iom4_power
+    iom5Power: iom5_power
+    iom6Power: iom6_power
+    iom7Power: iom7_power
+    gfxPowerStorage: true
+    hfrcForceControl: true
+    gpuPowerPreparation: true
+    gpuOffSequenceStorage: true
+    gpuRuntimeWakeResponse: 1
+    gpioConfigStorage: true
+    gpioInterruptIdle: true
+    gpioInterruptController: gpio_runtime
+    gpioOutputLatch: true
+    gpioOutputIdempotentWrites: true
+    adcCalibrationControl: true
+    adcPowerResponse: 1
+    adcTriggerConfigStorage: true
+    adcDisabledConfigStorage: true
+    adcEnableLatch: true
+    adcInternalTrigger: adc_trigger
+    adcConstantChannel3: 2048
+    adcPowerOffResponse: 1
+    uart0: uart0_adapter
+    uart0PowerResponse: 1
+    uart0OffResponse: 0
+    uartHcpaStatus: true
+    uartHcpaGate: true
+    uart1: uart1_adapter
+    uart1PowerResponse: 1
+    uart1OffResponse: 0
+    uart2: uart2_adapter
+    uart2PowerResponse: 1
+    uart2OffResponse: 0
+    uart3: uart3_adapter
+    uart3PowerResponse: 1
+    uart3OffResponse: 0
+    gpuInitialStatusHypothesis: 0
+    gpuConfigHighHypothesis: 0
+    gpuConfigLowResponse: true
+    gpuRasterInitStorage: true
+    gpuInitialResets: true
+    gpuIdentityResponse: 1
+    gpuRingConfiguration: true
+    gpuIdInitialization: true
+    gpuInterruptClear: true
+    gpuPowerOffResponse: 1
+    gpuPowerResponse: 1
+    mcuClockResponse: 0
+    rtcOselInitial: 0
+    buckResponse: 3
+    vddfTempcoStorage: true
+    memLdoSetup: true
+    coreLdoReduction: true
+    buckStartStorage: true
+    buckOverrideStorage: true
+    mramControlStorage: true
+    halStorage: true
+    memoryStartup: true
+    chipRevision: 35
+    spotStorage: true
+    shadowInfo1: "mram"
+    startupControls: true
+    powerMode: "lp"
+    resetLatch: 2
+    size: 0x23000
+
+ppb_guard: Miscellaneous.BlackwallG2StartupFixture @ sysbus 0xe0010000
+    baseAddress: 0xe0010000
+    gpuControlOwner: guard
+    chipInfoOwner: guard
+    prefetchStorage: true
+    startupControls: true
+    size: 0x100000
+
+wdt: Miscellaneous.BlackwallApollo510Watchdog @ sysbus 0x40024000
+    resetController: rstgen
+    -> nvic@1
+
+guard_high: Miscellaneous.BlackwallG2StartupFixture @ sysbus 0x40025000
+    baseAddress: 0x40025000
+    gpuControlOwner: guard
+    adcInfoZeroFixture: true
+    info1Metadata: "zero"
+    size: 0x2d000
+
+guard_iom2_tail: Miscellaneous.BlackwallG2StartupFixture @ sysbus 0x40052400
+    baseAddress: 0x40052400
+    gpuControlOwner: guard
+    adcInfoZeroFixture: true
+    info1Metadata: "zero"
+    size: 0x1c00
+
+guard_iom4_tail: Miscellaneous.BlackwallG2StartupFixture @ sysbus 0x40054400
+    baseAddress: 0x40054400
+    gpuControlOwner: guard
+    adcInfoZeroFixture: true
+    info1Metadata: "zero"
+    size: 0xc00
+
+guard_iom5_tail: Miscellaneous.BlackwallG2StartupFixture @ sysbus 0x40055400
+    baseAddress: 0x40055400
+    gpuControlOwner: guard
+    adcInfoZeroFixture: true
+    info1Metadata: "zero"
+    size: 0xc00
+
+guard_iom6_tail: Miscellaneous.BlackwallG2StartupFixture @ sysbus 0x40056400
+    baseAddress: 0x40056400
+    gpuControlOwner: guard
+    adcInfoZeroFixture: true
+    info1Metadata: "zero"
+    size: 0xc00
+
+guard_iom7_tail: Miscellaneous.BlackwallG2StartupFixture @ sysbus 0x40057400
+    baseAddress: 0x40057400
+    gpuControlOwner: guard
+    adcInfoZeroFixture: true
+    info1Metadata: "zero"
+    size: 0x1ffa8c00
+
+rstgen: Miscellaneous.BlackwallResetController @ sysbus 0x40000000
+
+uart1_adapter: Miscellaneous.BlackwallUartAdapter
+    module: 1
+    interrupts: true
+    txInterruptQuirks: false
+    IRQ -> nvic@16
+
+uart2_adapter: Miscellaneous.BlackwallUartAdapter
+    module: 2
+    interrupts: true
+    txInterruptQuirks: false
+    IRQ -> nvic@17
+
+uart3_adapter: Miscellaneous.BlackwallUartAdapter
+    module: 3
+    interrupts: true
+    txInterruptQuirks: false
+    IRQ -> nvic@18
+
+adc_trigger: Miscellaneous.BlackwallAdcInternalTrigger
+    sourceHz: 24000000
+
+iom2_power: Miscellaneous.BlackwallPeripheralPower
+    mask: 0x8
+    profile: 1
+    offProfile: 0
+
+iom2: Miscellaneous.BlackwallStrictIom @ sysbus 0x40052000
+    power: iom2_power
+    module: 2
+    IRQ -> nvic@8
+    cqInputLevels: 0
+
+iom4_power: Miscellaneous.BlackwallPeripheralPower
+    mask: 0x20
+    profile: 1
+    offProfile: 0
+
+iom4: Miscellaneous.BlackwallStrictIom @ sysbus 0x40054000
+    power: iom4_power
+    module: 4
+    IRQ -> nvic@10
+    cqInputLevels: 0
+
+iom5_power: Miscellaneous.BlackwallPeripheralPower
+    mask: 0x40
+    profile: 1
+    offProfile: 0
+
+iom5: Miscellaneous.BlackwallStrictIom @ sysbus 0x40055000
+    power: iom5_power
+    module: 5
+    IRQ -> nvic@11
+    cqInputLevels: 0
+
+iom7_power: Miscellaneous.BlackwallPeripheralPower
+    mask: 0x100
+    profile: 1
+    offProfile: 0
+
+iom7: Miscellaneous.BlackwallStrictIom @ sysbus 0x40057000
+    power: iom7_power
+    module: 7
+    IRQ -> nvic@13
+    cqInputLevels: 0
+
+rtc_model: Miscellaneous.BlackwallRtcAdapter @ none
+    halLowUpperWrites: false
+    -> nvic@2
+
+pointerProbe: Miscellaneous.BlackwallPmicTimedProbe @ iom7 0x6b
+    vbusStatusProfile: "test-vbus-absent"
+    timerProfile: "fast-reset-stopped"
+    ldswState: "source-reset-storage"
+    buckState: "source-reset-storage"
+    chargerStatusProfile: "source-reset-snapshot"
+    ntcCode: 512
+    dieTempCode: 466
+    vsysCode: 611
+    vbusCode: 0
+    resultResetProfile: "source-reset"
+    measurementProfile: "queued-six-channel-fixture"
+    vbatCode: 778
+    ibatCode: 5
+    scratchState: "guest-storage"
+    scratch0InitialMock: 0
+    adcState: "source-reset-storage"
+    vbusState: "guest-storage"
+
+stimer_model: Miscellaneous.BlackwallStimerClockCounter @ none
+    profile: "nominal-source-clocks"
+    IRQA -> nvic@32
+    IRQB -> nvic@33
+    IRQC -> nvic@34
+    IRQD -> nvic@35
+    IRQE -> nvic@36
+    IRQF -> nvic@37
+    IRQG -> nvic@38
+    IRQH -> nvic@39
+    IRQI -> nvic@40
+
+mspi1_power: Miscellaneous.BlackwallPeripheralPower @ none
+    mask: 0x8000
+    profile: 1
+    offProfile: 0
+
+mspi1_clock: Miscellaneous.BlackwallMspi1ClockStorage @ none
+    mspi0Storage: true
+    profile: "source-reset-storage"
+
+mspi1_config: Miscellaneous.BlackwallMspi1ConfigStorage @ none
+    profile: "source-reset-config"
+    xipRestoreStorage: true
+    cqInputLevels: 0
+    xipMixedStorage: true
+    xipTurnaroundStorage: true
+    pio: mspi1_pio
+    interrupts: mspi1_interrupts
+    xipGuard: xip_guard
+    commandQueueInit: true
+
+xip_guard: Miscellaneous.BlackwallMspi1XipGuard @ sysbus 0x80000000
+    fontHeaderProfile: "missing-font-magic-only"
+    primaryHeaderReadPc: 0x47132c
+    secondaryHeaderReadPc: 0x47140c
+    power: mspi1_power
+    clock: mspi1_clock
+
+mspi1_interrupts: Miscellaneous.BlackwallMspi1Interrupts @ none
+    profile: "source-reset"
+    allowAllClear: true
+    IRQ -> nvic@21
+
+timer14: Miscellaneous.BlackwallTimer14 @ none
+    idleChannelControls: true
+    profile: "nominal-xt-lfrc"
+    timer0Profile: "nominal-hfrc96-upcount"
+    timer7Profile: "nominal-hfrc96-pwm"
+    Timer7IRQ -> nvic@74
+    Timer0IRQ -> nvic@67
+    IRQ -> nvic@81
+
+mspi1_pio: Miscellaneous.BlackwallMspi1PioReset @ none
+    profile: "idle-nor-reset"
+    continuousStatusRead: true
+    pageProgramMicroseconds: 1000
+    completePageProgram: true
+    sectorEraseMicroseconds: 1000
+    completeSectorErase: true
+    maxArrayReadBytes: 4096
+    arrayBacking: nor_read_window
+    configurationByte: 0
+    emulateWriteEnableLatch: true
+    statusByte: 64
+    samplingProfile: "ideal-sdr"
+    identityProfile: "mx25u25643g"
+    power: mspi1_power
+    clock: mspi1_clock
+    interrupts: mspi1_interrupts
+    completeTransactions: true
+
+gpio_role_input: Miscellaneous.BlackwallGpioRoleInput @ none
+    touchLevel: 1
+    touchReadBudget: 2
+    level: 0
+    readPc: 0x48a7a4
+    readBudget: 5
+
+otp_power: Miscellaneous.BlackwallPeripheralPower @ none
+    mask: 0x08000000
+    profile: 1
+    offProfile: 0
+
+crypto_power: Miscellaneous.BlackwallPeripheralPower @ none
+    mask: 0x200000
+    profile: 1
+    offProfile: 0
+
+otp_read_readiness: Miscellaneous.BlackwallOtpReadReadiness @ none
+    otpPower: otp_power
+    cryptoPower: crypto_power
+    hostIdle: 1
+    ptmBusy: 0
+    ptmReadBudget: 0
+
+otp_serial_slots: Miscellaneous.BlackwallOtpSerialSlots @ none
+    readiness: otp_read_readiness
+    profile: "mock-last"
+
+crypto_otp_lifecycle: Miscellaneous.BlackwallCryptoOtpPowerLifecycle @ none
+    readiness: otp_read_readiness
+
+nor_read_window: Miscellaneous.BlackwallNorReadWindow @ none
+    profile: "erased-range"
+    start: 0x1fc0000
+    length: 0x40000
+    additionalWindow: littlefs_blank_volume
+    allowSectorErase: true
+    allowPageProgram: true
+
+littlefs_blank_volume: Miscellaneous.BlackwallNorReadWindow @ none
+    profile: "erased-range"
+    start: 0x1400000
+    length: 0xbc0000
+    allowSectorErase: true
+    allowPageProgram: true
+
+uart0_adapter: Miscellaneous.BlackwallUartAdapter
+    module: 0
+    receiveFifo: true
+    receiveTimeout: true
+    interrupts: true
+    txInterruptQuirks: false
+    idleDmaInterrupts: true
+    dmaTx: uart0_dma
+    IRQ -> nvic@15
+
+uart0_dma: Miscellaneous.BlackwallUartDmaTx
+    profile: "sram-tx-complete"
+
+iom5_register_probe: Miscellaneous.BlackwallIomRegisterProbe @ iom5 0xc
+    owner: iom5
+    profile: "touch-startup-config"
+    eventPointerProbe: true
+    eventFrameHex: "020800003412cdab0180ffff5ac317e9"
+    initialGestureThreshold: 0
+
+iom6_power: Miscellaneous.BlackwallPeripheralPower
+    mask: 0x80
+    profile: 1
+    offProfile: 0
+iom6: Miscellaneous.BlackwallStrictIom @ sysbus 0x40056000
+    power: iom6_power
+    module: 6
+    spiConfigStorage: true
+    spiDcxNoPinsStorage: true
+    spiFullDuplexPreflight: true
+    cqRetentionPerDisable: true
+    spiReceiveStreaming: true
+    spiWordPeer: spi_header
+    cqStartupRetentionPc: 0x57ab2a
+    IRQ -> nvic@12
+
+em9305_reset: Miscellaneous.BlackwallEm9305ResetHypothesis @ none
+    profile: "nominal-reset-hypothesis"
+    fallPc: 0x54a54a
+    risePc: 0x54a572
+    headerPc: 0x54a264
+    hciPeer: spi_header
+    payloadPc: 0x54a388
+    idlePc: 0x54a408
+    writePc: 0x549fce
+    writeConfirmPc: 0x549fdc
+    replyWaitPc: 0x54a6a0
+    applicationIdlePc: 0x4c9990
+    applicationReplyDrainPc: 0x4c99fc
+    minimumResetMicroseconds: 1
+    busyAfterMicroseconds: 10
+    readyAfterMicroseconds: 1000
+
+spi_header: Miscellaneous.BlackwallEm9305EventPeer @ none
+    runtimeConnectionEventHex: "043e1301004000010011223344556618000000c80000"
+    eventHex: "04ff0101"
+    readDataHex: "8003000000000000"
+    versionDataHex: "04030201"
+    applicationReset: true
+    standardInitialization: true
+    controllerInformationProfile: "le-basic-27x4"
+    privacyInitializationProfile: "test-max-251"
+    p256PublicKeyProfile: "test-generator"
+    aesInitializationHex: "011720200000000000000000000000000000000000000000000000000000000000000000040e14011720002e2b34ca59fa4c883b2c8aefd44be9660117202000000000000000000000000000000000042a0000030228030002180028000001040e1401172000b844c278cc5c954b3c7ec8600e40660001172020000000000000000000000000000000001e44c57ae45f954d167fc8650c686500040e1401172000de305c5b41c8e155724da3da79e9b1920117202000000000000000000000000000000000f4355c4961e0e2556355a2f279e9a1b8040e1401172000519282c2421a8955d18b3eceda1cd1bf0117202000000000000000000000000000000000529294e96b1a9c5ff9883edaf31ed1ac040e1401172000aaed96bb4a1cbae0414bf561e271fbd1011720200000000000000000000000000000000082ee968a521692e0417bde4be266f9f9040e14011720002b3397ff98eb84202307de06ac3df43601172020000000000000000000000000000000002b06bddb98df86082007ed2c853dc634040e14011720005589fe7e5bafa3351aff49ef6c7f7ae801172020000000000000000000000000000000007faffe465987a0352dd56cef5a7d52eb040e1401172000fda31fe34b29c50a433860984667b8db0117202000000000000000000000000000000000d3b31ecb4b21e52064385a9a6e64b8e2040e1401172000d788eb57ca438e9e3a68beb66333aee80117202000000000000000000000000000000000d480ca57ca64ee96f8795f26103d242f040e14011720008eea814af83ad945f8a229e779d653b30117202000000000000000000000000000000000862890ab6849d7cf3f8c29e671f4579b040e1401172000e36edc8640b00576a8d4ed3f51ade909011720200000000000000000000000000000000069a9f28642b8216680d7e51c51adce69040e140117200001d8775894777bd28480769ab03a92c5011720200000000000000000000000000000000041f17550b1777bf5e488b48b51aae1cb040e1401172000286a8f2f52bcca92eda30e7114f160ee011720200000000000000000000000000000000048624d3eb32cb99c6764202544d960e6040e1401172000f63e28ff6a9706410dcc011deb69b43e0117202000000000000000000000000000000000f8b4efd13e960e0309e40215aa69b419040e1401172000fe5f3b34aae1149318fe0aa748edcdb70117202000000000000000000000000000000000ba4f1337a2a214933f9e0265590c5dc4040e14011720004595f3b944c3ebf1bc71237fa3fec28d011720200000000000000000000000000000000045b293b186d20a61cf7fa9b88daac085040e14011720001c7fb15a28b918d8246fedb43ff8d1040117202000000000000000000000000000000000db51e55920fe10f02767ab9d3df09404040e1401172000907e2f0d4a4fb878c56731d5cd25db8c0117202000000000000000000000000000000000b87e276d4a4f9f18cda520345d56d506040e1401172000aa234cab08aa7a7165db4fe667c603380117202000000000000000000000000000000000aa236bcb00686b90f5a8416ca0e86768040e1401172000505dae0561e5edd6abe3249851b5b9600117202000000000000000000000000000000000b1cddd0beb22c3b2aaeb469c79b6b101040e14011720002691b2764c776ff5f0a02eb9174c11c401172020000000000000000000000000000000004293ba125c5f6cfd93a02e9e7744d3d5040e140117200036b91c7885b38c7ed1eaa6a5633719c801172020000000000000000000000000000000003edc1c78a2d384bcc00b36d66dbddee6040e14011720007cc111d7dbd741e676bbdc537d20add701172020000000000000000000000000000000006d2081a4d55d86c802ebf45375a084d5040e140117200051cc5adfe9ab3f520e3b0f7b208b440d01172020000000000000000000000000000000007fb85bd76baf175106ba0f7b07eb4ccf040e14011720003aeab9694a4901ab89725fb1600b970f011720200000000000000000000000000000000039e23a694a6e61a34b63be2113051dc8040e140117200018498c9acc202be30ea0c1fb26412bb60117202000000000000000000000000000000000108b9d7b5c532569c98eb5f92ec53b9e040e14011720002cdffe44f7db19197bc6776398e906880117202000000000000000000000000000000000080334dadfdb11b952c47fe698e921e8040e1401172000c0b0609d05962f52887890da2d55e57e0117202000000000000000000000000000000000e8b3683c6bd62f533ddb6349cdfc0070040e1401172000fe94af96d6f625b0f7d15990d2b12fa30117202000000000000000000000000000000000fc210c6545168c55f9f5855a4cb98daf040e14011720005f54870a16a107707cd02520fd7048510117202000000000000000000000000000000000ba5aa3d6dc3f0fd46cf826285e1e0851040e1401172000b24b6e04825e1791a043decb4050d74001172020000000000000000000000000000000008d67972eed124af04ef043d6e0ec9272040e1401172000ec3265cc1f4ecedaf24b71564b7e614a"
+    advertisingInitializationHex: "0105200669df226531fc040e04010520000106200fa000a0000001000000000000000700040e0401062000010820201c02010618ff4552503130304d4f434b30303030303269df226531fc02000000040e0401082000010920201514094576656e2047325f33325f525f32324446363900000000000000000000040e0401092000010a200101040e04010a2000"
+    vendorStartupHex: "0143fc0669df226531fc01f2ff08ff7d010fb819000001c4fc0106"
+    versionStatus: 0
+    writeCapacity: 9
+
+guard_mram_tail: Miscellaneous.BlackwallKeyDbSlotStorage @ sysbus 0x7f8000
+    cpu: cpu
+    baseAddress: 0x7f8000
+    size: 0x8000
+    profile: "zero"
+    readOnlySlots: true
+    otaMarker: ota_marker
+    uniformPc: 0x4824b0
+    loopPc: 0x4824c6
+    callerPc: 0x481c32
+
+ota_marker: Miscellaneous.BlackwallOtaMarkerRead @ none
+    profile: "cleared"
+    startupPc: 0x44a962
+    setterEntry: 0x480d54
+
+mspi0_power: Miscellaneous.BlackwallPeripheralPower @ none
+    mask: 0x4000
+    profile: 1
+    offProfile: 0
+
+mspi0_config: Miscellaneous.BlackwallMspi0RetentionConfig @ none
+    queueDma: true
+    completeDma: true
+    pio: mspi0_tx
+    power: mspi0_power
+    interrupts: mspi0_interrupts
+    readPc: 0x4dbf08
+
+mspi0_interrupts: Miscellaneous.BlackwallMspi1Interrupts @ none
+    profile: "source-reset"
+    allowAllClear: true
+    IRQ -> nvic@20
+
+cpu_normal_sleep: Miscellaneous.BlackwallCpuNormalSleep @ none
+    retentionStorePc: 0x4897fa
+    retentionReturnPc: 0x44d670
+    inactiveAudioStatus: true
+    retentionFlush: true
+    profile: "normal-sleep-storage"
+    flushReadPc: 0x44d87e
+
+mspi0_tx: Miscellaneous.BlackwallMspi0Tx @ none
+    diagnosticRxHex: "12345678"
+    completeReceive: true
+    profile: "tx-capture"
+    power: mspi0_power
+    clock: mspi1_clock
+    interrupts: mspi0_interrupts
+    completeTransactions: true
+
+imu_identity: Miscellaneous.BlackwallImuIdentity @ none
+    gafOnDemandControl: true
+    gafOnDemandMicroseconds: 1000
+    owner: iom4
+    profile: "icm45608-reset-lifecycle"
+    gafParametersHex: "0100102700000020a10700000001001400000020a10700b004000060ea00002c0100009001000007000000a2b4370005000000de10000000f9150000000f0000000400140000000080000000000040204e00000000010000000040ffffffffffffffff004006000078000065f8993e002800000078000003000000801a0600010000008813000000a0000000e8030000900000ffffffff0100"
+    gafConfiguration: true
+    gafClockVariationByte: 133
+    initialInterface: 165
+    initialDrive: 90
+    completeReset: true
+    sregControl: 0
+    fsyncConfig: 0
+    int1Config2: 166
+    edmpConfigurationHex: "ffff"
+    edmpIdleMicroseconds: 1000
+    completeEdmpIdle: true
+    powerConfigurationHex: "af2500000000"
+    fifoFlushMicroseconds: 1000
+    completeFifoFlush: true
+    auxiliaryConfigurationHex: "a5b6d7"
+    magnetometerFixtureHex: "a045000000"
+    masterMicroseconds: 1000
+    completeMaster: true
+    masterError: 0
+    odrConfigurationHex: "a5b6c7c8e9faab9c"
+    edmpServiceFixtureHex: "a5b6c7d8e9"
+    edmpServiceMicroseconds: 1000
+    completeEdmpService: true
+    patchDispatcherHex: "f800a129c280da10f1d010f4f800a129c280da18f1d0164c80"
+    patchFeatureHex: "01000000000000000000000000000000000000000700000096000000905f01000000000001000000000000000000000000000000000000000700000096000000905f01000000000000000000fa000002c28af8001648c298cad9c2c3f800018420f900018825c448f1401684fa000003c29276c50bced31a6ece59fa00ffffc851c4488dfe001600ff001620f1f016c4fe001624ff001644f1f016c418f9001648c2c8fa001620c28afa001644c292b00052cad1f9000001c291b0015bca9ac2ca80404018c2f8c286b0106e0db0106704f14016dc19c2f1c2e9c2e1b011260cc084c16870c161710fff001648c2bfda27d505d54c177273b0162ec0edc46a1415f150175061b0150ec29171c28904f1301734c285e408c511c2e96170b00fc0c94a1ad550c2fab0106fc2e918191af170175040c285e408c509c2e961d200c94a1ad550c2fae14fc2e918191a1b4040c424b0170e21b0150ec29171c289c525c8aab00f92c535b0022de0aae44bc458d73ad519c12380"
+    b2sParameters: true
+    womConfigurationHex: "a5b6c7c3"
+    powerSaveTimeHex: "78563412"
+    identityByte: 129
+
+activationWork: Memory.MappedMemory @ sysbus 0x21000000
+    size: 0x10000
+
+gpio_runtime: Miscellaneous.BlackwallGpioInterruptIdle @ none
+    runtimePin117: true
+    runtimePin27: true
+    IRQ -> nvic@59
+    IRQ27 -> nvic@56
+runtime_link: Miscellaneous.BlackwallEm9305RuntimeLink @ none
+    peer: spi_header
+    owner: guard
+
+gpuRing: Miscellaneous.BlackwallNemaRingDevice @ none
+    cpu: cpu
+    owner: guard
+    referenceCoverage: true
+    packingReference: true
+    textureReference: true
+    IRQ -> nvic@28
+
+imu_fifo_raw: Miscellaneous.BlackwallImuRawFifo @ none
+    enabled: true
+    frameBytes: 32
+    capacityPackets: 64
+imu_fifo: Miscellaneous.BlackwallImuFifoTransport @ iom4 0x69
+    owner: iom4
+    startupPeer: imu_identity
+    rawFifo: imu_fifo_raw
+    threshold: imu_fifo_threshold
+    configuration: imu_fifo_configuration
+imu_fifo_threshold: Miscellaneous.BlackwallImuFifoThreshold @ none
+    rawFifo: imu_fifo_raw
+imu_fifo_configuration: Miscellaneous.BlackwallImuFifoConfiguration @ none
+    startupPeer: imu_identity
+    rawFifo: imu_fifo_raw
+    threshold: imu_fifo_threshold
+
+opt3007: Miscellaneous.BlackwallOpt3007Bootstrap @ iom2 0x45
+    owner: iom2
+    resultWord: 13538
