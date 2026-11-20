@@ -1,6 +1,6 @@
 # Blackwall Alignment
 
-These are project criteria explicitly established by the user. Do not import personal criteria from the skill's source repository or promote a task-specific choice into a lasting preference. Discuss the work in Korean.
+These are project criteria explicitly established by the user. Do not import personal criteria from the skill's source repository or promote a task-specific choice into a lasting preference. Respond in the user's preferred language.
 
 ## Goal and priorities
 

@@ -23,6 +23,10 @@ Explore firmware boot, display changes, and virtual hardware events in one place
 
 ## Getting started
 
+> **Public reproducibility:** The report runner currently requires private hardware-model files, memory snapshots, and a pinned Docker image that are not distributed in this repository. A fresh public checkout cannot yet reproduce the recorded boot run. See [preparing the files and Docker image](docs/getting-started/emulator-report-quickstart.md) for the current requirements.
+>
+> The runnable stock boot profile accepts only its pinned G2 2.4 bootloader and main image. It does not currently load Faceclaw or arbitrary custom firmware through `blackwall report`. Faceclaw results below are historical research runs, not a public runnable profile.
+
 ![Setup: support files, Docker volume, doctor, and report](docs/media/readme/setup.svg)
 
 Blackwall runs Renode in Docker and generates an HTML report. You need Python 3.9 or later and Docker. Prepare the stock G2 2.4 images, pinned model and memory snapshots, and Renode Docker image separately. Firmware and private assets are not included in this repository.
@@ -99,7 +103,7 @@ The results below apply to the pinned inputs and virtual models described in eac
 | Area | Verified behavior | Evidence |
 | --- | --- | --- |
 | Stock boot | Continuous execution from stock 2.4 original ARM bootloader reset through main firmware, UI, and display | [Boot completion audit](docs/bootloader/original-boot-completion-audit.md) |
-| Main firmware | Service startup and UI wait/resume paths from main reset for stock 2.4, stock 2.3, and Faceclaw | [Main boot validation](docs/firmware/native-main-boot-acceptance.md) |
+| Main firmware | Historical private research runs recorded service startup and UI wait/resume paths from main reset for stock 2.4, stock 2.3, and Faceclaw; these are not public runnable profiles | [Main boot validation](docs/firmware/native-main-boot-acceptance.md) |
 | Display and fonts | Original UI and font processing, 576×288 framebuffer output, and successive frames | [First screen](docs/bootloader/boot-family-first-screen.md) · [Post-screen lifecycle](docs/bootloader/boot-family-post-screen-lifecycle.md) |
 | Touch input | Virtual touch through original handlers and UI commands to a visible frame change | [Touch input](docs/hardware/sensors-input/active-hud-touch-family-contract.md) |
 | Ring input path | Original ring input reflected in the UI and display through a virtual opposite-temple UART relay | [Input validation](docs/research/input-acceptance.md) |

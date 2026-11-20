@@ -1,6 +1,6 @@
 # Blackwall Agent Instructions
 
-Read [ALIGNS.md](ALIGNS.md), the [emulator roadmap](docs/architecture/emulator-roadmap.md), and the [capability catalog](docs/architecture/emulator-capability-catalog.md) before starting relevant work. Discuss work with the user in Korean. The project is a G2 hardware emulator for testing firmware; product firmware development and physical installation are outside the active objective.
+Read [ALIGNS.md](ALIGNS.md), the [emulator roadmap](docs/architecture/emulator-roadmap.md), and the [capability catalog](docs/architecture/emulator-capability-catalog.md) before starting relevant work. Respond in the user's preferred language. The project is a G2 hardware emulator for testing firmware; product firmware development and physical installation are outside the active objective.
 
 ## Current status
 

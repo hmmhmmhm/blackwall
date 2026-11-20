@@ -1,5 +1,7 @@
 # Emulator report quickstart
 
+> **Availability:** A fresh public checkout cannot currently reproduce this report. The required model, snapshots, and pinned Docker image are not available in this repository or a published release. The report runner supports one pinned stock 2.4 boot/main pair; Faceclaw and other custom firmware are not selectable here.
+
 ## Required files
 
 You need Python 3.9 or later, a running Docker installation, and the pinned Renode Docker image. Host Python manages commands and reports; Renode runs in a network-isolated container. No glasses are connected or flashed.
